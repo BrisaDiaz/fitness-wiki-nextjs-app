@@ -142,7 +142,7 @@ export default function Home() {
         </FilterTable>
 
         <SearchBar onChange={event => setSearch(event.target.value)} />
-        {(recipes !== [] && !isLoading) ? (
+        {(recipes && recipes !== [] && !isLoading) ? (
 
           <>
             <section className="max-w-6xl mx-auto grid flex-col gap-3 flex-wrap lg:grid-cols-2  justify-center  my-6  sm:px-5 lg:px-8 ">
