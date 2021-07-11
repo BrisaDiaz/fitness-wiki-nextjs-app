@@ -77,7 +77,7 @@ const SORT_DIRECIONS = [
   { name: 'More', value: 'asc' },
   { name: 'Less', value: 'desc' },
 ];
-const RESULT_PER_PAGE = 6;
+const RESULTS_PER_PAGE = 6;
 
 module.exports = {
   COUSINE_OPTIONS,
@@ -85,5 +85,5 @@ module.exports = {
   TYPE_OPTIONS,
   SORT_OPTIONS,
   SORT_DIRECIONS,
-  RESULT_PER_PAGE,
+  RESULTS_PER_PAGE,
 };

@@ -1,5 +1,7 @@
 import Head from 'next/head';
 import { useRouter } from 'next/router';
+import {useSession} from 'next-auth/client'
+
 import getConfig from 'next/config';
 import { useState, Fragment, useEffect } from 'react';
 import RecipeCard from '../components/RecipeCard';
@@ -14,6 +16,7 @@ import * as constants from '../consts/defaultQueryParams';
 const { publicRuntimeConfig } = getConfig();
 
 export default function Home() {
+ const [ session, loading ] = useSession()
 
   const router = useRouter();
   const query = new URLSearchParams();
@@ -23,21 +26,18 @@ export default function Home() {
   const [diet, setDiet] = useState('all');
   const [type, setType] = useState('all');
   const [offset, setOffset] = useState(0);
-  const [totalResults, setTotalResults] = useState(0);
+  const [totalResults, setTotalResults] = useState(28);
   const [sort, setSort] = useState('popularity');
   const [sortDirection, setSortDirection] = useState('desc');
   const [recipes, setRecipes] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [page, setPage] = useState(1);
-  const [maxPage, setMaxPage] = useState(5);
-  const [maxPageNumber, setMaxPageNumber] = useState(3);
-  const [minPageNumber, setMinPageNumber] = useState(1);
   query.append('apiKey', publicRuntimeConfig.API_KEY);
   query.append('sortDirection', sortDirection);
   query.append('sort', sort);
   query.append('offset', offset);
   query.append('addRecipeNutrition', 'true');
-  query.append('number', constants.RESULT_PER_PAGE);
+  query.append('number', constants.RESULTS_PER_PAGE);
 
   useEffect(() => {
     if (search !== '') {
@@ -65,17 +65,6 @@ export default function Home() {
   //     .then(response => response.json())
   //     .then(data => {
   //       setTotalResults(data.totalResults);
-
-  //       const getTotalPages = Math.ceil(
-  //         data.totalResults / constants.RESULT_PER_PAGE
-  //       );
-
-  //       if (getTotalPages < 3) {
-  //         setMaxPageNumber(getTotalPages);
-  //       }else{
-  //           setMaxPageNumber(3);
-  //       }
-  //       setMaxPage(getTotalPages);
 
   //       setRecipes(data.results);
   //       router.push(`http://localhost:3000?${query}`);
@@ -160,17 +149,15 @@ export default function Home() {
         ):(serverError) && <h2>Something went wrong</h2>} */}
 
            {isLoading && <LoadingHeart />}
-              {maxPage !==1 &&      <PaginationComponent
+
+           {totalResults > constants.RESULTS_PER_PAGE &&
+  <PaginationComponent
               page={page}
-              maxPage={maxPage}
               setPage={setPage}
-              setMaxPageNumber={setMaxPageNumber}
-              setMinPageNumber={setMinPageNumber}
-              minPageNumber={minPageNumber}
-              maxPageNumber={maxPageNumber}
+              totalResults={totalResults}
               setOffset={setOffset}
-              resultsPerPage={constants.RESULT_PER_PAGE}
-            />}
+              resultsPerPage={constants.RESULTS_PER_PAGE}
+            /> }
       </main>
     </div>
   );

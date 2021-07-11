@@ -2,15 +2,39 @@ import { useEffect, useState } from 'react';
 
 export default function PaginationComponent({
   page,
-  maxPage,
+  totalResults,
   setPage,
-  setMaxPageNumber,
-  setMinPageNumber,
-  minPageNumber,
-  maxPageNumber,
   setOffset,
   resultsPerPage,
 }) {
+
+
+
+
+  const [maxPage, setMaxPage] = useState(Math.ceil(totalResults/resultsPerPage));
+  const [maxPageNumber, setMaxPageNumber] = useState(maxPage < 3 ?maxPage : 3  );
+  const [minPageNumber, setMinPageNumber] = useState(1);
+  const [pagesNumbers, setPageNumbers] = useState([]);
+
+
+  useEffect(() => {
+
+    const numbers = [];
+    for (let index = minPageNumber; index < maxPageNumber + 1; index + 1) {
+      numbers.push(index);
+index += 1;
+    }
+
+    return setPageNumbers(numbers);
+
+  }, [page]);
+
+  useEffect(() => {
+
+    setMaxPage(Math.ceil(totalResults/resultsPerPage));
+
+  }, [totalResults,resultsPerPage,page]);
+
   const handlePrevious = () => {
 
     if (page - 1 > 1) {
@@ -48,28 +72,15 @@ setMinPageNumber(page);
     setPage(pageNumber);
   };
 
-  const getVisualizedPageNumbers = () => {
-    const numbers = [];
-    for (let index = minPageNumber; index < maxPageNumber + 1; index + 1) {
-      numbers.push(index);
-index += 1;
-    }
-    return numbers;
-  };
-
-  const [pagesNumbers, setPageNumbers] = useState(getVisualizedPageNumbers());
-
-  useEffect(() => {
-    setPageNumbers(getVisualizedPageNumbers());
-  }, [page]);
 
   return (
     <div className="flex flex-row justify-cente my-10  ">
       <div className="flex flex-row mx-auto w-auto  gap-2  font-semibold">
-        {page !== 1 && (
+        {page > 1 && (
           <button
             type="button"
             className="px-2  border-2 border-transparent hover:bg-green-300 shadow-md rounded bg-green-200 font-semibold text-gray-800"
+
             onClick={() => handlePrevious()}
           >
             Prev
@@ -90,7 +101,7 @@ index += 1;
             {number}
           </button>
         ))}
-        {(page !==maxPage) && (
+        {(page < maxPage) && (
           <button
             type="button"
             className="px-2  border-2 border-transparent shadow-md rounded bg-green-200 hover:bg-green-300

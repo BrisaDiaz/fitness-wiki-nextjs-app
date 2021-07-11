@@ -2,4 +2,20 @@
   "presets": [
     "next/babel"
   ]
+,
+"env": {
+  "test": {
+    "presets": [
+      [
+        "next/babel",
+        {
+          "styled-jsx": {
+            "babel-test": true
+          }
+        }
+      ]
+    ]
+  }
 }
+}
+
