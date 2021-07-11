@@ -3,7 +3,7 @@ import Image from 'next/Image';
 export default function RecipeCard({ recipe }) {
   const pricipalDiets = recipe?.diets.slice(0,4)
   return (
-    <article className="p-2   flex flex-col sm:flex-row  sm:align-middle border border-solid border-gray-200 shadow-md rounded max-w-xs sm:max-w-none ">
+    <article className="p-2   flex flex-col sm:flex-row  sm:align-middle border border-solid border-gray-200 shadow-md rounded max-w-xs sm:max-w-none h-auto">
       <div     className=" mx-auto sm:mx-0 w-full sm:w-28 sm:h-24 h-36  relative	">
       <Image
  unoptimized={process.env.ENVIRONMENT !== "PRODUCTION"}

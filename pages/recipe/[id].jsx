@@ -126,63 +126,67 @@ export default function Recicipe(props) {
   );
 }
 
-// export async function getStaticPaths() {
-//   const IdsUrl =`https://api.spoonacular.com/recipes/complexSearch?apiKey=${process.env.API_KEY}`
-//   const config=  {
-//       method: 'GET',
-//       credentials: 'include',
+export async function getStaticPaths() {
+  const IdsUrl =`https://api.spoonacular.com/recipes/complexSearch?apiKey=${process.env.API_KEY}`
+  const config=  {
+      method: 'GET',
+      credentials: 'include',
 
-//     }
+    }
 
-// const response = await   fetch(IdsUrl,config)
-// const json = await response.json()
-// const data = json.results;
+const response = await   fetch(IdsUrl,config)
+const json = await response.json()
+const data = json.results;
 
-// const paths = data.map(recipe => ({
-//         params: { id: recipe.id.toString() },
-//       }));
+const paths = data.map(recipe => ({
+        params: { id: recipe.id.toString() },
+      }));
 
-//   return { paths, fallback: true };
+  return { paths, fallback: true };
 
-// }
+}
 
-// export async function getStaticProps({ params }) {
-//     const recipeUrl = `https://api.spoonacular.com/recipes/${params.id}/information?apiKey=${publicRuntimeConfig.API_KEY}&addRecipeInformation=true`;
-
-
-//     const equipmentUrl =`https://api.spoonacular.com/recipes/${params.id}/equipmentWidget.json?apiKey=${publicRuntimeConfig.URL_AUTH}`
+export async function getStaticProps({ params }) {
+    const recipeUrl = `https://api.spoonacular.com/recipes/${params.id}/information?apiKey=${process.env.API_KEY}&addRecipeInformation=true`;
 
 
-//   const [recipeResponse,equipmentResponse] = await Promise.all([fetch(recipeUrl),fetch(equipmentUrl)])
-//   const recipe = await recipeResponse.json()
-//   const equipment = await equipmentResponse.json()
-
-//  const nutritionUrl =`https://api.spoonacular.com/recipes/guessNutrition?apiKey=${publicRuntimeConfig.API_KEY}&title=${recipe.title}`
-
-//   const nutritionResponse= await fetch(nutritionUrl)
-//   const nutrition= await nutritionResponse.json()
-
-// if(!recipeResponse.ok || !nutritionResponse.ok || !equipmentResponse.ok){
-
-//   return{
-//   props:{
-// serverError:true,
-
-//   }
-
-// }
-// }
-//   return{
-//     serverError:false,
-//     recipe,
-//     equipment,
-//     nutrition,
-//     ingredients:recipe.extendedIngredients,
-//     instructions:recipe.analyzedInstructions[0].steps
-//   }
+    const equipmentUrl =`https://api.spoonacular.com/recipes/${params.id}/equipmentWidget.json?apiKey=${process.env.API_KEY}`
 
 
+  const [recipeResponse,equipmentResponse] = await Promise.all([fetch(recipeUrl),fetch(equipmentUrl)])
+  const recipe = await recipeResponse.json()
+  const equipment = await equipmentResponse.json()
+
+ const nutritionUrl =`https://api.spoonacular.com/recipes/guessNutrition?apiKey=${process.env.API_KEY}&title=${recipe.title}`
+
+  const nutritionResponse= await fetch(nutritionUrl)
+  const nutrition= await nutritionResponse.json()
+
+
+if(!recipeResponse.ok || !nutritionResponse.ok || !equipmentResponse.ok){
+
+
+  return{
+  props:{
+serverError:true,
+
+  }
+
+}
+}
+  return{
+      props:{
+    serverError:false,
+    recipe,
+    equipment:equipment.equipment,
+    nutrition,
+    ingredients:recipe.extendedIngredients,
+    instructions:recipe.analyzedInstructions[0].steps
+      }
+  }
 
 
 
-// }
+
+
+}

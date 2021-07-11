@@ -21,7 +21,7 @@ export default function SortComponent({
             {direction.name}
           </label>
           <input
-            className="focus:bg-green-500 mt-3 cursor-pointer"
+            className="focus:bg-green-500 self-center cursor-pointer"
             checked={direction.value === sortDirection}
             onChange={onDirectionChange}
             type="radio"

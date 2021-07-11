@@ -3,6 +3,7 @@ import { useRouter } from 'next/router';
 import getConfig from 'next/config';
 import { useState, Fragment, useEffect } from 'react';
 import RecipeCard from '../components/RecipeCard';
+import LoadingHeart from '../components/LoadingHeart';
 import SearchBar from '../components/SearchBar';
 import SortComponent from '../components/SortComponent';
 import SelectComponent from '../components/SelectComponent';
@@ -18,7 +19,6 @@ export default function Home() {
   const query = new URLSearchParams();
   const [serverError,setServerError] =useState(false)
   const [search, setSearch] = useState('');
-  const [isFirsRender, setIsFirstRender] = useState(true);
   const [cuisine, setCuisine] = useState('all');
   const [diet, setDiet] = useState('all');
   const [type, setType] = useState('all');
@@ -29,8 +29,8 @@ export default function Home() {
   const [recipes, setRecipes] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [page, setPage] = useState(1);
-  const [maxPage, setMaxPage] = useState(1);
-  const [maxPageNumber, setMaxPageNumber] = useState(1);
+  const [maxPage, setMaxPage] = useState(5);
+  const [maxPageNumber, setMaxPageNumber] = useState(3);
   const [minPageNumber, setMinPageNumber] = useState(1);
   query.append('apiKey', publicRuntimeConfig.API_KEY);
   query.append('sortDirection', sortDirection);
@@ -54,40 +54,41 @@ export default function Home() {
     }
   }, [search, diet, cuisine, type, sortDirection, sort]);
 
-  useEffect(() => {
-    setIsFirstRender(false);
-    setIsLoading(true);
 
-    const url = `https://api.spoonacular.com/recipes/complexSearch?${query}`;
+  // useEffect(() => {
 
-    return fetch(url)
-      .then(response => response.json())
-      .then(data => {
-        setTotalResults(data.totalResults);
+  //   setIsLoading(true);
 
-        const getTotalPages = Math.ceil(
-          data.totalResults / constants.RESULT_PER_PAGE
-        );
+  //   const url = `https://api.spoonacular.com/recipes/complexSearch?${query}`;
 
-        if (getTotalPages < 3) {
-          setMaxPageNumber(getTotalPages);
-        }else{
-            setMaxPageNumber(3);
-        }
-        setMaxPage(getTotalPages);
-        console.log(data.results);
-        setRecipes(data.results);
-        router.push(`http://localhost:3000?${query}`);
-        setIsLoading(false);
-      })
-      .catch(error => {
-        console.log(error)
-           setIsLoading(false);
-        return setServerError(true)
-         });
+  //   return fetch(url)
+  //     .then(response => response.json())
+  //     .then(data => {
+  //       setTotalResults(data.totalResults);
+
+  //       const getTotalPages = Math.ceil(
+  //         data.totalResults / constants.RESULT_PER_PAGE
+  //       );
+
+  //       if (getTotalPages < 3) {
+  //         setMaxPageNumber(getTotalPages);
+  //       }else{
+  //           setMaxPageNumber(3);
+  //       }
+  //       setMaxPage(getTotalPages);
+
+  //       setRecipes(data.results);
+  //       router.push(`http://localhost:3000?${query}`);
+  //       setIsLoading(false);
+  //     })
+  //     .catch(error => {
+  //       console.log(error)
+  //          setIsLoading(false);
+  //       return setServerError(true)
+  //        });
 
 
-  }, [cuisine, diet, type, sort, sortDirection, page,search]);
+  // }, [cuisine, diet, type, sort, sortDirection, page,search]);
 
   return (
     <div>
@@ -142,7 +143,8 @@ export default function Home() {
         </FilterTable>
 
         <SearchBar onChange={event => setSearch(event.target.value)} />
-        {(recipes && recipes !== [] && !isLoading) ? (
+
+        {/* {(recipes && recipes !== [] && !isLoading) ? (
 
           <>
             <section className="max-w-6xl mx-auto grid flex-col gap-3 flex-wrap lg:grid-cols-2  justify-center  my-6  sm:px-5 lg:px-8 ">
@@ -151,9 +153,14 @@ export default function Home() {
                 ))}
 
 
-            </section>
+            </section> */}
 
-            <PaginationComponent
+
+          {/* </>
+        ):(serverError) && <h2>Something went wrong</h2>} */}
+
+           {isLoading && <LoadingHeart />}
+              {maxPage !==1 &&      <PaginationComponent
               page={page}
               maxPage={maxPage}
               setPage={setPage}
@@ -163,9 +170,7 @@ export default function Home() {
               maxPageNumber={maxPageNumber}
               setOffset={setOffset}
               resultsPerPage={constants.RESULT_PER_PAGE}
-            />
-          </>
-        ):(serverError) && <h2>Something went wrong</h2>}
+            />}
       </main>
     </div>
   );
