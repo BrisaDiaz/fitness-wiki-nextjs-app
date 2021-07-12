@@ -6,5 +6,5 @@ export default function ListSheetItem({ name, info }) {
         {info}
       </li>
     </div>
-  );
+  )
 }

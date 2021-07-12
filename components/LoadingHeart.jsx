@@ -7,7 +7,7 @@ export default function LoadingHeart(){
 <Image width={80} height={80} src="/heartbeat-solid.svg" alt="loading..." />
 
     </div>
-    <h2 className="mt-2 text-green-400 text-2xl font-bold">Loading new ideas...</h2>
+
     </section>
   );
 }

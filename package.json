@@ -6,7 +6,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint",
+    "lint": "next lint ",
     "test": "jest --env=jsdom --watch  --coverage"
   },
   "dependencies": {
@@ -24,8 +24,11 @@
     "babel-jest": "^27.0.6",
     "eslint": "^7.30.0",
     "eslint-config-next": "^11.0.1",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-prettier": "^3.4.0",
     "jest": "^27.0.6",
     "postcss": "^8.3.5",
+    "prettier": "^2.3.2",
     "tailwindcss": "^2.2.4"
   }
 }

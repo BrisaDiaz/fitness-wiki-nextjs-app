@@ -3,7 +3,7 @@ export default function SelectComponent({
   options,
   globalOption,
   name,
-  onChange,
+  onChange
 }) {
   return (
     <div className="flex flex-row  gap-x-1">
@@ -19,12 +19,12 @@ export default function SelectComponent({
       >
         {globalOption && <option value={globalOption}>{globalOption}</option>}
 
-        {options.map(option => (
+        {options.map((option) => (
           <option key={option} value={option.toLocaleLowerCase()}>
             {option}
           </option>
         ))}
       </select>
     </div>
-  );
+  )
 }

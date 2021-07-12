@@ -1,3 +1,4 @@
+import Image from 'next/Image'
 export default function SeachBar({ onChange }) {
   return (
     <div className="flex flex-row justify-center my-5">
@@ -8,12 +9,15 @@ export default function SeachBar({ onChange }) {
         type="search"
         onChange={onChange}
       />
-
-      <img
-        className="w-5  -ml-8 bg-white z-10 h-5 mt-3"
-        src="/loupe.svg"
-        alt="search"
-      />
+      <div className=" -ml-8 bg-white z-10 h-5 mt-3 flex items-center">
+        <Image
+          width={25}
+          height={25}
+          quality={75}
+          src="/loupe.svg"
+          alt="search"
+        />
+      </div>
     </div>
-  );
+  )
 }

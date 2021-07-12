@@ -24,8 +24,8 @@ const COUSINE_OPTIONS = [
   'Southern',
   'Spanish',
   'Thai',
-  'Vietnamese',
-];
+  'Vietnamese'
+]
 const DIET_OPTIONS = [
   'Gluten Free',
   'Ketogenic',
@@ -36,8 +36,8 @@ const DIET_OPTIONS = [
   'Pescetarian',
   'Paleo',
   'Primal',
-  'Whole30',
-];
+  'Whole30'
+]
 const TYPE_OPTIONS = [
   'main course',
   'side dish',
@@ -52,8 +52,8 @@ const TYPE_OPTIONS = [
   'marinade',
   'fingerfood',
   'snack',
-  'drink',
-];
+  'drink'
+]
 const SORT_OPTIONS = [
   'popularity',
   'healthiness',
@@ -71,13 +71,13 @@ const SORT_OPTIONS = [
   'saturated-fat',
   'fiber',
   'sugar',
-  'zinc',
-];
+  'zinc'
+]
 const SORT_DIRECIONS = [
   { name: 'More', value: 'asc' },
-  { name: 'Less', value: 'desc' },
-];
-const RESULTS_PER_PAGE = 6;
+  { name: 'Less', value: 'desc' }
+]
+const RESULTS_PER_PAGE = 6
 
 module.exports = {
   COUSINE_OPTIONS,
@@ -85,5 +85,5 @@ module.exports = {
   TYPE_OPTIONS,
   SORT_OPTIONS,
   SORT_DIRECIONS,
-  RESULTS_PER_PAGE,
-};
+  RESULTS_PER_PAGE
+}

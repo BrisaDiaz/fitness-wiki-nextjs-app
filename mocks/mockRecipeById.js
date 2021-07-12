@@ -46,19 +46,19 @@ const data = {
         metric: {
           amount: 1,
           unitLong: 'Tbsp',
-          unitShort: 'Tbsp',
+          unitShort: 'Tbsp'
         },
         us: {
           amount: 1,
           unitLong: 'Tbsp',
-          unitShort: 'Tbsp',
-        },
+          unitShort: 'Tbsp'
+        }
       },
       meta: [],
       name: 'butter',
       original: '1 tbsp butter',
       originalName: 'butter',
-      unit: 'tbsp',
+      unit: 'tbsp'
     },
     {
       aisle: 'Produce',
@@ -70,13 +70,13 @@ const data = {
         metric: {
           amount: 473.176,
           unitLong: 'milliliters',
-          unitShort: 'ml',
+          unitShort: 'ml'
         },
         us: {
           amount: 2,
           unitLong: 'cups',
-          unitShort: 'cups',
-        },
+          unitShort: 'cups'
+        }
       },
       meta: ['frozen', 'thawed', 'cut into bite-sized pieces'],
       name: 'cauliflower florets',
@@ -84,7 +84,7 @@ const data = {
         'about 2 cups frozen cauliflower florets, thawed, cut into bite-sized pieces',
       originalName:
         'about frozen cauliflower florets, thawed, cut into bite-sized pieces',
-      unit: 'cups',
+      unit: 'cups'
     },
     {
       aisle: 'Cheese',
@@ -96,19 +96,19 @@ const data = {
         metric: {
           amount: 2,
           unitLong: 'Tbsps',
-          unitShort: 'Tbsps',
+          unitShort: 'Tbsps'
         },
         us: {
           amount: 2,
           unitLong: 'Tbsps',
-          unitShort: 'Tbsps',
-        },
+          unitShort: 'Tbsps'
+        }
       },
       meta: ['grated', '(I used romano)'],
       name: 'cheese',
       original: '2 tbsp grated cheese (I used romano)',
       originalName: 'grated cheese (I used romano)',
-      unit: 'tbsp',
+      unit: 'tbsp'
     },
     {
       aisle: 'Oil, Vinegar, Salad Dressing',
@@ -120,19 +120,19 @@ const data = {
         metric: {
           amount: 1,
           unitLong: 'Tbsp',
-          unitShort: 'Tbsp',
+          unitShort: 'Tbsp'
         },
         us: {
           amount: 1,
           unitLong: 'Tbsp',
-          unitShort: 'Tbsp',
-        },
+          unitShort: 'Tbsp'
+        }
       },
       meta: [],
       name: 'extra virgin olive oil',
       original: '1-2 tbsp extra virgin olive oil',
       originalName: 'extra virgin olive oil',
-      unit: 'tbsp',
+      unit: 'tbsp'
     },
     {
       aisle: 'Produce',
@@ -144,19 +144,19 @@ const data = {
         metric: {
           amount: 5,
           unitLong: 'cloves',
-          unitShort: 'cloves',
+          unitShort: 'cloves'
         },
         us: {
           amount: 5,
           unitLong: 'cloves',
-          unitShort: 'cloves',
-        },
+          unitShort: 'cloves'
+        }
       },
       meta: [],
       name: 'garlic',
       original: '5-6 cloves garlic',
       originalName: 'garlic',
-      unit: 'cloves',
+      unit: 'cloves'
     },
     {
       aisle: 'Pasta and Rice',
@@ -168,19 +168,19 @@ const data = {
         metric: {
           amount: 170.097,
           unitLong: 'grams',
-          unitShort: 'g',
+          unitShort: 'g'
         },
         us: {
           amount: 6,
           unitLong: 'ounces',
-          unitShort: 'oz',
-        },
+          unitShort: 'oz'
+        }
       },
       meta: ['(I used linguine)'],
       name: 'pasta',
       original: '6-8 ounces pasta (I used linguine)',
       originalName: 'pasta (I used linguine)',
-      unit: 'ounces',
+      unit: 'ounces'
     },
     {
       aisle: 'Spices and Seasonings',
@@ -192,19 +192,19 @@ const data = {
         metric: {
           amount: 2,
           unitLong: 'pinches',
-          unitShort: 'pinches',
+          unitShort: 'pinches'
         },
         us: {
           amount: 2,
           unitLong: 'pinches',
-          unitShort: 'pinches',
-        },
+          unitShort: 'pinches'
+        }
       },
       meta: ['red'],
       name: 'red pepper flakes',
       original: 'couple of pinches red pepper flakes, optional',
       originalName: 'couple of red pepper flakes, optional',
-      unit: 'pinches',
+      unit: 'pinches'
     },
     {
       aisle: 'Spices and Seasonings',
@@ -216,19 +216,19 @@ const data = {
         metric: {
           amount: 2,
           unitLong: 'servings',
-          unitShort: 'servings',
+          unitShort: 'servings'
         },
         us: {
           amount: 2,
           unitLong: 'servings',
-          unitShort: 'servings',
-        },
+          unitShort: 'servings'
+        }
       },
       meta: ['to taste'],
       name: 'salt and pepper',
       original: 'salt and pepper, to taste',
       originalName: 'salt and pepper, to taste',
-      unit: 'servings',
+      unit: 'servings'
     },
     {
       aisle: 'Produce',
@@ -240,19 +240,19 @@ const data = {
         metric: {
           amount: 3,
           unitLong: '',
-          unitShort: '',
+          unitShort: ''
         },
         us: {
           amount: 3,
           unitLong: '',
-          unitShort: '',
-        },
+          unitShort: ''
+        }
       },
       meta: ['white', 'green', 'separated', 'chopped'],
       name: 'scallions',
       original: '3 scallions, chopped, white and green parts separated',
       originalName: 'scallions, chopped, white and green parts separated',
-      unit: '',
+      unit: ''
     },
     {
       aisle: 'Alcoholic Beverages',
@@ -264,19 +264,19 @@ const data = {
         metric: {
           amount: 2,
           unitLong: 'Tbsps',
-          unitShort: 'Tbsps',
+          unitShort: 'Tbsps'
         },
         us: {
           amount: 2,
           unitLong: 'Tbsps',
-          unitShort: 'Tbsps',
-        },
+          unitShort: 'Tbsps'
+        }
       },
       meta: ['white'],
       name: 'white wine',
       original: '2-3 tbsp white wine',
       originalName: 'white wine',
-      unit: 'tbsp',
+      unit: 'tbsp'
     },
     {
       aisle: 'Pasta and Rice',
@@ -288,20 +288,20 @@ const data = {
         metric: {
           amount: 59.147,
           unitLong: 'milliliters',
-          unitShort: 'ml',
+          unitShort: 'ml'
         },
         us: {
           amount: 0.25,
           unitLong: 'cups',
-          unitShort: 'cups',
-        },
+          unitShort: 'cups'
+        }
       },
       meta: ['whole wheat', '(I used panko)'],
       name: 'whole wheat bread crumbs',
       original: '1/4 cup whole wheat bread crumbs (I used panko)',
       originalName: 'whole wheat bread crumbs (I used panko)',
-      unit: 'cup',
-    },
+      unit: 'cup'
+    }
   ],
   summary:
     'Pasta with Garlic, Scallions, Cauliflower & Breadcrumbs might be a good recipe to expand your main course repertoire. One portion of this dish contains approximately <b>19g of protein </b>,  <b>20g of fat </b>, and a total of  <b>584 calories </b>. For  <b>$1.63 per serving </b>, this recipe  <b>covers 23% </b> of your daily requirements of vitamins and minerals. This recipe serves 2. It is brought to you by fullbellysisters.blogspot.com. 209 people were glad they tried this recipe. A mixture of scallions, salt and pepper, white wine, and a handful of other ingredients are all it takes to make this recipe so scrumptious. From preparation to the plate, this recipe takes approximately  <b>45 minutes </b>. All things considered, we decided this recipe  <b>deserves a spoonacular score of 83% </b>. This score is awesome. If you like this recipe, take a look at these similar recipes: <a href="https://spoonacular.com/recipes/cauliflower-gratin-with-garlic-breadcrumbs-318375">Cauliflower Gratin with Garlic Breadcrumbs</a>, < href="https://spoonacular.com/recipes/pasta-with-cauliflower-sausage-breadcrumbs-30437">Pasta With Cauliflower, Sausage, & Breadcrumbs</a>, and <a href="https://spoonacular.com/recipes/pasta-with-roasted-cauliflower-parsley-and-breadcrumbs-30738">Pasta With Roasted Cauliflower, Parsley, And Breadcrumbs</a>.',
@@ -320,10 +320,10 @@ const data = {
         averageRating: 0.8,
         ratingCount: 1,
         score: 0.55,
-        link: 'https://www.amazon.com/2015-Buddha-Kat-Winery-Chardonnay/dp/B00OSAVVM4?tag=spoonacular-20',
-      },
-    ],
-  },
-};
+        link: 'https://www.amazon.com/2015-Buddha-Kat-Winery-Chardonnay/dp/B00OSAVVM4?tag=spoonacular-20'
+      }
+    ]
+  }
+}
 
-export default data;
+export default data

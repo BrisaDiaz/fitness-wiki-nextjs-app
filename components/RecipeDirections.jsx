@@ -5,7 +5,7 @@ export default function RecipeDirections({ steps }) {
         directions
       </h2>
 
-      {steps?.map(step => (
+      {steps?.map((step) => (
         <div className=" mb-1 ml-2" key={step.number}>
           <p>
             <span className="font-bold text-lg text-green-400 mr-1">
@@ -16,5 +16,5 @@ export default function RecipeDirections({ steps }) {
         </div>
       ))}
     </article>
-  );
+  )
 }

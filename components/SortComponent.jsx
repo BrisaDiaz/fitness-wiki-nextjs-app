@@ -1,4 +1,4 @@
-import { Fragment } from 'react';
+import { Fragment } from 'react'
 
 export default function SortComponent({
   label,
@@ -7,7 +7,7 @@ export default function SortComponent({
   directions,
   onSortChange,
   onDirectionChange,
-  sortDirection,
+  sortDirection
 }) {
   return (
     <div className="flex flex-row  gap-x-1">
@@ -15,7 +15,7 @@ export default function SortComponent({
         {label}
       </label>
 
-      {directions.map(direction => (
+      {directions.map((direction) => (
         <Fragment key={direction.value + direction.name}>
           <label className="mt-1" htmlFor={direction.name} key={label}>
             {direction.name}
@@ -38,12 +38,12 @@ export default function SortComponent({
         name={name}
         onChange={onSortChange}
       >
-        {options.map(option => (
+        {options.map((option) => (
           <option key={option} value={option.toLocaleLowerCase()}>
             {option}
           </option>
         ))}
       </select>
     </div>
-  );
+  )
 }

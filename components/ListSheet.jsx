@@ -6,5 +6,5 @@ export default function ListSheet({ children, title }) {
       </h2>
       <ul className="mt-5">{children}</ul>
     </article>
-  );
+  )
 }

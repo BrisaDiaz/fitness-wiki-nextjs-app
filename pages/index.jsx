@@ -1,83 +1,83 @@
-import Head from 'next/head';
-import { useRouter } from 'next/router';
-import {useSession} from 'next-auth/client'
-
-import getConfig from 'next/config';
-import { useState, Fragment, useEffect } from 'react';
-import RecipeCard from '../components/RecipeCard';
-import LoadingHeart from '../components/LoadingHeart';
-import SearchBar from '../components/SearchBar';
-import SortComponent from '../components/SortComponent';
-import SelectComponent from '../components/SelectComponent';
-import FilterTable from '../components/FilterTable';
-import PaginationComponent from '../components/PaginationComponent';
-import * as constants from '../consts/defaultQueryParams';
-
-const { publicRuntimeConfig } = getConfig();
+import Head from 'next/head'
+import { useRouter } from 'next/router'
+import { useSession } from 'next-auth/client'
+import getConfig from 'next/config'
+import { useState, Fragment, useEffect } from 'react'
+import RecipeCard from '../components/RecipeCard'
+import LoadingHeart from '../components/LoadingHeart'
+import SearchBar from '../components/SearchBar'
+import SortComponent from '../components/SortComponent'
+import SelectComponent from '../components/SelectComponent'
+import FilterTable from '../components/FilterTable'
+import PaginationComponent from '../components/PaginationComponent'
+import * as constants from '../consts/defaultQueryParams'
+const { publicRuntimeConfig } = getConfig()
 
 export default function Home() {
- const [ session, loading ] = useSession()
+  const [session, loading] = useSession()
+  const router = useRouter()
 
-  const router = useRouter();
-  const query = new URLSearchParams();
-  const [serverError,setServerError] =useState(false)
-  const [search, setSearch] = useState('');
-  const [cuisine, setCuisine] = useState('all');
-  const [diet, setDiet] = useState('all');
-  const [type, setType] = useState('all');
-  const [offset, setOffset] = useState(0);
-  const [totalResults, setTotalResults] = useState(28);
-  const [sort, setSort] = useState('popularity');
-  const [sortDirection, setSortDirection] = useState('desc');
-  const [recipes, setRecipes] = useState([]);
-  const [isLoading, setIsLoading] = useState(true);
-  const [page, setPage] = useState(1);
-  query.append('apiKey', publicRuntimeConfig.API_KEY);
-  query.append('sortDirection', sortDirection);
-  query.append('sort', sort);
-  query.append('offset', offset);
-  query.append('addRecipeNutrition', 'true');
-  query.append('number', constants.RESULTS_PER_PAGE);
+  if (loading) return null
+
+  if (!loading && !session) return router.push('/auth/signin')
+
+  const query = new URLSearchParams()
+  const [serverError, setServerError] = useState(false)
+  const [search, setSearch] = useState('')
+  const [cuisine, setCuisine] = useState('all')
+  const [diet, setDiet] = useState('all')
+  const [type, setType] = useState('all')
+  const [offset, setOffset] = useState(0)
+  const [totalResults, setTotalResults] = useState(0)
+  const [sort, setSort] = useState('popularity')
+  const [sortDirection, setSortDirection] = useState('desc')
+  const [recipes, setRecipes] = useState([])
+  const [isLoading, setIsLoading] = useState(true)
+  const [page, setPage] = useState(1)
+  query.append('apiKey', publicRuntimeConfig.API_KEY)
+  query.append('sortDirection', sortDirection)
+  query.append('sort', sort)
+  query.append('offset', offset)
+  query.append('addRecipeNutrition', 'true')
+  query.append('number', constants.RESULTS_PER_PAGE)
 
   useEffect(() => {
     if (search !== '') {
-      query.append('query', search);
+      query.append('query', search)
     }
     if (diet !== 'all') {
-      query.append('diet', diet);
+      query.append('diet', diet)
     }
     if (cuisine !== 'all') {
-      query.append('cuisine', cuisine);
+      query.append('cuisine', cuisine)
     }
     if (type !== 'all') {
-      query.append('type', type);
+      query.append('type', type)
     }
-  }, [search, diet, cuisine, type, sortDirection, sort]);
+  }, [search, diet, cuisine, type, sortDirection, sort])
 
+  useEffect(() => {
 
-  // useEffect(() => {
+    setIsLoading(true);
 
-  //   setIsLoading(true);
+    const url = `https://api.spoonacular.com/recipes/complexSearch?${query}`;
 
-  //   const url = `https://api.spoonacular.com/recipes/complexSearch?${query}`;
+    return fetch(url)
+      .then(response => response.json())
+      .then(data => {
+        setTotalResults(data.totalResults);
 
-  //   return fetch(url)
-  //     .then(response => response.json())
-  //     .then(data => {
-  //       setTotalResults(data.totalResults);
+        setRecipes(data.results);
+        router.push(`http://localhost:3000?${query}`);
+        setIsLoading(false);
+      })
+      .catch(error => {
+        console.log(error)
+           setIsLoading(false);
+        return setServerError(true)
+         });
 
-  //       setRecipes(data.results);
-  //       router.push(`http://localhost:3000?${query}`);
-  //       setIsLoading(false);
-  //     })
-  //     .catch(error => {
-  //       console.log(error)
-  //          setIsLoading(false);
-  //       return setServerError(true)
-  //        });
-
-
-  // }, [cuisine, diet, type, sort, sortDirection, page,search]);
+  }, [cuisine, diet, type, sort, sortDirection, page,search]);
 
   return (
     <div>
@@ -92,11 +92,10 @@ export default function Home() {
         <h2 className="text-center text-2xl font-bold text-green-400 mb-4 lg:text-4xl lg:mb-8">
           Let us help you find the perfect meal for today!!
         </h2>
-
         <FilterTable>
           <>
             <SelectComponent
-              onChange={event => setCuisine(event.target.value)}
+              onChange={(event) => setCuisine(event.target.value)}
               label="Cousine Type:"
               name="cousinType"
               options={constants.COUSINE_OPTIONS}
@@ -104,7 +103,7 @@ export default function Home() {
             />
 
             <SelectComponent
-              onChange={event => setType(event.target.value)}
+              onChange={(event) => setType(event.target.value)}
               label="Meal Type:"
               name="mealType"
               options={constants.TYPE_OPTIONS}
@@ -112,7 +111,7 @@ export default function Home() {
             />
 
             <SelectComponent
-              onChange={event => setDiet(event.target.value)}
+              onChange={(event) => setDiet(event.target.value)}
               label="Diet Type:"
               name="dietType"
               options={constants.DIET_OPTIONS}
@@ -120,8 +119,10 @@ export default function Home() {
             />
 
             <SortComponent
-              onSortChange={event => setSort(event.target.value)}
-              onDirectionChange={event => setSortDirection(event.target.value)}
+              onSortChange={(event) => setSort(event.target.value)}
+              onDirectionChange={(event) =>
+                setSortDirection(event.target.value)
+              }
               label="Sort By:"
               name="sortType"
               options={constants.SORT_OPTIONS}
@@ -130,37 +131,30 @@ export default function Home() {
             />
           </>
         </FilterTable>
-
-        <SearchBar onChange={event => setSearch(event.target.value)} />
-
-        {/* {(recipes && recipes !== [] && !isLoading) ? (
-
-          <>
-            <section className="max-w-6xl mx-auto grid flex-col gap-3 flex-wrap lg:grid-cols-2  justify-center  my-6  sm:px-5 lg:px-8 ">
-              { recipes.map(recipe => (
-                  <RecipeCard key={recipe?.id} recipe={recipe} />
-                ))}
-
-
-            </section> */}
-
-
-          {/* </>
-        ):(serverError) && <h2>Something went wrong</h2>} */}
-
-           {isLoading && <LoadingHeart />}
-
-           {totalResults > constants.RESULTS_PER_PAGE &&
-  <PaginationComponent
-              page={page}
-              setPage={setPage}
-              totalResults={totalResults}
-              setOffset={setOffset}
-              resultsPerPage={constants.RESULTS_PER_PAGE}
-            /> }
+        <SearchBar onChange={(event) => setSearch(event.target.value)} />
+        {(recipes && recipes !== [] && !isLoading) ? (
+        <>
+          <section className="max-w-6xl mx-auto grid flex-col gap-3 flex-wrap lg:grid-cols-2  justify-center  my-6  sm:px-5 lg:px-8 ">
+            {recipes.map((recipe) => (
+              <RecipeCard key={recipe?.id} recipe={recipe} />
+            ))}
+          </section>
+        </>
+        ):(serverError) &&{' '}
+        <h2 className="mt-2 text-green-400 text-2xl font-bold">
+          Something went wrong
+        </h2>
+        }{isLoading && <LoadingHeart />}
+        {totalResults > constants.RESULTS_PER_PAGE && (
+          <PaginationComponent
+            page={page}
+            setPage={setPage}
+            totalResults={totalResults}
+            setOffset={setOffset}
+            resultsPerPage={constants.RESULTS_PER_PAGE}
+          />
+        )}
       </main>
     </div>
-  );
+  )
 }
-
-

@@ -1,19 +1,15 @@
-import '../styles/globals.css';
-import 'tailwindcss/tailwind.css';
+import '../styles/globals.css'
+import 'tailwindcss/tailwind.css'
 import { Provider } from 'next-auth/client'
-import { Fragment } from 'react';
-import Header from '../components/Header';
+import Header from '../components/Header'
 
 function MyApp({ Component, pageProps }) {
   return (
-
-     <Provider session={pageProps.session}>
-
+    <Provider session={pageProps.session}>
       <Header />
       <Component {...pageProps} />
-
-      </Provider>
-  );
+    </Provider>
+  )
 }
 
-export default MyApp;
+export default MyApp
