@@ -1,6 +1,5 @@
 import Head from 'next/head'
 import Image from 'next/Image'
-import getConfig from 'next/config'
 import { useRouter } from 'next/router'
 import { useSession } from 'next-auth/client'
 import mockRecipeById from '../../mocks/mockRecipeById'
@@ -11,8 +10,6 @@ import RecipeHeader from '../../components/RecipeHeader'
 import ListSheet from '../../components/ListSheet'
 import ListSheetItem from '../../components/ListSheetItem'
 import RecipeDirections from '../../components/RecipeDirections'
-
-const { publicRuntimeConfig } = getConfig()
 
 export default function Recicipe(props) {
   const [session, loading] = useSession()

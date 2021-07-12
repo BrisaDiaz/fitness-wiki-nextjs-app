@@ -17,10 +17,6 @@ export default function Home() {
   const [session, loading] = useSession()
   const router = useRouter()
 
-  if (loading) return null
-
-  if (!loading && !session) return router.push('/auth/signin')
-
   const query = new URLSearchParams()
   const [serverError, setServerError] = useState(false)
   const [search, setSearch] = useState('')
@@ -57,27 +53,29 @@ export default function Home() {
   }, [search, diet, cuisine, type, sortDirection, sort])
 
   useEffect(() => {
+    setIsLoading(true)
 
-    setIsLoading(true);
-
-    const url = `https://api.spoonacular.com/recipes/complexSearch?${query}`;
+    const url = `https://api.spoonacular.com/recipes/complexSearch?${query}`
 
     return fetch(url)
-      .then(response => response.json())
-      .then(data => {
-        setTotalResults(data.totalResults);
+      .then((response) => response.json())
+      .then((data) => {
+        setTotalResults(data.totalResults)
 
-        setRecipes(data.results);
-        router.push(`http://localhost:3000?${query}`);
-        setIsLoading(false);
+        setRecipes(data.results)
+        router.push(`http://localhost:3000?${query}`)
+        setIsLoading(false)
       })
-      .catch(error => {
+      .catch((error) => {
         console.log(error)
-           setIsLoading(false);
+        setIsLoading(false)
         return setServerError(true)
-         });
+      })
+  }, [cuisine, diet, type, sort, sortDirection, page, search])
 
-  }, [cuisine, diet, type, sort, sortDirection, page,search]);
+  if (loading) return null
+
+  if (!loading && !session) return router.push('/auth/signin')
 
   return (
     <div>
@@ -132,19 +130,23 @@ export default function Home() {
           </>
         </FilterTable>
         <SearchBar onChange={(event) => setSearch(event.target.value)} />
-        {(recipes && recipes !== [] && !isLoading) ? (
-        <>
-          <section className="max-w-6xl mx-auto grid flex-col gap-3 flex-wrap lg:grid-cols-2  justify-center  my-6  sm:px-5 lg:px-8 ">
-            {recipes.map((recipe) => (
-              <RecipeCard key={recipe?.id} recipe={recipe} />
-            ))}
-          </section>
-        </>
-        ):(serverError) &&{' '}
-        <h2 className="mt-2 text-green-400 text-2xl font-bold">
-          Something went wrong
-        </h2>
-        }{isLoading && <LoadingHeart />}
+        {recipes && recipes !== [] && !isLoading && (
+          <>
+            <section className="max-w-6xl mx-auto grid flex-col gap-3 flex-wrap lg:grid-cols-2  justify-center  my-6  sm:px-5 lg:px-8 ">
+              {recipes.map((recipe) => (
+                <RecipeCard key={recipe?.id} recipe={recipe} />
+              ))}
+            </section>
+          </>
+        )}
+
+        {serverError && (
+          <h2 className="mt-2 text-green-400 text-2xl font-bold">
+            Something went wrong
+          </h2>
+        )}
+
+        {isLoading && <LoadingHeart />}
         {totalResults > constants.RESULTS_PER_PAGE && (
           <PaginationComponent
             page={page}

@@ -20,6 +20,17 @@
         "endOfLine": "auto"
       }
     ]
-  }
+  },
+    "overrides": [
+      {
+        "files": [
+          "**/*.spec.js",
+          "**/*.spec.jsx"
+        ],
+        "env": {
+          "jest": true
+        }
+      }
+    ]
 
 }

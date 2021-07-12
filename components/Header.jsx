@@ -24,7 +24,7 @@ export default function Header() {
         {!loading && !session ? (
           <Link href="/auth/signin" passHref>
             <a href="!#" className="text-xl font-semibold text-green-400">
-              Singin
+              Signin
             </a>
           </Link>
         ) : (
