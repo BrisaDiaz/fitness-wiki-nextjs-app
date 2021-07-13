@@ -15,9 +15,13 @@ body {
     font-size: 16px;
   }
 }
+.container {
+  width: 100vw;
+  min-height: calc(100vh - 40px);
+}
 .dark-filter::before {
-  content:" ";
-  position:absolute;
+  content: ' ';
+  position: absolute;
   top: 0;
   left: 0;
   bottom: 0;

@@ -10,10 +10,21 @@ import RecipeHeader from '../../components/RecipeHeader'
 import ListSheet from '../../components/ListSheet'
 import ListSheetItem from '../../components/ListSheetItem'
 import RecipeDirections from '../../components/RecipeDirections'
+import LoadingHeart from '../../components/LoadingHeart'
 
 export default function Recicipe(props) {
   const [session, loading] = useSession()
   const router = useRouter()
+
+  if (loading) return <LoadingHeart />
+
+  if (!loading && !session) return router.push('/auth/signin')
+  if (props.serverError)
+    return (
+      <h2 className="mt-2 text-green-400 text-2xl font-bold">
+        Something went wrong
+      </h2>
+    )
 
   let recipe, instructions, equipment, nutrition, ingredients
 
@@ -49,9 +60,6 @@ export default function Recicipe(props) {
       image: '/seedling-solid.svg'
     }
   ]
-  if (loading) return null
-
-  if (!loading && !session) return router.push('/auth/signin')
 
   return (
     <>
@@ -91,7 +99,7 @@ export default function Recicipe(props) {
                 dangerouslySetInnerHTML={{ __html: recipe.summary }}
               />
             </div>
-            <RecipeDirections steps={instructions} />
+            {instructions && <RecipeDirections steps={instructions} />}
           </section>
           <section className="mb-10 sm:mb-0 px-0 w-full sm:px-2 sm:w-5/12	 md:w-96 lg:w-2/5 mx-auto">
             <ListSheet title="Ingredients">
@@ -163,14 +171,15 @@ export async function getStaticProps({ params }) {
       }
     }
   }
+  let instructions = recipe?.analyzedInstructions[0]?.steps || null
   return {
     props: {
       serverError: false,
       recipe,
-      equipment: equipment.equipment,
+      equipment: equipment?.equipment,
       nutrition,
       ingredients: recipe.extendedIngredients,
-      instructions: recipe.analyzedInstructions[0].steps
+      instructions
     }
   }
 }

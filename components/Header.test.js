@@ -5,10 +5,11 @@ import client from 'next-auth/client'
 
 jest.mock('next-auth/client')
 
-it('display signin link when there is not session', () => {
+it('display signin and signup link when there is not session', () => {
   client.useSession.mockReturnValueOnce([false, false])
   render(<Header />)
   expect(screen.getByText('Signin')).toBeInTheDocument()
+  expect(screen.getByText('Signup')).toBeInTheDocument()
 })
 
 it('display Logout link when there is not session', () => {

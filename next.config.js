@@ -2,7 +2,8 @@ module.exports = {
   reactStrictMode: true,
   publicRuntimeConfig: {
     API_KEY: process.env.API_KEY,
-    API_BASE_URL: process.env.API_BASE_URL
+    API_BASE_URL: process.env.API_BASE_URL,
+    HOST: process.env.HOST
   },
   images: {
     domains: ['spoonacular.com']
