@@ -2,15 +2,18 @@
   "env": {
     "browser": true,
     "es2021": true,
-    "node": true
+    "node": true,
+     "jest": true
   },
   "extends": [
     "eslint:recommended",
     "next",
     "next/core-web-vitals",
+    "plugin:jest/recommended",
     "plugin:prettier/recommended" // always at the end
   ],
   "plugins": [
+    "jest",
     "prettier"
   ],
   "rules": {
@@ -20,17 +23,7 @@
         "endOfLine": "auto"
       }
     ]
-  },
-    "overrides": [
-      {
-        "files": [
-          "**/*.spec.js",
-          "**/*.spec.jsx"
-        ],
-        "env": {
-          "jest": true
-        }
-      }
-    ]
+  }
+
 
 }

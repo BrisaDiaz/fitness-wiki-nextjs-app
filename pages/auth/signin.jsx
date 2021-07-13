@@ -11,7 +11,11 @@ export default function SignIn() {
         <div className="relative">
           <button
             className="py-1.5 px-4 border-2 pr-10  border-gray-800  shadow hover:shadow-lg  bg-gray-800 font-semibold text-white rounded"
-            onClick={() => signIn('github')}
+            onClick={() =>
+              signIn('github', {
+                callbackUrl: `${process.env.HOST || 'http://localhost:3000/'}`
+              })
+            }
           >
             Sign in with GitHub
           </button>
@@ -29,7 +33,11 @@ export default function SignIn() {
         <div className="relative">
           <button
             className="py-1.5 px-4 pr-10  border-2 border-blue-500 shadow hover:shadow-lg bg-blue-500 font-semibold text-white rounded"
-            onClick={() => signIn('google')}
+            onClick={() =>
+              signIn('google', {
+                callbackUrl: `${process.env.HOST || 'http://localhost:3000/'}`
+              })
+            }
           >
             Sign in with Google
           </button>

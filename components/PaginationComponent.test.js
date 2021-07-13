@@ -27,7 +27,7 @@ it('diplays the correct buttons', () => {
   expect(screen.queryByRole('button', { name: 'Prev' })).not.toBeInTheDocument()
 })
 
-it('call functions with correct values and centralized  select number when clicking next ', async () => {
+it('call functions with correct values and centralized  select number when clicking next', async () => {
   render(<PaginationComponent page={1} {...props} />)
   await act(async () =>
     userEvent.click(screen.getByRole('button', { name: 'Next' }))
@@ -39,7 +39,7 @@ it('call functions with correct values and centralized  select number when click
   expect(setOffset).toHaveBeenCalledWith(6)
 })
 
-it('call functions with correct values and sentralized  select number when clicking prev ', async () => {
+it('call functions with correct values and sentralized  select number when clicking prev', async () => {
   render(<PaginationComponent page={5} {...props} />)
 
   expect(screen.queryByRole('button', { name: 'Next' })).not.toBeInTheDocument()
@@ -54,7 +54,7 @@ it('call functions with correct values and sentralized  select number when click
   expect(setOffset).toHaveBeenCalledWith(18)
 })
 
-it('call functions with correct values and sentralized  select number when clicking number button directly ', async () => {
+it('call functions with correct values and sentralized  select number when clicking number button directly', async () => {
   render(<PaginationComponent page={5} {...props} />)
 
   await act(async () => userEvent.click(screen.getByText('3')))

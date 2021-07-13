@@ -15,13 +15,9 @@ export default function Recicipe(props) {
   const [session, loading] = useSession()
   const router = useRouter()
 
-  if (loading) return null
-
-  if (!loading && !session) return router.push('auth/signin')
-
   let recipe, instructions, equipment, nutrition, ingredients
 
-  if (props.serverError || !props.recipe) {
+  if (!props.recipe) {
     ;(recipe = mockRecipeById), (instructions = mockInstructions[0].steps)
     equipment = mockEquipament.equipment
     nutrition = mockGessNutrition
@@ -53,6 +49,10 @@ export default function Recicipe(props) {
       image: '/seedling-solid.svg'
     }
   ]
+  if (loading) return null
+
+  if (!loading && !session) return router.push('/auth/signin')
+
   return (
     <>
       <Head>
@@ -70,7 +70,7 @@ export default function Recicipe(props) {
         <section className="mx-auto px-1 sm:px-0  gap-0 max-w-6xl  flex flex-col-reverse sm:flex-row  w-full sm:justify-evenly ">
           <section className="  p-2 sm:p-4   w-full border rounded border-gray-200 shadow-lg">
             <div className="mx-auto w-full sm:py-1 relative ">
-              <h2 className="uppercase  text-xl font-bold text-green-400 mb-2 ml-2">
+              <h2 className="uppercase  text-2xl font-bold text-green-400 mb-2 ml-2">
                 summary
               </h2>
 
@@ -121,59 +121,56 @@ export default function Recicipe(props) {
   )
 }
 
-// export async function getStaticPaths() {
-//   const IdsUrl =`https://api.spoonacular.com/recipes/complexSearch?apiKey=${process.env.API_KEY}`
-//   const config=  {
-//       method: 'GET',
-//       credentials: 'include',
+export async function getStaticPaths() {
+  const IdsUrl = `https://api.spoonacular.com/recipes/complexSearch?apiKey=${process.env.API_KEY}`
+  const config = {
+    method: 'GET',
+    credentials: 'include'
+  }
 
-//     }
+  const response = await fetch(IdsUrl, config)
+  const json = await response.json()
+  const data = json.results
 
-// const response = await   fetch(IdsUrl,config)
-// const json = await response.json()
-// const data = json.results;
+  const paths = data.map((recipe) => ({
+    params: { id: recipe.id.toString() }
+  }))
 
-// const paths = data.map(recipe => ({
-//         params: { id: recipe.id.toString() },
-//       }));
+  return { paths, fallback: true }
+}
 
-//   return { paths, fallback: true };
+export async function getStaticProps({ params }) {
+  const recipeUrl = `https://api.spoonacular.com/recipes/${params.id}/information?apiKey=${process.env.API_KEY}&addRecipeInformation=true`
 
-// }
+  const equipmentUrl = `https://api.spoonacular.com/recipes/${params.id}/equipmentWidget.json?apiKey=${process.env.API_KEY}`
 
-// export async function getStaticProps({ params }) {
-//     const recipeUrl = `https://api.spoonacular.com/recipes/${params.id}/information?apiKey=${process.env.API_KEY}&addRecipeInformation=true`;
+  const [recipeResponse, equipmentResponse] = await Promise.all([
+    fetch(recipeUrl),
+    fetch(equipmentUrl)
+  ])
+  const recipe = await recipeResponse.json()
+  const equipment = await equipmentResponse.json()
 
-//     const equipmentUrl =`https://api.spoonacular.com/recipes/${params.id}/equipmentWidget.json?apiKey=${process.env.API_KEY}`
+  const nutritionUrl = `https://api.spoonacular.com/recipes/guessNutrition?apiKey=${process.env.API_KEY}&title=${recipe.title}`
 
-//   const [recipeResponse,equipmentResponse] = await Promise.all([fetch(recipeUrl),fetch(equipmentUrl)])
-//   const recipe = await recipeResponse.json()
-//   const equipment = await equipmentResponse.json()
+  const nutritionResponse = await fetch(nutritionUrl)
+  const nutrition = await nutritionResponse.json()
 
-//  const nutritionUrl =`https://api.spoonacular.com/recipes/guessNutrition?apiKey=${process.env.API_KEY}&title=${recipe.title}`
-
-//   const nutritionResponse= await fetch(nutritionUrl)
-//   const nutrition= await nutritionResponse.json()
-
-// if(!recipeResponse.ok || !nutritionResponse.ok || !equipmentResponse.ok){
-
-//   return{
-//   props:{
-// serverError:true,
-
-//   }
-
-// }
-// }
-//   return{
-//       props:{
-//     serverError:false,
-//     recipe,
-//     equipment:equipment.equipment,
-//     nutrition,
-//     ingredients:recipe.extendedIngredients,
-//     instructions:recipe.analyzedInstructions[0].steps
-//       }
-//   }
-
-// }
+  if (!recipeResponse.ok || !nutritionResponse.ok || !equipmentResponse.ok) {
+    return {
+      props: {
+        serverError: true
+      }
+    }
+  }
+  return {
+    props: {
+      serverError: false,
+      recipe,
+      equipment: equipment.equipment,
+      nutrition,
+      ingredients: recipe.extendedIngredients,
+      instructions: recipe.analyzedInstructions[0].steps
+    }
+  }
+}

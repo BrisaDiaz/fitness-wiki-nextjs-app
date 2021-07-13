@@ -1,6 +1,5 @@
 import React from 'react'
 import { render, screen, act, fireEvent } from '@testing-library/react'
-import userEvent from '@testing-library/user-event'
 import SelectComponent from './SelectComponent'
 import consts from '../consts/defaultQueryParams'
 import { beforeEach } from '@jest/globals'
@@ -12,8 +11,7 @@ const props = {
   name: 'dietType',
   globalOption: 'All',
   label: 'Diet Type:',
-  options: consts.DIET_OPTIONS,
-  name: 'diet'
+  options: consts.DIET_OPTIONS
 }
 beforeEach(() => {
   render(<SelectComponent {...props} />)
