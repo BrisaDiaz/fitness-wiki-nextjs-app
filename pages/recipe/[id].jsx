@@ -1,7 +1,6 @@
 import Head from 'next/head'
 import Image from 'next/Image'
-import { useRouter } from 'next/router'
-import { useSession } from 'next-auth/client'
+
 import mockRecipeById from '../../mocks/mockRecipeById'
 import mockEquipament from '../../mocks/mockEquipament'
 import mockInstructions from '../../mocks/mockInstructions'
@@ -10,15 +9,8 @@ import RecipeHeader from '../../components/RecipeHeader'
 import ListSheet from '../../components/ListSheet'
 import ListSheetItem from '../../components/ListSheetItem'
 import RecipeDirections from '../../components/RecipeDirections'
-import LoadingHeart from '../../components/LoadingHeart'
 
 export default function Recicipe(props) {
-  const [session, loading] = useSession()
-  const router = useRouter()
-
-  if (loading) return <LoadingHeart />
-
-  if (!loading && !session) return router.push('/auth/signin')
   if (props.serverError)
     return (
       <h2 className="mt-2 text-green-400 text-2xl font-bold">

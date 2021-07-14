@@ -1,5 +1,5 @@
 import { signIn } from 'next-auth/client'
-import Image from 'next/Image'
+import Image from 'next/image'
 
 export default function AuthProviderButtons() {
   return (
@@ -7,11 +7,7 @@ export default function AuthProviderButtons() {
       <div className="relative w-full">
         <button
           className="py-2 w-full border-2 border-gray-800  shadow hover:shadow-lg  bg-gray-800 font-semibold text-white rounded  focus:ring-2 focus:ring-gray-800 focus:ring-opacity-50 "
-          onClick={() =>
-            signIn('github', {
-              callbackUrl: `${process.env.HOST}`
-            })
-          }
+          onClick={() => signIn('github')}
         >
           Sign in with GitHub
         </button>
@@ -29,11 +25,7 @@ export default function AuthProviderButtons() {
       <div className="relative w-full">
         <button
           className="py-2 w-full border-2 border-blue-500 shadow hover:shadow-lg bg-blue-500 font-semibold text-white rounded focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 "
-          onClick={() =>
-            signIn('google', {
-              callbackUrl: `${process.env.HOST}`
-            })
-          }
+          onClick={() => signIn('google')}
         >
           Sign in with Google
         </button>

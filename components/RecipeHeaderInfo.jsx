@@ -1,4 +1,4 @@
-import Image from 'next/Image'
+import Image from 'next/image'
 export default function RecipeHeaderInfo({ info, label, image }) {
   return (
     <div className="flex flex-row gap-2 ">

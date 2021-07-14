@@ -43,7 +43,7 @@ export default function SingUp() {
           </Link>
           {isFormLoading && <FormSpinner />}
         </section>
-        <section className="w-full bg-green-200 bg-healthy-food bg-cover"></section>
+        <section className="w-full bg-green-200  bg-healthy-food bg-cover"></section>
       </main>
     </>
   )

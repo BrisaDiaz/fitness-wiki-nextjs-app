@@ -1,6 +1,4 @@
 import Head from 'next/head'
-import { useRouter } from 'next/router'
-import { useSession } from 'next-auth/client'
 import getConfig from 'next/config'
 import { useState, Fragment, useEffect } from 'react'
 import RecipeCard from '../components/RecipeCard'
@@ -14,9 +12,6 @@ import * as constants from '../consts/defaultQueryParams'
 const { publicRuntimeConfig } = getConfig()
 
 export default function SearchPage() {
-  const [session, loading] = useSession()
-  const router = useRouter()
-
   const query = new URLSearchParams()
   const [serverError, setServerError] = useState(false)
   const [search, setSearch] = useState('')
@@ -73,10 +68,6 @@ export default function SearchPage() {
       })
   }, [cuisine, diet, type, sort, sortDirection, page, search])
 
-  if (loading) return <LoadingHeart />
-
-  if (!loading && !session) return router.push('/auth/signin')
-
   return (
     <div>
       <Head>
@@ -87,7 +78,7 @@ export default function SearchPage() {
       </Head>
 
       <main className="px-1 max-w-1000 mx-auto  my-8">
-        <h2 className="text-center text-2xl font-bold text-green-400 mb-4 lg:text-4xl lg:mb-8">
+        <h2 className="text-center text-2xl font-bold text-green-700 mb-4 lg:text-4xl lg:mb-8">
           Let us help you find the perfect meal for today!!
         </h2>
         <FilterTable>

@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import Image from 'next/Image'
+import Image from 'next/image'
 import { useSession, signOut } from 'next-auth/client'
 
 export default function Header() {
@@ -31,7 +31,7 @@ export default function Header() {
             <Link href="/auth/signin" passHref>
               <a
                 href="!#"
-                className="text-lg font-semibold text-white px-2 pb-1 bg-green-400 hover:bg-green-500 transition ease-in-out g-green-400 rounded-md  leading-6"
+                className="text-lg font-semibold text-white px-2 pb-1 bg-green-400 hover:bg-green-500 transition ease-in-out g-green-400 rounded-md  leading-8"
               >
                 Signin
               </a>

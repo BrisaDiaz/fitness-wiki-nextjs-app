@@ -48,7 +48,7 @@ export default function SignIn() {
           </Link>
           {isFormLoading && <FormSpinner />}
         </section>
-        <section className="w-full bg-green-200"></section>
+        <section className="w-full bg-green-200 bg-healthy-burger bg-cover"></section>
       </main>
     </>
   )
