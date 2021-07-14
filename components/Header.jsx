@@ -9,8 +9,8 @@ export default function Header() {
     <header className=" bg-green-600  px-2 py-4  sm:px-4 shadow-lg flex justify-between position relative z-50">
       <div className="flex flex-row gap-1 items-center pl-1">
         <Image
-          width={35}
-          height={35}
+          width={30}
+          height={30}
           src="/heartbeat-solid.svg"
           alt="calories"
         />
@@ -31,7 +31,7 @@ export default function Header() {
             <Link href="/auth/signin" passHref>
               <a
                 href="!#"
-                className="text-lg font-semibold text-white px-2 pb-1 bg-green-400 hover:bg-green-500 transition ease-in-out g-green-400 rounded-md"
+                className="text-lg font-semibold text-white px-2 pb-1 bg-green-400 hover:bg-green-500 transition ease-in-out g-green-400 rounded-md  leading-6"
               >
                 Signin
               </a>

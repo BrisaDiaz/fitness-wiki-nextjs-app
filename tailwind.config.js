@@ -12,8 +12,11 @@ module.exports = {
       animation: {
         bite: 'bite 1s ease-in-out infinite'
       },
-      backgroundImage: (theme) => ({
-        'healthy-food': "url('/healthy-food-bg.jpg')"
+
+      backgroundImage: () => ({
+        'healthy-food': "url('/healthy-food-bg.jpg')",
+        'healthy-family': "url('/healthy-family-bg.jpg')",
+        'dot-pattern': "url('/dot-pattern-bg.jpg')"
       })
     }
   },

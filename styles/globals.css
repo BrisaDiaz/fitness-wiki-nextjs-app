@@ -15,9 +15,9 @@ body {
     font-size: 16px;
   }
 }
-.container {
+.custom-container {
   width: 100vw;
-  min-height: calc(100vh - 40px);
+  min-height: calc(100vh - 60px);
 }
 .dark-filter::before {
   content: ' ';
