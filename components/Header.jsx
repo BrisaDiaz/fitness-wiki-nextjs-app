@@ -23,35 +23,29 @@ export default function Header() {
       <div className="flex items-center br-1 gap-2">
         {!loading && !session ? (
           <>
-            <Link href="/auth/signup" passHref>
+            <Link href="/auth/signUp" passHref>
               <a href="!#" className="text-lg font-semibold text-white  pb-1 ">
-                Singup
+                Sign Up
               </a>
             </Link>
-            <Link href="/auth/signin" passHref>
+            <Link href="/auth/signIn" passHref>
               <a
                 href="!#"
                 className="text-lg font-semibold text-white px-2 pb-1 bg-green-400 hover:bg-green-500 transition ease-in-out g-green-400 rounded-md  leading-8"
               >
-                Signin
+                Sign In
               </a>
             </Link>
           </>
-        ) : (
+        ) : !loading ? (
           <a
             href="!#"
-            onClick={() =>
-              signOut({
-                callbackUrl: `${
-                  process.env.HOST || 'http://localhost:3000'
-                }/auth/signin`
-              })
-            }
-            className="text-xl font-semibold text-green-400"
+            onClick={() => signOut()}
+            className="text-lg font-semibold text-white  pb-1 "
           >
             Logout
           </a>
-        )}
+        ) : null}
       </div>
     </header>
   )

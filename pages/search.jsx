@@ -9,9 +9,9 @@ import SelectComponent from '../components/SelectComponent'
 import FilterTable from '../components/FilterTable'
 import PaginationComponent from '../components/PaginationComponent'
 import * as constants from '../consts/defaultQueryParams'
-const { publicRuntimeConfig } = getConfig()
 
 export default function SearchPage() {
+  const { publicRuntimeConfig } = getConfig()
   const query = new URLSearchParams()
   const [serverError, setServerError] = useState(false)
   const [search, setSearch] = useState('')
