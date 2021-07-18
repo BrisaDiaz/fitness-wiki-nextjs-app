@@ -1,6 +1,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import { useState } from 'react'
+import { useRouter } from 'next/router'
+import { useState, useEffect } from 'react'
 import { useForm } from 'react-hook-form'
 import getConfig from 'next/config'
 import { signIn } from 'next-auth/client'
@@ -12,11 +13,13 @@ export default function AuthSection({
   Form,
   linkText,
   linkURL,
-  title
+  title,
+  AuthProviderButtons
 }) {
   const { publicRuntimeConfig } = getConfig()
   const [isFormLoading, setIsFormLoading] = useState(false)
   const [serverMessage, setServerMessage] = useState(null)
+  const router = useRouter()
   const {
     register,
     handleSubmit,
@@ -24,18 +27,28 @@ export default function AuthSection({
   } = useForm({
     mode: 'onBlur'
   })
+  useEffect(() => {
+    if (router.query.error) {
+      setServerMessage(router.query.error)
+    }
+  }, [router])
 
   const onSubmit = async (data, e) => {
+    e.stopPropagation()
     e.preventDefault()
     setServerMessage(null)
+    router.replace('/auth/signIn')
     setIsFormLoading(true)
 
     if (title === 'Sign In') {
-      signIn('credentials', {
-        useremail: data.email,
-        password: data.password
+      const response = await signIn('credentials', {
+        email: data.email,
+        password: data.password,
+        redirect: false
       })
       setIsFormLoading(false)
+      if (response.error)
+        return setServerMessage(response.error || 'Server side error')
     } else {
       const response = await fetch(
         `${publicRuntimeConfig.HOST}/api/auth/signup`,
@@ -51,8 +64,9 @@ export default function AuthSection({
       const json = await response.json()
 
       setIsFormLoading(false)
-      if (json.user) return console.log(json.user)
-      setServerMessage(json.message)
+      if (!response.ok)
+        return setServerMessage(json.message || 'Server side error')
+      router.push('/auth/signIn')
     }
   }
   return (
@@ -73,6 +87,12 @@ export default function AuthSection({
         onSubmit={onSubmit}
       />
       {children}
+      {AuthProviderButtons && (
+        <AuthProviderButtons
+          signIn={signIn}
+          setServerMessage={setServerMessage}
+        />
+      )}
       <Link href={linkURL} passHref>
         <p className="text-gray-600 hover:text-green-600 cursor-pointer transition ease-in-out my-3 ">
           {linkText}

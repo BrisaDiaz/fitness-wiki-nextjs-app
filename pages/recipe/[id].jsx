@@ -1,6 +1,7 @@
 import Head from 'next/head'
 import Image from 'next/Image'
-
+import useRouter from 'next/router'
+import { useSession } from 'next-auth/client'
 import mockRecipeById from '../../mocks/mockRecipeById'
 import mockEquipament from '../../mocks/mockEquipament'
 import mockInstructions from '../../mocks/mockInstructions'
@@ -11,6 +12,11 @@ import ListSheetItem from '../../components/ListSheetItem'
 import RecipeDirections from '../../components/RecipeDirections'
 
 export default function Recicipe(props) {
+  const router = useRouter()
+  const [session, loading] = useSession()
+  if (loading) return null
+  if (session && !loading) return router.push('/auth/signIn')
+
   if (props.serverError)
     return (
       <h2 className="mt-2 text-green-400 text-2xl font-bold">
@@ -52,73 +58,73 @@ export default function Recicipe(props) {
       image: '/seedling-solid.svg'
     }
   ]
+  if (session && !loading)
+    return (
+      <>
+        <Head>
+          <title>{recipe.title}</title>
+          <meta name="description" content="recipe ingredients,process" />
+          <link rel="icon" href="/favicon.ico" />
+        </Head>
+        <main className="px-1 flex flex-col items-center mb-10">
+          <h1 className="text-center text-3xl font-bold sm:text-4xl my-8 text-green-400  ">
+            {recipe.title}
+          </h1>
 
-  return (
-    <>
-      <Head>
-        <title>{recipe.title}</title>
-        <meta name="description" content="recipe ingredients,process" />
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-      <main className="px-1 flex flex-col items-center mb-10">
-        <h1 className="text-center text-3xl font-bold sm:text-4xl my-8 text-green-400  ">
-          {recipe.title}
-        </h1>
+          <RecipeHeader hederInfo={hederInfo} />
 
-        <RecipeHeader hederInfo={hederInfo} />
+          <section className="mx-auto px-1 sm:px-0  gap-0 max-w-6xl  flex flex-col-reverse sm:flex-row  w-full sm:justify-evenly ">
+            <section className="  p-2 sm:p-4   w-full border rounded border-gray-200 shadow-lg">
+              <div className="mx-auto w-full sm:py-1 relative ">
+                <h2 className="uppercase  text-2xl font-bold text-green-400 mb-2 ml-2">
+                  summary
+                </h2>
 
-        <section className="mx-auto px-1 sm:px-0  gap-0 max-w-6xl  flex flex-col-reverse sm:flex-row  w-full sm:justify-evenly ">
-          <section className="  p-2 sm:p-4   w-full border rounded border-gray-200 shadow-lg">
-            <div className="mx-auto w-full sm:py-1 relative ">
-              <h2 className="uppercase  text-2xl font-bold text-green-400 mb-2 ml-2">
-                summary
-              </h2>
+                <div className="w-full max-w-xs max h-56 mr-1 sm:mr-3 float-left">
+                  <Image
+                    className="rounded-md float-left  "
+                    width={400}
+                    height={280}
+                    layout="responsive"
+                    unoptimized={process.env.ENVIRONMENT !== 'PRODUCTION'}
+                    src={recipe?.image}
+                    alt={recipe?.title}
+                  />
+                </div>
 
-              <div className="w-full max-w-xs max h-56 mr-1 sm:mr-3 float-left">
-                <Image
-                  className="rounded-md float-left  "
-                  width={400}
-                  height={280}
-                  layout="responsive"
-                  unoptimized={process.env.ENVIRONMENT !== 'PRODUCTION'}
-                  src={recipe?.image}
-                  alt={recipe?.title}
+                <div
+                  className="break-words leading-loose"
+                  dangerouslySetInnerHTML={{ __html: recipe.summary }}
                 />
               </div>
-
-              <div
-                className="break-words leading-loose"
-                dangerouslySetInnerHTML={{ __html: recipe.summary }}
-              />
-            </div>
-            {instructions && <RecipeDirections steps={instructions} />}
+              {instructions && <RecipeDirections steps={instructions} />}
+            </section>
+            <section className="mb-10 sm:mb-0 px-0 w-full sm:px-2 sm:w-5/12	 md:w-96 lg:w-2/5 mx-auto">
+              <ListSheet title="Ingredients">
+                {ingredients?.map((ingredient) => (
+                  <ListSheetItem
+                    key={ingredient?.id}
+                    name={ingredient?.name}
+                    info={`${ingredient?.name} ${ingredient?.measures?.metric?.amount} ${ingredient?.measures?.metric?.unitShort}`}
+                  />
+                ))}
+              </ListSheet>
+              <div className="mt-3" />
+              <ListSheet title="equipment">
+                {equipment?.map((equip) => (
+                  <ListSheetItem
+                    className="mt-3"
+                    key={equip?.name}
+                    name={equip?.name}
+                    info={equip?.name}
+                  />
+                ))}
+              </ListSheet>
+            </section>
           </section>
-          <section className="mb-10 sm:mb-0 px-0 w-full sm:px-2 sm:w-5/12	 md:w-96 lg:w-2/5 mx-auto">
-            <ListSheet title="Ingredients">
-              {ingredients?.map((ingredient) => (
-                <ListSheetItem
-                  key={ingredient?.id}
-                  name={ingredient?.name}
-                  info={`${ingredient?.name} ${ingredient?.measures?.metric?.amount} ${ingredient?.measures?.metric?.unitShort}`}
-                />
-              ))}
-            </ListSheet>
-            <div className="mt-3" />
-            <ListSheet title="equipment">
-              {equipment?.map((equip) => (
-                <ListSheetItem
-                  className="mt-3"
-                  key={equip?.name}
-                  name={equip?.name}
-                  info={equip?.name}
-                />
-              ))}
-            </ListSheet>
-          </section>
-        </section>
-      </main>
-    </>
-  )
+        </main>
+      </>
+    )
 }
 
 export async function getStaticPaths() {

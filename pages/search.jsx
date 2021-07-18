@@ -1,6 +1,7 @@
 import Head from 'next/head'
 import getConfig from 'next/config'
-import { useState, Fragment, useEffect } from 'react'
+import { useState, useEffect } from 'react'
+import { getSession } from 'next-auth/client'
 import RecipeCard from '../components/RecipeCard'
 import LoadingHeart from '../components/LoadingHeart'
 import SearchBar from '../components/SearchBar'
@@ -150,4 +151,18 @@ export default function SearchPage() {
       </main>
     </div>
   )
+}
+export async function getServerSideProps({ req }) {
+  const session = await getSession({ req })
+  if (!session) {
+    return {
+      redirect: {
+        destination: '/auth/signIn',
+        permanent: false
+      }
+    }
+  }
+  return {
+    props: {}
+  }
 }

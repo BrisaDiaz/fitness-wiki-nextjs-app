@@ -11,17 +11,25 @@ export default NextAuth({
           `${process.env.HOST}/api/auth/signin/credentials`,
           {
             method: 'POST',
-            body: JSON.stringify(credentials),
+            body: JSON.stringify({
+              email: credentials.email,
+              password: credentials.password
+            }),
             headers: { 'Content-Type': 'application/json' }
           }
         )
-        const { user } = await respponse.json()
+        const json = await respponse.json()
 
-        if (respponse.ok && user) {
-          return user
+        if (respponse.ok && !json.error) {
+          const { user } = json
+
+          return {
+            name: user.first_name + ' ' + user.last_name,
+            email: user.email
+          }
         }
 
-        return null
+        throw new Error(json.message || 'Server side error')
       }
     }),
     Providers.GitHub({
@@ -43,9 +51,26 @@ export default NextAuth({
     secret: process.env.JWT_SECRET
   },
   pages: {
-    signIn: '/auth/signIn'
+    signIn: '/auth/signIn',
+    error: '/auth/signIn'
   },
   callbacks: {
+    async signIn(user, account) {
+      if (account.id === 'credentials') return true
+      const respponse = await fetch(`${process.env.HOST}/api/auth/signin`, {
+        method: 'POST',
+        body: JSON.stringify({
+          email: user.email
+        }),
+        headers: { 'Content-Type': 'application/json' }
+      })
+      const json = await respponse.json()
+
+      if (respponse.ok && json.user) {
+        return true
+      }
+      throw new Error(json.message || 'Server side error')
+    },
     async session(session, token) {
       if (token.user) {
         session.user = {

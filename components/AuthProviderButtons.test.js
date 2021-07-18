@@ -2,13 +2,24 @@ import React from 'react'
 import { render, screen, act } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import AuthProviderButtons from './AuthProviderButtons'
-import { signIn } from 'next-auth/client'
-
-jest.mock('next-auth/client')
+jest.mock('next/router', () => ({
+  useRouter() {
+    return {
+      route: '/',
+      pathname: '',
+      query: '',
+      asPath: '',
+      replace: jest.fn()
+    }
+  }
+}))
+const setServerMessage = jest.fn()
+const signIn = jest.fn()
 
 it('calls sigin function when click button', async () => {
-  const signinMock = signIn.mockReturnValueOnce(() => jest.fn())
-  render(<AuthProviderButtons />)
+  render(
+    <AuthProviderButtons signIn={signIn} setServerMessage={setServerMessage} />
+  )
   const googleBtn = screen.getByRole('button', {
     name: /Sign in with Google/i
   })
@@ -18,5 +29,6 @@ it('calls sigin function when click button', async () => {
 
   await act(async () => userEvent.click(googleBtn))
   await act(async () => userEvent.click(githubBtn))
-  expect(signinMock.mock.calls.length).toBe(2)
+  expect(signIn.mock.calls.length).toBe(2)
+  expect(setServerMessage.mock.calls.length).toBe(2)
 })

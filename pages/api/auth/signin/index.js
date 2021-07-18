@@ -1,14 +1,13 @@
 import prisma from '@/libs/prisma'
-import bcrypt from 'bcrypt'
 
 export default async function signin(req, res) {
   if (req.method !== 'POST')
     return res.status(403).json({ error: true, message: 'Method not allowed' })
-  const { email, password } = req.body
-  if (!email || !password)
+  const { email } = req.body
+  if (!email)
     return res
       .status(404)
-      .json({ error: true, message: 'Email and Password must be provided' })
+      .json({ error: true, message: 'Email must bee provided' })
   try {
     const userFound = await prisma.user.findUnique({
       where: {
@@ -20,16 +19,11 @@ export default async function signin(req, res) {
         .status(404)
         .json({ error: true, message: 'This email is not registred' })
 
-    const isCorrectPassword = await bcrypt.compare(password, userFound.password)
-
-    if (!isCorrectPassword)
-      return res.status(401).json({ error: true, message: 'Invalid password' })
-
     return res.status(200).json({ user: userFound })
   } catch (error) {
     console.log(error)
     return res
       .status(500)
-      .json({ error: true, message: error || 'Server side error' })
+      .json({ error: true, message: error.message || 'Server side error' })
   }
 }
