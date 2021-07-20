@@ -122,6 +122,7 @@ export default function SearchPage() {
           </>
         </FilterTable>
         <SearchBar onChange={(event) => setSearch(event.target.value)} />
+        {isLoading && <LoadingHeart />}
         {recipes && recipes !== [] && !isLoading && (
           <>
             <section className="max-w-6xl mx-auto grid flex-col gap-3 flex-wrap lg:grid-cols-2  justify-center  my-6  sm:px-5 lg:px-8 ">
@@ -138,7 +139,6 @@ export default function SearchPage() {
           </h2>
         )}
 
-        {isLoading && <LoadingHeart />}
         {totalResults > constants.RESULTS_PER_PAGE && (
           <PaginationComponent
             page={page}
@@ -157,7 +157,7 @@ export async function getServerSideProps({ req }) {
   if (!session) {
     return {
       redirect: {
-        destination: '/auth/signIn',
+        destination: '/auth/signin',
         permanent: false
       }
     }

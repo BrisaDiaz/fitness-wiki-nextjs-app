@@ -26,6 +26,7 @@ export default function Home() {
               layout="fill"
               src="/healthy-breakfast-bg.jpg"
               alt="beakfasts"
+              unoptimized={process.env.ENVIRONMENT !== 'PRODUCTION'}
             />
           </article>
 
@@ -35,6 +36,7 @@ export default function Home() {
               layout="fill"
               src="/healthy-drinks-bg.jpg"
               alt="beakfasts"
+              unoptimized={process.env.ENVIRONMENT !== 'PRODUCTION'}
             />
           </article>
           <article className="relative h-44 bg-green-400 rounded-xl shadow-xl  bg-center bottom-0  left-0 w-7/12 sm:h-72 lg:h-96 bg-cover z-0 -mt-16  sm:-mt-28 mb-2 border-2 border-green-700  ">
@@ -43,6 +45,7 @@ export default function Home() {
               layout="fill"
               src="/healthy-pasta-bg.jpg"
               alt="beakfasts"
+              unoptimized={process.env.ENVIRONMENT !== 'PRODUCTION'}
             />
           </article>
         </section>

@@ -77,6 +77,7 @@ export default function AuthSection({
           height={20}
           src="/unlock-alt-solid.svg"
           alt="session"
+          unoptimized={process.env.ENVIRONMENT !== 'PRODUCTION'}
         />
       </div>
       <h4 className="text-center text-2xl mb-4 ">{title}</h4>

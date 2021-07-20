@@ -4,11 +4,11 @@ import { useRouter } from 'next/router'
 import AuthProviderButtons from '@/components/AuthProviderButtons'
 import SigninForm from '@/components/SigninForm'
 import AuthSection from '@/components/AuthSection'
-
+import LoadingHeart from '@/components/LoadingHeart'
 export default function SignIn() {
   const router = useRouter()
   const [session, loading] = useSession()
-  if (loading) return null
+  if (loading) return <LoadingHeart />
   if (session && !loading) return router.push('/search')
   if (!session && !loading)
     return (
@@ -25,7 +25,7 @@ export default function SignIn() {
             title="Sign In"
             Form={SigninForm}
             linkText="You have not an account yet? Sign Up"
-            linkURL="/auth/signUp"
+            linkURL="/auth/signup"
             AuthProviderButtons={AuthProviderButtons}
           >
             <>

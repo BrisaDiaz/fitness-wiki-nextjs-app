@@ -22,7 +22,7 @@ export default function Header({ session, loading, signOut }) {
         <div className="flex items-center br-1 gap-0">
           {!loading && !session ? (
             <>
-              <Link href="/auth/signUp" passHref>
+              <Link href="/auth/signup" passHref>
                 <a
                   href="!#"
                   className="text-lg font-semibold text-white transform scale-90  "
@@ -30,7 +30,7 @@ export default function Header({ session, loading, signOut }) {
                   Sign Up
                 </a>
               </Link>
-              <Link href="/auth/signIn" passHref>
+              <Link href="/auth/signin" passHref>
                 <a
                   href="!#"
                   className="text-lg font-semibold text-white px-2 transform scale-90  bg-green-400 hover:bg-green-500 transition ease-in-out g-green-400 rounded-md  leading-8 border-b-4 border-green-400  hover:border-green-500"

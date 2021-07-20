@@ -23,6 +23,7 @@ export default function AuthProviderButtons({ signIn, setServerMessage }) {
             width={30}
             height={30}
             src="/github-brands.svg"
+            unoptimized={process.env.ENVIRONMENT !== 'PRODUCTION'}
           />
         </div>
       </div>
@@ -41,6 +42,7 @@ export default function AuthProviderButtons({ signIn, setServerMessage }) {
             width={30}
             height={30}
             src="/google-logo.png"
+            unoptimized={process.env.ENVIRONMENT !== 'PRODUCTION'}
           />
         </div>
       </div>
