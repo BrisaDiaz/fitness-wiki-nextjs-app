@@ -2,14 +2,10 @@ import Head from 'next/head'
 import Image from 'next/Image'
 import useRouter from 'next/router'
 import { useSession } from 'next-auth/client'
-import mockRecipeById from '../../mocks/mockRecipeById'
-import mockEquipament from '../../mocks/mockEquipament'
-import mockInstructions from '../../mocks/mockInstructions'
-import mockGessNutrition from '../../mocks/mockGessNutrition'
-import RecipeHeader from '../../components/RecipeHeader'
-import ListSheet from '../../components/ListSheet'
-import ListSheetItem from '../../components/ListSheetItem'
-import RecipeDirections from '../../components/RecipeDirections'
+import RecipeHeader from '@/components/RecipeHeader'
+import ListSheet from '@/components/ListSheet'
+import ListSheetItem from '@/components/ListSheetItem'
+import RecipeDirections from '@/components/RecipeDirections'
 
 export default function Recicipe(props) {
   const router = useRouter()
@@ -24,20 +20,7 @@ export default function Recicipe(props) {
       </h2>
     )
 
-  let recipe, instructions, equipment, nutrition, ingredients
-
-  if (!props.recipe) {
-    ;(recipe = mockRecipeById), (instructions = mockInstructions[0].steps)
-    equipment = mockEquipament.equipment
-    nutrition = mockGessNutrition
-    ingredients = mockRecipeById.extendedIngredients
-  } else {
-    recipe = props.recipe
-    instructions = props.instructions
-    equipment = props.equipment
-    nutrition = props.nutrition
-    ingredients = props.ingredients
-  }
+  let { recipe, instructions, equipment, nutrition, ingredients } = props
 
   const hederInfo = [
     { label: 'servers:', info: recipe?.servings, image: '/utensils-solid.svg' },

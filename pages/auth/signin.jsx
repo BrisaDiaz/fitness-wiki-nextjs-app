@@ -1,14 +1,14 @@
 import Head from 'next/head'
 import { useSession } from 'next-auth/client'
-import useRouter from 'next/router'
-import AuthProviderButtons from '../../components/AuthProviderButtons'
-import SigninForm from '../../components/SigninForm'
-import AuthSection from '../../components/AuthSection'
+import { useRouter } from 'next/router'
+import AuthProviderButtons from '@/components/AuthProviderButtons'
+import SigninForm from '@/components/SigninForm'
+import AuthSection from '@/components/AuthSection'
 
 export default function SignIn() {
   const router = useRouter()
   const [session, loading] = useSession()
-  if (!loading) return null
+  if (loading) return null
   if (session && !loading) return router.push('/search')
   if (!session && !loading)
     return (

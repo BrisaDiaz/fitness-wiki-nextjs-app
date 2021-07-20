@@ -1,4 +1,4 @@
-import prisma from '@/libs/prisma'
+import prisma from '@/lib/prisma'
 import bcrypt from 'bcrypt'
 
 export default async function signin(req, res) {

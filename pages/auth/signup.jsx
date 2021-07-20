@@ -1,13 +1,13 @@
 import Head from 'next/head'
 import { useSession } from 'next-auth/client'
-import useRouter from 'next/router'
-import SignupForm from '../../components/SignupForm'
-import AuthSection from '../../components/AuthSection'
+import { useRouter } from 'next/router'
+import SignupForm from '@/components/SignupForm'
+import AuthSection from '@/components/AuthSection'
 
 export default function SingUp() {
   const router = useRouter()
   const [session, loading] = useSession()
-  if (!loading) return null
+  if (loading) return null
   if (session && !loading) return router.push('/search')
   if (!session && !loading)
     return (

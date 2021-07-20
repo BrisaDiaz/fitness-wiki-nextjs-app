@@ -1,8 +1,15 @@
-import prisma from '@/libs/prisma'
+import prisma from '@/lib/prisma'
+import getErrors from '@/middlewares/getSignUpErrors'
 import bcrypt from 'bcrypt'
 
 export default async function signup(req, res) {
   const { name, lastname, email, password } = req.body
+
+  const errors = getErrors(req.body)
+
+  if (errors.length > 0)
+    return res.status(404).json({ error: true, message: errors })
+
   try {
     const userFound = await prisma.user.findUnique({
       where: {
