@@ -5,18 +5,26 @@ import AuthProviderButtons from './AuthProviderButtons'
 jest.mock('next/router', () => ({
   useRouter() {
     return {
-      route: '/',
+      route: '',
       pathname: '',
       query: '',
-      asPath: '',
-      replace: jest.fn()
+      asPath: ''
     }
   }
 }))
+const useRouter = jest.spyOn(require('next/router'), 'useRouter')
 const setServerMessage = jest.fn()
 const signIn = jest.fn()
 
 it('calls sigin function when click button', async () => {
+  useRouter.mockImplementation(() => ({
+    route: '/auth/signIn',
+    pathname: '',
+    query: '',
+    asPath: '',
+    replace: jest.fn(),
+    push: jest.fn()
+  }))
   render(
     <AuthProviderButtons signIn={signIn} setServerMessage={setServerMessage} />
   )

@@ -32,20 +32,32 @@ const authProviders = {
   github: 'Sign in with GitHub',
   google: 'Sign in with Google'
 }
+jest.doMock('next/router', () => jest.fn())
+
 jest.mock('next/router', () => ({
   useRouter() {
     return {
-      route: '/auth/signIn',
+      route: '',
+      pathname: '',
+      query: '',
+      asPath: ''
+    }
+  }
+}))
+
+const useRouter = jest.spyOn(require('next/router'), 'useRouter')
+
+describe('signup form section', () => {
+  const push = jest.fn()
+  beforeEach(() => {
+    useRouter.mockImplementation(() => ({
+      route: '/auth/signUp',
       pathname: '',
       query: '',
       asPath: '',
       replace: jest.fn(),
-      push: jest.fn()
-    }
-  }
-}))
-describe('signup form section', () => {
-  beforeEach(() => {
+      push
+    }))
     render(<AuthSection {...signupProps} />)
   })
   it('initialy renders props correctly', () => {
@@ -133,14 +145,80 @@ describe('signup form section', () => {
     await act(async () => fireEvent.submit(submit))
 
     expect(global.fetch).toHaveBeenCalled()
+    expect(push).not.toHaveBeenCalled()
     await waitFor(() => screen.getByText('This account already exist'))
-    expect(screen.getByText('This account already exist')).toBeInTheDocument()
+  })
+  it('redirects when sing up success', async () => {
+    global.fetch = jest.fn(() =>
+      Promise.resolve({
+        ok: true,
+        json: () =>
+          Promise.resolve({
+            user: {
+              first_name: 'userName',
+              last_name: 'userLastName',
+              email: 'example@gmail.com'
+            }
+          })
+      })
+    )
+    const emailInput = screen.getByPlaceholderText('Email Address*')
+    const passwordInput = screen.getByPlaceholderText('Password*')
+    const nameInput = screen.getByPlaceholderText('First Name*')
+    const lastnameInput = screen.getByPlaceholderText('Last Name*')
+    const submit = screen.getByRole('button', {
+      name: /Sign up/i
+    })
+
+    await act(async () => fireEvent.focus(nameInput))
+
+    await act(async () =>
+      fireEvent.change(nameInput, { target: { value: 'userName' } })
+    )
+    await act(async () => fireEvent.blur(nameInput))
+
+    await act(async () =>
+      fireEvent.change(lastnameInput, { target: { value: 'userLastName' } })
+    )
+    await act(async () => fireEvent.blur(lastnameInput))
+    await act(async () => fireEvent.focus(emailInput))
+    await act(async () =>
+      fireEvent.change(emailInput, {
+        target: { value: 'example@email.com' }
+      })
+    )
+    await act(async () => fireEvent.blur(emailInput))
+    await act(async () => fireEvent.focus(passwordInput))
+    await act(async () =>
+      fireEvent.change(passwordInput, {
+        target: { value: 'secretPassword' }
+      })
+    )
+
+    await act(async () => fireEvent.blur(passwordInput))
+
+    expect(global.fetch).not.toHaveBeenCalled()
+    expect(push).not.toHaveBeenCalled()
+    await act(async () => fireEvent.submit(submit))
+
+    expect(global.fetch).toHaveBeenCalled()
+    expect(push).toHaveBeenCalled()
   })
 })
 
-describe('initialy signin form section', () => {
+describe('signin form section', () => {
   beforeEach(() => {
-    signIn.mockReturnValueOnce(() => true)
+    useRouter.mockImplementation(() => ({
+      route: '/auth/signIn',
+      pathname: '',
+      query: '',
+      asPath: '',
+      replace: jest.fn(),
+      push: jest.fn()
+    }))
+    signIn.mockResolvedValue({
+      error: 'This email is not registered'
+    })
     render(<AuthSection {...signinProps} />)
   })
 
@@ -152,5 +230,54 @@ describe('initialy signin form section', () => {
     expect(link).toHaveAttribute('href', signinProps.linkURL)
     expect(screen.getByText(authProviders.google)).toBeInTheDocument()
     expect(screen.getByText(authProviders.github)).toBeInTheDocument()
+  })
+  it('trigger fetch request when submit and renders error message', async () => {
+    const emailInput = screen.getByPlaceholderText('Email Address*')
+    const passwordInput = screen.getByPlaceholderText('Password*')
+
+    const submit = screen.getByRole('button', {
+      name: 'Sign in'
+    })
+
+    await act(async () => fireEvent.focus(emailInput))
+    await act(async () =>
+      fireEvent.change(emailInput, {
+        target: { value: 'example@email.com' }
+      })
+    )
+    await act(async () => fireEvent.blur(emailInput))
+    await act(async () => fireEvent.focus(passwordInput))
+    await act(async () =>
+      fireEvent.change(passwordInput, {
+        target: { value: 'secretPassword' }
+      })
+    )
+
+    await act(async () => fireEvent.blur(passwordInput))
+
+    expect(signIn).not.toHaveBeenCalled()
+
+    await act(async () => fireEvent.submit(submit))
+
+    expect(signIn).toHaveBeenCalled()
+    await waitFor(() => screen.getByText('This email is not registered'))
+  })
+})
+describe('sign In page width url error', () => {
+  beforeEach(() => {
+    useRouter.mockImplementation(() => ({
+      route: '/auth/signIn',
+      pathname: '',
+      query: { error: 'authentication trown error' },
+      asPath: '',
+      replace: jest.fn(),
+      push: jest.fn()
+    }))
+  })
+  it('renders the errors got from the URL query', async () => {
+    render(<AuthSection {...signinProps} />)
+    expect(
+      await screen.findByText('authentication trown error')
+    ).toBeInTheDocument()
   })
 })

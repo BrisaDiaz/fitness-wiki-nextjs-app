@@ -21,6 +21,12 @@ const textProps = {
   register: {},
   errors: {}
 }
+const widthErrorsInput = {
+  placeholder: '*Name',
+  type: 'text',
+  register: {},
+  errors: {}
+}
 describe('input render', () => {
   it('render email inputs correctly', () => {
     render(<FormInput {...emailProps} />)
@@ -43,4 +49,11 @@ describe('input render', () => {
     expect(screen.getByPlaceholderText('*Name')).toBeInTheDocument()
     expect(screen.getByPlaceholderText('*Name')).toHaveAttribute('type', 'text')
   })
+})
+
+it('display red borders when input contains errors', () => {
+  render(<FormInput {...widthErrorsInput} />)
+  expect(screen.getByPlaceholderText('*Name')).toHaveStyle(
+    'border-color: #fca5a5;'
+  )
 })

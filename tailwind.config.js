@@ -7,10 +7,20 @@ module.exports = {
         bite: {
           '0%, 100%': { transform: 'scale(0.9)' },
           '50%': { transform: 'scale(1.1)' }
+        },
+        appearLeft: {
+          '0%': { letf: '-15rem' },
+          '100%': { letf: '0' }
+        },
+        hiddeLeft: {
+          '0%': { letf: '0' },
+          '100%': { letf: '-15rem' }
         }
       },
       animation: {
-        bite: 'bite 1s ease-in-out infinite'
+        bite: 'bite 1s ease-in-out infinite',
+        appearLeft: 'appearLeft 0.5s ease 1',
+        hiddeLeft: 'hiddeLeft 0.5s ease 1'
       },
 
       backgroundImage: () => ({

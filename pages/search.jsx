@@ -72,13 +72,13 @@ export default function SearchPage() {
   return (
     <div>
       <Head>
-        <title>Recipes Next App</title>
-        <meta name="description" content="Custum recipes search" />
+        <title>Search</title>
+        <meta name="description" content="costume heathy recipes search" />
 
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className="px-1 max-w-1000 mx-auto  my-8">
+      <section className="px-1 max-w-1000 mx-auto  my-8">
         <h2 className="text-center text-2xl font-bold text-green-700 mb-4 lg:text-4xl lg:mb-8">
           Let us help you find the perfect meal for today!!
         </h2>
@@ -148,7 +148,7 @@ export default function SearchPage() {
             resultsPerPage={constants.RESULTS_PER_PAGE}
           />
         )}
-      </main>
+      </section>
     </div>
   )
 }

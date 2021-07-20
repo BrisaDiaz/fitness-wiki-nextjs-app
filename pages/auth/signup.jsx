@@ -1,13 +1,25 @@
+import Head from 'next/head'
+import { useSession } from 'next-auth/client'
+import useRouter from 'next/router'
 import SignupForm from '../../components/SignupForm'
 import AuthSection from '../../components/AuthSection'
-import { useSession } from 'next-auth/client'
 
 export default function SingUp() {
-  const [session] = useSession()
-  if (!session)
+  const router = useRouter()
+  const [session, loading] = useSession()
+  if (!loading) return null
+  if (session && !loading) return router.push('/search')
+  if (!session && !loading)
     return (
-      <div>
-        <main className="w-full flex min-h-screen -mt-16 pt-16">
+      <>
+        <Head>
+          <title>Sign Up</title>
+          <meta name="description" content="sign up page" />
+
+          <link rel="icon" href="/favicon.ico" />
+        </Head>
+
+        <section className="w-full flex min-h-screen -mt-16 pt-16">
           <AuthSection
             title="Sign Up"
             Form={SignupForm}
@@ -15,8 +27,7 @@ export default function SingUp() {
             linkURL="/auth/signIn"
           />
           <section className="w-full bg-green-200  bg-healthy-food bg-cover" />
-        </main>
-      </div>
+        </section>
+      </>
     )
-  return null
 }
