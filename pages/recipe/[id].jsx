@@ -1,14 +1,22 @@
 import Head from 'next/head'
-import Image from 'next/Image'
-import useRouter from 'next/router'
+import Image from 'next/image'
+import { useRouter } from 'next/router'
 import { useSession } from 'next-auth/client'
 import RecipeHeader from '@/components/RecipeHeader'
 import ListSheet from '@/components/ListSheet'
 import ListSheetItem from '@/components/ListSheetItem'
 import RecipeDirections from '@/components/RecipeDirections'
-
+const config = {
+  method: 'GET',
+  credentials: 'include',
+  headers: {
+    'User-Agent':
+      'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.164 Mobile Safari/537.36'
+  }
+}
 export default function Recicipe(props) {
   const router = useRouter()
+
   const [session, loading] = useSession()
   if (loading) return null
   if (session && !loading) return router.push('/auth/signIn')
@@ -112,20 +120,16 @@ export default function Recicipe(props) {
 
 export async function getStaticPaths() {
   const IdsUrl = `https://api.spoonacular.com/recipes/complexSearch?apiKey=${process.env.API_KEY}`
-  const config = {
-    method: 'GET',
-    credentials: 'include'
-  }
 
   const response = await fetch(IdsUrl, config)
   const json = await response.json()
   const data = json.results
-
+  console.log(json)
   const paths = data.map((recipe) => ({
     params: { id: recipe.id.toString() }
   }))
 
-  return { paths, fallback: true }
+  return { paths, fallback: false }
 }
 
 export async function getStaticProps({ params }) {
@@ -134,15 +138,15 @@ export async function getStaticProps({ params }) {
   const equipmentUrl = `https://api.spoonacular.com/recipes/${params.id}/equipmentWidget.json?apiKey=${process.env.API_KEY}`
 
   const [recipeResponse, equipmentResponse] = await Promise.all([
-    fetch(recipeUrl),
-    fetch(equipmentUrl)
+    fetch(recipeUrl, config),
+    fetch(equipmentUrl, config)
   ])
   const recipe = await recipeResponse.json()
   const equipment = await equipmentResponse.json()
 
   const nutritionUrl = `https://api.spoonacular.com/recipes/guessNutrition?apiKey=${process.env.API_KEY}&title=${recipe.title}`
 
-  const nutritionResponse = await fetch(nutritionUrl)
+  const nutritionResponse = await fetch(nutritionUrl, config)
   const nutrition = await nutritionResponse.json()
 
   if (!recipeResponse.ok || !nutritionResponse.ok || !equipmentResponse.ok) {

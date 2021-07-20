@@ -9,6 +9,7 @@ export default function Header({ session, loading, signOut }) {
           <Image
             width={30}
             height={30}
+            unoptimized={process.env.ENVIRONMENT !== 'PRODUCTION'}
             src="/heartbeat-solid.svg"
             alt="calories"
           />

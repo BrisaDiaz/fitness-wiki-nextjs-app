@@ -2,14 +2,13 @@ import Link from 'next/link'
 import Image from 'next/image'
 export default function RecipeCard({ recipe }) {
   return (
-    <article className="p-2   sm:p-4 flex flex-col sm:flex-row  sm:items-center border border-solid border-gray-200 shadow-md rounded max-w-xs sm:max-w-none h-auto transition ease-in-out transform hover:shadow-lg">
-      <div className=" mx-auto sm:mx-0 w-full sm:w-28 sm:h-24 h-36  relative flex items-center	">
+    <article className="p-2 pb-3    sm:p-4 flex flex-col sm:flex-row  sm:items-center border border-solid border-gray-200 shadow-md rounded max-w-xs sm:max-w-none h-auto transition ease-in-out transform hover:shadow-lg">
+      <div className=" mx-auto sm:mx-0 w-full sm:w-28 h-full relative flex items-center max-h-30 sm:h-24  justify-center  	">
         <Image
           unoptimized={process.env.ENVIRONMENT !== 'PRODUCTION'}
           className="rounded shadow mx-auto sm:self-center "
-          layout="intrinsic"
-          width={320}
-          height={320}
+          width={270}
+          height={200}
           src={recipe?.image}
           alt={recipe?.title}
         />
@@ -33,6 +32,7 @@ export default function RecipeCard({ recipe }) {
               <Image
                 className="w-4 align-self-start"
                 src="/clock-regular.svg"
+                unoptimized={process.env.ENVIRONMENT !== 'PRODUCTION'}
                 width={15}
                 height={15}
                 alt="time"

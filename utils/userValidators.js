@@ -1,4 +1,4 @@
-const nameValidator = (value, fieldName) => {
+export const nameValidator = (value, fieldName) => {
   if (!fieldName) return `The name of the field wasn't provided.`
 
   if (!value) return `${fieldName} is requred.`
@@ -13,7 +13,7 @@ const nameValidator = (value, fieldName) => {
 
   return true
 }
-const emailValidator = (value) => {
+export const emailValidator = (value) => {
   if (!value) return `Email is requred.`
 
   const isValidEmail =
@@ -25,12 +25,9 @@ const emailValidator = (value) => {
   return true
 }
 
-const passwordValidator = (value) => {
+export const passwordValidator = (value) => {
   if (!value) return `Password is requred.`
 
   if (value.length < 5) return `Password must be at least 5 characters.`
   return true
 }
-const validators = { nameValidator, emailValidator, passwordValidator }
-
-export default validators

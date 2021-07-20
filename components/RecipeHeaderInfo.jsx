@@ -2,7 +2,13 @@ import Image from 'next/image'
 export default function RecipeHeaderInfo({ info, label, image }) {
   return (
     <div className="flex flex-row gap-2 ">
-      <Image width={25} height={25} src={image} alt={label} />
+      <Image
+        unoptimized={process.env.ENVIRONMENT !== 'PRODUCTION'}
+        width={25}
+        height={25}
+        src={image}
+        alt={label}
+      />
       <h4>{`${label} ${info}`}</h4>
     </div>
   )

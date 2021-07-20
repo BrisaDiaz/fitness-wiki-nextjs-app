@@ -6,6 +6,8 @@ module.exports = {
     HOST: process.env.HOST
   },
   images: {
+    loader: 'imgix',
+    path: 'https://noop/',
     domains: ['spoonacular.com']
   }
 }
