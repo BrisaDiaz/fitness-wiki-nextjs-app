@@ -4,23 +4,23 @@ module.exports = {
   theme: {
     extend: {
       keyframes: {
-        bite: {
+        beat: {
           '0%, 100%': { transform: 'scale(0.9)' },
           '50%': { transform: 'scale(1.1)' }
         },
         appearLeft: {
-          '0%': { letf: '-15rem' },
-          '100%': { letf: '0' }
+          '0%': { transform: 'translateX(-384px)', opacity: '0' },
+          '100%': { transform: 'translateX(0)', opacity: '1' }
         },
-        hiddeLeft: {
-          '0%': { letf: '0' },
-          '100%': { letf: '-15rem' }
+        appearRight: {
+          '0%': { transform: 'translateX(384px)', opacity: '0' },
+          '100%': { transform: 'translateX(0)', opacity: '1' }
         }
       },
       animation: {
-        bite: 'bite 1s ease-in-out infinite',
-        appearLeft: 'appearLeft 0.5s ease 1',
-        hiddeLeft: 'hiddeLeft 0.5s ease 1'
+        beat: 'beat  1s ease-in-out infinite',
+        appearLeft: 'appearLeft 1s linear  ',
+        appearRight: 'appearRight 1s linear  '
       },
 
       backgroundImage: () => ({

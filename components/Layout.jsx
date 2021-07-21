@@ -17,7 +17,6 @@ export default function Layout({ children }) {
     isNavOpen,
     setIsNavOpen
   }
-  console.log(session)
   return (
     <>
       <Header {...sessionProps} signOut={signOut} />
