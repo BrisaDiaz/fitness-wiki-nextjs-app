@@ -20,7 +20,7 @@ export default function SideBar({ setIsNavOpen, isNavOpen }) {
             <li
               key={link.name}
               onClick={() => handleClick(link.href)}
-              className="text-center text-white text-2xl font-semibold cursor-pointer capitalize"
+              className="text-center text-white text-2xl font-semibold cursor-pointer capitalize transition easy-in-out hover:animate-pulse "
             >
               {link.name}
             </li>

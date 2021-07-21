@@ -51,8 +51,8 @@ export default NextAuth({
     secret: process.env.JWT_SECRET
   },
   pages: {
-    signIn: '/auth/signIn',
-    error: '/auth/signIn'
+    signIn: '/auth/signin',
+    error: '/auth/signin'
   },
   callbacks: {
     async signIn(user, account) {
