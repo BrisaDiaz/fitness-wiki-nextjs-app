@@ -5,7 +5,7 @@ export default function Header({ session, loading, signOut }) {
   return (
     <header className=" bg-green-600  px-2 py-4  sm:px-4 shadow-lg fixed  z-50 w-full">
       <nav className="flex justify-between   ">
-        <div className="flex flex-row gap-1 items-center pl-1">
+        <div className="flex flex-row gap-1 items-center pl-1 ">
           <Image
             width={30}
             height={30}
@@ -25,7 +25,7 @@ export default function Header({ session, loading, signOut }) {
               <Link href="/auth/signup" passHref>
                 <a
                   href="!#"
-                  className="text-lg font-semibold text-white transform scale-90  "
+                  className="text-lg font-semibold text-white transform scale-90  hover:animate-pulse "
                 >
                   Sign Up
                 </a>
@@ -33,7 +33,7 @@ export default function Header({ session, loading, signOut }) {
               <Link href="/auth/signin" passHref>
                 <a
                   href="!#"
-                  className="text-lg font-semibold text-white px-2 transform scale-90  bg-green-400 hover:bg-green-500 transition ease-in-out g-green-400 rounded-md  leading-8 border-b-4 border-green-400  hover:border-green-500"
+                  className="text-lg font-semibold text-white px-2 transform scale-90  bg-green-400 hover:bg-green-500 transition ease-in-out g-green-400 rounded-md  leading-8 border-b-4 border-green-400  hover:border-green-500 hover:animate-pulse "
                 >
                   Sign In
                 </a>
@@ -43,7 +43,7 @@ export default function Header({ session, loading, signOut }) {
             <a
               href="!#"
               onClick={() => signOut()}
-              className="text-lg font-semibold text-white  transform scale-90 "
+              className="text-lg font-semibold text-white   hover:animate-pulse "
             >
               Logout
             </a>

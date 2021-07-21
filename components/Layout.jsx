@@ -17,11 +17,12 @@ export default function Layout({ children }) {
     isNavOpen,
     setIsNavOpen
   }
+  console.log(session)
   return (
     <>
       <Header {...sessionProps} signOut={signOut} />
 
-      {session && !loading && <Sidebar {...navProps} />}
+      {session && <Sidebar {...navProps} />}
 
       <main
         data-testid="page-wrapper"
@@ -30,7 +31,7 @@ export default function Layout({ children }) {
         }
       >
         {children}
-        {session && !loading && <MenuBtn {...navProps} />}
+        {session && <MenuBtn {...navProps} />}
       </main>
     </>
   )
