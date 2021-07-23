@@ -8,7 +8,8 @@ export default function SideBar({ setIsNavOpen, isNavOpen }) {
 
   const menuLinks = [
     { name: 'Search Recipes', href: '/search' },
-    { name: 'Calorie Calculator', href: '/calorie-calculator' }
+    { name: 'Calories Calculator', href: '/calories-calculator' },
+    { name: 'Macros Calculator', href: '/macros-calculator' }
   ]
   return (
     <>

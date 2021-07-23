@@ -3,7 +3,7 @@ export default function calorieCalculator() {
   return (
     <section className="py-16 sm:pt-10 px-1 gap-x-2 mx-auto max-w-7xl">
       <h1 className="text-3xl  text-green-700 text-center font-bold mb-16 lg:text-4xl">
-        Calculate your target daily calorie needs
+        Calculate your daily caloric needs
       </h1>
       <section className="w-full flex flex-wrap gap-2">
         <Calculator />
