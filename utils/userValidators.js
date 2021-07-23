@@ -1,15 +1,16 @@
-export const nameValidator = (value, fieldName) => {
+export const nameValidator = (fieldName, value) => {
   if (!fieldName) return `The name of the field wasn't provided.`
-
   if (!value) return `${fieldName} is requred.`
 
   if (value.trim().length < 3)
     return `${fieldName} must be at least 3 characters.`
+  if (value.trim().length > 15)
+    return `${fieldName} must be 15 characters maximum.`
 
   const isValidString = /^[A-Za-zñÑáÁéÉíÍóÓúÚÜü]+$/.test(value)
 
-  if (!isValidString) return
-  ;`${fieldName} Name must only contain alphabetic characters.`
+  if (!isValidString)
+    return `${fieldName} must only contain alphabetic characters.`
 
   return true
 }

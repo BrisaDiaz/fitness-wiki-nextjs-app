@@ -8,8 +8,8 @@ export default function getErrors(data) {
   const { name, lastname, email, password } = data
 
   const results = [
-    nameValidator(name, 'Name'),
-    nameValidator(lastname, 'Last name'),
+    nameValidator('Name', name),
+    nameValidator('Last name', lastname),
     emailValidator(email),
     passwordValidator(password)
   ]
