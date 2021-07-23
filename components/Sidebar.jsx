@@ -6,7 +6,10 @@ export default function SideBar({ setIsNavOpen, isNavOpen }) {
     router.push(href)
   }
 
-  const menuLinks = [{ name: 'Search', href: '/search' }]
+  const menuLinks = [
+    { name: 'Search Recipes', href: '/search' },
+    { name: 'Calorie Calculator', href: '/calorie-calculator' }
+  ]
   return (
     <>
       <aside
@@ -15,12 +18,12 @@ export default function SideBar({ setIsNavOpen, isNavOpen }) {
         )}
         data-testid="sidebar"
       >
-        <ul>
+        <ul className="pt-2">
           {menuLinks.map((link) => (
             <li
               key={link.name}
               onClick={() => handleClick(link.href)}
-              className="text-center text-white text-2xl font-semibold cursor-pointer capitalize transition easy-in-out hover:animate-pulse "
+              className="text-center text-white text-2xl font-semibold cursor-pointer capitalize transition easy-in-out hover:animate-pulse mb-2"
             >
               {link.name}
             </li>

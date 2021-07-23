@@ -1,7 +1,7 @@
 export default function MenuBtn({ isNavOpen, setIsNavOpen }) {
   return (
     <div
-      className={'w-10 h-10  rounded-full  cursor-pointer ml-2 mt-1 fixed z-40 flex flex-col  justify-center items-center shadow-md transform  scale-75 transition ease-in-out bg-green-600  top-16  duration-500  hover:scale-90 hover:bg-green-500'.concat(
+      className={'w-10 h-10  rounded-full  cursor-pointer ml-1 mt-1 fixed z-40 flex flex-col  justify-center items-center shadow-md transform  scale-75 transition ease-in-out bg-green-600  top-16  duration-500  hover:scale-90 hover:bg-green-500'.concat(
         isNavOpen ? ' p-1.5 gap-0 ' : ' p-2 gap-1 '
       )}
       data-testid="menuBtn"

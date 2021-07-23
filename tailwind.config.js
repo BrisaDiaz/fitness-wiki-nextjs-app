@@ -3,6 +3,9 @@ module.exports = {
   darkMode: false, // or 'media' or 'class'
   theme: {
     extend: {
+      minWidth: {
+        xs: '360px'
+      },
       keyframes: {
         beat: {
           '0%, 100%': { transform: 'scale(0.9)' },

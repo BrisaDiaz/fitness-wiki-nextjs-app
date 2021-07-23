@@ -28,6 +28,9 @@ body {
   right: 0;
   z-index: -1;
 }
+.placeholder-end::placeholder{
+text-align: end;
+}
 
 a {
   color: inherit;

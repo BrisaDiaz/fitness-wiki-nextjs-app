@@ -17,7 +17,7 @@ jest.mock('next/router', () => ({
 }))
 it('close nav when click on a navLink', async () => {
   render(<Sidebar setIsNavOpen={setIsNavOpen} isNavOpen={true} />)
-  await act(async () => userEvent.click(screen.getByText('Search')))
+  await act(async () => userEvent.click(screen.getByText('Search Recipes')))
   expect(setIsNavOpen).toHaveBeenCalled()
   expect(setIsNavOpen).toHaveBeenCalledWith(false)
 })

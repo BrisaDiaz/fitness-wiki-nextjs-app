@@ -1,6 +1,6 @@
 import React from 'react'
 import { render, screen } from '@testing-library/react'
-import mockErrors from '../mocks/mockFornErrors'
+import mockErrors from '../mocks/mockFormErrors'
 import FormErrors from './FormErrors.jsx'
 
 const emtyErrors = {}
