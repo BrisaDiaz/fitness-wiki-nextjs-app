@@ -43,7 +43,6 @@ export default NextAuth({
   ],
   debug: process.env.ENVIRIONMENT === 'DEVELOPMENT',
   secret: process.env.AUTH_SECRET,
-  database: process.env.DATABASE_URL,
   session: {
     jwt: true
   },

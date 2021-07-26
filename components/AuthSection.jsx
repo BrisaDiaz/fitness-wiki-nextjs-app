@@ -37,7 +37,7 @@ export default function AuthSection({
     e.stopPropagation()
     e.preventDefault()
     setServerMessage(null)
-    router.replace('/auth/signIn')
+    router.replace('/auth/signin')
     setIsFormLoading(true)
 
     if (title === 'Sign In') {
@@ -66,7 +66,7 @@ export default function AuthSection({
       setIsFormLoading(false)
       if (!response.ok)
         return setServerMessage(json.message || 'Server side error')
-      router.push('/auth/signIn')
+      router.push('/auth/signin')
     }
   }
   return (

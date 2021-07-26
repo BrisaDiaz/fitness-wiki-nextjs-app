@@ -1,4 +1,4 @@
-import Calculator from '@/components/Calculator'
+import Calculator from '@/components/AMRcalculator'
 export default function calorieCalculator() {
   return (
     <section className="py-16 sm:pt-10 px-1 gap-x-2 mx-auto max-w-7xl">

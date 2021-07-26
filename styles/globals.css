@@ -4,6 +4,7 @@ body {
   margin: 0;
   box-sizing: border-box;
   overflow-x: hidden;
+
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 }
@@ -28,8 +29,8 @@ body {
   right: 0;
   z-index: -1;
 }
-.placeholder-end::placeholder{
-text-align: end;
+.placeholder-end::placeholder {
+  text-align: end;
 }
 
 a {
@@ -39,4 +40,41 @@ a {
 
 * {
   box-sizing: border-box;
+}
+.pie {
+  position: relative;
+  width: 250px;
+  height: 250px;
+  background: #fcd34d;
+
+  border-radius: 50%;
+}
+.pie::before {
+  content: ' ';
+  z-index: 10;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  border-width: 125px;
+  border-top-color: #10b981;
+  border-left-color: #10b981;
+  transform: rotate(315deg);
+  border-right-color: transparent;
+  border-bottom-color: transparent;
+  box-shadow: 1px 2px 1px 0.5;
+}
+.pie::after {
+  content: '';
+  z-index: 5;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  border-width: 125px;
+  border-top-color: #181717;
+  border-left-color: #ef4444;
+  transform: rotate(245deg);
+  border-right-color: transparent;
+  border-bottom-color: transparent;
 }
