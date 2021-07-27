@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import getAdvice from '@/utils/getAdvicePerCaloriesAmmount'
+import getAdvice from '../utils/getAdvicePerCaloriesAmmount'
 export default function MacrosCalcResults({
   error,
   planResults,
@@ -9,6 +9,7 @@ export default function MacrosCalcResults({
   useEffect(() => {
     setAdivice(getAdvice(defaultCalories, planResults.totalKcals))
   }, [planResults, defaultCalories])
+
   return (
     <>
       {error ? (
@@ -17,7 +18,7 @@ export default function MacrosCalcResults({
         </h2>
       ) : (
         <div className="my-4 mt-10  flex flex-col sm:flex-row flex-wrap gap-2 gap-y-6 w-full justify-evenly  ">
-          {planResults.macros.map((macro) => (
+          {planResults?.macros?.map((macro) => (
             <div
               key={macro.name}
               className={'flex flex-col justify-center text-center text-xl capitalize '.concat(
@@ -57,6 +58,7 @@ export default function MacrosCalcResults({
                     macro.name === 'fats' ? '0 0 384 512' : '0 0 576 512'
                   }
                 >
+                  <title>{macro.name}Svg</title>
                   <path
                     fill={
                       macro.value >= 0.5
@@ -77,9 +79,9 @@ export default function MacrosCalcResults({
               </div>
               <h4
                 className={'text-2xl font-bold border-b-4 mb-1 max-w-min self-center pb-1 my-1 '.concat(
-                  macro.value >= 0.5
+                  macro.persentage >= 50
                     ? 'text-green-500 border-green-500'
-                    : macro.value >= 0.25
+                    : macro.persentage >= 20
                     ? 'text-yellow-400 border-yellow-400'
                     : 'text-red-500 border-red-500 '
                 )}
@@ -94,7 +96,10 @@ export default function MacrosCalcResults({
               <p className="font-light"> Grams Per Day</p>
             </div>
           ))}
-          <div className="flex flex-col justify-center text-xl text-center capitalize sm:-mt-3">
+          <div
+            className="flex flex-col justify-center text-xl text-center capitalize sm:-mt-3"
+            data-testid="totalKcals"
+          >
             <div className="mx-auto w-11 flex items-center transform ">
               <svg
                 aria-hidden="true"
@@ -106,6 +111,7 @@ export default function MacrosCalcResults({
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 448 512"
               >
+                <title>KcalsSvg</title>
                 <path
                   fill={
                     adivice === 'recommended'
@@ -130,7 +136,7 @@ export default function MacrosCalcResults({
               Kcals
             </h4>
             <span className="text-5xl font-semibold my-1 text-gray-700  ">
-              {planResults.totalKcals}
+              {planResults?.totalKcals}
             </span>
             <p className="font-light"> Kcals Per Day</p>
           </div>

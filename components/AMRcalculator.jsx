@@ -43,6 +43,7 @@ export default function Calculator({ setCaloriesRequired }) {
         />
 
         <form
+          data-testid="AMRcalculatorForm"
           onSubmit={handleSubmit(onSubmit)}
           name="calories-calculator"
           className="px-4 py-5 flex flex-col gap-4 bg-white shadow-md border border-gray-200 relative z-10"

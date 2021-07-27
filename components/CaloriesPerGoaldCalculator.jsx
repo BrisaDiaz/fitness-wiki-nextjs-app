@@ -5,22 +5,27 @@ export default function CaloriesPerGoaldCalculator({
   goaldKcals,
   setGoaldKcals
 }) {
-  const GoaldOptions = getCaloriesPerGoald(defaultCalories)
+  const [mainGoaldsValues, setMainGoaldValues] = useState(
+    getCaloriesPerGoald(defaultCalories)
+  )
   const [intencityOptions, setIntencityOptions] = useState([])
   const [intencity, setIntencity] = useState(null)
   const [goald, setGoald] = useState('maintain')
+
   useEffect(() => {
-    if (goald && goald !== 'maintain') {
-      const foundIntencities = GoaldOptions.find(
+    if (!goald || goald === 'maintain') {
+      //reser all values if custom calories or maintain are select
+      setIntencityOptions([])
+      setIntencity(null)
+      setGoaldKcals(defaultCalories)
+    } else {
+      //find and set the different intencities of the physic goald select to display them
+      const foundIntencities = mainGoaldsValues.find(
         (goaldOption) => goaldOption.title === goald
       ).intencities
 
       setIntencityOptions(foundIntencities)
       setIntencity(foundIntencities[0])
-    } else {
-      setIntencityOptions([])
-      setIntencity(null)
-      setGoaldKcals(defaultCalories)
     }
   }, [goald])
 
@@ -30,13 +35,15 @@ export default function CaloriesPerGoaldCalculator({
     }
   }, [intencity])
 
+  // change the mains goals calorics values when the AMR is change
   useEffect(() => {
+    setMainGoaldValues(getCaloriesPerGoald(defaultCalories))
     setGoald('maintain')
   }, [defaultCalories])
   return (
     <>
       <div className="flex flex-wrap justify-center gap-4  ">
-        {GoaldOptions.map((goalOption) => (
+        {mainGoaldsValues?.map((goalOption) => (
           <div
             key={goalOption.title}
             className={'border  p-4 flex flex-col items-center w-52 h-36 relative text-gray-700 '.concat(
@@ -59,8 +66,8 @@ export default function CaloriesPerGoaldCalculator({
               id={goalOption.title}
               type="radio"
               value={goalOption.title}
-              checked={goald === goalOption.title}
               name="goald"
+              data-testid={goalOption.title + 'Input'}
               onChange={() => setGoald(goalOption.title)}
               className="absolute top-0 left-0 z-10 w-full h-full  opacity-0 cursor-pointer "
             />
@@ -89,8 +96,8 @@ export default function CaloriesPerGoaldCalculator({
             id="goald"
             type="radio"
             value={undefined}
-            checked={goald === undefined}
             name="goald"
+            data-testid="customInput"
             className={'absolute top-0 left-0 z-10 w-full h-full  opacity-0 cursor-pointer '.concat(
               goald === undefined && 'hidden'
             )}
@@ -111,11 +118,12 @@ export default function CaloriesPerGoaldCalculator({
                 value={option.value}
                 checked={intencity.name === option.name}
                 name="intencity"
+                data-testid={option.name + 'Input'}
                 onChange={() => setIntencity(option)}
                 className="cursor-pointer "
               />
               <legend htmlFor={option.name}>
-                {option.name}: {option.porsentage}
+                {option.name}: {option.porsentage}%
               </legend>
             </li>
           ))}

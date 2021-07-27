@@ -8,15 +8,16 @@ export default function getMacrosPerNutritionalPlan(
   const suportedPlanTypes = ['predifined', 'custom']
 
   if (!goaldKcals || !plan || !planType)
-    return `1:Target calories, 2:plan and 3:type of plan are requred, instead was send 1:${goaldKcals}, 2:${plan}, 3:${planType}`
+    throw new Error(
+      `1:Target calories, 2:plan and 3:type of plan are requred, instead was send 1:${goaldKcals}, 2:${plan}, 3:${planType}`
+    )
 
   if (suportedPlanTypes.indexOf(planType) === -1)
-    return `"${planType}" is not a type of plan suported is must be either "predifined" or "custom" `
+    throw new Error(
+      `"${planType}" is not a type of plan suported is must be either "predifined" or "custom" `
+    )
   if (planType === 'predifined' && !MACROS_PER_DIET[plan])
-    return `${plan} isn't between the nutritional plans supported`
-
-  if (planType === 'custom' && typeof plan !== 'object')
-    return `Custom plan must be an object containing the macros radios instead was send ${typeof plan}`
+    throw new Error(`${plan} isn't between the nutritional plans supported`)
 
   class Plan {
     goaldKcals = goaldKcals
@@ -27,34 +28,31 @@ export default function getMacrosPerNutritionalPlan(
     }
 
     getProteins() {
-      const kals = Math.floor(goaldKcals * this.macros.proteins.value)
+      const kals = Math.floor(goaldKcals * (this.macros.proteins.value / 100))
       const grams = Math.floor(kals / 4)
       return {
         name: 'proteins',
-        persentage: this.macros.proteins.persentage,
-        value: this.macros.proteins.value,
+        persentage: this.macros.proteins.value,
         kals,
         grams
       }
     }
     getCarbohydrates() {
-      const kals = Math.floor(goaldKcals * this.macros.carbs.value)
+      const kals = Math.floor(goaldKcals * (this.macros.carbs.value / 100))
       const grams = Math.floor(kals / 4)
       return {
         name: 'carbs',
-        persentage: this.macros.carbs.persentage,
-        value: this.macros.carbs.value,
+        persentage: this.macros.carbs.value,
         kals,
         grams
       }
     }
     getFats() {
-      const kals = Math.floor(goaldKcals * this.macros.fats.value)
+      const kals = Math.floor(goaldKcals * (this.macros.fats.value / 100))
       const grams = Math.floor(kals / 9)
       return {
         name: 'fats',
-        persentage: this.macros.fats.persentage,
-        value: this.macros.fats.value,
+        persentage: this.macros.fats.value,
         kals,
         grams
       }
@@ -76,9 +74,10 @@ export default function getMacrosPerNutritionalPlan(
 
       return totalGrams
     }
+
     getPlanInfo() {
       return {
-        name: this.name,
+        planName: this.name,
         totalKcals: goaldKcals,
         totalGrams: this.getTotalGrams(),
         macros: this.getMacros()

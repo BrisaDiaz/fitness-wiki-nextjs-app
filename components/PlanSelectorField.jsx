@@ -1,4 +1,4 @@
-import CalculatorSelect from '@/components/CalculatorSelect'
+import CalculatorSelect from './CalculatorSelect'
 export default function PlanSelectorField({
   setNutritionalPlan,
   planResults,
@@ -14,7 +14,7 @@ export default function PlanSelectorField({
         onChange={(e) => setNutritionalPlan(e.target.value)}
       />
       <div className="flex gap-4 mb-6 flex-wrap justify-evenly">
-        {planResults.macros.map((macro) => (
+        {planResults?.macros?.map((macro) => (
           <div
             key={macro.persentage + macro.name}
             className="flex flex-col text-center text-xl capitalize pt-4 gap-x-2 text-gray-700 "
@@ -23,7 +23,7 @@ export default function PlanSelectorField({
               {macro.name}
             </h4>
 
-            <span className="text-2xl">{macro.persentage} </span>
+            <span className="text-2xl">{macro.persentage}%</span>
           </div>
         ))}
       </div>

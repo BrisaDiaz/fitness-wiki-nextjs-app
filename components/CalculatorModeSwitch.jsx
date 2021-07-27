@@ -18,6 +18,7 @@ export default function CalculatorModeSwitch({
             type="radio"
             id={option.value}
             value={option.value}
+            data-testid={option.value}
             name="planType"
             checked={optionSelected === option.value}
           />

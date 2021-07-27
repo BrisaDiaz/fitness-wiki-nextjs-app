@@ -1,9 +1,9 @@
 import AMRcalculator from './AMRcalculator'
 import CaloriesPerGoaldCalculator from './CaloriesPerGoaldCalculator'
-import PlanSelectorField from './PlanSelectorField'
-import MacrosForm from './MacrosForm'
+import MacroRadiosPicker from './MacroRadiosPicker'
+
 import MacrosCalcResults from './MacrosCalcResults'
-import CalculatorModeSwitch from './CalculatorModeSwitch'
+
 import consts from '../consts/calculatorConstants'
 import { useState, useEffect } from 'react'
 import getMacrosPerNutritionalPlan from '../utils/getMacrosPerNutritionalPlan'
@@ -12,7 +12,7 @@ export default function MacrosCalculator() {
   // calories got by user info input or 2000 default
   const [defaultCalories, setDefaultCalories] = useState(2000)
   // calories customized by the user
-  const [goaldKcals, setGoaldKcals] = useState(0)
+  const [goaldKcals, setGoaldKcals] = useState(2000)
   // switch predifined macros distribution or a custom
   const [planType, setPlanType] = useState('predifined')
   // error on user macros inputs
@@ -32,6 +32,7 @@ export default function MacrosCalculator() {
     setGoaldKcals(defaultCalories)
   }, [defaultCalories])
   // calculate the results for a predifined plan or custom plan
+
   useEffect(() => {
     setError(null)
     planType === 'predifined'
@@ -61,28 +62,19 @@ export default function MacrosCalculator() {
           setGoaldKcals={setGoaldKcals}
         />
 
-        <article className="max-w-xl w-full">
-          <h2 className="text-2xl font-semibold text-green-500 mb-4 mt-6 bg-green-100 p-2 text-center">
+        <section className="max-w-xl w-full">
+          <h2 className="text-2xl font-semibold text-green-500 mb-6 mt-6 bg-green-100 p-2 text-center">
             Step 3: Select/Set your nutritional plan
           </h2>
-          <div className="max-w-md mx-auto">
-            <CalculatorModeSwitch
-              options={consts.PLAN_TYPES}
-              optionSelected={planType}
-              setOption={setPlanType}
-            />
-
-            {planType === 'predifined' ? (
-              <PlanSelectorField
-                plans={consts.NUTRITIONAL_PLANS}
-                planResults={planResults}
-                setNutritionalPlan={setNutritionalPlan}
-              />
-            ) : (
-              <MacrosForm setCustomPlan={setCustomPlan} setError={setError} />
-            )}
-          </div>
-        </article>
+          <MacroRadiosPicker
+            setPlanType={setPlanType}
+            setNutritionalPlan={setNutritionalPlan}
+            setCustomPlan={setCustomPlan}
+            planType={planType}
+            planResults={planResults}
+            setError={setError}
+          />
+        </section>
       </section>
       <section className=" max-w-xl w-full  mb-4">
         <h2 className="text-2xl font-semibold text-green-500 mb-4 bg-green-100 p-2 text-center">
@@ -114,14 +106,14 @@ export default function MacrosCalculator() {
           </div>
         </div>
         <h4 className=" text-gray-700 mb-6 mt-4 text-2xl font-semibold text-center">
-          Macro calorie radio
+          Macronutrient calorie radio
         </h4>
 
         <div className="pie mx-auto shadow-md text-white  tex-xl font-semibold">
           <p className="absolute z-20 bottom-1/4  right-0  mt-2 mr-10">
-            0% - 20%
+            0% - 19%
           </p>
-          <p className="absolute z-20 right-0 top-1/4 mr-8 ">21% - 49%</p>
+          <p className="absolute z-20 right-0 top-1/4 mr-8 ">20% - 49%</p>
           <p className="absolute z-20 left-0 top-1/2 ml-5 -mt-3">50% - 100%</p>
         </div>
       </section>

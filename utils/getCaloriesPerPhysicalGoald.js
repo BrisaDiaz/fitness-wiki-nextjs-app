@@ -6,17 +6,17 @@ export default function getCaloriesPerPhysicalGoald(neededCalories) {
       intencities: [
         {
           name: 'suggested',
-          porsentage: '15%',
+          porsentage: 15,
           value: Math.floor(neededCalories - neededCalories * 0.15)
         },
         {
           name: 'aggressive ',
-          porsentage: '20%',
+          porsentage: 20,
           value: Math.floor(neededCalories - neededCalories * 0.2)
         },
         {
           name: 'reckless  ',
-          porsentage: '25%',
+          porsentage: 25,
           value: Math.floor(neededCalories - neededCalories * 0.25)
         }
       ]
@@ -31,17 +31,17 @@ export default function getCaloriesPerPhysicalGoald(neededCalories) {
       intencities: [
         {
           name: 'cautious',
-          porsentage: '5%',
+          porsentage: 5,
           value: Math.floor(neededCalories + neededCalories * 0.05)
         },
         {
           name: 'text book',
-          porsentage: '10%',
+          porsentage: 10,
           value: Math.floor(neededCalories + neededCalories * 0.1)
         },
         {
           name: 'aggressive',
-          porsentage: '15%',
+          porsentage: 15,
           value: Math.floor(neededCalories + neededCalories * 0.15)
         }
       ]
