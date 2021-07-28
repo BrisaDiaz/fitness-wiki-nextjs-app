@@ -3,6 +3,9 @@ module.exports = {
   darkMode: false, // or 'media' or 'class'
   theme: {
     extend: {
+      backdropBlur: {
+        xs: '2px'
+      },
       boxShadow: {
         sm: '0 1px 2px 0 rgba(0, 0, 0, 0.05)',
         DEFAULT:
@@ -51,7 +54,8 @@ module.exports = {
     extend: {
       // ...
       animation: ['hover', 'focus'],
-      zIndex: ['hover', 'active']
+      zIndex: ['hover', 'active'],
+      backdropBlur: ['hover', 'focus']
     }
   },
   plugins: []

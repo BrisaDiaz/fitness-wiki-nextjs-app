@@ -46,13 +46,13 @@ export default function MacrosCalculator() {
   return (
     <div className="flex flex-wrap max-w-7xl gap-x-4 gap-y-6 justify-center ">
       <section className="max-w-xl w-full">
-        <h2 className="text-2xl font-semibold text-green-500 mb-6 bg-green-100 p-2 text-center">
+        <h2 className="text-xl sm:text-2xl  font-semibold text-green-500 mb-6 bg-green-100 p-2 text-center">
           Step 1: Calculate your daily calories required
         </h2>
         <AMRcalculator setCaloriesRequired={setDefaultCalories} />
       </section>
       <section className="max-w-xl  w-full flex flex-col">
-        <h2 className="text-2xl font-semibold text-green-500 mb-6 bg-green-100 p-2 text-center">
+        <h2 className="text-xl sm:text-2xl  font-semibold text-green-500 mb-6 bg-green-100 p-2 text-center">
           Step 2: Choose your goals and intencity{' '}
         </h2>
 
@@ -63,7 +63,7 @@ export default function MacrosCalculator() {
         />
 
         <section className="max-w-xl w-full">
-          <h2 className="text-2xl font-semibold text-green-500 mb-6 mt-6 bg-green-100 p-2 text-center">
+          <h2 className=" text-xl sm:text-2xl text-center font-semibold text-green-500 mb-6 mt-6 bg-green-100 p-2 ">
             Step 3: Select/Set your nutritional plan
           </h2>
           <MacroRadiosPicker
@@ -77,20 +77,22 @@ export default function MacrosCalculator() {
         </section>
       </section>
       <section className=" max-w-xl w-full  mb-4">
-        <h2 className="text-2xl font-semibold text-green-500 mb-4 bg-green-100 p-2 text-center">
+        <h2 className="text-xl sm:text-2xl  font-semibold text-green-500 mb-4 bg-green-100 p-2 text-center">
           Step 4: Analyze your results{' '}
         </h2>
         <h4 className=" text-gray-700 my-3 mb-4 text-2xl font-semibold text-center">
           Caloric healthy ranges
         </h4>
-        <p>
-          The ranges are calculated based on the basic calories needs got from
-          the step 1.
-        </p>
-        <p>
-          If the step 1 is skipped, then a caloric need of 2000 Kcals/Day is
-          used as default.
-        </p>
+        <div className="px-1">
+          <p>
+            The ranges are calculated based on the basic calories needs got from
+            the step 1.
+          </p>
+          <p>
+            If the step 1 is skipped, then a caloric need of 2000 Kcals/Day is
+            used as default.
+          </p>
+        </div>
         <div className="grid gap-y-1 mt-4  font-light px-2 ">
           <div className="flex gap-2 items-center h-6 ">
             <span className=" h-full w-6 bg-green-500 " />
@@ -119,7 +121,7 @@ export default function MacrosCalculator() {
       </section>
       <section className="max-w-xl w-full">
         <h2
-          className={'text-2xl font-semibold  p-2 text-center  '.concat(
+          className={'text-xl sm:text-2xl font-semibold  p-2 text-center  '.concat(
             error
               ? 'text-red-500 mb-6 bg-red-100'
               : 'text-green-500 mb-6 bg-green-100'

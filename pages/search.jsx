@@ -73,13 +73,20 @@ export default function SearchPage() {
     <div>
       <Head>
         <title>Search</title>
-        <meta name="description" content="costume heathy recipes search" />
 
+        <meata
+          name="description"
+          content="Discover our best healthy recipes, including breakfasts, lunches, dinners and snacks. Find dishes to fit with special diets and nutritional needs."
+        />
+        <meta
+          name="keywords"
+          content="healthy recipes,weight loss,special diets,meal plans,healthy eating"
+        />
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <section className="px-1 max-w-1000 mx-auto  my-8">
-        <h2 className="text-center text-2xl font-bold text-green-700 mb-4 lg:text-4xl lg:mb-8">
+      <section className="px-1 max-w-1000 mx-auto  mb-10">
+        <h2 className="text-center pb-16 pt-10  text-2xl md:text-3xl lg:text-4xl px-2 l font-bold text-green-700 mb-10 ">
           Let us help you find the perfect meal for today!!
         </h2>
         <FilterTable>
@@ -125,7 +132,7 @@ export default function SearchPage() {
         {isLoading && <LoadingHeart />}
         {recipes && recipes !== [] && !isLoading && (
           <>
-            <section className="max-w-6xl mx-auto grid flex-col gap-3 flex-wrap lg:grid-cols-2  justify-center  my-6  sm:px-5 lg:px-8 ">
+            <section className="max-w-6xl mx-auto grid flex-col gap-3 flex-wrap md:grid-cols-2  justify-center  my-6  sm:px-5 lg:px-8 ">
               {recipes.map((recipe) => (
                 <RecipeCard key={recipe?.id} recipe={recipe} />
               ))}
