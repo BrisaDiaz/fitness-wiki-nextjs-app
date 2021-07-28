@@ -18,7 +18,7 @@
 > - **_DATABASE_URL_**= your postgresql database url
 > - **_GOOGLE_CLIENT_ID_**= Your google client id
 > - **_GOOGLE_CLIENT_SECRET_**= Your google client secret
-> - **_GITHUB_ID_**= Your github client secret
+> - **_GITHUB_ID_**= Your github client id
 > - **_GITHUB_SECRET_**= Your github client secret
 > - **_ENVIRIOMENT_**= DEVELOPMENT / PRODUCTION
 
@@ -39,6 +39,7 @@
 1. Responsive layout.
 1. Pagination.
 1. Reusable and tested components.
+1. Full test ARM and macros calculators with results visualización
 1. Fiter and Sorting.
 1. Query search.
 1. Recipe details Page.

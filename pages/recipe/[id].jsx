@@ -47,11 +47,18 @@ export default function Recicipe(props) {
     <>
       <Head>
         <title>{recipe.title}</title>
-        <meta name="description" content="recipe ingredients,process" />
+        <meta
+          name="description"
+          content={`step by step instructions how to make ${recipe.title}`}
+        />
+        <meta
+          name="keywords"
+          content={ingredients?.join(',').concat(recipe?.diets?.join(','))}
+        />
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className="px-1 flex flex-col items-center mb-10">
-        <h1 className="text-center text-3xl font-bold sm:text-4xl my-8 text-green-400  ">
+        <h1 className="text-center text-2xl md:text-3xl lg:text-4xl px-2 font-bold  my-8 text-green-400  ">
           {recipe.title}
         </h1>
 

@@ -3,7 +3,7 @@ import { useRouter } from 'next/router'
 export default function AuthProviderButtons({ signIn, setServerMessage }) {
   const router = useRouter()
   const handleSignIn = async (provider) => {
-    router.replace('/auth/signIn')
+    router.replace('/auth/signin')
     setServerMessage(null)
     await signIn(provider)
   }

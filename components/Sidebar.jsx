@@ -19,7 +19,7 @@ export default function SideBar({ setIsNavOpen, isNavOpen }) {
         )}
         data-testid="sidebar"
       >
-        <ul className="pt-2">
+        <ul className="p-2">
           {menuLinks.map((link) => (
             <li
               key={link.name}

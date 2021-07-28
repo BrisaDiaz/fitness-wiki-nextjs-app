@@ -78,3 +78,7 @@ a {
   border-right-color: transparent;
   border-bottom-color: transparent;
 }
+
+.text-shadow {
+  text-shadow: 1px 1px 0 #00000070;
+}
