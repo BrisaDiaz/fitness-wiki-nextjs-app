@@ -1,14 +1,15 @@
 import Head from 'next/head'
 import { useSession } from 'next-auth/client'
-import { useRouter } from 'next/router'
-import LoadingHeart from '@/components/LoadingHeart'
+import useAuthentication from '../hooks/useAuthentication'
 import Calculator from '@/components/AMRcalculator'
 export default function CaloriesCalculator() {
-  const router = useRouter()
-  const [session, loading] = useSession()
-  if (loading) return <LoadingHeart />
-  if (!session) return router.push('/auth/signin')
-  if (session)
+  const { isLoading, LoadingComponent } = useAuthentication({
+    getSession: useSession,
+    redirectTo: '/auth/signin',
+    mustHaveSession: true
+  })
+  if (isLoading) return <LoadingComponent />
+  if (!isLoading)
     return (
       <>
         <Head>

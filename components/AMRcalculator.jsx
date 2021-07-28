@@ -1,43 +1,30 @@
-import { useState } from 'react'
-import { useForm } from 'react-hook-form'
-import consts from '../consts/calculatorConstants'
-import getDailyKcals from '../utils/getDailyKcals'
+import useAMRCalculator from '../hooks/useAMRCalculator'
 import CalculatorInput from './CalculatorInput'
 import CalculatorField from './CalculatorField'
 import CalculatorModeSwitch from './CalculatorModeSwitch'
 import CalculatorSelect from './CalculatorSelect'
 import FormButton from './FormButton'
-
 export default function Calculator({ setCaloriesRequired }) {
-  const isStandAloneComponet = setCaloriesRequired ? false : true
-  const [system, setSystem] = useState('metric')
-  const [totalKcals, setTotalKcals] = useState(0)
   const {
+    setSystem,
     register,
     handleSubmit,
-    formState: { errors }
-  } = useForm({
-    mode: 'onBlur'
-  })
-  const onSubmit = (data, e) => {
-    e.stopPropagation()
-    e.preventDefault()
-
-    data.system = system
-    data.age = data.age * 1
-    data.weight = data.weight * 1
-    data.height = data.height * 1
-    data.activityLevel = data.activityLevel * 1
-    isStandAloneComponet
-      ? setTotalKcals(getDailyKcals(data))
-      : setCaloriesRequired(getDailyKcals(data))
-  }
-
+    onSubmit,
+    totalKcals,
+    system,
+    errors,
+    isStandAloneComponet,
+    METRIC_SYSTEMS,
+    EQUATIONS,
+    GENRES,
+    ACTIVITY_LEVELS,
+    EXERCISE_INTENCITIES
+  } = useAMRCalculator({ setCaloriesRequired })
   return (
     <>
       <article className="mx-auto w-full max-w-sm   ">
         <CalculatorModeSwitch
-          options={consts.METRIC_SYSTEMS}
+          options={METRIC_SYSTEMS}
           optionSelected={system}
           setOption={setSystem}
         />
@@ -55,7 +42,7 @@ export default function Calculator({ setCaloriesRequired }) {
           >
             <CalculatorSelect
               register={{ ...register('equation', { required: true }) }}
-              options={consts.EQUATIONS}
+              options={EQUATIONS}
               fullWidth
               testId="equationSelect"
             />
@@ -64,7 +51,7 @@ export default function Calculator({ setCaloriesRequired }) {
             <CalculatorField label="Genre:" name="genre">
               <CalculatorSelect
                 register={{ ...register('genre', { required: true }) }}
-                options={consts.GENRES}
+                options={GENRES}
                 testId="genreSelect"
               />
             </CalculatorField>
@@ -113,7 +100,7 @@ export default function Calculator({ setCaloriesRequired }) {
             <CalculatorSelect
               register={{ ...register('activityLevel', { required: true }) }}
               testId="activitySelect"
-              options={consts.ACTIVITY_LEVELS}
+              options={ACTIVITY_LEVELS}
               fullWidth
             />
           </CalculatorField>
@@ -131,7 +118,7 @@ export default function Calculator({ setCaloriesRequired }) {
         </form>
 
         <ul className="text-sm mt-6 pl-1">
-          {consts.EXERCISE_INTENCITIES.map((intencity) => (
+          {EXERCISE_INTENCITIES.map((intencity) => (
             <li key={intencity.name}>
               <span className="font-semibold ">{intencity.name + ': '}</span>
               {intencity.definition}

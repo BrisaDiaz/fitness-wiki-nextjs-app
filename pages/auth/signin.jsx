@@ -1,16 +1,18 @@
 import Head from 'next/head'
 import { useSession } from 'next-auth/client'
-import { useRouter } from 'next/router'
+import useAuthentication from '@/hooks/useAuthentication'
 import AuthProviderButtons from '@/components/AuthProviderButtons'
 import SigninForm from '@/components/SigninForm'
 import AuthSection from '@/components/AuthSection'
-import LoadingHeart from '@/components/LoadingHeart'
+
 export default function SignIn() {
-  const router = useRouter()
-  const [session, loading] = useSession()
-  if (loading) return <LoadingHeart />
-  if (session && !loading) return router.push('/search')
-  if (!session && !loading)
+  const { isLoading, LoadingComponent } = useAuthentication({
+    getSession: useSession,
+    redirectTo: '/',
+    mustHaveSession: false
+  })
+  if (isLoading) return <LoadingComponent />
+  if (!isLoading)
     return (
       <>
         <Head>
