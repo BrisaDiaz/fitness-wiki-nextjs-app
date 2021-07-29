@@ -10,7 +10,7 @@ const dataResived = mocks.fullCalculatorTest.AMRSection.expectResult
 const setValue = mocks.fullCalculatorTest.goaldSection.dataSend
 const darkGreen = '#0595569'
 
-jest.mock('../utils/getCaloriesPerPhysicalGoald', () => jest.fn())
+jest.mock('../../utils/getCaloriesPerPhysicalGoald', () => jest.fn())
 const setGoaldKcals = jest.fn()
 
 const InitialProps = {

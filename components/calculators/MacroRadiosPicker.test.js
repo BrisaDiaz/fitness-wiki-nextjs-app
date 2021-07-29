@@ -5,7 +5,7 @@ import mocks from '../../mocks/mockMacrosCalculatorData'
 import MacroRadiosPicker from './MacroRadiosPicker'
 import getMacrosPerNutritionalPlan from '../../utils/getMacrosPerNutritionalPlan'
 
-jest.mock('../utils/getMacrosPerNutritionalPlan', () => jest.fn())
+jest.mock('../../utils/getMacrosPerNutritionalPlan', () => jest.fn())
 
 const initialPlanResults =
   mocks.fullCalculatorTest.nutritionalPlanSection.expectResult

@@ -18,7 +18,7 @@ const mockInputs = {
   result: 1605
 }
 
-jest.mock('../utils/getDailyKcals', () => jest.fn())
+jest.mock('../../utils/getDailyKcals', () => jest.fn())
 
 describe('calculator as an stand alone component', () => {
   beforeEach(() => {
