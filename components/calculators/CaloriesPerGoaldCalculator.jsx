@@ -1,4 +1,4 @@
-import useCaloriesPerGoaldCalculator from '../hooks/useCaloriesPerGoaldCalculator'
+import useCaloriesPerGoaldCalculator from '../../hooks/useCaloriesPerGoaldCalculator'
 export default function CaloriesPerGoaldCalculator({
   defaultCalories,
   goaldKcals,

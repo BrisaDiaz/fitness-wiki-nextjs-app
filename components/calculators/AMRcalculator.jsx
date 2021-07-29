@@ -1,9 +1,9 @@
-import useAMRCalculator from '../hooks/useAMRCalculator'
+import useAMRCalculator from '../../hooks/useAMRCalculator'
 import CalculatorInput from './CalculatorInput'
 import CalculatorField from './CalculatorField'
 import CalculatorModeSwitch from './CalculatorModeSwitch'
 import CalculatorSelect from './CalculatorSelect'
-import FormButton from './FormButton'
+import FormButton from '../FormButton'
 export default function Calculator({ setCaloriesRequired }) {
   const {
     setSystem,

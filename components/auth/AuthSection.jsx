@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import useSessionHandler from '../hooks/useSessionHandler'
+import useSessionHandler from '../../hooks/useSessionHandler'
 import getConfig from 'next/config'
 import { signIn } from 'next-auth/client'
 import FormSpinner from './FormSpinner'

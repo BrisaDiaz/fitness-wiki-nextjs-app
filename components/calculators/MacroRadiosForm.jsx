@@ -1,5 +1,5 @@
-import useMacroRadiosForm from '../hooks/useMacroRadiosForm'
-import FormButton from './FormButton'
+import useMacroRadiosForm from '../../hooks/useMacroRadiosForm'
+import FormButton from '../FormButton'
 
 export default function MacroRadiosForm({ setCustomPlan, setError }) {
   const { register, handleSubmit, onSubmit, DEFAULT_MACROS_INPUTS } =

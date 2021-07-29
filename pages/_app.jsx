@@ -1,7 +1,7 @@
 import '../styles/globals.css'
 import 'tailwindcss/tailwind.css'
 import { Provider } from 'next-auth/client'
-import Layout from '@/components/Layout'
+import Layout from '@/components/layout/Layout'
 
 function MyApp({ Component, pageProps }) {
   return (

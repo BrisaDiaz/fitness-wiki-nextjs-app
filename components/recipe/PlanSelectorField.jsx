@@ -1,4 +1,4 @@
-import CalculatorSelect from './CalculatorSelect'
+import CalculatorSelect from '../calculators/CalculatorSelect'
 export default function PlanSelectorField({
   setNutritionalPlan,
   planResults,

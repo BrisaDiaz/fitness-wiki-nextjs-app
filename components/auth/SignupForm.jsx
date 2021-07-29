@@ -1,6 +1,6 @@
-import FormInput from './FormInput'
-import FormButton from './FormButton'
-import validation from '../utils/formInputValidations'
+import FormInput from '../FormInput'
+import FormButton from '../FormButton'
+import validation from '../../utils/formInputValidations'
 
 export default function SignupForm({
   handleSubmit,

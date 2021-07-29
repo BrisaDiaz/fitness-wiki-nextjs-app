@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import getAdvice from '../utils/getAdvicePerCaloriesAmmount'
+import getAdvice from '../../utils/getAdvicePerCaloriesAmmount'
 export default function MacrosCalcResults({
   error,
   planResults,

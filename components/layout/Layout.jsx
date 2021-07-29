@@ -1,8 +1,8 @@
 import { useState } from 'react'
 import { useSession, signOut } from 'next-auth/client'
 import Sidebar from './Sidebar'
-import Header from './Header'
-import MenuBtn from './MenuBtn'
+import Header from '../Header'
+import MenuBtn from '../MenuBtn'
 
 export default function Layout({ children }) {
   const [session, loading] = useSession()

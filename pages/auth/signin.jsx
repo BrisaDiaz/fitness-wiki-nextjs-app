@@ -1,9 +1,9 @@
 import Head from 'next/head'
 import { useSession } from 'next-auth/client'
 import useAuthentication from '@/hooks/useAuthentication'
-import AuthProviderButtons from '@/components/AuthProviderButtons'
-import SigninForm from '@/components/SigninForm'
-import AuthSection from '@/components/AuthSection'
+import AuthProviderButtons from '@/components/auth/AuthProviderButtons'
+import SigninForm from '@/components/auth/SigninForm'
+import AuthSection from '@/components/auth/AuthSection'
 
 export default function SignIn() {
   const { isLoading, LoadingComponent } = useAuthentication({

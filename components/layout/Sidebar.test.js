@@ -1,7 +1,7 @@
 import React from 'react'
 import { render, screen, act } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
-import Sidebar from './layout/Sidebar'
+import Sidebar from './Sidebar'
 const setIsNavOpen = jest.fn()
 jest.mock('next/router', () => ({
   useRouter() {

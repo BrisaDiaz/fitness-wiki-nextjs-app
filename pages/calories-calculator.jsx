@@ -1,7 +1,7 @@
 import Head from 'next/head'
 import { useSession } from 'next-auth/client'
 import useAuthentication from '../hooks/useAuthentication'
-import Calculator from '@/components/AMRcalculator'
+import Calculator from '@/components/calculators/AMRcalculator'
 export default function CaloriesCalculator() {
   const { isLoading, LoadingComponent } = useAuthentication({
     getSession: useSession,

@@ -2,7 +2,7 @@ import React from 'react'
 import { render, screen, act, fireEvent } from '@testing-library/react'
 import AMRcalculator from './AMRcalculator'
 import userEvent from '@testing-library/user-event'
-import getDailyKcals from '../utils/getDailyKcals'
+import getDailyKcals from '../../utils/getDailyKcals'
 
 const darkGreen = '#0595569'
 const lightGreen = '#6EE7B7'

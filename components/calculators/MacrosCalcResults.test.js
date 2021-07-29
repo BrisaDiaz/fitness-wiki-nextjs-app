@@ -1,7 +1,7 @@
 import MacrosCalcResults from './MacrosCalcResults'
 import React from 'react'
 import { render, screen } from '@testing-library/react'
-import mocks from '../mocks/mockMacrosCalculatorData'
+import mocks from '../../mocks/mockMacrosCalculatorData'
 
 const stylesExpect = mocks.fullCalculatorTest.colorResults
 const results = mocks.fullCalculatorTest.nutritionalPlanSection.expectResult

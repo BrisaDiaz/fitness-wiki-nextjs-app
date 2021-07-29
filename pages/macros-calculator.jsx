@@ -1,6 +1,6 @@
 import Head from 'next/head'
 import { useSession } from 'next-auth/client'
-import MacrosCalculator from '@/components/MacrosCalculator'
+import MacrosCalculator from '@/components/calculators/MacrosCalculatorosCalculator'
 import useAuthentication from '../hooks/useAuthentication'
 
 export default function MacrosCalculatorPage() {

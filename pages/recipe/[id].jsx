@@ -1,10 +1,10 @@
 import Head from 'next/head'
 import Image from 'next/image'
 import { getSession } from 'next-auth/client'
-import RecipeHeader from '@/components/RecipeHeader'
-import ListSheet from '@/components/ListSheet'
-import ListSheetItem from '@/components/ListSheetItem'
-import RecipeDirections from '@/components/RecipeDirections'
+import RecipeHeader from '@/components/recipe/RecipeHeader'
+import ListSheet from '@/components/recipe/ListSheet'
+import ListSheetItem from '@/components/recipe/ListSheetItem'
+import RecipeDirections from '@/components/recipe/RecipeDirections'
 const config = {
   method: 'GET',
   credentials: 'include',

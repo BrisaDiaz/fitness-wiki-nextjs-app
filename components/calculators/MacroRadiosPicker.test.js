@@ -1,9 +1,9 @@
 import React from 'react'
 import { render, screen, act, fireEvent } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
-import mocks from '../mocks/mockMacrosCalculatorData'
+import mocks from '../../mocks/mockMacrosCalculatorData'
 import MacroRadiosPicker from './MacroRadiosPicker'
-import getMacrosPerNutritionalPlan from '../utils/getMacrosPerNutritionalPlan'
+import getMacrosPerNutritionalPlan from '../../utils/getMacrosPerNutritionalPlan'
 
 jest.mock('../utils/getMacrosPerNutritionalPlan', () => jest.fn())
 

@@ -1,8 +1,8 @@
 import CaloriesPerGoaldCalculator from './CaloriesPerGoaldCalculator'
 import React from 'react'
 import { act, fireEvent, render, screen } from '@testing-library/react'
-import mocks from '../mocks/mockMacrosCalculatorData'
-import getCaloriesPerPhysicalGoald from '../utils/getCaloriesPerPhysicalGoald'
+import mocks from '../../mocks/mockMacrosCalculatorData'
+import getCaloriesPerPhysicalGoald from '../../utils/getCaloriesPerPhysicalGoald'
 import userEvent from '@testing-library/user-event'
 
 const dataReturn = mocks.fullCalculatorTest.goaldSection.expectResult
