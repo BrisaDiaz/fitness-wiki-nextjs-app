@@ -9,7 +9,7 @@ import SortComponent from '@/components/SortComponent'
 import SelectComponent from '@/components/SelectComponent'
 import FilterTable from '@/components/FilterTable'
 import PaginationComponent from '@/components/PaginationComponent'
-import * as constants from '@/consts/defaultQueryParams'
+import * as consts from '@/consts/defaultQueryParams'
 
 export default function SearchPage() {
   const { publicRuntimeConfig } = getConfig()
@@ -31,7 +31,7 @@ export default function SearchPage() {
   query.append('sort', sort)
   query.append('offset', offset)
   query.append('addRecipeNutrition', 'true')
-  query.append('number', constants.RESULTS_PER_PAGE)
+  query.append('number', consts.RESULTS_PER_PAGE)
 
   useEffect(() => {
     if (search !== '') {
@@ -48,26 +48,30 @@ export default function SearchPage() {
     }
   }, [search, diet, cuisine, type, sortDirection, sort])
 
-  useEffect(() => {
-    setIsLoading(true)
+  // useEffect(() => {
+  //   setIsLoading(true)
 
-    const url = `https://api.spoonacular.com/recipes/complexSearch?${query}`
-    console.log(query)
-    return fetch(url)
-      .then((response) => response.json())
-      .then((data) => {
-        setTotalResults(data.totalResults)
+  //   const url = `https://api.spoonacular.com/recipes/complexSearch?${query}`
+  //   console.log(query)
+  //   return fetch(url)
+  //     .then((response) => response.json())
+  //     .then((data) => {
+  //       setTotalResults(
+  //         data.totalResults <= consts.MAX_ALLOWED_RESULTS
+  //           ? data.totalResults
+  //           : consts.MAX_ALLOWED_RESULTS
+  //       )
 
-        setRecipes(data.results)
+  //       setRecipes(data.results)
 
-        setIsLoading(false)
-      })
-      .catch((error) => {
-        console.error(error)
-        setIsLoading(false)
-        return setServerError(true)
-      })
-  }, [cuisine, diet, type, sort, sortDirection, page, search])
+  //       setIsLoading(false)
+  //     })
+  //     .catch((error) => {
+  //       console.error(error)
+  //       setIsLoading(false)
+  //       return setServerError(true)
+  //     })
+  // }, [cuisine, diet, type, sort, sortDirection, page, search])
 
   return (
     <div>
@@ -95,7 +99,7 @@ export default function SearchPage() {
               onChange={(event) => setCuisine(event.target.value)}
               label="Cousine Type:"
               name="cousinType"
-              options={constants.COUSINE_OPTIONS}
+              options={consts.COUSINE_OPTIONS}
               globalOption="all"
             />
 
@@ -103,7 +107,7 @@ export default function SearchPage() {
               onChange={(event) => setType(event.target.value)}
               label="Meal Type:"
               name="mealType"
-              options={constants.TYPE_OPTIONS}
+              options={consts.TYPE_OPTIONS}
               globalOption="all"
             />
 
@@ -111,7 +115,7 @@ export default function SearchPage() {
               onChange={(event) => setDiet(event.target.value)}
               label="Diet Type:"
               name="dietType"
-              options={constants.DIET_OPTIONS}
+              options={consts.DIET_OPTIONS}
               globalOption="all"
             />
 
@@ -122,8 +126,8 @@ export default function SearchPage() {
               }
               label="Sort By:"
               name="sortType"
-              options={constants.SORT_OPTIONS}
-              directions={constants.SORT_DIRECIONS}
+              options={consts.SORT_OPTIONS}
+              directions={consts.SORT_DIRECIONS}
               sortDirection={sortDirection}
             />
           </>
@@ -146,13 +150,13 @@ export default function SearchPage() {
           </h2>
         )}
 
-        {totalResults > constants.RESULTS_PER_PAGE && (
+        {totalResults > consts.RESULTS_PER_PAGE && (
           <PaginationComponent
             page={page}
             setPage={setPage}
             totalResults={totalResults}
             setOffset={setOffset}
-            resultsPerPage={constants.RESULTS_PER_PAGE}
+            resultsPerPage={consts.RESULTS_PER_PAGE}
           />
         )}
       </section>
