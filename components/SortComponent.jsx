@@ -10,18 +10,22 @@ export default function SortComponent({
   sortDirection
 }) {
   return (
-    <div className="flex flex-row  gap-x-1">
-      <label htmlFor={name} className="mt-1">
+    <div className="flex flex-row  gap-x-1 w-full max-w-sm sm:max-w-xs">
+      <label htmlFor={name} className="mt-1  min-w-max">
         {label}
       </label>
 
       {directions.map((direction) => (
         <Fragment key={direction.value + direction.name}>
-          <label className="mt-1" htmlFor={direction.name} key={label}>
+          <label
+            className="mt-1 min-w-max"
+            htmlFor={direction.name}
+            key={label}
+          >
             {direction.name}
           </label>
           <input
-            className="focus:bg-green-500 self-center cursor-pointer"
+            className="focus:bg-green-500 self-center cursor-pointer min-w-max"
             checked={direction.value === sortDirection}
             onChange={onDirectionChange}
             type="radio"
@@ -33,7 +37,7 @@ export default function SortComponent({
         </Fragment>
       ))}
       <select
-        className="capitalize border border-solid border-gray-200 rounded p-1  px-2   shadow-sm  eading-tight focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-opacity-50 appearance-none"
+        className="capitalize border border-solid border-gray-200 rounded p-1  px-2   shadow-sm  eading-tight focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-opacity-50 appearance-none w-full"
         id={name}
         name={name}
         onChange={onSortChange}

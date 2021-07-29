@@ -1,6 +1,8 @@
 const withPWA = require('next-pwa')
+const path = require('path')
+const runtimeCaching = require('next-pwa/cache')
 
-module.exports = {
+module.exports = withPWA({
   reactStrictMode: true,
   publicRuntimeConfig: {
     API_KEY: process.env.API_KEY,
@@ -10,12 +12,13 @@ module.exports = {
     loader: 'imgix',
     path: 'https://noop/',
     domains: ['spoonacular.com']
-  }
-}
-module.exports = withPWA({
+  },
   pwa: {
     dest: 'public',
-    register: true,
-    skipWaiting: true
+    runtimeCaching
+  },
+  webpack: (config) => {
+    config.resolve.modules.push(path.resolve('./'))
+    return config
   }
 })

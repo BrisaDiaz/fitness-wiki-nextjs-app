@@ -15,6 +15,7 @@ export default function PaginationComponent({
       setOffset,
       resultsPerPage
     })
+
   return (
     <div className="flex flex-row justify-cente my-10  ">
       <div className="flex flex-row mx-auto w-auto  gap-2  font-semibold">
@@ -27,7 +28,28 @@ export default function PaginationComponent({
             Prev
           </button>
         )}
-
+        {pagesNumbers.includes(maxPage) && (
+          <>
+            <button
+              type="button"
+              className={
+                page === 1
+                  ? 'px-2 border-2 border-transparent   bg-green-400 shadow-md  rounded font-extrabold text-white transform scale-110 '
+                  : 'px-2  border-2 border-transparent shadow-md rounded hover:bg-gray-100'
+              }
+              onClick={() => handelSetPage(1)}
+            >
+              {1}
+            </button>
+            <button
+              type="button"
+              className="px-2  border-2 border-transparent shadow-md rounded "
+              value="..."
+            >
+              ...
+            </button>
+          </>
+        )}
         {pagesNumbers.map((number) => (
           <button
             key={number}
@@ -42,6 +64,28 @@ export default function PaginationComponent({
             {number}
           </button>
         ))}
+        {!pagesNumbers.includes(maxPage) && (
+          <>
+            <button
+              type="button"
+              className="px-2  border-2 border-transparent shadow-md rounded "
+              value="..."
+            >
+              ...
+            </button>
+            <button
+              type="button"
+              className={
+                page === maxPage
+                  ? 'px-2 border-2 border-transparent   bg-green-400 shadow-md  rounded font-extrabold text-white transform scale-110 '
+                  : 'px-2  border-2 border-transparent shadow-md rounded hover:bg-gray-100'
+              }
+              onClick={() => handelSetPage(maxPage)}
+            >
+              {maxPage}
+            </button>
+          </>
+        )}
         {page < maxPage && (
           <button
             type="button"

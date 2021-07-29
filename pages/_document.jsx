@@ -5,7 +5,7 @@ class MyDocument extends Document {
     return (
       <Html>
         <Head>
-          <meta charset="utf-8" />
+          <meta charSet="utf-8" />
           <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
 
           <link rel="manifest" href="/manifest.json" />

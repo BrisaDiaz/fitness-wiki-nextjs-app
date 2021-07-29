@@ -58,7 +58,7 @@ export default function Recicipe(props) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className="px-1 flex flex-col items-center mb-10">
-        <h1 className="text-center text-2xl md:text-3xl lg:text-4xl px-2 font-bold  my-8 text-green-400  ">
+        <h1 className="text-center text-2xl md:text-3xl lg:text-4xl px-2 font-bold  my-8 text-green-700  ">
           {recipe.title}
         </h1>
 

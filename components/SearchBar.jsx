@@ -4,7 +4,7 @@ export default function SeachBar({ onChange }) {
     <div className="flex flex-row justify-center my-5">
       <input
         placeholder="Search..."
-        className="relative shadow-md border p-2 py-3  rounded-lg border-solid border-gray-200  w-72  leading-tight focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-opacity-50 appearance-none "
+        className="relative shadow-md border p-2 py-3 -ml-1   rounded-lg border-solid border-gray-200  w-72  leading-tight focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-opacity-50 appearance-none "
         name="searchQuery"
         type="search"
         onChange={onChange}

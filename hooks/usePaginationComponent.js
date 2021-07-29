@@ -25,7 +25,7 @@ export default function usePaginationComponent({
 
   useEffect(() => {
     setMaxPage(Math.ceil(totalResults / resultsPerPage))
-  }, [totalResults, resultsPerPage, page])
+  }, [totalResults, resultsPerPage])
 
   const handlePrevious = () => {
     if (page - 1 > 1) {
@@ -65,5 +65,6 @@ export default function usePaginationComponent({
     setOffset((pageNumber - 1) * resultsPerPage)
     setPage(pageNumber)
   }
+
   return { handlePrevious, handleNext, handelSetPage, pagesNumbers, maxPage }
 }

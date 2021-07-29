@@ -63,7 +63,7 @@ export default function SearchPage() {
         setIsLoading(false)
       })
       .catch((error) => {
-        console.log(error)
+        console.error(error)
         setIsLoading(false)
         return setServerError(true)
       })
@@ -86,7 +86,7 @@ export default function SearchPage() {
       </Head>
 
       <section className="px-1 max-w-1000 mx-auto  mb-10">
-        <h2 className="text-center pb-16 pt-10  text-2xl md:text-3xl lg:text-4xl px-2 l font-bold text-green-700 mb-10 ">
+        <h2 className="text-center pb-10 pt-10  text-2xl md:text-3xl lg:text-4xl px-2 l font-bold text-green-700  ">
           Let us help you find the perfect meal for today!!
         </h2>
         <FilterTable>
@@ -141,7 +141,7 @@ export default function SearchPage() {
         )}
 
         {serverError && (
-          <h2 className="mt-2 text-green-400 text-2xl font-bold">
+          <h2 className="mt-2 text-green-500 text-2xl font-bold text-center">
             Something went wrong
           </h2>
         )}

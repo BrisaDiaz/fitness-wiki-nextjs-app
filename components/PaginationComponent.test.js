@@ -22,6 +22,8 @@ it('diplays the correct buttons', () => {
   expect(screen.getByText('1')).toBeInTheDocument()
   expect(screen.getByText('2')).toBeInTheDocument()
   expect(screen.getByText('3')).toBeInTheDocument()
+  expect(screen.getByText('...')).toBeInTheDocument()
+  expect(screen.getByText('5')).toBeInTheDocument()
   expect(screen.queryByText('4')).not.toBeInTheDocument()
   expect(screen.getByRole('button', { name: 'Next' })).toBeInTheDocument()
   expect(screen.queryByRole('button', { name: 'Prev' })).not.toBeInTheDocument()
@@ -43,7 +45,8 @@ it('call functions with correct values and sentralized  select number when click
   render(<PaginationComponent page={5} {...props} />)
 
   expect(screen.queryByRole('button', { name: 'Next' })).not.toBeInTheDocument()
-
+  expect(screen.getByText('...')).toBeInTheDocument()
+  expect(screen.getByText('1')).toBeInTheDocument()
   await act(async () =>
     userEvent.click(screen.getByRole('button', { name: 'Prev' }))
   )
@@ -69,4 +72,20 @@ it('diplay next and prev buttons when there are prev and next page', () => {
   render(<PaginationComponent page={3} {...props} />)
   expect(screen.queryByRole('button', { name: 'Next' })).toBeInTheDocument()
   expect(screen.queryByRole('button', { name: 'Prev' })).toBeInTheDocument()
+})
+it('redirect last page', async () => {
+  render(<PaginationComponent page={1} {...props} />)
+  expect(screen.getByText('1')).toBeInTheDocument()
+  expect(screen.getByText('5')).toBeInTheDocument()
+
+  await act(async () => userEvent.click(screen.getByText('5')))
+  expect(setPage).toHaveBeenCalledWith(5)
+})
+it('redirect firs page', async () => {
+  render(<PaginationComponent page={5} {...props} />)
+
+  expect(screen.getByText('1')).toBeInTheDocument()
+  expect(screen.getByText('5')).toBeInTheDocument()
+  await act(async () => userEvent.click(screen.getByText('1')))
+  expect(setPage).toHaveBeenCalledWith(1)
 })

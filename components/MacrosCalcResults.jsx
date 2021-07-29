@@ -61,9 +61,9 @@ export default function MacrosCalcResults({
                   <title>{macro.name}Svg</title>
                   <path
                     fill={
-                      macro.value >= 0.5
+                      macro.value >= 50
                         ? '#10b981'
-                        : macro.value >= 0.25
+                        : macro.value >= 25
                         ? '#fbbf24'
                         : '#ef4444'
                     }
