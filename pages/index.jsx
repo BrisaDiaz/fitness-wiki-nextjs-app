@@ -11,7 +11,7 @@ export default function Home() {
           name="description"
           content="WikiFit is your trusted source for information on eating well and creating customs diet plans addjusted to your needs. "
         />
-     <meta
+        <meta
           name="keywords"
           content="kikifit,healthy,fitness,recipes, recipes step by step,fitness calculators,macros,calories,diet plans,fat loss,bulking,mass gain,breackfasts,meals,lunchs,snacks,preps"
         />
@@ -24,9 +24,9 @@ export default function Home() {
           </h1>
 
           <h1 className="text-center  text-xl sm:text-2xl px-2 font-semibold text-gray-500 self-align-bottom mb-10 sm:mb-16 hove:scale-105 bg-white rounded-full ">
-            Here you will find many easy to follow healthy and delicious recipes alongside
-             tools that will make it easy for you to add healthy habits to
-            your routine.
+            Here you will find many easy to follow healthy and delicious recipes
+            alongside tools that will make it easy for you to add healthy habits
+            to your routine.
           </h1>
 
           {/* image 1 */}

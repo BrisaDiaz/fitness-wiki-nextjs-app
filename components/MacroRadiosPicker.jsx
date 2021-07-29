@@ -1,4 +1,4 @@
-import MacrosForm from './MacrosForm'
+import MacroRadiosForm from './MacroRadiosForm'
 import CalculatorModeSwitch from './CalculatorModeSwitch'
 import PlanSelectorField from './PlanSelectorField'
 import consts from '../consts/calculatorConstants'
@@ -26,7 +26,7 @@ export default function MacroRadiosPicker({
           setNutritionalPlan={setNutritionalPlan}
         />
       ) : (
-        <MacrosForm setCustomPlan={setCustomPlan} setError={setError} />
+        <MacroRadiosForm setCustomPlan={setCustomPlan} setError={setError} />
       )}
     </div>
   )

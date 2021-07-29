@@ -1,47 +1,16 @@
+import useMacroRadiosForm from '../hooks/useMacroRadiosForm'
 import FormButton from './FormButton'
-import consts from '../consts/calculatorConstants'
-import { useForm } from 'react-hook-form'
 
-export default function MacrosForm({ setCustomPlan, setError }) {
-  const { register, handleSubmit } = useForm({
-    mode: 'onBlur'
-  })
-  const onSubmit = (data, e) => {
-    e.preventDefault()
-    setError(null)
-    const customProts = data.proteins * 1
-    const customFats = data.fats * 1
-    const customCarbs = data.carbs * 1
-
-    const totalPersentage = customCarbs + customProts + customFats
-
-    if (totalPersentage !== 100)
-      return setError('The macros must sum up to 100%')
-
-    const customPlan = {
-      name: 'custom plan',
-      macros: {
-        carbs: {
-          value: customCarbs
-        },
-        proteins: {
-          value: customProts
-        },
-        fats: {
-          value: customFats
-        }
-      }
-    }
-
-    setCustomPlan(customPlan)
-  }
+export default function MacroRadiosForm({ setCustomPlan, setError }) {
+  const { register, handleSubmit, onSubmit, DEFAULT_MACROS_INPUTS } =
+    useMacroRadiosForm({ setCustomPlan, setError })
   return (
     <form
       onSubmit={handleSubmit(onSubmit)}
       className="border border-gray-200 py-4 px-2 sm:px-4 shadow-md w-full"
     >
       <div className="flex gap-4 mb-6 flex-wrap justify-evenly ">
-        {consts.DEFAULT_MACROS_INPUTS.map((input) => (
+        {DEFAULT_MACROS_INPUTS.map((input) => (
           <div key={input.info} className="flex gap-2 justify-evenly flex-wrap">
             <div className="grid text-center justify-items-center text-gray-700">
               <label

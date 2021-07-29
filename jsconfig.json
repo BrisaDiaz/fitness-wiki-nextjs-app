@@ -19,6 +19,9 @@
       "@/consts/*": [
               "consts/*"
             ],
+                "@/hooks/*": [
+              "hooks/*"
+            ],
       "@/middlewares/*": [
         "middlewares/*"
       ],
