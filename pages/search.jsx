@@ -8,6 +8,7 @@ import SearchBar from '@/components/SearchBar'
 import SortComponent from '@/components/SortComponent'
 import SelectComponent from '@/components/SelectComponent'
 import FilterTable from '@/components/FilterTable'
+import ListItems from '@/components/ListItems'
 import PaginationComponent from '@/components/PaginationComponent'
 import * as consts from '@/consts/defaultQueryParams'
 
@@ -20,6 +21,7 @@ export default function SearchPage() {
   const [diet, setDiet] = useState('all')
   const [type, setType] = useState('all')
   const [offset, setOffset] = useState(0)
+  const [excludeIngredients, setExcludeIngredients] = useState([])
   const [totalResults, setTotalResults] = useState(0)
   const [sort, setSort] = useState('popularity')
   const [sortDirection, setSortDirection] = useState('desc')
@@ -46,32 +48,44 @@ export default function SearchPage() {
     if (type !== 'all') {
       query.append('type', type)
     }
-  }, [search, diet, cuisine, type, sortDirection, sort])
+    if (excludeIngredients.length > 0) {
+      query.append('excludeIngredients', excludeIngredients.join(','))
+    }
+  }, [search, diet, cuisine, type, sortDirection, sort, excludeIngredients])
 
-  // useEffect(() => {
-  //   setIsLoading(true)
+  useEffect(() => {
+    setIsLoading(true)
 
-  //   const url = `https://api.spoonacular.com/recipes/complexSearch?${query}`
-  //   console.log(query)
-  //   return fetch(url)
-  //     .then((response) => response.json())
-  //     .then((data) => {
-  //       setTotalResults(
-  //         data.totalResults <= consts.MAX_ALLOWED_RESULTS
-  //           ? data.totalResults
-  //           : consts.MAX_ALLOWED_RESULTS
-  //       )
+    const url = `https://api.spoonacular.com/recipes/complexSearch?${query}`
+    console.log(query)
+    return fetch(url)
+      .then((response) => response.json())
+      .then((data) => {
+        setTotalResults(
+          data.totalResults <= consts.MAX_ALLOWED_RESULTS
+            ? data.totalResults
+            : consts.MAX_ALLOWED_RESULTS
+        )
 
-  //       setRecipes(data.results)
+        setRecipes(data.results)
 
-  //       setIsLoading(false)
-  //     })
-  //     .catch((error) => {
-  //       console.error(error)
-  //       setIsLoading(false)
-  //       return setServerError(true)
-  //     })
-  // }, [cuisine, diet, type, sort, sortDirection, page, search])
+        setIsLoading(false)
+      })
+      .catch((error) => {
+        console.error(error)
+        setIsLoading(false)
+        return setServerError(true)
+      })
+  }, [
+    cuisine,
+    diet,
+    type,
+    sort,
+    sortDirection,
+    page,
+    search,
+    excludeIngredients
+  ])
 
   return (
     <div>
@@ -132,6 +146,11 @@ export default function SearchPage() {
             />
           </>
         </FilterTable>
+
+        <ListItems
+          items={excludeIngredients}
+          setItems={setExcludeIngredients}
+        />
         <SearchBar onChange={(event) => setSearch(event.target.value)} />
         {isLoading && <LoadingHeart />}
         {recipes && recipes !== [] && !isLoading && (

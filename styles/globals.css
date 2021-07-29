@@ -11,7 +11,7 @@ body {
 .responsive-font {
   font-size: 14px;
 }
-@media screen and (min-width: 650px) {
+@media screen and (min-width: 450px) {
   .responsive-font {
     font-size: 16px;
   }
