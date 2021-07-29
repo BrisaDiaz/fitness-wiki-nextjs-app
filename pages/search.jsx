@@ -52,7 +52,7 @@ export default function SearchPage() {
     setIsLoading(true)
 
     const url = `https://api.spoonacular.com/recipes/complexSearch?${query}`
-
+    console.log(query)
     return fetch(url)
       .then((response) => response.json())
       .then((data) => {

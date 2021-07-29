@@ -30,7 +30,7 @@ export default function Home() {
           </h1>
 
           {/* image 1 */}
-          <article className="group  relative bg-cover  bg-green-400 rounded-xl shadow-xl  bg-center  top-2/4 left-auto  w-9/12    sm:w-7/12 h-44  sm:h-80 lg:h-96 z-0 transition duration-500 ease-in transform hover:scale-105    animate-appearLeft flex items-center justify-center  ">
+          <article className="group  relative bg-cover  bg-green-400 rounded-xl shadow-xl  bg-center  top-2/4 left-auto  w-9/12    sm:w-7/12 h-44  sm:h-80 lg:h-96 z-0 transition duration-500 ease-in transform hover:scale-105    animate-appearLeft flex items-center justify-center  hover:z-30 ">
             <Image
               className="rounded-xl   "
               layout="fill"
@@ -39,7 +39,7 @@ export default function Home() {
               unoptimized={process.env.ENVIRONMENT !== 'PRODUCTION'}
             />
 
-            <h3 className="text-2xl sm:text-4xl lg:text-5xl  font-bold text-center relative z-30 opacity-0 group-hover:opacity-100 transition duration-300 transform group-hover:scale-105  w-full h-full  py-16 sm:py-28 text-green-700 group-hover:text-white border-b-2  text-shadow">
+            <h3 className="text-2xl sm:text-4xl lg:text-5xl  font-bold text-center relative z-10 hover:z-30 opacity-0 group-hover:opacity-100 transition duration-300 transform group-hover:scale-105  w-full h-full  py-16 sm:py-28 text-green-700 group-hover:text-white  text-shadow">
               Light breackfasts
             </h3>
           </article>
@@ -58,7 +58,7 @@ export default function Home() {
           </article>
 
           {/* image 3 */}
-          <article className="group relative h-44 bg-green-400 rounded-xl shadow-xl  bg-center bottom-0  left-0 w-9/12    sm:w-7/12 sm:h-80 lg:h-96 bg-cover z-0 -mt-10 sm:-mt-28 mb-2 transition duration-500 ease-in transform hover:scale-105  animate-appearLeft  ">
+          <article className="group relative h-44 bg-green-400 rounded-xl shadow-xl  bg-center bottom-0  left-0 w-9/12    sm:w-7/12 sm:h-80 lg:h-96 bg-cover z-0 -mt-10 sm:-mt-28 mb-2 transition duration-500 ease-in transform hover:scale-105 hover:z-30 animate-appearLeft  ">
             <Image
               className="rounded-xl "
               layout="fill"
