@@ -56,12 +56,12 @@ export default function MacrosCalculator() {
           Step 4: Analyze your results{' '}
         </h2>
         <h4 className=" text-gray-700 my-3 mb-4 text-2xl font-semibold text-center">
-          Caloric healthy ranges
+          Calorie healthy ranges
         </h4>
         <div className="px-1">
           <p>
-            The ranges are calculated based on the basic calories needs got from
-            the step 1.
+            The ranges are calculated based on the caloric needs got from the
+            step 1.
           </p>
           <p>
             If the step 1 is skipped, then a caloric need of 2000 Kcals/Day is
@@ -82,10 +82,27 @@ export default function MacrosCalculator() {
             <p>Not recommended</p>
           </div>
         </div>
-        <h4 className=" text-gray-700 mb-6 mt-4 text-2xl font-semibold text-center">
-          Macronutrient calorie radio
+        <h4 className=" text-gray-700 mb-4 mt-6 text-2xl font-semibold text-center">
+          Macronutrients ranges
         </h4>
-
+        <p className="px-1">
+          The amount of grams per macronutrient are calculated based on the
+          chosen range and the caloric value that 1gr of it contains.
+        </p>
+        <ul className="p-2 ">
+          <li>
+            <span className="font-semibold mr-1 text-gray-700">Carbs:</span>4
+            kcal/gr.
+          </li>
+          <li>
+            <span className="font-semibold mr-1 text-gray-700">Proteins:</span>4
+            kcal/gr.
+          </li>
+          <li>
+            <span className="font-semibold mr-1 text-gray-700">Fats:</span>9
+            kcal/gr.
+          </li>
+        </ul>
         <div className="pie mx-auto shadow-md text-white  tex-xl font-semibold">
           <p className="absolute z-20 bottom-1/4  right-0  mt-2 mr-10">
             0% - 19%
@@ -93,6 +110,10 @@ export default function MacrosCalculator() {
           <p className="absolute z-20 right-0 top-1/4 mr-8 ">20% - 49%</p>
           <p className="absolute z-20 left-0 top-1/2 ml-5 -mt-3">50% - 100%</p>
         </div>
+        <p className="text-sm mt-4 p-1 text-center">
+          {' '}
+          Visual representation of the macro caloric range.
+        </p>
       </section>
       <section className="max-w-xl w-full">
         <h2
