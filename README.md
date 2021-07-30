@@ -1,8 +1,9 @@
 # WikiFit Next.js Progresive web app
 
 ![image](https://drive.google.com/uc?export=view&id=1C6XlGbyr3g-YZflVbwNekK790VkfqiOA)
-![image](https://drive.google.com/uc?export=view&id=1bDKxC0BaP6GpSDPQRTsIcK8qC20APXrG)
+![image](https://drive.google.com/uc?export=view&id=1iBNayAUYoFY7aFrLx6-RrJUpnA2X9W71)
 ![image](https://drive.google.com/uc?export=view&id=1RUGDNK32Qj1hGVfHB48B1AQAarr-HzK5)
+![image](https://drive.google.com/uc?export=view&id=1Wl7xkB_3jtLkBKMY4qj7EOiGDE720fXD)
 
 ### Demo: https://fitness-wiki-nextjs-app.vercel.app
 
