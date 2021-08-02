@@ -9,7 +9,8 @@ export default function SideBar({ setIsNavOpen, isNavOpen }) {
   const menuLinks = [
     { name: 'Search Recipes', href: '/search' },
     { name: 'Calories Calculator', href: '/calories-calculator' },
-    { name: 'Macros Calculator', href: '/macros-calculator' }
+    { name: 'Macros Calculator', href: '/macros-calculator' },
+    { name: 'Meals Size Calculator', href: '/meals-size-calculator' }
   ]
   return (
     <>
@@ -24,7 +25,7 @@ export default function SideBar({ setIsNavOpen, isNavOpen }) {
             <li
               key={link.name}
               onClick={() => handleClick(link.href)}
-              className="text-center text-white text-2xl font-semibold cursor-pointer capitalize transition easy-in-out hover:animate-pulse mb-2"
+              className="text-center text-white text-xl font-semibold cursor-pointer capitalize transition easy-in-out px-2 hover:animate-pulse mb-2 whitespace-nowrap"
             >
               {link.name}
             </li>

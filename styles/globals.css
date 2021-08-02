@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 html,
 body {
   padding: 0;
@@ -81,4 +85,40 @@ a {
 
 .text-shadow {
   text-shadow: 1px 1px 0 #00000070;
+}
+
+.custom-radio-input:checked::after {
+  position: absolute;
+  content: ' ';
+  width: 60%;
+  height: 60%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #11a775;
+  border-radius: 50%;
+  z-index: 2;
+  cursor: pointer;
+}
+.custom-radio-input::before {
+  position: absolute;
+  content: ' ';
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 50%;
+  z-index: 1;
+  border-radius: 50%;
+  background: #fff;
+  border: 1.5px solid #059669;
+  box-shadow: 1px 1px 2px 0px #00000021;
+  cursor: pointer;
+}
+.custom-radio-input {
+  position: relative;
+  transform: scale(1.1);
+}
+.calculator-field-title {
+  @apply text-xl sm:text-2xl  font-semibold text-green-500 mb-6 bg-green-100 p-2 text-center shadow;
 }

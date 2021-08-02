@@ -8,11 +8,11 @@ const results = mocks.fullCalculatorTest.nutritionalPlanSection.expectResult
 
 const propsWithResults = {
   planResults: results,
-  error: null,
+  errors: [],
   defaultCalories: mocks.fullCalculatorTest.AMRSection.expectResult
 }
 const propsWithError = {
-  error: 'Macros sum must do up to 100',
+  errors: ['Macros sum must do up to 100'],
   planResults: {},
   defaultCalories: 2000
 }
@@ -38,5 +38,5 @@ it('displays results with correct values and styles', () => {
 })
 it('display an error message when custom macro radios not sum up to 100', () => {
   render(<MacrosCalcResults {...propsWithError} />)
-  expect(screen.getByText(propsWithError.error)).toBeInTheDocument()
+  expect(screen.getByText(propsWithError.errors[0])).toBeInTheDocument()
 })

@@ -1,21 +1,21 @@
 import useMacroRadiosForm from '../../hooks/useMacroRadiosForm'
 import FormButton from '../FormButton'
 
-export default function MacroRadiosForm({ setCustomPlan, setError }) {
+export default function MacroRadiosForm({ setCustomPlan, setErrors, errors }) {
   const { register, handleSubmit, onSubmit, DEFAULT_MACROS_INPUTS } =
-    useMacroRadiosForm({ setCustomPlan, setError })
+    useMacroRadiosForm({ setCustomPlan, setErrors, errors })
   return (
     <form
       onSubmit={handleSubmit(onSubmit)}
       className="border border-gray-200 py-4 px-2 sm:px-4 shadow-md w-full"
     >
-      <div className="flex gap-4 mb-6 flex-wrap justify-evenly ">
+      <div className="flex gap-1 mb-6 flex-wrap justify-evenly ">
         {DEFAULT_MACROS_INPUTS.map((input) => (
           <div key={input.info} className="flex gap-2 justify-evenly flex-wrap">
             <div className="grid text-center justify-items-center text-gray-700">
               <label
                 htmlFor={input.info}
-                className="text-2xl mr-auto text-green-500 font-semibold capitalize"
+                className="text-xl -ml-5   text-green-500 font-semibold capitalize "
               >
                 {input.info}
               </label>

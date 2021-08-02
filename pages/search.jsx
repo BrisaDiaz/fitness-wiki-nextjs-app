@@ -104,7 +104,7 @@ export default function SearchPage() {
       </Head>
 
       <section className="px-1 max-w-1000 mx-auto  mb-10">
-        <h2 className="text-center pb-10 pt-10  text-2xl md:text-3xl lg:text-4xl px-2 l font-bold text-green-700  ">
+        <h2 className="text-center pb-10 pt-12  text-3xl lg:text-4xl px-2 l font-bold text-green-700  ">
           Let us help you find the perfect meal for today!!
         </h2>
         <FilterTable>

@@ -10,7 +10,7 @@ export default function useMacroCalculator() {
   // switch predifined macros distribution or a custom
   const [planType, setPlanType] = useState('predifined')
   // error on user macros inputs
-  const [error, setError] = useState(null)
+  const [errors, setErrors] = useState([])
   // name of the plan select, default firs plan of the list
   const [nutritionalPlan, setNutritionalPlan] = useState(
     consts.NUTRITIONAL_PLANS[0].value
@@ -28,7 +28,6 @@ export default function useMacroCalculator() {
   // calculate the results for a predifined plan or custom plan
 
   useEffect(() => {
-    setError(null)
     planType === 'predifined'
       ? setPlanResults(
           getMacrosPerNutritionalPlan(goaldKcals, nutritionalPlan, planType)
@@ -44,10 +43,10 @@ export default function useMacroCalculator() {
     setNutritionalPlan,
     setCustomPlan,
     setGoaldKcals,
-    setError,
+    setErrors,
     goaldKcals,
     planType,
-    error,
+    errors,
     planResults,
     defaultCalories
   }

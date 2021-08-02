@@ -4,7 +4,7 @@ const widthDefaultMaitenanceRadiosResult = {
     { grams: 150, kals: 600, name: 'proteins', persentage: 30 },
     { grams: 44, kals: 400, name: 'fats', persentage: 20 }
   ],
-  planName: 'maintenance',
+  planName: 'custom plan',
   totalGrams: 444,
   totalKcals: 2000
 }

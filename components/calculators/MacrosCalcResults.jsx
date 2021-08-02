@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import getAdvice from '../../utils/getAdvicePerCaloriesAmmount'
 export default function MacrosCalcResults({
-  error,
+  errors,
   planResults,
   defaultCalories
 }) {
@@ -12,10 +12,15 @@ export default function MacrosCalcResults({
 
   return (
     <>
-      {error ? (
-        <h2 className="m-4 text-center text-red-500 text-lg font-semibold">
-          {error}
-        </h2>
+      {errors.length > 0 ? (
+        errors.map((error) => (
+          <h2
+            key={error}
+            className="m-4 text-center text-red-500 text-lg font-semibold"
+          >
+            {error}
+          </h2>
+        ))
       ) : (
         <div className="my-4 mt-10  flex flex-col sm:flex-row flex-wrap gap-2 gap-y-6 w-full justify-evenly  ">
           {planResults?.macros?.map((macro) => (

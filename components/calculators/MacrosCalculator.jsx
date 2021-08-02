@@ -11,34 +11,34 @@ export default function MacrosCalculator() {
     setNutritionalPlan,
     setCustomPlan,
     setGoaldKcals,
-    setError,
+    setErrors,
     goaldKcals,
     planType,
-    error,
+    errors,
     planResults,
     defaultCalories
   } = useMacroCalculator()
   return (
     <div className="flex flex-wrap max-w-7xl gap-x-4 gap-y-6 justify-center ">
       <section className="max-w-xl w-full">
-        <h2 className="text-xl sm:text-2xl  font-semibold text-green-500 mb-6 bg-green-100 p-2 text-center">
+        <h2 className="calculator-field-title ">
           Step 1: Calculate your daily calories required
         </h2>
         <AMRcalculator setCaloriesRequired={setDefaultCalories} />
       </section>
-      <section className="max-w-xl  w-full flex flex-col">
-        <h2 className="text-xl sm:text-2xl  font-semibold text-green-500 mb-6 bg-green-100 p-2 text-center">
+      <section className="max-w-xl  w-full flex flex-col ">
+        <h2 className="calculator-field-title ">
           Step 2: Choose your goals and intencity{' '}
         </h2>
-
-        <CaloriesPerGoaldCalculator
-          defaultCalories={defaultCalories}
-          goaldKcals={goaldKcals}
-          setGoaldKcals={setGoaldKcals}
-        />
-
+        <div className="mb-6">
+          <CaloriesPerGoaldCalculator
+            defaultCalories={defaultCalories}
+            goaldKcals={goaldKcals}
+            setGoaldKcals={setGoaldKcals}
+          />
+        </div>
         <section className="max-w-xl w-full">
-          <h2 className=" text-xl sm:text-2xl text-center font-semibold text-green-500 mb-6 mt-6 bg-green-100 p-2 ">
+          <h2 className=" calculator-field-title  ">
             Step 3: Select/Set your nutritional plan
           </h2>
           <MacroRadiosPicker
@@ -47,12 +47,13 @@ export default function MacrosCalculator() {
             setCustomPlan={setCustomPlan}
             planType={planType}
             planResults={planResults}
-            setError={setError}
+            setError={setErrors}
+            errors={errors}
           />
         </section>
       </section>
       <section className=" max-w-xl w-full  mb-4">
-        <h2 className="text-xl sm:text-2xl  font-semibold text-green-500 mb-4 bg-green-100 p-2 text-center">
+        <h2 className="calculator-field-title ">
           Step 4: Analyze your results{' '}
         </h2>
         <h4 className=" text-gray-700 my-3 mb-4 text-2xl font-semibold text-center">
@@ -118,16 +119,16 @@ export default function MacrosCalculator() {
       <section className="max-w-xl w-full">
         <h2
           className={'text-xl sm:text-2xl font-semibold  p-2 text-center  '.concat(
-            error
+            errors.length > 0
               ? 'text-red-500 mb-6 bg-red-100'
               : 'text-green-500 mb-6 bg-green-100'
           )}
         >
-          {error ? 'Error' : `Your results`}
+          {errors.length > 0 ? 'Error' : `Your results`}
         </h2>
         {/* Display the results or error message */}
         <MacrosCalcResults
-          error={error}
+          errors={errors}
           planResults={planResults}
           defaultCalories={defaultCalories}
         />

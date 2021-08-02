@@ -1,5 +1,5 @@
 import React from 'react'
-import { render, screen, act, fireEvent } from '@testing-library/react'
+import { render, screen, act } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import mocks from '../../mocks/mockMacrosCalculatorData'
 import MacroRadiosPicker from './MacroRadiosPicker'
@@ -14,19 +14,21 @@ const lightGreen = '#6EE7B7'
 const setPlanType = jest.fn(),
   setNutritionalPlan = jest.fn(),
   setCustomPlan = jest.fn(),
-  setError = jest.fn()
+  setErrors = jest.fn()
 
 const predifinedPlanProps = {
   setPlanType,
   setNutritionalPlan,
   planType: 'predifined',
+  errors: [],
   planResults: initialPlanResults
 }
 const customMacroRadiosProps = {
   setPlanType,
   setCustomPlan,
-  setError,
+  setErrors,
   planType: 'custom',
+  errors: [],
   planResults: {}
 }
 
@@ -80,82 +82,50 @@ describe('component on custom mode', () => {
     const protsInput = screen.getByTestId('proteinsRadio')
     const carbsInput = screen.getByTestId('carbsRadio')
     const fatsInput = screen.getByTestId('fatsRadio')
-    await act(async () =>
-      fireEvent.change(carbsInput, {
-        target: { value: 45 }
-      })
-    )
-    await act(async () =>
-      fireEvent.change(protsInput, {
-        target: { value: 45 }
-      })
-    )
-    await act(async () =>
-      fireEvent.change(fatsInput, {
-        target: { value: 45 }
-      })
-    )
+    await act(async () => userEvent.clear(carbsInput))
+    await act(async () => userEvent.clear(protsInput))
+    await act(async () => userEvent.clear(fatsInput))
+    await act(async () => userEvent.type(carbsInput, '45'))
+    await act(async () => userEvent.type(protsInput, '45'))
+    await act(async () => userEvent.type(fatsInput, '45'))
 
     await act(async () =>
       userEvent.click(screen.getByRole('button', 'Calculate'))
     )
 
-    expect(setError).toHaveBeenNthCalledWith(1, null)
-    expect(setError).toHaveBeenNthCalledWith(
-      2,
+    expect(setErrors).toHaveBeenLastCalledWith([
       'The macros must sum up to 100%'
-    )
-    await act(async () =>
-      fireEvent.change(carbsInput, {
-        target: { value: 15 }
-      })
-    )
-    await act(async () =>
-      fireEvent.change(protsInput, {
-        target: { value: 30 }
-      })
-    )
-    await act(async () =>
-      fireEvent.change(fatsInput, {
-        target: { value: 45 }
-      })
-    )
+    ])
+    await act(async () => userEvent.clear(carbsInput))
+    await act(async () => userEvent.clear(protsInput))
+    await act(async () => userEvent.clear(fatsInput))
+    await act(async () => userEvent.type(carbsInput, '15'))
+    await act(async () => userEvent.type(protsInput, '50'))
+    await act(async () => userEvent.type(fatsInput, '20'))
     await act(async () =>
       userEvent.click(screen.getByRole('button', 'Calculate'))
     )
 
-    expect(setError).toHaveBeenNthCalledWith(3, null)
-    expect(setError).toHaveBeenNthCalledWith(
-      4,
+    expect(setErrors).toHaveBeenLastCalledWith([
       'The macros must sum up to 100%'
-    )
+    ])
   })
   it('set a custom macro radio when the sum is up to 100', async () => {
     const protsInput = screen.getByTestId('proteinsRadio')
     const carbsInput = screen.getByTestId('carbsRadio')
     const fatsInput = screen.getByTestId('fatsRadio')
-    await act(async () =>
-      fireEvent.change(carbsInput, {
-        target: { value: 30 }
-      })
-    )
-    await act(async () =>
-      fireEvent.change(protsInput, {
-        target: { value: 50 }
-      })
-    )
-    await act(async () =>
-      fireEvent.change(fatsInput, {
-        target: { value: 20 }
-      })
-    )
+    await act(async () => userEvent.clear(carbsInput))
+    await act(async () => userEvent.clear(protsInput))
+    await act(async () => userEvent.clear(fatsInput))
+    await act(async () => userEvent.type(carbsInput, '30'))
+    await act(async () => userEvent.type(protsInput, '50'))
+    await act(async () => userEvent.type(fatsInput, '20'))
 
     await act(async () =>
       userEvent.click(screen.getByRole('button', 'Calculate'))
     )
-    expect(setCustomPlan.mock.calls.length).toBe(1)
 
-    expect(setCustomPlan).toHaveBeenCalledWith({
+    expect(setCustomPlan).toHaveBeenLastCalledWith({
       name: 'custom plan',
       macros: {
         carbs: {
