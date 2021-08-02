@@ -9,7 +9,8 @@ export default function useMealsSizeCalculator() {
     DEFAULT_DATA_TABLE,
     MEALS_FRECUENCIES,
     DEFAULT_WATER_INTAKE,
-    DEFAULT_FIBER_INTAKE
+    DEFAULT_FIBER_INTAKE,
+    ERRORS
   } = consts
   const [macroRadios, setMacrosRadios] = useState(DEFAULT_MACROS_RADIOS)
   const [errors, setErrors] = useState([])
@@ -20,11 +21,9 @@ export default function useMealsSizeCalculator() {
 
   const [waterIntake, setWaterIntake] = useState(DEFAULT_WATER_INTAKE)
   useEffect(() => {
-    const caloriesError =
-      'The daily caloric intake should be equal or greater than 1200.'
-    const cleanError = errors.filter((error) => error !== caloriesError)
-    if (totalKcals * 1 < 1200 && errors.indexOf(caloriesError) === -1)
-      return setErrors([...errors, caloriesError])
+    const cleanError = errors.filter((error) => error !== ERRORS.calories)
+    if (totalKcals * 1 < 1200 && errors.indexOf(ERRORS.calories) === -1)
+      return setErrors([...errors, ERRORS.calories])
     if (totalKcals * 1 < 1200) return
     return setErrors(cleanError)
   }, [totalKcals])

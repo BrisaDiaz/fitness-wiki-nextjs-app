@@ -74,12 +74,13 @@ const DEFAULT_DATA_TABLE = {
   title: 'Suggested meals size for 3 meals and 2 snacks a day'
 }
 const DEFAULT_MACROS_RADIOS = {
+  name: 'custom plan',
   macros: {
     carbs: {
-      value: 30
+      value: 50
     },
     proteins: {
-      value: 50
+      value: 30
     },
     fats: {
       value: 20
@@ -92,12 +93,17 @@ const DEFAULT_WATER_INTAKE = {
   onces: 71
 }
 const DEFAULT_FIBER_INTAKE = 28
+const ERRORS = {
+  calories: 'The daily caloric intake should be equal or greater than 1200.',
+  macroRadios: 'The macros must sum up to 100%'
+}
 const data = {
   EXERCISE_INTENCITIES,
   METRIC_SYSTEMS,
   ACTIVITY_LEVELS,
   EQUATIONS,
   GENRES,
+  ERRORS,
   NUTRITIONAL_PLANS,
   PLAN_TYPES,
   DEFAULT_MACROS_INPUTS,

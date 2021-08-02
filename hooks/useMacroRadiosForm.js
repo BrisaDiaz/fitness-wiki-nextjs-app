@@ -2,14 +2,14 @@ import consts from '../consts/calculatorConstants'
 import { useForm } from 'react-hook-form'
 
 export default function MacroRadiosForm({ setCustomPlan, setErrors, errors }) {
-  const { DEFAULT_MACROS_INPUTS } = consts
+  const { DEFAULT_MACROS_INPUTS, ERRORS } = consts
   const { register, handleSubmit } = useForm({
     mode: 'onBlur'
   })
   const onSubmit = (data, e) => {
     e.preventDefault()
-    const radiosError = 'The macros must sum up to 100%'
-    const cleanError = errors.filter((error) => error !== radiosError)
+
+    const cleanError = errors.filter((error) => error !== ERRORS.macroRadios)
 
     const customProts = data.proteins * 1
     const customFats = data.fats * 1
@@ -17,7 +17,8 @@ export default function MacroRadiosForm({ setCustomPlan, setErrors, errors }) {
 
     const totalPersentage = customCarbs + customProts + customFats
 
-    if (totalPersentage !== 100) return setErrors([...errors, radiosError])
+    if (totalPersentage !== 100)
+      return setErrors([...errors, ERRORS.macroRadios])
 
     setErrors(cleanError)
 
