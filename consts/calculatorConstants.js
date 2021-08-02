@@ -54,6 +54,44 @@ const DEFAULT_MACROS_INPUTS = [
   { info: 'proteins', defaultValue: '30' },
   { info: 'fats', defaultValue: '20' }
 ]
+const MEALS_FRECUENCIES = [
+  { info: '3 Meals , 2 snacks', value: '3meals2snacks' },
+  { info: '3 Meals , 3 snacks', value: '3meals3snacks' },
+  { info: '5 Meals, equally split', value: '5meals' },
+  { info: '6 Meals, equally split', value: '6meals' },
+  { info: '5 Meals, tampered calories', value: '5taperedMeals' },
+  { info: '6 Meals, tampered calories', value: '6taperedMeals' }
+]
+const DEFAULT_DATA_TABLE = {
+  columns: ['Name', 'Total kcals', 'Total grams', 'Carbs', 'Proteins', 'Fats'],
+  data: [
+    ['meal 1', 500, '110 gr', '37 gr', '62 gr', '11 gr'],
+    ['snack 1', 250, '54 gr', '18 gr', '31 gr', '5 gr'],
+    ['meal 2', 500, '110 gr', '37 gr', '62 gr', '11 gr'],
+    ['snack 2', 250, '54 gr', '18 gr', '31 gr', '5 gr'],
+    ['meal 3', 500, '110 gr', '37 gr', '62 gr', '11 gr']
+  ],
+  title: 'Suggested meals size for 3 meals and 2 snacks a day'
+}
+const DEFAULT_MACROS_RADIOS = {
+  macros: {
+    carbs: {
+      value: 30
+    },
+    proteins: {
+      value: 50
+    },
+    fats: {
+      value: 20
+    }
+  }
+}
+const DEFAULT_WATER_INTAKE = {
+  cups: 9,
+  liters: '2.1',
+  onces: 71
+}
+const DEFAULT_FIBER_INTAKE = 28
 const data = {
   EXERCISE_INTENCITIES,
   METRIC_SYSTEMS,
@@ -62,6 +100,11 @@ const data = {
   GENRES,
   NUTRITIONAL_PLANS,
   PLAN_TYPES,
-  DEFAULT_MACROS_INPUTS
+  DEFAULT_MACROS_INPUTS,
+  MEALS_FRECUENCIES,
+  DEFAULT_DATA_TABLE,
+  DEFAULT_MACROS_RADIOS,
+  DEFAULT_WATER_INTAKE,
+  DEFAULT_FIBER_INTAKE
 }
 export default data

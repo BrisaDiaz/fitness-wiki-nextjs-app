@@ -203,6 +203,7 @@ function with6taperedMealsFrecuency(calories, radios) {
 
 export default function getCaloriesPerMeal(calories, radios, frecuency) {
   let results
+
   if (frecuency === '3meals2snacks') {
     results = with3meals2snacksFrecuency(calories, radios)
   }
@@ -221,6 +222,7 @@ export default function getCaloriesPerMeal(calories, radios, frecuency) {
   if (frecuency === '6taperedMeals') {
     results = with6taperedMealsFrecuency(calories, radios)
   }
+
   results.dailyCalories = calories
   results.totalFiber = Math.floor((calories / 1000) * 14)
 

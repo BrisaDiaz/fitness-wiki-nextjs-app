@@ -8,7 +8,7 @@ export default function CaloriesCalculator() {
     redirectTo: '/auth/signin',
     mustHaveSession: true
   })
-  if (isLoading) return <LoadingComponent />
+  if (isLoading) return <LoadingComponent fullHeight />
   if (!isLoading)
     return (
       <>
@@ -27,8 +27,8 @@ export default function CaloriesCalculator() {
           />
           <link rel="icon" href="/favicon.ico" />
         </Head>
-        <section className="pb-16 pt-10 sm:pt-10 px-1 gap-x-2 mx-auto max-w-7xl">
-          <h1 className="text-2xl md:text-3xl lg:text-4xl px-2  text-green-700 text-center font-bold mb-10 ">
+        <section className="pb-16 pt-12 sm:pt-10 px-1 gap-x-2 mx-auto max-w-7xl">
+          <h1 className="text-3xl lg:text-4xl px-2  text-green-700 text-center font-bold mb-10 ">
             Calculate your daily caloric needs
           </h1>
           <section className="w-full flex flex-wrap gap-2">

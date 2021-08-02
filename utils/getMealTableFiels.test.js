@@ -4,13 +4,13 @@ import mocks from '../mocks/mockCaloriesPerMealData'
 const expectResult = {
   columns: ['Name', 'Total kcals', 'Total grams', 'Carbs', 'Proteins', 'Fats'],
   data: [
-    [['meal 1', 625, 137, 46, 78, 13]],
-    [['snack 1', 312, 68, 23, 39, 6]],
-    [['meal 2', 625, 137, 46, 78, 13]],
-    [['snack 2', 312, 68, 23, 39, 6]],
-    [['meal 3', 625, 137, 46, 78, 13]]
+    ['meal 1', 625, '137 gr', '46 gr', '78 gr', '13 gr'],
+    ['snack 1', 312, '68 gr', '23 gr', '39 gr', '6 gr'],
+    ['meal 2', 625, '137 gr', '46 gr', '78 gr', '13 gr'],
+    ['snack 2', 312, '68 gr', '23 gr', '39 gr', '6 gr'],
+    ['meal 3', 625, '137 gr', '46 gr', '78 gr', '13 gr']
   ],
-  title: 'Suggested meal sizes for 3 meals and 2 snacks'
+  title: 'Suggested meals size for 3 meals and 2 snacks a day'
 }
 
 it('return data formated correctly', () => {

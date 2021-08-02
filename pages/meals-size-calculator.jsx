@@ -1,9 +1,8 @@
 import Head from 'next/head'
 import { useSession } from 'next-auth/client'
-import MacrosCalculator from '@/components/calculators/MacrosCalculator'
 import useAuthentication from '../hooks/useAuthentication'
-
-export default function MacrosCalculatorPage() {
+import MealsSizeCalculator from '@/components/calculators/MealsSizeCalculator'
+export default function MealSizeCalculatorPage() {
   const { isLoading, LoadingComponent } = useAuthentication({
     getSession: useSession,
     redirectTo: '/auth/signin',
@@ -20,24 +19,24 @@ export default function MacrosCalculatorPage() {
             name="viewport"
             content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"
           />
-          <title>Macros calculator</title>
+          <title>Meals size calculator</title>
           <meta
             name="description"
-            content="This macro calculator estimates the macronutrient needs of a person based on their age, physical characteristics, activity level, and body weight goals. Also it allows you to set a macro distrubution rate base on ammount used for different diets or set a persolized rate on your own and in your results you get a feedback addjust to your profile."
+            content="This calculator returns a daily meal plan that includes calories per meal and your macronutrient grams according to the number of meals and the calorie intake per day provided, along with your results, you get an estimate of the amount of water and fiber that must consume."
           />
 
           <meta
             name="keywords"
-            content="macros,fat loss,bulking,mantain,vegetarian diet,keto diet, paleo diet,mediterranean diet,calorie needs,calories per day,daily caloric intake,calories formulas,calories calculator,harris benedict, mifflin jeor, weight loss formula,MBR,AMR,basal metabolic
-        rate,active metabolic rate"
+            content="macros,fat loss,bulking,mantain,vegetarian diet, iet, calories per day,daily caloric intake,calories formulas,calories calculator,calories per meals, macronutrients per meal,water intake,fiber intake"
           />
           <link rel="icon" href="/favicon.ico" />
         </Head>
         <div className="pb-10 pt-12  sm:pt-10 px-1 gap-x-2 mx-auto max-w-7xl overflow-y-hidden">
           <h1 className="text-3xl px-2  text-green-700 text-center font-bold mb-10 lg:text-4xl">
-            Calculate your ideal macronutriens intake
+            Calculate the size of your meals
           </h1>
-          <MacrosCalculator />
+
+          <MealsSizeCalculator />
         </div>
       </>
     )
