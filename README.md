@@ -42,7 +42,8 @@
 1. Responsive layout.
 1. Pagination.
 1. Reusable and tested components.
-1. Full test ARM and macros calculators with results visualización
+1. SSR and SSR convined with CSR.
+1. Full test ARM , macros and meal size calculators with results visualización.
 1. Fiter and Sorting.
 1. Query search.
 1. Recipe details Page.
