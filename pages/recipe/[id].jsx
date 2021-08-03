@@ -1,18 +1,12 @@
 import Head from 'next/head'
 import Image from 'next/image'
 import { getSession } from 'next-auth/client'
+import { getData } from '../../utils/spoonacularFetchConfig'
 import RecipeHeader from '@/components/recipe/RecipeHeader'
 import ListSheet from '@/components/recipe/ListSheet'
 import ListSheetItem from '@/components/recipe/ListSheetItem'
 import RecipeDirections from '@/components/recipe/RecipeDirections'
-const config = {
-  method: 'GET',
-  credentials: 'include',
-  headers: {
-    'User-Agent':
-      'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.164 Mobile Safari/537.36'
-  }
-}
+
 export default function Recicipe(props) {
   if (props.serverError)
     return (
@@ -130,23 +124,14 @@ export async function getServerSideProps({ query, req }) {
     }
   }
 
-  const recipeUrl = `https://api.spoonacular.com/recipes/${query.id}/information?apiKey=${process.env.API_KEY}&addRecipeInformation=true`
-
-  const equipmentUrl = `https://api.spoonacular.com/recipes/${query.id}/equipmentWidget.json?apiKey=${process.env.API_KEY}`
-
-  const [recipeResponse, equipmentResponse] = await Promise.all([
-    fetch(recipeUrl, config),
-    fetch(equipmentUrl, config)
+  const [recipe, equipment] = await Promise.all([
+    getData(`${query.id}/information`, 'addRecipeInformation=true'),
+    getData(`/${query.id}/equipmentWidget.json`)
   ])
-  const recipe = await recipeResponse.json()
-  const equipment = await equipmentResponse.json()
 
-  const nutritionUrl = `https://api.spoonacular.com/recipes/guessNutrition?apiKey=${process.env.API_KEY}&title=${recipe.title}`
+  const nutrition = await getData('guessNutrition', `title=${recipe.title}`)
 
-  const nutritionResponse = await fetch(nutritionUrl, config)
-  const nutrition = await nutritionResponse.json()
-
-  if (!recipeResponse.ok || !nutritionResponse.ok || !equipmentResponse.ok) {
+  if (!recipe || !equipment || !nutrition) {
     return {
       props: {
         serverError: true

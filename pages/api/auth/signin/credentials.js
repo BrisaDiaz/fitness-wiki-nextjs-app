@@ -28,8 +28,6 @@ export default async function signin(req, res) {
     return res.status(200).json({ user: userFound })
   } catch (error) {
     console.log(error)
-    return res
-      .status(500)
-      .json({ error: true, message: error || 'Server side error' })
+    return res.status(500).json({ error: true, message: 'Server side error' })
   }
 }

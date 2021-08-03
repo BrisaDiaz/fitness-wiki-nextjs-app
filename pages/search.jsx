@@ -2,6 +2,7 @@ import Head from 'next/head'
 import getConfig from 'next/config'
 import { useState, useEffect } from 'react'
 import { getSession } from 'next-auth/client'
+import { getData } from '../utils/spoonacularFetchConfig'
 import RecipeCard from '@/components/recipe/RecipeCard'
 import LoadingHeart from '@/components/LoadingHeart'
 import SearchBar from '@/components/SearchBar'
@@ -12,21 +13,23 @@ import ListItems from '@/components/ListItems'
 import PaginationComponent from '@/components/PaginationComponent'
 import * as consts from '@/consts/defaultQueryParams'
 
-export default function SearchPage() {
+export default function SearchPage({ initialRecipes, initialTotalResults }) {
+  console.log(initialRecipes)
   const { publicRuntimeConfig } = getConfig()
   const query = new URLSearchParams()
+  const [renderCount, setRenderCount] = useState(0)
   const [serverError, setServerError] = useState(false)
   const [search, setSearch] = useState('')
-  const [cuisine, setCuisine] = useState('all')
-  const [diet, setDiet] = useState('all')
-  const [type, setType] = useState('all')
+  const [cuisine, setCuisine] = useState('')
+  const [diet, setDiet] = useState('')
+  const [type, setType] = useState('')
   const [offset, setOffset] = useState(0)
   const [excludeIngredients, setExcludeIngredients] = useState([])
-  const [totalResults, setTotalResults] = useState(0)
-  const [sort, setSort] = useState('popularity')
+  const [totalResults, setTotalResults] = useState(initialTotalResults)
+  const [sort, setSort] = useState('healthiness')
   const [sortDirection, setSortDirection] = useState('desc')
-  const [recipes, setRecipes] = useState([])
-  const [isLoading, setIsLoading] = useState(true)
+  const [recipes, setRecipes] = useState(initialRecipes)
+  const [isLoading, setIsLoading] = useState(false)
   const [page, setPage] = useState(1)
   query.append('apiKey', publicRuntimeConfig.API_KEY)
   query.append('sortDirection', sortDirection)
@@ -36,16 +39,16 @@ export default function SearchPage() {
   query.append('number', consts.RESULTS_PER_PAGE)
 
   useEffect(() => {
-    if (search !== '') {
+    if (search) {
       query.append('query', search)
     }
-    if (diet !== 'all') {
+    if (diet) {
       query.append('diet', diet)
     }
-    if (cuisine !== 'all') {
+    if (cuisine) {
       query.append('cuisine', cuisine)
     }
-    if (type !== 'all') {
+    if (type) {
       query.append('type', type)
     }
     if (excludeIngredients.length > 0) {
@@ -54,10 +57,12 @@ export default function SearchPage() {
   }, [search, diet, cuisine, type, sortDirection, sort, excludeIngredients])
 
   useEffect(() => {
+    if (renderCount === 0) return setRenderCount(1)
+
     setIsLoading(true)
 
     const url = `https://api.spoonacular.com/recipes/complexSearch?${query}`
-    console.log(query)
+
     return fetch(url)
       .then((response) => response.json())
       .then((data) => {
@@ -192,7 +197,19 @@ export async function getServerSideProps({ req }) {
       }
     }
   }
+  const query = new URLSearchParams()
+  query.append('sortDirection', 'desc')
+  query.append('page', 1)
+  query.append('sort', 'healthiness')
+  query.append('offset', 0)
+  query.append('addRecipeNutrition', 'true')
+  query.append('number', consts.RESULTS_PER_PAGE)
+
+  const data = await getData('complexSearch', query)
   return {
-    props: {}
+    props: {
+      initialRecipes: data.results,
+      initialTotalResults: consts.MAX_ALLOWED_RESULTS
+    }
   }
 }
