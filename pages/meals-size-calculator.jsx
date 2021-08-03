@@ -2,6 +2,7 @@ import Head from 'next/head'
 import { useSession } from 'next-auth/client'
 import useAuthentication from '../hooks/useAuthentication'
 import MealsSizeCalculator from '@/components/calculators/MealsSizeCalculator'
+import DesclaimerText from '@/components/calculators/DesclaimerText'
 export default function MealSizeCalculatorPage() {
   const { isLoading, LoadingComponent } = useAuthentication({
     getSession: useSession,
@@ -31,12 +32,16 @@ export default function MealSizeCalculatorPage() {
           />
           <link rel="icon" href="/favicon.ico" />
         </Head>
-        <div className="pb-10 pt-12  sm:pt-10 px-1 gap-x-2 mx-auto max-w-7xl overflow-y-hidden">
+        <div className="pb-5 pt-12  sm:pt-10 px-1 gap-x-2 mx-auto max-w-7xl overflow-y-hidden">
           <h1 className="text-3xl px-2  text-green-700 text-center font-bold mb-10 lg:text-4xl">
             Calculate the size of your meals
           </h1>
 
-          <MealsSizeCalculator />
+          <MealsSizeCalculator>
+            <section className="pt-4 max-w-2xl  xl:max-w-6xl w-full mx-auto xl:-mt-5 ">
+              <DesclaimerText />
+            </section>
+          </MealsSizeCalculator>
         </div>
       </>
     )

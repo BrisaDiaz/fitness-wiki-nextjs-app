@@ -2,6 +2,7 @@ import Head from 'next/head'
 import { useSession } from 'next-auth/client'
 import useAuthentication from '../hooks/useAuthentication'
 import Calculator from '@/components/calculators/AMRcalculator'
+import DesclaimerText from '@/components/calculators/DesclaimerText'
 export default function CaloriesCalculator() {
   const { isLoading, LoadingComponent } = useAuthentication({
     getSession: useSession,
@@ -32,7 +33,11 @@ export default function CaloriesCalculator() {
             Calculate your daily caloric needs
           </h1>
           <section className="w-full flex flex-wrap gap-2">
-            <Calculator />
+            <div className="mx-auto w-full max-w-sm flex flex-col gap-2 ">
+              <Calculator />
+              <DesclaimerText />{' '}
+            </div>
+
             <article className="w-full px-1 sm:px-2 max-w-3xl leading-1 mt-8 mx-auto flex-1 ">
               <h2 className="text-2xl md:text-3xll  text-green-500 font-semibold mb-5 ">
                 {' '}

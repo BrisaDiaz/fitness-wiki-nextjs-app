@@ -11,7 +11,7 @@ export default function MacrosCalcResults({
   }, [planResults, defaultCalories])
 
   return (
-    <>
+    <div className="xl:py-6">
       {errors.length > 0 ? (
         errors.map((error) => (
           <h2
@@ -147,6 +147,6 @@ export default function MacrosCalcResults({
           </div>
         </div>
       )}
-    </>
+    </div>
   )
 }

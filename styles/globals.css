@@ -122,3 +122,9 @@ a {
 .calculator-field-title {
   @apply text-xl sm:text-2xl  font-semibold text-green-500 mb-6 bg-green-100 p-2 text-center shadow;
 }
+.calculator-field-container {
+  @apply max-w-2xl   xl:max-w-xl w-full;
+}
+.list-leyend {
+  @apply text-gray-700 font-semibold;
+}

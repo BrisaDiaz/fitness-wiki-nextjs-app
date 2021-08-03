@@ -2,7 +2,7 @@ import useMealsSizeCalculator from '../../hooks/useMealsSizeCalculator'
 import MacroRadiosForm from './MacroRadiosForm'
 import DataTable from './DataTable'
 import WaterIntakeCalculator from './WaterIntakeCalculator'
-export default function MealSizeCalculator() {
+export default function MealSizeCalculator({ children }) {
   const {
     setMacrosRadios,
     setErrors,
@@ -19,7 +19,7 @@ export default function MealSizeCalculator() {
 
   return (
     <div className="flex flex-wrap max-w-7xl gap-x-4  justify-center ">
-      <section className="max-w-xl w-full">
+      <section className="calculator-field-container">
         <h2 className="calculator-field-title ">
           Step 1: Set calories per day
         </h2>
@@ -68,7 +68,7 @@ export default function MealSizeCalculator() {
           {MEALS_FRECUENCIES.map((frecuency) => (
             <li
               key={frecuency.value}
-              className="flex gap-2 items-center mb-1 cursor-pointer font-semibold text-gray-600"
+              className="flex gap-2 items-center mb-1 cursor-pointer list-leyend "
             >
               <input
                 className=" custom-radio-input"
@@ -86,7 +86,7 @@ export default function MealSizeCalculator() {
           ))}
         </ul>
       </section>
-      <section className="max-w-xl w-full">
+      <section className="calculator-field-container">
         <h2
           className={'text-xl sm:text-2xl font-semibold  p-2 text-center shadow  '.concat(
             errors.length > 0
@@ -112,7 +112,7 @@ export default function MealSizeCalculator() {
             <h2 className="calculator-field-title mt-2">
               Aditional recomendations
             </h2>
-            <section className=" flex flex-col sm:flex-row flex-wrap gap-8 justify-center mx-auto pt-6">
+            <section className=" flex flex-col sm:flex-row flex-wrap gap-8 justify-center mx-auto py-6 ">
               <span className="font-semibold text-3xl sm:text-2xl text-gray-600 text-center">
                 {' '}
                 <div
@@ -186,9 +186,31 @@ export default function MealSizeCalculator() {
                 </div>
               </span>
             </section>
+            <div className="pl-2 pb-6 pt-2 grid gap-2 text-sm ">
+              <p>
+                <span className="text-green-700 font-semibold">
+                  Fiber intake:{' '}
+                </span>
+                The Academy of Nutrition and Dietetics recommends consuming
+                about 25-35 grams of total fiber per day, with 10-15 grams from
+                soluble fiber or 14g of fiber per 1,000 calories.
+              </p>
+
+              <p>
+                <span className="text-green-700 font-semibold">
+                  Water intake:{' '}
+                </span>
+                Water makes up an estimated 60% of your body weight. It is a
+                critical chemical component that your body depends on to
+                survive. In addition you should add 12 ounces of water to your
+                daily total for every 30 minutes that you work out.{' '}
+              </p>
+            </div>
           </>
         )}
       </section>
+
+      {children}
     </div>
   )
 }

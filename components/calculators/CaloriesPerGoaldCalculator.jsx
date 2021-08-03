@@ -17,7 +17,7 @@ export default function CaloriesPerGoaldCalculator({
   })
   return (
     <>
-      <div className="flex flex-wrap justify-center gap-4  ">
+      <div className="flex flex-wrap justify-center gap-4  max-w-xl w-full mx-auto ">
         {mainGoaldsValues?.map((goalOption) => (
           <div
             key={goalOption.title}

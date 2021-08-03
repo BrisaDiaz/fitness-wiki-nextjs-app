@@ -4,7 +4,7 @@ import CaloriesPerGoaldCalculator from './CaloriesPerGoaldCalculator'
 import MacroRadiosPicker from './MacroRadiosPicker'
 import MacrosCalcResults from './MacrosCalcResults'
 
-export default function MacrosCalculator() {
+export default function MacrosCalculator({ children }) {
   const {
     setDefaultCalories,
     setPlanType,
@@ -20,13 +20,13 @@ export default function MacrosCalculator() {
   } = useMacroCalculator()
   return (
     <div className="flex flex-wrap max-w-7xl gap-x-4 gap-y-6 justify-center ">
-      <section className="max-w-xl w-full">
+      <section className="calculator-field-container">
         <h2 className="calculator-field-title ">
           Step 1: Calculate your daily calories required
         </h2>
         <AMRcalculator setCaloriesRequired={setDefaultCalories} />
       </section>
-      <section className="max-w-xl  w-full flex flex-col ">
+      <section className="calculator-field-container flex flex-col ">
         <h2 className="calculator-field-title ">
           Step 2: Choose your goals and intencity{' '}
         </h2>
@@ -37,7 +37,7 @@ export default function MacrosCalculator() {
             setGoaldKcals={setGoaldKcals}
           />
         </div>
-        <section className="max-w-xl w-full">
+        <section className="max-w-2xl  xl:max-w-xl w-full">
           <h2 className=" calculator-field-title  ">
             Step 3: Select/Set your nutritional plan
           </h2>
@@ -52,7 +52,7 @@ export default function MacrosCalculator() {
           />
         </section>
       </section>
-      <section className=" max-w-xl w-full  mb-4">
+      <section className="calculator-field-container  mb-4">
         <h2 className="calculator-field-title ">
           Step 4: Analyze your results{' '}
         </h2>
@@ -84,7 +84,7 @@ export default function MacrosCalculator() {
           </div>
         </div>
         <h4 className=" text-gray-700 mb-4 mt-6 text-2xl font-semibold text-center">
-          Macronutrients ranges
+          Macronutrients Radios
         </h4>
         <p className="px-1">
           The amount of grams per macronutrient are calculated based on the
@@ -113,25 +113,27 @@ export default function MacrosCalculator() {
         </div>
         <p className="text-sm mt-4 p-1 text-center">
           {' '}
-          Visual representation of the macro caloric range.
+          Visual representation of the macro caloric redio.
         </p>
       </section>
-      <section className="max-w-xl w-full">
+      <section className="calculator-field-container ">
         <h2
           className={'text-xl sm:text-2xl font-semibold  p-2 text-center  '.concat(
             errors.length > 0
               ? 'text-red-500 mb-6 bg-red-100'
-              : 'text-green-500 mb-6 bg-green-100'
+              : 'calculator-field-title '
           )}
         >
           {errors.length > 0 ? 'Error' : `Your results`}
         </h2>
         {/* Display the results or error message */}
+
         <MacrosCalcResults
           errors={errors}
           planResults={planResults}
           defaultCalories={defaultCalories}
         />
+        {children}
       </section>
     </div>
   )
