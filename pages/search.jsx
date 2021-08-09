@@ -20,9 +20,9 @@ export default function SearchPage({ initialRecipes, initialTotalResults }) {
   const [renderCount, setRenderCount] = useState(0)
   const [serverError, setServerError] = useState(false)
   const [search, setSearch] = useState('')
-  const [cuisine, setCuisine] = useState('')
-  const [diet, setDiet] = useState('')
-  const [type, setType] = useState('')
+  const [cuisine, setCuisine] = useState('all')
+  const [diet, setDiet] = useState('all')
+  const [type, setType] = useState('all')
   const [offset, setOffset] = useState(0)
   const [excludeIngredients, setExcludeIngredients] = useState([])
   const [totalResults, setTotalResults] = useState(initialTotalResults)
@@ -42,13 +42,13 @@ export default function SearchPage({ initialRecipes, initialTotalResults }) {
     if (search) {
       query.append('query', search)
     }
-    if (diet) {
+    if (diet != 'all') {
       query.append('diet', diet)
     }
-    if (cuisine) {
+    if (cuisine != 'all') {
       query.append('cuisine', cuisine)
     }
-    if (type) {
+    if (type != 'all') {
       query.append('type', type)
     }
     if (excludeIngredients.length > 0) {

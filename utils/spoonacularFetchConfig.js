@@ -8,7 +8,11 @@ export async function getData(endpoint, query) {
     }
   }
   const url = ` https://api.spoonacular.com/recipes/${endpoint}?apiKey=${process.env.API_KEY}&${query}`
+
   const response = await fetch(url, config)
+  if (!response.ok)
+    throw new Error(`httpError: ${response.status} ${response.statusText}`)
+
   const json = await response.json()
   return json
 }
