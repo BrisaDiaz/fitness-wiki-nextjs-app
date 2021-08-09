@@ -1,54 +1,8 @@
-class Meal {
-  constructor(kcals, radios) {
-    this.kcals = kcals
-    this.radios = radios
-  }
-  getProteins() {
-    const kals = Math.floor(this.kcals * (this.radios.proteins.value / 100))
-    const grams = Math.floor(kals / 4)
-    return {
-      kals,
-      grams
-    }
-  }
-  getCarbohydrates() {
-    const kals = Math.floor(this.kcals * (this.radios.carbs.value / 100))
-    const grams = Math.floor(kals / 4)
-    return {
-      kals,
-      grams
-    }
-  }
-  getFats() {
-    const kals = Math.floor(this.kcals * (this.radios.fats.value / 100))
-    const grams = Math.floor(kals / 9)
-    return {
-      kals,
-      grams
-    }
-  }
-  getTotalGrams() {
-    const totalGrams =
-      this.getProteins().grams +
-      this.getCarbohydrates().grams +
-      this.getFats().grams
-
-    return totalGrams
-  }
-  getMealInfo() {
-    return {
-      Totalkcals: Math.floor(this.kcals),
-      totalGrams: this.getTotalGrams(),
-      proteins: this.getProteins(),
-      carbs: this.getCarbohydrates(),
-      fats: this.getFats()
-    }
-  }
-}
+import { Meal } from './factories'
 
 function with3meals2snacksFrecuency(calories, radios) {
-  const mealInfo = new Meal((calories * 0.75) / 3, radios).getMealInfo()
-  const snacklInfo = new Meal((calories * 0.25) / 2, radios).getMealInfo()
+  const mealInfo = new Meal((calories * 0.75) / 3, radios)
+  const snacklInfo = new Meal((calories * 0.25) / 2, radios)
   const results = {
     frecuency: '3 meals and 2 snacks',
     meals: [
@@ -77,9 +31,9 @@ function with3meals2snacksFrecuency(calories, radios) {
   return results
 }
 function with3meals3snacksFrecuency(calories, radios) {
-  const meal1and2Info = new Meal((calories * 0.5) / 2, radios).getMealInfo()
-  const meal3Info = new Meal(calories * 0.2, radios).getMealInfo()
-  const snackInfo = new Meal((calories * 0.3) / 3, radios).getMealInfo()
+  const meal1and2Info = new Meal((calories * 0.5) / 2, radios)
+  const meal3Info = new Meal(calories * 0.2, radios)
+  const snackInfo = new Meal((calories * 0.3) / 3, radios)
 
   const results = {
     frecuency: '3 meals and 3 snacks',
@@ -114,7 +68,7 @@ function with3meals3snacksFrecuency(calories, radios) {
   return results
 }
 function withEquealMeals(mealsNumber, calories, radios) {
-  const mealInfo = new Meal(calories / mealsNumber, radios).getMealInfo()
+  const mealInfo = new Meal(calories / mealsNumber, radios)
 
   let meals = []
 
@@ -132,9 +86,9 @@ function withEquealMeals(mealsNumber, calories, radios) {
 }
 
 function with5taperedMealsFrecuency(calories, radios) {
-  const meal1and2Info = new Meal((calories * 0.5) / 2, radios).getMealInfo()
-  const meal3Info = new Meal(calories * 0.2, radios).getMealInfo()
-  const meal4and5Info = new Meal((calories * 0.3) / 2, radios).getMealInfo()
+  const meal1and2Info = new Meal((calories * 0.5) / 2, radios)
+  const meal3Info = new Meal(calories * 0.2, radios)
+  const meal4and5Info = new Meal((calories * 0.3) / 2, radios)
   const results = {
     frecuency: '5 meals tapering off calories',
     meals: [
@@ -163,11 +117,11 @@ function with5taperedMealsFrecuency(calories, radios) {
   return results
 }
 function with6taperedMealsFrecuency(calories, radios) {
-  const meal1Info = new Meal(calories * 0.125, radios).getMealInfo()
+  const meal1Info = new Meal(calories * 0.125, radios)
   const rest = calories - calories * 0.125
-  const meal6Info = new Meal(rest * 0.225, radios).getMealInfo()
+  const meal6Info = new Meal(rest * 0.225, radios)
   const rest2 = calories - rest * 0.225
-  const meal3and4and5Info = new Meal(rest2 / 3, radios).getMealInfo()
+  const meal3and4and5Info = new Meal(rest2 / 3, radios)
 
   const results = {
     frecuency: '6 meals tapering off calories',

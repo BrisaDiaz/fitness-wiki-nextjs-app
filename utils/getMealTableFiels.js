@@ -11,7 +11,7 @@ export default function getDataFormated(rawData) {
     ],
     data: rawData.meals.map((meal) => [
       meal.name,
-      meal.info.Totalkcals,
+      meal.info.totalkcals,
       meal.info.totalGrams + ' gr',
       meal.info.carbs.grams + ' gr',
       meal.info.proteins.grams + ' gr',

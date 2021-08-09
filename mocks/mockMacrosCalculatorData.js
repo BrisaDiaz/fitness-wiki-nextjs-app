@@ -1,8 +1,20 @@
 const widthDefaultMaitenanceRadiosResult = {
   macros: [
-    { grams: 250, kals: 1000, name: 'carbs', persentage: 50 },
-    { grams: 150, kals: 600, name: 'proteins', persentage: 30 },
-    { grams: 44, kals: 400, name: 'fats', persentage: 20 }
+    {
+      caloriesPerGram: 4,
+      grams: 150,
+      kals: 600,
+      name: 'proteins',
+      persentage: 30
+    },
+    {
+      caloriesPerGram: 4,
+      grams: 250,
+      kals: 1000,
+      name: 'carbs',
+      persentage: 50
+    },
+    { caloriesPerGram: 9, grams: 44, kals: 400, name: 'fats', persentage: 20 }
   ],
   planName: 'custom plan',
   totalGrams: 444,
@@ -24,29 +36,26 @@ const customMacrosRadiosTest = {
     }
   },
   expectResult: {
-    planName: 'custom plan',
-    totalGrams: 444,
-    totalKcals: 2000,
     macros: [
       {
-        grams: 150,
-        kals: 600,
-        name: 'carbs',
-        persentage: 30
-      },
-      {
+        caloriesPerGram: 4,
         grams: 250,
         kals: 1000,
         name: 'proteins',
         persentage: 50
       },
       {
-        grams: 44,
-        kals: 400,
-        name: 'fats',
-        persentage: 20
-      }
-    ]
+        caloriesPerGram: 4,
+        grams: 150,
+        kals: 600,
+        name: 'carbs',
+        persentage: 30
+      },
+      { caloriesPerGram: 9, grams: 44, kals: 400, name: 'fats', persentage: 20 }
+    ],
+    planName: 'custom plan',
+    totalGrams: 444,
+    totalKcals: 2000
   }
 }
 
@@ -55,23 +64,20 @@ const predifinedPlanTest = {
   expectResult: {
     macros: [
       {
-        grams: 285,
-        kals: 1140,
-        name: 'carbs',
-        persentage: 57
-      },
-      {
+        caloriesPerGram: 4,
         grams: 85,
         kals: 340,
         name: 'proteins',
         persentage: 17
       },
       {
-        grams: 68,
-        kals: 620,
-        name: 'fats',
-        persentage: 31
-      }
+        caloriesPerGram: 4,
+        grams: 285,
+        kals: 1140,
+        name: 'carbs',
+        persentage: 57
+      },
+      { caloriesPerGram: 9, grams: 68, kals: 620, name: 'fats', persentage: 31 }
     ],
     planName: 'vegetarian',
     totalGrams: 438,
