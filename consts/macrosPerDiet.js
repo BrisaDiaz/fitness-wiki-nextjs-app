@@ -107,8 +107,9 @@ const MACROS_PER_DIET = {
       proteins: {
         value: 18
       },
-
-      value: 7
+      fats: {
+        value: 7
+      }
     }
   },
 
