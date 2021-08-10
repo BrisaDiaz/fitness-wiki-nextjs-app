@@ -7,7 +7,7 @@ export default function withUserValidations(handler) {
       const errors = getValidationErrors(req.body)
 
       if (errors.length > 0)
-        return res.status(404).json({ error: true, message: errors })
+        return res.status(400).json({ error: true, message: errors })
 
       const userFound = await prisma.user.findUnique({
         where: {
@@ -17,7 +17,7 @@ export default function withUserValidations(handler) {
 
       if (userFound)
         return res
-          .status(404)
+          .status(400)
           .json({ error: true, message: 'This email is already registred' })
 
       return handler(req, res)

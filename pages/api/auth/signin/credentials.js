@@ -7,7 +7,7 @@ export default async function signin(req, res) {
   const { email, password } = req.body
   if (!email || !password)
     return res
-      .status(404)
+      .status(400)
       .json({ error: true, message: 'Email and Password must be provided' })
   try {
     const userFound = await prisma.user.findUnique({
