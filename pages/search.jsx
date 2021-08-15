@@ -14,7 +14,6 @@ import PaginationComponent from '@/components/PaginationComponent'
 import * as consts from '@/consts/defaultQueryParams'
 
 export default function SearchPage({ initialRecipes, initialTotalResults }) {
-  console.log(initialRecipes)
   const { publicRuntimeConfig } = getConfig()
   const query = new URLSearchParams()
   const [renderCount, setRenderCount] = useState(0)
@@ -160,7 +159,7 @@ export default function SearchPage({ initialRecipes, initialTotalResults }) {
         {isLoading && <LoadingHeart />}
         {recipes && recipes !== [] && !isLoading && (
           <>
-            <section className="max-w-6xl mx-auto grid flex-col gap-3 flex-wrap md:grid-cols-2  justify-center  my-6  sm:px-5 lg:px-8 ">
+            <section className="sm:max-w-6xl mx-auto grid flex-col gap-3 flex-wrap md:grid-cols-2  justify-center  my-6  sm:px-5 lg:px-8 ">
               {recipes.map((recipe) => (
                 <RecipeCard key={recipe?.id} recipe={recipe} />
               ))}

@@ -18,8 +18,8 @@ export default function MealSizeCalculator({ children }) {
   } = useMealsSizeCalculator()
 
   return (
-    <div className="flex flex-wrap max-w-7xl gap-x-4  justify-center ">
-      <section className="calculator-field-container">
+    <div className="mx-auto flex flex-col flex-wrap max-w-7xl gap-x-4  justify-center items-center ">
+      <section className="calculator-field-container ">
         <h2 className="calculator-field-title ">
           Step 1: Set calories per day
         </h2>
@@ -64,7 +64,7 @@ export default function MealSizeCalculator({ children }) {
         <h2 className="calculator-field-title ">
           Step 4: Select your preferred meal frequency
         </h2>
-        <ul className="px-2 mb-6 ">
+        <ul className="px-6 mb-6 ">
           {MEALS_FRECUENCIES.map((frecuency) => (
             <li
               key={frecuency.value}

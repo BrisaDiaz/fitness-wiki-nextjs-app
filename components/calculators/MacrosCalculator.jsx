@@ -37,7 +37,7 @@ export default function MacrosCalculator({ children }) {
             setGoaldKcals={setGoaldKcals}
           />
         </div>
-        <section className="max-w-2xl  xl:max-w-xl w-full">
+        <section className="calculator-field-container">
           <h2 className=" calculator-field-title  ">
             Step 3: Select/Set your nutritional plan
           </h2>

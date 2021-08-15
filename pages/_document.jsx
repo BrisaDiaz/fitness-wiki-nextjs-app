@@ -5,8 +5,8 @@ class MyDocument extends Document {
     return (
       <Html>
         <Head>
-          <meta charSet="utf-8" />
-          <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
+          {/* <meta charSet="utf-8" />
+          <meta httpEquiv="X-UA-Compatible" content="IE=edge" /> */}
 
           <link rel="manifest" href="/manifest.json" />
           <link rel="apple-touch-icon" href="/icons/icon.png"></link>

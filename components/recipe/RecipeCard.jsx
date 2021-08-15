@@ -1,16 +1,24 @@
 import Link from 'next/link'
 import Image from 'next/image'
 export default function RecipeCard({ recipe }) {
+  const recipeData = {
+    image: recipe.image,
+    title: recipe.title,
+    servings: `${recipe?.servings} (${recipe?.nutrition?.weightPerServing?.amount} ${recipe?.nutrition?.weightPerServing?.unit})`,
+    diets: recipe?.diets.join(' - ') || 'unspecify',
+    readyInMinutes: recipe?.readyInMinutes,
+    calories: `${recipe?.nutrition?.nutrients[0]?.amount} ${recipe?.nutrition?.nutrients[0]?.unit}`
+  }
   return (
-    <article className=" pb-4 sm:p-4 flex flex-col sm:flex-row  sm:items-center border border-solid border-gray-200 shadow-md rounded max-w-xs sm:max-w-none h-auto transition ease-in-out transform hover:shadow-lg ">
+    <article className="w-72 mx-auto  pb-4 sm:p-4 flex flex-col sm:flex-row  sm:items-center shadow-md rounded sm:w-full h-auto transition ease-in-out transform hover:shadow-lg ">
       <div className=" mx-auto sm:mx-0 h-44 overflow-y-hidden w-full sm:w-3/12  relative flex items-center  sm:h-24  justify-center	rounded-t ">
         <Image
           unoptimized={process.env.ENVIRONMENT !== 'PRODUCTION'}
           className="rounded-t shadow mx-auto sm:self-center sm:rounded"
           width={320}
           height={260}
-          src={recipe?.image}
-          alt={recipe?.title}
+          src={recipeData?.image}
+          alt={recipeData?.title}
         />
       </div>
       <div className="flex flex-col justify-start px-3 w-full sm:w-9/12">
@@ -21,14 +29,14 @@ export default function RecipeCard({ recipe }) {
                 href="!#"
                 className=" text-lg  w-full leading-3 font-serif whitespace-nowrap  	 "
               >
-                {recipe?.title}
+                {recipeData?.title}
               </a>
             </Link>
           </div>
           <div className="flex flex-row  justify-between gap-x-2 flex-wrap w-full">
             <p className="opacity-80 leading-5 text-sm ">
               <span className="text-gray-600  ">Energy:</span>
-              {` ${recipe?.nutrition?.nutrients[0]?.amount} ${recipe?.nutrition?.nutrients[0]?.unit}`}
+              {` ${recipeData.calories}`}
             </p>
             <div className="flex flex-row  gap-1  ">
               <Image
@@ -40,18 +48,18 @@ export default function RecipeCard({ recipe }) {
                 alt="time"
               />
               <p className="opacity-80 leading-5 text-sm ">
-                {recipe?.readyInMinutes}
+                {recipeData?.readyInMinutes}
                 min
               </p>
             </div>
           </div>
           <p className="opacity-80 leading-5 text-sm ">
             <span className="text-gray-600  ">Servings:</span>
-            {` ${recipe?.servings} (${recipe?.nutrition?.weightPerServing?.amount} ${recipe?.nutrition?.weightPerServing?.unit})`}
+            {` ${recipeData?.servings}`}
           </p>
           <p className="opacity-80 eading-none text-sm ">
             <span className="text-gray-600 mr-1 ">Diets:</span>
-            {recipe?.diets.join(' - ') || 'unspecify'}
+            {recipeData?.diets}
           </p>
         </div>
       </div>
