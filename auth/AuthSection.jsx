@@ -1,7 +1,6 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import useSessionHandler from '../../hooks/useSessionHandler'
-import getConfig from 'next/config'
+import useSessionHandler from '../hooks/useSessionHandler'
 import { signIn } from 'next-auth/client'
 import FormSpinner from './FormSpinner'
 import FormErrors from './FormErrors'
@@ -14,8 +13,6 @@ export default function AuthSection({
   title,
   AuthProviderButtons
 }) {
-  const { publicRuntimeConfig } = getConfig()
-
   const {
     onSubmit,
     register,
@@ -24,9 +21,9 @@ export default function AuthSection({
     errors,
     isFormLoading,
     serverMessage
-  } = useSessionHandler({ publicRuntimeConfig, title, signIn })
+  } = useSessionHandler({ title, signIn })
   return (
-    <section className="w-full max-w-md  flex-none px-2 sm:px-5 py-4 mt-10">
+    <section className="w-full max-w-md  flex-none px-2 sm:px-5 p-4 mt-5">
       <div className="w-10 h-10 rounded-full bg-green-600 mx-auto flex items-center justify-center">
         <Image
           width={20}

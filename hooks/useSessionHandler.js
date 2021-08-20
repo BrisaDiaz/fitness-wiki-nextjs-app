@@ -1,12 +1,9 @@
 import { useRouter } from 'next/router'
 import { useState, useEffect } from 'react'
 import { useForm } from 'react-hook-form'
+import { POST } from './../utils/http'
 
-export default function useSessionHandler({
-  publicRuntimeConfig,
-  title,
-  signIn
-}) {
+export default function useSessionHandler({ title, signIn }) {
   const [isFormLoading, setIsFormLoading] = useState(false)
   const [serverMessage, setServerMessage] = useState(null)
   const router = useRouter()
@@ -27,10 +24,11 @@ export default function useSessionHandler({
     e.stopPropagation()
     e.preventDefault()
     setServerMessage(null)
-    router.replace('/auth/signin')
+
     setIsFormLoading(true)
 
     if (title === 'Sign In') {
+      router.replace('/auth/signin')
       const response = await signIn('credentials', {
         email: data.email,
         password: data.password,
@@ -40,23 +38,18 @@ export default function useSessionHandler({
       if (response.error)
         return setServerMessage(response.error || 'Server side error')
     } else {
-      const response = await fetch(
-        `${publicRuntimeConfig.HOST}/api/auth/signup`,
-        {
-          method: 'POST',
-          body: JSON.stringify(data),
-          headers: {
-            'Content-Type': 'application/json',
-            Acept: 'application/json'
-          }
-        }
-      )
-      const json = await response.json()
+      try {
+        console.log(data)
 
-      setIsFormLoading(false)
-      if (!response.ok)
-        return setServerMessage(json.message || 'Server side error')
-      router.push('/auth/signin')
+        await POST(`/auth/signup`, data)
+
+        setIsFormLoading(false)
+        router.push('/auth/signin')
+      } catch (error) {
+        setIsFormLoading(false)
+        console.log(error)
+        return setServerMessage('Server side error')
+      }
     }
   }
   return {

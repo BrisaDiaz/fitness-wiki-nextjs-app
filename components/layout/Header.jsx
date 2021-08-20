@@ -2,6 +2,13 @@ import Link from 'next/link'
 import Image from 'next/image'
 
 export default function Header({ session, loading, signOut }) {
+  const handleLogout = async () => {
+    try {
+      signOut()
+    } catch (error) {
+      console.log(error)
+    }
+  }
   return (
     <header className=" bg-green-600  px-2 py-4  sm:px-4 shadow-lg fixed  z-50 w-full">
       <nav className="flex justify-between   ">
@@ -42,7 +49,7 @@ export default function Header({ session, loading, signOut }) {
           ) : !loading ? (
             <a
               href="!#"
-              onClick={() => signOut()}
+              onClick={() => handleLogout()}
               className="text-lg font-semibold text-white   hover:animate-pulse "
             >
               Logout

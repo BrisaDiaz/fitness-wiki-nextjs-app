@@ -11,8 +11,8 @@
 
 ## Environment variables
 
-> - **_API_KEY_**= Authorization key from spoonacular account
-> - **_HOST_**= http://my-app.com
+> - **_API_KEY_**= Authorizationc key from spoonacular account
+> - **_HOST_**= http://my-app.om
 > - **_NEXTAUTH_URL_**= http://my-app.com
 > - **_AUTH_SECRET_**= SHA256 hash string
 > - **_JWT_SECRET_**= another SHA256 hash string
@@ -43,10 +43,12 @@
 1. Pagination.
 1. Reusable and tested components.
 1. SSR and SSR convined with CSR.
+1. CRUD operations
 1. Full test ARM , macros and meal size calculators with results visualización.
 1. Fiter and Sorting.
 1. Query search.
 1. Recipe details Page.
+1. User favorite recipes collections Pages.
 1. Pages with meta data.
 1. Real time form Validation.
 1. Server Responce diplay.

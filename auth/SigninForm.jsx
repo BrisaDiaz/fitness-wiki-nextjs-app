@@ -1,6 +1,6 @@
 import FormInput from './FormInput'
-import FormButton from '../FormButton'
-import validation from '../../utils/formInputValidations'
+import FormButton from '../components/FormButton'
+import validation from '../utils/formInputValidations'
 
 export default function SigninForm({
   handleSubmit,

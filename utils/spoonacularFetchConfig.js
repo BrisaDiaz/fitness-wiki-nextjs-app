@@ -14,5 +14,6 @@ export async function getData(endpoint, query) {
     throw new Error(`httpError: ${response.status} ${response.statusText}`)
 
   const json = await response.json()
+
   return json
 }

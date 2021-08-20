@@ -3,20 +3,56 @@
 
 datasource db {
   provider = "postgresql"
-  url      = env("DATABASE_URL")
+  url      = env("SHADOW_DATABASE_URL")
+
+
 }
 
 generator client {
   provider = "prisma-client-js"
-}
-model User {
-  id            Int       @default(autoincrement()) @id
-  first_name        String?
-  last_name   String?
-  email         String?   @unique
-  password   String?
-  createdAt     DateTime  @default(now()) @map(name: "created_at")
-  updatedAt     DateTime  @updatedAt @map(name: "updated_at")
 
-  @@map(name: "users")
+}
+
+model User {
+  id         Int      @id @default(autoincrement())
+  first_name String?
+  last_name  String?
+  email      String?  @unique
+  password   String?
+  recipes Recipe[]
+  collections Collection[]
+  createdAt  DateTime @default(now()) @map(name: "created_at")
+  updatedAt  DateTime @updatedAt @map(name: "updated_at")
+  @@map("users")
+
+}
+
+model Recipe {
+  id             Int          @id @default(autoincrement())
+  recipeId  Int? @unique
+  title           String?
+  calories      String?
+  servings       String?
+  diets          String?
+  image          String?
+  readyInMinutes Int?
+  collections    Collection[]
+  users          User[]
+  createdAt      DateTime     @default(now()) @map(name: "created_at")
+  updatedAt      DateTime     @updatedAt @map(name: "updated_at")
+
+
+}
+
+model Collection {
+  id        Int      @id @default(autoincrement())
+  name      String?
+  image     String?
+  length    Int?
+  user      User?    @relation(fields: [userId], references: [id])
+  userId    Int?
+  createdAt DateTime @default(now()) @map(name: "created_at")
+  updatedAt DateTime @updatedAt @map(name: "updated_at")
+  recipes Recipe[]
+
 }

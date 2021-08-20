@@ -58,7 +58,8 @@ module.exports = {
       // ...
       animation: ['hover', 'focus'],
       zIndex: ['hover', 'active'],
-      backdropBlur: ['hover', 'focus']
+      backdropBlur: ['hover', 'focus'],
+      display: ['group-hover']
     }
   },
   plugins: []

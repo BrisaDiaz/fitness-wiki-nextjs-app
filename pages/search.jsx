@@ -1,8 +1,18 @@
 import Head from 'next/head'
-import getConfig from 'next/config'
-import { useState, useEffect } from 'react'
-import { getSession } from 'next-auth/client'
-import { getData } from '../utils/spoonacularFetchConfig'
+import Image from 'next/image'
+import { useEffect, useState } from 'react'
+import { getSession, useSession } from 'next-auth/client'
+
+/// utils
+import { GET } from '@/utils/http'
+import getFormattedRecipe from '@/utils/getFormattedRecipe'
+
+/// hooks
+
+import useStoreRecipeModal from '@/hooks/useStoreRecipeModal'
+///constants
+import * as consts from '@/consts/defaultQueryParams'
+///components
 import RecipeCard from '@/components/recipe/RecipeCard'
 import LoadingHeart from '@/components/LoadingHeart'
 import SearchBar from '@/components/SearchBar'
@@ -11,26 +21,34 @@ import SelectComponent from '@/components/SelectComponent'
 import FilterTable from '@/components/FilterTable'
 import ListItems from '@/components/ListItems'
 import PaginationComponent from '@/components/PaginationComponent'
-import * as consts from '@/consts/defaultQueryParams'
-
-export default function SearchPage({ initialRecipes, initialTotalResults }) {
-  const { publicRuntimeConfig } = getConfig()
-  const query = new URLSearchParams()
+import AddToCollectionModal from '@/components/recipe/AddToCollectionModal'
+import StoreRecipeControlls from '@/components/recipe/StoreRecipeControlls'
+import SimpleInputModal from '@/components/SimpleInputModal'
+export default function SearchPage({
+  initialRecipes,
+  initialTotalResults,
+  collectionsList
+}) {
+  const [session] = useSession()
+  const token = session?.accessToken
+  /// preven fetch on mount
   const [renderCount, setRenderCount] = useState(0)
   const [serverError, setServerError] = useState(false)
   const [search, setSearch] = useState('')
   const [cuisine, setCuisine] = useState('all')
   const [diet, setDiet] = useState('all')
   const [type, setType] = useState('all')
+  const [page, setPage] = useState(1)
   const [offset, setOffset] = useState(0)
   const [excludeIngredients, setExcludeIngredients] = useState([])
-  const [totalResults, setTotalResults] = useState(initialTotalResults)
+  const [collections, setCollections] = useState(collectionsList || [])
+  const [totalResults, setTotalResults] = useState(initialTotalResults || 0)
   const [sort, setSort] = useState('healthiness')
   const [sortDirection, setSortDirection] = useState('desc')
-  const [recipes, setRecipes] = useState(initialRecipes)
+  const [recipes, setRecipes] = useState(initialRecipes || [])
   const [isLoading, setIsLoading] = useState(false)
-  const [page, setPage] = useState(1)
-  query.append('apiKey', publicRuntimeConfig.API_KEY)
+  /// url query
+  const query = new URLSearchParams()
   query.append('sortDirection', sortDirection)
   query.append('sort', sort)
   query.append('offset', offset)
@@ -58,13 +76,9 @@ export default function SearchPage({ initialRecipes, initialTotalResults }) {
   useEffect(() => {
     if (renderCount === 0) return setRenderCount(1)
 
-    setIsLoading(true)
-
-    const url = `https://api.spoonacular.com/recipes/complexSearch?${query}`
-
-    return fetch(url)
-      .then((response) => response.json())
-      .then((data) => {
+    const fetchMoreRecipes = async (query) => {
+      try {
+        const [data] = await GET(`/recipe?${query}`, token)
         setTotalResults(
           data.totalResults <= consts.MAX_ALLOWED_RESULTS
             ? data.totalResults
@@ -74,12 +88,14 @@ export default function SearchPage({ initialRecipes, initialTotalResults }) {
         setRecipes(data.results)
 
         setIsLoading(false)
-      })
-      .catch((error) => {
+      } catch (error) {
         console.error(error)
         setIsLoading(false)
         return setServerError(true)
-      })
+      }
+    }
+    setIsLoading(true)
+    fetchMoreRecipes(query, token)
   }, [
     cuisine,
     diet,
@@ -91,12 +107,30 @@ export default function SearchPage({ initialRecipes, initialTotalResults }) {
     excludeIngredients
   ])
 
+  const {
+    isStoringModalOpen,
+    storeModalRef,
+    isCreateModalOpen,
+    selectedRecipe,
+    createModalRef,
+    handleStoreInCollection,
+    setIsCreateModalOpen,
+    handleRecipeStage,
+    handleCreateAndStore
+  } = useStoreRecipeModal({
+    token,
+    setCollections,
+    collections,
+    recipes,
+    setRecipes
+  })
+
   return (
     <div>
       <Head>
         <title>Search</title>
 
-        <meata
+        <meta
           name="description"
           content="Discover our best healthy recipes, including breakfasts, lunches, dinners and snacks. Find dishes to fit with special diets and nutritional needs."
         />
@@ -157,14 +191,56 @@ export default function SearchPage({ initialRecipes, initialTotalResults }) {
         />
         <SearchBar onChange={(event) => setSearch(event.target.value)} />
         {isLoading && <LoadingHeart />}
+
         {recipes && recipes !== [] && !isLoading && (
-          <>
-            <section className="sm:max-w-6xl mx-auto grid flex-col gap-3 flex-wrap md:grid-cols-2  justify-center  my-6  sm:px-5 lg:px-8 ">
-              {recipes.map((recipe) => (
-                <RecipeCard key={recipe?.id} recipe={recipe} />
-              ))}
-            </section>
-          </>
+          <section className="sm:max-w-6xl mx-auto grid flex-col gap-3 flex-wrap md:grid-cols-2  justify-center   my-6  sm:px-5 lg:px-8 px-6">
+            {recipes.map(getFormattedRecipe).map((recipe) => (
+              <div className="relative" key={recipe?.id}>
+                {isStoringModalOpen && recipe?.id === selectedRecipe?.id && (
+                  <AddToCollectionModal
+                    refernce={storeModalRef}
+                    setCollection={handleStoreInCollection}
+                    toggleNewCollectionModal={() => setIsCreateModalOpen(true)}
+                    selectedRecipe={selectedRecipe}
+                    collections={collections}
+                  />
+                )}
+                {isCreateModalOpen && recipe?.id === selectedRecipe?.id && (
+                  <SimpleInputModal
+                    callback={async (newCollection) =>
+                      await handleCreateAndStore(newCollection)
+                    }
+                    title="Add a new collection"
+                    reference={isCreateModalOpen && createModalRef}
+                    inputOptions={{
+                      name: 'newCollection',
+                      type: 'text',
+                      placeholder: 'Enter name...'
+                    }}
+                  >
+                    <div className="w-28 h-28 bg-gray-400 rounded-full mx-auto my-6 sobject-cover overflow-hidden shadow-md">
+                      <Image
+                        unoptimized={process.env.ENVIRONMENT !== 'PRODUCTION'}
+                        className="rounded-xl  mx-auto "
+                        width={200}
+                        height={200}
+                        alt={selectedRecipe?.title || 'create collection'}
+                        src={
+                          selectedRecipe?.image || '/recipe-default-image.png'
+                        }
+                      />
+                    </div>
+                  </SimpleInputModal>
+                )}
+                <RecipeCard recipe={recipe}>
+                  <StoreRecipeControlls
+                    recipe={recipe}
+                    handleSelection={handleRecipeStage}
+                  />
+                </RecipeCard>
+              </div>
+            ))}
+          </section>
         )}
 
         {serverError && (
@@ -198,17 +274,21 @@ export async function getServerSideProps({ req }) {
   }
   const query = new URLSearchParams()
   query.append('sortDirection', 'desc')
-  query.append('page', 1)
   query.append('sort', 'healthiness')
   query.append('offset', 0)
   query.append('addRecipeNutrition', 'true')
   query.append('number', consts.RESULTS_PER_PAGE)
+  const [recipes] = await GET(`/recipe?${query}`, session.accessToken)
+  const [collectionsJson] = await GET('/collection', session.accessToken)
 
-  const data = await getData('complexSearch', query)
   return {
     props: {
-      initialRecipes: data.results,
-      initialTotalResults: consts.MAX_ALLOWED_RESULTS
+      initialRecipes: recipes.results || [],
+      initialTotalResults:
+        recipes.totalResults < consts.MAX_ALLOWED_RESULTS
+          ? recipes.totalResults
+          : consts.MAX_ALLOWED_RESULTS,
+      collectionsList: collectionsJson?.data || []
     }
   }
 }

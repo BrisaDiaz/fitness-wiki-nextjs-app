@@ -1,8 +1,8 @@
 import Head from 'next/head'
 import { useSession } from 'next-auth/client'
 import useAuthentication from '@/hooks/useAuthentication'
-import SignupForm from '@/components/auth/SignupForm'
-import AuthSection from '@/components/auth/AuthSection'
+import SignupForm from '@/auth/SignupForm'
+import AuthSection from '@/auth/AuthSection'
 
 export default function SingUp() {
   const { isLoading, LoadingComponent } = useAuthentication({

@@ -10,7 +10,8 @@ export default function SideBar({ setIsNavOpen, isNavOpen }) {
     { name: 'Search Recipes', href: '/search' },
     { name: 'Calories Calculator', href: '/calories-calculator' },
     { name: 'Macros Calculator', href: '/macros-calculator' },
-    { name: 'Meals Size Calculator', href: '/meals-size-calculator' }
+    { name: 'Meals Size Calculator', href: '/meals-size-calculator' },
+    { name: 'My Collections', href: '/collections' }
   ]
   return (
     <>

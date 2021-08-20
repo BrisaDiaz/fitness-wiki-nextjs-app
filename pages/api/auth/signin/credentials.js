@@ -1,5 +1,6 @@
 import prisma from '@/lib/prisma'
 import bcrypt from 'bcrypt'
+import jwt from 'jsonwebtoken'
 
 export default async function signin(req, res) {
   if (req.method !== 'POST')
@@ -24,8 +25,9 @@ export default async function signin(req, res) {
 
     if (!isCorrectPassword)
       return res.status(401).json({ error: true, message: 'Invalid password' })
+    const token = jwt.sign({ userId: userFound.id }, process.env.JWT_SECRET)
 
-    return res.status(200).json({ user: userFound })
+    return res.status(200).json({ user: userFound, token })
   } catch (error) {
     console.log(error)
     return res.status(500).json({ error: true, message: 'Server side error' })

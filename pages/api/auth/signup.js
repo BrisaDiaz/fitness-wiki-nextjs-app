@@ -1,11 +1,23 @@
 import prisma from '@/lib/prisma'
-import withUserValidations from '@/midlewares/withUserValidations'
+import withUserValidations from '@/middlewares/withUserValidations'
 import bcrypt from 'bcrypt'
 
 async function signup(req, res) {
+  if (req.method !== 'POST')
+    return res.status(403).json({ error: true, message: 'Method not allowed' })
+
   const { name, lastname, email, password } = req.body
 
   try {
+    const userFound = await prisma.user.findUnique({
+      where: {
+        email: email
+      }
+    })
+    if (userFound)
+      return res
+        .status(404)
+        .json({ error: true, message: 'This email is already registred' })
     const salt = await bcrypt.genSalt(10)
 
     const hashPassword = await bcrypt.hash(password, salt)

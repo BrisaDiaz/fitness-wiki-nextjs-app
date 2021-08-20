@@ -1,5 +1,6 @@
 import Head from 'next/head'
 import Image from 'next/image'
+import DefaultErrorPage from 'next/error'
 import { getSession } from 'next-auth/client'
 import { getData } from '../../utils/spoonacularFetchConfig'
 import RecipeHeader from '@/components/recipe/RecipeHeader'
@@ -8,12 +9,7 @@ import ListSheetItem from '@/components/recipe/ListSheetItem'
 import RecipeDirections from '@/components/recipe/RecipeDirections'
 
 export default function Recicipe(props) {
-  if (props.serverError)
-    return (
-      <h2 className="mt-2 text-green-400 text-2xl font-bold">
-        Something went wrong
-      </h2>
-    )
+  if (props.error) return <DefaultErrorPage statusCode={props.statusCode} />
 
   let { recipe, instructions, equipment, nutrition, ingredients } = props
 
@@ -128,16 +124,17 @@ export async function getServerSideProps({ query, req }) {
     getData(`${query.id}/information`, 'addRecipeInformation=true'),
     getData(`/${query.id}/equipmentWidget.json`)
   ])
-
-  const nutrition = await getData('guessNutrition', `title=${recipe.title}`)
-
-  if (!recipe || !equipment || !nutrition) {
+  if (recipe) {
     return {
       props: {
-        serverError: true
+        error: true,
+        statusCode: 404
       }
     }
   }
+
+  const nutrition = await getData('guessNutrition', `title=${recipe.title}`)
+
   let instructions = recipe?.analyzedInstructions[0]?.steps || null
   return {
     props: {

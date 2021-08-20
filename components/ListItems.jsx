@@ -1,5 +1,4 @@
 import FormButton from './FormButton'
-import AddInput from './AddInput'
 import useListItems from '../hooks/useListItems'
 
 export default function ListItems({ items, setItems }) {
@@ -14,14 +13,13 @@ export default function ListItems({ items, setItems }) {
         className="max-w-xs mx-auto w-72 "
       >
         <div className="flex items-end gap-2 justify-center ">
-          <AddInput
-            placeholder="Exclude ingredient..."
+          <input
+            className=" w-9/12 line-input "
             type="text"
+            autoComplete="off"
             name="newItem"
-            register={{
-              ...register('newItem', { required: false })
-            }}
-            lightStrock
+            placeholder="Exclude ingredient..."
+            {...register('newItem', { required: false })}
           />
 
           <div className="w-2/12 ">
