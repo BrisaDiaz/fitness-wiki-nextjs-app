@@ -17,6 +17,7 @@
 > - **_AUTH_SECRET_**= SHA256 hash string
 > - **_JWT_SECRET_**= another SHA256 hash string
 > - **_DATABASE_URL_**= your postgresql database url
+> - **SHADOW_DATABASE_URL**= your shadow database url
 > - **_GOOGLE_CLIENT_ID_**= Your google client id
 > - **_GOOGLE_CLIENT_SECRET_**= Your google client secret
 > - **_GITHUB_ID_**= Your github client id
@@ -43,7 +44,8 @@
 1. Pagination.
 1. Reusable and tested components.
 1. SSR and SSR convined with CSR.
-1. CRUD operations
+1. End to end tests.
+1. CRUD operations.
 1. Full test ARM , macros and meal size calculators with results visualización.
 1. Fiter and Sorting.
 1. Query search.

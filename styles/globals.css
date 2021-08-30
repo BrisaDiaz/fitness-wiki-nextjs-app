@@ -137,6 +137,12 @@ a {
 .modal-shape {
   @apply w-80  bg-white z-20 rounded-xl border border-gray-100 shadow-lg;
 }
+.btn-primary {
+  @apply w-full bg-green-600 hover:bg-green-700 px-2  pt-1 pb-1.5 rounded font-semibold text-white shadow hover:shadow-lg focus:ring-2 focus:ring-green-500 focus:ring-opacity-50;
+}
+.btn-secondary {
+  @apply w-full hover:bg-gray-100 px-2 pt-1 pb-1.5 text-gray-700 rounded font-semibold hover:text-white shadow hover:shadow-lg focus:ring-2 focus:ring-green-500 focus:ring-opacity-50;
+}
 .modal {
   @apply w-80 absolute transform -translate-x-2/4 -translate-y-2/4 left-2/4 top-2/4 bg-white z-20 rounded-xl border border-gray-100 shadow-lg;
 }

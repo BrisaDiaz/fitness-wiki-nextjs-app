@@ -1,6 +1,6 @@
 export default function DesclaimerText() {
   return (
-    <article className="p-1 sm:p-2 pb-4  my-16 shadow-md border-2 border-green-500 rounded relative z-10 bg-white mx-auto max-w-3xl">
+    <article className="p-2 pb-4  my-16 shadow-md border-2 border-green-500 rounded relative z-10 bg-white mx-auto max-w-3xl">
       <div className="w-28 h-28 mx-auto -mt-16 bg-white px-2">
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -18,8 +18,8 @@ export default function DesclaimerText() {
           />
         </svg>
       </div>
-      <div className="`p-2 sm:p-4 pt-0 ">
-        <h3 className="text-gray-500 text-2xl font-bold text-center uppercase mb-2 -mt-4  ">
+      <div className="`p-2 sm:p-4 sm:pt-0 pt-0 ">
+        <h3 className="text-gray-500 text-2xl font-bold text-center uppercase mb-4 -mt-4  ">
           desclaimer
         </h3>
 

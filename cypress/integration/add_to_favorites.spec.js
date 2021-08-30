@@ -18,9 +18,7 @@ describe('layout with session', () => {
     cy.get('[name="newCollection"]').type('my collection')
     cy.get('[name="newCollectionForm"]').find('[type="submit"]').click()
     cy.get('@recipeCard').trigger('mouseover')
-    cy.get('@recipeCard').find('a', 'my collection').as('myCollectionLink')
-
-    cy.get('@myCollectionLink').click()
+    cy.get('@recipeCard').find('[data-testid="my-collection-link"]').click()
     cy.wait(20000)
     cy.get('h1').should('have.text', 'my collection')
     cy.get('@recipeCard').should('be.visible')

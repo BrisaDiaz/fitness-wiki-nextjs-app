@@ -9,6 +9,8 @@ import { GET, POST, DELETE, PUT } from '@/utils/http'
 /// components
 import Image from 'next/image'
 import SimpleInputModal from '@/components/SimpleInputModal'
+import ConfirmationModal from '@/components/ConfirmationModal'
+import LoadingHeart from '@/components/LoadingHeart'
 import CollectionsCard from '@/components/recipe/CollectionsCard'
 import { AddButton } from '@/components/RoundedButtons'
 
@@ -21,15 +23,18 @@ export default function Collections({
   const query = new URLSearchParams()
   const [session] = useSession()
   const token = session?.accessToken
+
   const [collections, setCollections] = useState(initialCollections || [])
   const [isEditing, setIsEditing] = useState(false)
   const [isCreating, setIsCreating] = useState(false)
-  const [editingCollection, setEditingCollectiom] = useState({})
+  const [selectedCollection, setSelectedCollection] = useState({})
   const [page, setPage] = useState(1)
   const [offset, setOffset] = useState(0)
   const [totalResults, setTotalResults] = useState(initialTotalResults || 0)
   const [displayedResults, setDisplayedResults] = useState(RESULTS_PER_PAGE)
   const [removedCollections, setRemovedCollections] = useState([])
+  const [isConfirmationModalOpen, setIsConfirmationModalOpen] = useState(false)
+  const [isLoading, setIsLoading] = useState(false)
   query.append('offset', offset)
   query.append('number', RESULTS_PER_PAGE)
   const editingModalRef = useRef()
@@ -37,10 +42,14 @@ export default function Collections({
   const loadMoreSpierRef = useRef()
   const handleEditMode = (collection) => {
     setIsEditing(true)
-    setEditingCollectiom(collection)
+    setSelectedCollection(collection)
   }
   ////  delete the collection from state and database
-  const handleDelete = (collectionToDelete) => {
+  const handleDeleteMode = (collectionToDelete) => {
+    setSelectedCollection(collectionToDelete)
+    setIsConfirmationModalOpen(true)
+  }
+  const handleDelete = (response) => {
     const deleteCollection = async (id, token) => {
       try {
         await DELETE(`/collection/${id}`, token)
@@ -48,14 +57,10 @@ export default function Collections({
         console.log(error)
       }
     }
-    /// get confirmation
-    const response = confirm(
-      'If delete all recipes in the collection will be lost, are you sure?'
-    )
-
+    setIsConfirmationModalOpen(false)
     if (response) {
-      deleteCollection(collectionToDelete.id, token)
-      setRemovedCollections([...removedCollections, collectionToDelete.id])
+      deleteCollection(selectedCollection.id, token)
+      setRemovedCollections([...removedCollections, selectedCollection.id])
     }
   }
   /// rename the collection
@@ -69,12 +74,12 @@ export default function Collections({
       }
     }
     renameCollection(
-      editingCollection.id,
+      selectedCollection.id,
       { newName: CollectionNewName },
       token
     )
     const actualizedCollections = collections.map((collection) => {
-      if (collection.id === editingCollection.id) {
+      if (collection.id === selectedCollection.id) {
         collection.name = CollectionNewName
       }
       return collection
@@ -88,11 +93,14 @@ export default function Collections({
         const [json] = await POST('/collection', data, token)
 
         setCollections([...collections, json.data])
+        setIsLoading(false)
       } catch (error) {
         console.log(error)
       }
     }
+    setIsLoading(true)
     postCollection({ name: newCollectionName }, token)
+
     setIsCreating(false)
   }
   /// show and hide modals
@@ -176,9 +184,9 @@ export default function Collections({
                   <CollectionsCard
                     collection={collection}
                     handleEditMode={handleEditMode}
-                    handleDelete={handleDelete}
+                    handleDelete={handleDeleteMode}
                   />
-                  {isEditing && collection.id === editingCollection.id && (
+                  {isEditing && collection.id === selectedCollection.id && (
                     <SimpleInputModal
                       callback={handleRenameCollection}
                       title="Rename collection"
@@ -189,7 +197,7 @@ export default function Collections({
                       }
                       inputOptions={{
                         name: 'newName',
-                        defaultValue: editingCollection.name,
+                        defaultValue: selectedCollection.name,
                         type: 'text',
                         placeholder: 'New name...'
                       }}
@@ -205,6 +213,15 @@ export default function Collections({
           <h2 className="text-center text-xl mx-2 -mt-5 text-gray-600 ">
             Your collections inbox in empty.
           </h2>
+        )}
+        {isLoading && <LoadingHeart />}
+        {isConfirmationModalOpen && (
+          <ConfirmationModal
+            setResponse={handleDelete}
+            message={
+              'All the recipes store in the collection will be lost. Are you sure you want to procced?'
+            }
+          />
         )}
       </section>
     </>

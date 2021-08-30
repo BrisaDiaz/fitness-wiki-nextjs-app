@@ -1,5 +1,4 @@
 import prisma from '@/lib/prisma'
-import jwt from 'jsonwebtoken'
 
 export default async function signin(req, res) {
   if (req.method !== 'POST')
@@ -21,10 +20,7 @@ export default async function signin(req, res) {
         .status(404)
         .json({ error: true, message: 'This email is not registred' })
 
-    ///set cookie
-    const token = jwt.sign({ userId: userFound.id }, process.env.JWT_SECRET)
-
-    return res.status(200).json({ user: userFound, token })
+    return res.status(200).json({ user: userFound })
   } catch (error) {
     console.log(error)
     return res.status(500).json({ error: true, message: 'Server side error' })

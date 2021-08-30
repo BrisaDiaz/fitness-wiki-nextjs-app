@@ -18,8 +18,7 @@ export default NextAuth({
 
           return {
             name: user.first_name + ' ' + user.last_name,
-            email: user.email,
-            token: json.token
+            email: user.email
           }
         }
 
@@ -58,6 +57,7 @@ export default NextAuth({
       })
 
       if (response.ok && json.user) {
+        user.token = json.token
         return true
       }
       throw new Error(json.message || 'Server side error')
@@ -74,10 +74,7 @@ export default NextAuth({
     },
     async jwt(token, user) {
       if (user) {
-        token.user = {
-          name: user.name,
-          email: user.email
-        }
+        token.user = { name: user.name, email: user.email }
 
         token.accessToken = user.token
       }

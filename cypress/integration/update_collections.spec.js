@@ -26,6 +26,7 @@ describe('collection operations', () => {
       .should('have.text', 'rename collection')
     cy.get('@collection').trigger('mouseover')
     cy.get('@collection').find('[data-testid="deleteBtn"]').click()
+    cy.get('aside').find('[name="accept"]').click()
     cy.get('[data-testid="collectionCard"]', { timeoute: 3000 }).should(
       'have.length',
       1
@@ -35,7 +36,7 @@ describe('collection operations', () => {
     cy.get('[alt="populated collection"]', {
       timeoute: 3000
     }).click()
-    cy.wait(20000)
+    cy.wait(25000)
     cy.get('h1').should('have.text', 'populated collection')
     cy.get('section').find('h5', '3 recipes')
 
@@ -57,6 +58,7 @@ describe('collection operations', () => {
       .find('[data-testid="recipeCard"]:first')
       .trigger('mouseover')
     cy.get('[data-testid="deleteBtn"]').click()
+
     cy.get('section').find('h5', '1 recipes')
     cy.get('section')
       .find('[data-testid="recipeCard"]')
@@ -64,11 +66,9 @@ describe('collection operations', () => {
     cy.visit('/collections')
 
     cy.get('[alt="empty collection"]').click()
-    cy.wait(20000)
+    cy.wait(25000)
     cy.get('h1').should('have.text', 'empty collection')
     cy.get('section').find('h5', '1 recipes')
-    cy.get('section')
-      .find('[data-testid="recipeCard"]')
-      .should('have.length', 1)
+    cy.get('[data-testid="recipeCard"]').should('have.length', 1)
   })
 })

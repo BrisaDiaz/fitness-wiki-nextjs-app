@@ -37,6 +37,7 @@ export default function Home() {
               src="/healthy-breakfast-bg.jpg"
               alt="beakfasts"
               unoptimized={process.env.ENVIRONMENT !== 'PRODUCTION'}
+              priority={true}
             />
 
             <h3 className="text-2xl sm:text-4xl lg:text-5xl  font-bold text-center relative z-10 hover:z-30 opacity-0 group-hover:opacity-100 transition duration-300 transform group-hover:scale-105  w-full h-full  py-16 sm:py-28 text-green-700 group-hover:text-white  text-shadow">
@@ -50,6 +51,7 @@ export default function Home() {
               layout="fill"
               src="/healthy-drinks-bg.jpg"
               alt="beakfasts"
+              priority={true}
               unoptimized={process.env.ENVIRONMENT !== 'PRODUCTION'}
             />
             <h3 className="text-2xl sm:text-4xl  lg:text-5xl  font-bold text-center relative z-30 opacity-0 group-hover:opacity-100 transition duration-300 transform group-hover:scale-105  w-full h-full  py-16 sm:py-28  text-green-700 group-hover:text-white text-shadow">
@@ -65,6 +67,7 @@ export default function Home() {
               src="/healthy-pasta-bg.jpg"
               alt="beakfasts"
               unoptimized={process.env.ENVIRONMENT !== 'PRODUCTION'}
+              priority={true}
             />
             <h3 className="text-2xl sm:text-4xl lg:text-5xl font-bold text-center relative z-40 opacity-0 group-hover:opacity-100 transition duration-300 transform group-hover:scale-105  w-full h-full py-16 sm:py-28  text-green-700 group-hover:text-white text-shadow">
               Heathy dinners

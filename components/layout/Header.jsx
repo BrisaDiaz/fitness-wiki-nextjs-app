@@ -19,6 +19,7 @@ export default function Header({ session, loading, signOut }) {
             unoptimized={process.env.ENVIRONMENT !== 'PRODUCTION'}
             src="/heartbeat-solid.svg"
             alt="calories"
+            priority={true}
           />
           <Link href="/" passHref>
             <a href="" className="text-2xl font-semibold text-white">
