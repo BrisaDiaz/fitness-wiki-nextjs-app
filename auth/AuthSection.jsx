@@ -57,7 +57,10 @@ export default function AuthSection({
       {isFormLoading && <FormSpinner />}
 
       {serverMessage && (
-        <h3 className="text-lg text-center mt-3 font-semibold text-green-700 ">
+        <h3
+          data-testId="serverResponse"
+          className="text-lg text-center mt-3 font-semibold text-green-700 "
+        >
           {serverMessage}
         </h3>
       )}

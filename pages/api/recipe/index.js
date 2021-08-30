@@ -41,7 +41,7 @@ async function handleGet(req, res) {
         }
       }
     })
-    console.log(userRecipes)
+
     const recipesStoredDataBySourceId = toKeyValue(userRecipes)
     const { results, totalResults } = await getData('complexSearch', query)
 

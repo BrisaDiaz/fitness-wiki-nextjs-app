@@ -1,6 +1,7 @@
-export function AddButton({ onClick, darck }) {
+export function AddButton({ onClick, darck, testId }) {
   return (
     <div
+      data-testid={testId}
       onClick={() => onClick()}
       className={'w-12 h-12 l rounded-full border   border-gray-100 shadow-lg  cursor-pointer flex justify-center items-center relative transform scale-75 '.concat(
         darck
@@ -21,9 +22,10 @@ export function AddButton({ onClick, darck }) {
     </div>
   )
 }
-export function EditButton({ onClick }) {
+export function EditButton({ onClick, testId }) {
   return (
     <div
+      data-testid={testId}
       onClick={() => onClick()}
       className="w-10 h-10 rounded-full  bg-white  shadow-md  hover:bg-gray-100 cursor-pointer flex justify-center items-center p-2 transform scale-95"
     >
@@ -45,9 +47,10 @@ export function EditButton({ onClick }) {
     </div>
   )
 }
-export function DeleteButton({ onClick }) {
+export function DeleteButton({ onClick, testId }) {
   return (
     <div
+      data-testid={testId}
       onClick={() => onClick()}
       className="w-10 h-10 rounded-full  bg-white shadow-md hover:bg-gray-100 cursor-pointer flex justify-center items-center p-2.5 transform scale-95"
     >

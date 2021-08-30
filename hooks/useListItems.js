@@ -6,11 +6,11 @@ export default function ListItems({ items, setItems }) {
   const onSubmit = (data, e) => {
     e.preventDefault()
 
-    const newItem = data.newItem.trim().toLowerCase()
-    if (newItem.length === 0) return null
-    setItems([...items, newItem])
+    const item = data['newItem'].trim().toLowerCase()
+    if (item.length === 0 || items.includes(item)) return null
+    setItems([...items, item])
 
-    reset(data.newItem)
+    reset()
   }
   const deleteItem = (selectedItem) => {
     const listWithOutItem = items.filter((item) => item !== selectedItem)

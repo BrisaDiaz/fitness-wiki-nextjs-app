@@ -1,0 +1,11 @@
+{
+  "user":{
+    "email":"fixedUser@email.com",
+    "password":"fixeduser"
+  },
+  "credentials":{
+"next-auth.session-token":"eyJhbGciOiJIUzUxMiJ9.eyJuYW1lIjoiZml4ZWQgdXNlciIsImVtYWlsIjoiZml4ZWRVc2VyQGVtYWlsLmNvbSIsInVzZXIiOnsibmFtZSI6ImZpeGVkIHVzZXIiLCJlbWFpbCI6ImZpeGVkVXNlckBlbWFpbC5jb20ifSwiYWNjZXNzVG9rZW4iOiJleUpoYkdjaU9pSklVekkxTmlJc0luUjVjQ0k2SWtwWFZDSjkuZXlKMWMyVnlTV1FpT2pFMExDSnBZWFFpT2pFMk16QXdPVEkyT0RWOS4tcllGR01XUmx2enRrNnY3QTY1QjNQdVJ0bVpNbkE2QTNzRlVJV3MtbmEwIiwiaWF0IjoxNjMwMDkyNzIzLCJleHAiOjE2MzI2ODQ3MjN9.9tbFmg1BYV47h7PWl4gxOtDaPphjCo6-x2IwPaSvQQNRQu0EAQzbDsozHuXdK7EqU-DH3xt97AC6IbSiZnDtJQ"
+  },
+  "next-auth.callback-url":"http%3A%2F%2Flocalhost%3A3000%2Fauth%2Fsignin",
+  "next-auth.csrf-token":"267f17b669a768fa000efed9235faea37f89fb35e4cc6f23d9c5563a8529955b%7Cd94093df15cbacfc1d71bf4fb89ea27abcf7aa710cd509d6585701842e25ac0d"
+}

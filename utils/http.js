@@ -10,8 +10,7 @@ export async function POST(endpoint, data, token) {
       headers: {
         'Content-Type': 'application/json',
         Authorization: `Basic ${token}`
-      },
-      credentials: 'include'
+      }
     }
   )
 

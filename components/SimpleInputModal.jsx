@@ -18,7 +18,11 @@ export default function SimpleInputModal({
         {title}
       </p>
       {children}
-      <form className="flex flex-col gap-4" onSubmit={handleSubmit(onSubmit)}>
+      <form
+        name={inputOptions.name + 'Form'}
+        className="flex flex-col gap-4"
+        onSubmit={handleSubmit(onSubmit)}
+      >
         <input
           type={inputOptions.type}
           {...register(inputOptions.name, { required: true })}

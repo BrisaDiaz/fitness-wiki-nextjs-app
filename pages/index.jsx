@@ -23,11 +23,11 @@ export default function Home() {
             Welcome to WikiFit!!
           </h1>
 
-          <h1 className="text-center  text-xl sm:text-2xl px-2 font-semibold text-gray-500 self-align-bottom mb-10 sm:mb-16 hove:scale-105 bg-white rounded-full ">
+          <h2 className="text-center  text-xl sm:text-2xl px-2 font-semibold text-gray-500 self-align-bottom mb-10 sm:mb-16 hove:scale-105 bg-white rounded-full ">
             Here you will find many easy to follow healthy and delicious recipes
             alongside tools that will make it easy for you to add healthy habits
             to your routine.
-          </h1>
+          </h2>
 
           {/* image 1 */}
           <article className="group  relative bg-cover  bg-green-400 rounded-xl shadow-xl  bg-center  top-2/4 left-auto  w-9/12    sm:w-7/12 h-44  sm:h-80 lg:h-96 z-0 transition duration-500 ease-in transform hover:scale-105    animate-appearLeft flex items-center justify-center  hover:z-30 ">

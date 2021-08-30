@@ -21,7 +21,7 @@ export default function Header({ session, loading, signOut }) {
             alt="calories"
           />
           <Link href="/" passHref>
-            <a href="!#" className="text-2xl font-semibold text-white">
+            <a href="" className="text-2xl font-semibold text-white">
               WikiFit
             </a>
           </Link>
@@ -31,7 +31,7 @@ export default function Header({ session, loading, signOut }) {
             <>
               <Link href="/auth/signup" passHref>
                 <a
-                  href="!#"
+                  href="#"
                   className="text-lg font-semibold text-white transform scale-90  hover:animate-pulse "
                 >
                   Sign Up
@@ -39,7 +39,7 @@ export default function Header({ session, loading, signOut }) {
               </Link>
               <Link href="/auth/signin" passHref>
                 <a
-                  href="!#"
+                  href="#"
                   className="text-lg font-semibold text-white px-2 transform scale-90  bg-green-400 hover:bg-green-500 transition ease-in-out g-green-400 rounded-md  leading-8 border-b-4 border-green-400  hover:border-green-500 hover:animate-pulse "
                 >
                   Sign In
@@ -48,8 +48,9 @@ export default function Header({ session, loading, signOut }) {
             </>
           ) : !loading ? (
             <a
-              href="!#"
+              href="#"
               onClick={() => handleLogout()}
+              data-testid="logoutBtn"
               className="text-lg font-semibold text-white   hover:animate-pulse "
             >
               Logout

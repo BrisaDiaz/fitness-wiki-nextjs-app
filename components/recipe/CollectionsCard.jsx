@@ -19,6 +19,7 @@ export default function CollectionsCard({
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
       className="w-60 h-60 mx-auto cursor-pointer"
+      data-testid="collectionCard"
     >
       <div
         className="rounded-2xl bg-gray-300 w-full h-40 overflow-hidden object-center flex items-center "
@@ -46,8 +47,14 @@ export default function CollectionsCard({
       </div>
       {isHovered && (
         <div className="flex gap-1 -mt-12 float-right">
-          <EditButton onClick={() => handleEditMode(collection)} />
-          <DeleteButton onClick={() => handleDelete(collection)} />
+          <EditButton
+            testId="editBtn"
+            onClick={() => handleEditMode(collection)}
+          />
+          <DeleteButton
+            testId="deleteBtn"
+            onClick={() => handleDelete(collection)}
+          />
         </div>
       )}
     </article>

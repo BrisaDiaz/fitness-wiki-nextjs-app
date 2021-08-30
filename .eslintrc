@@ -10,6 +10,7 @@
     "next",
     "next/core-web-vitals",
     "plugin:jest/recommended",
+    "plugin:cypress/recommended",
     "plugin:prettier/recommended" // always at the end
   ],
   "plugins": [

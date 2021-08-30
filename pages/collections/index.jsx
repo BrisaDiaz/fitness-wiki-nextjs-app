@@ -137,7 +137,10 @@ export default function Collections({
       <section className="px-2 sm:px-4 max-w-1000 mx-auto  mb-10 -mt-4 min-h-screen ">
         <h1 className="page-title">Collections</h1>
         <div className="flex justify-end -mt-5 mb-10">
-          <AddButton onClick={() => setIsCreating(!isCreating)} />
+          <AddButton
+            testId="createAnewCollectionBtn"
+            onClick={() => setIsCreating(!isCreating)}
+          />
         </div>
         {isCreating && (
           <div className="relative mt-36 -mb-36 ">
@@ -210,7 +213,14 @@ export default function Collections({
 
 export async function getServerSideProps({ req }) {
   const session = await getSession({ req })
-
+  if (!session) {
+    return {
+      redirect: {
+        destination: '/auth/signin',
+        permanent: false
+      }
+    }
+  }
   const [json] = await GET(
     `/collection?&number=${RESULTS_PER_PAGE}`,
     session.accessToken

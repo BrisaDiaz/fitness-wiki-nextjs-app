@@ -4,11 +4,13 @@ import { useState } from 'react'
 
 export default function RecipeCard({ recipe, children }) {
   const [isHovered, setIsHovered] = useState(false)
+  console.log(recipe)
   return (
     <div
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
       className="relative flex justify-end sm:justify-start "
+      data-testid="recipeCard"
     >
       {isHovered && <div>{children}</div>}
 

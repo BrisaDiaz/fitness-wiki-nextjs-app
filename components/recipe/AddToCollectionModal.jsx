@@ -9,7 +9,11 @@ export default function AddToCollectionModal({
   editMode
 }) {
   return (
-    <div ref={refernce} className="w-80 py-2 modal absolute z-10">
+    <div
+      ref={refernce}
+      className="w-80 py-2 modal absolute z-10"
+      data-testid="storeRecipeModal"
+    >
       <h4 className="text-center text-2xl text-gray-600 font-semibold mb-4">
         Store in collection{' '}
       </h4>
@@ -40,6 +44,9 @@ export default function AddToCollectionModal({
             </div>
             {selectedRecipe?.collection?.id !== collection?.id && (
               <button
+                data-testid={`store-in-${collection?.name
+                  ?.split(' ')
+                  ?.join('-')}`}
                 onClick={() => setCollection(collection)}
                 className="opacity-0 group-hover:opacity-100 font-bold px-4 py-1.5 rounded-md bg-red-500 text-white hover:bg-red-600 transition-all ease-in-out shadow transform scale-95"
               >
@@ -51,7 +58,11 @@ export default function AddToCollectionModal({
       </ul>
       {!editMode && (
         <div className="px-2 mx-2 rounded-xl  py-1  flex items-center gap-2 bg-gray-50">
-          <AddButton darck onClick={() => toggleNewCollectionModal()} />
+          <AddButton
+            testId="addANewCollectionBtn"
+            darck
+            onClick={() => toggleNewCollectionModal()}
+          />
           <h4 className="text-xl text-gray-600 ">Create a new collection</h4>
         </div>
       )}

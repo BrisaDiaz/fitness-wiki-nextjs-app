@@ -191,7 +191,14 @@ export default function Collection({
 
 export async function getServerSideProps({ req, query }) {
   const session = await getSession({ req })
-
+  if (!session) {
+    return {
+      redirect: {
+        destination: '/auth/signin',
+        permanent: false
+      }
+    }
+  }
   const [currentCollectionJson, response] = await GET(
     `/collection/${query.id}`,
     session.accessToken

@@ -16,6 +16,9 @@ export default function StoreRecipeControlls({
       {!updateOption && recipe?.stored && (
         <Link href={`/collections/${recipe?.collection?.id}`} passHref>
           <a
+            data-testid={`${recipe?.collection?.name
+              .split(' ')
+              .join('-')}-link`}
             href="!#"
             className="font-semibold pointer px-4 py-2 bg-gray-100 rounded-lg capitalize"
           >
@@ -25,6 +28,7 @@ export default function StoreRecipeControlls({
       )}
       {!recipe.stored && !updateOption && (
         <button
+          data-testid="storeRecipeBtn"
           onClick={() => handleSelection(recipe)}
           className="ml-1.5 font-bold px-4 py-2  rounded-md bg-red-500 text-white hover:bg-red-600 transition-all ease-in-out shadow"
         >
@@ -33,8 +37,11 @@ export default function StoreRecipeControlls({
       )}
       {updateOption && (
         <div className="flex gap-1 ">
-          <EditButton onClick={() => handleUpdate(recipe)} />
-          <DeleteButton onClick={() => handleDelete(recipe)} />
+          <EditButton testId="editBtn" onClick={() => handleUpdate(recipe)} />
+          <DeleteButton
+            testId="deleteBtn"
+            onClick={() => handleDelete(recipe)}
+          />
         </div>
       )}
     </div>

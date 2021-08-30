@@ -36,6 +36,7 @@ async function handlePost(req, res) {
 //// get all the user collections data
 async function handleGet(req, res) {
   const { offset, number } = req.query
+
   try {
     const collections = await prisma.collection.findMany({
       skip: offset * 1 || undefined,
