@@ -1,6 +1,6 @@
 import FormInput from './FormInput'
-import FormButton from '../components/FormButton'
-import validation from '../utils/formInputValidations'
+import FormButton from '../FormButton'
+import validation from '../../utils/formInputValidations'
 
 export default function SigninForm({
   handleSubmit,
@@ -9,7 +9,7 @@ export default function SigninForm({
   register
 }) {
   return (
-    <form className="flex flex-col gap-y-2" onSubmit={handleSubmit(onSubmit)}>
+    <form className="flex flex-col gap-2" onSubmit={handleSubmit(onSubmit)}>
       <FormInput
         type="email"
         placeholder="Email Address*"

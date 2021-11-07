@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import useSessionHandler from '../hooks/useSessionHandler'
+import useSessionHandler from '../../hooks/useSessionHandler'
 import { signIn } from 'next-auth/client'
 import FormSpinner from './FormSpinner'
 import FormErrors from './FormErrors'
@@ -58,7 +58,7 @@ export default function AuthSection({
 
       {serverMessage && (
         <h3
-          data-testId="serverResponse"
+          data-testid="serverResponse"
           className="text-lg text-center mt-3 font-semibold text-green-700 "
         >
           {serverMessage}

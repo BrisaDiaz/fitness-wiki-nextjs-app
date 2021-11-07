@@ -8,7 +8,7 @@ export default NextAuth({
       name: 'Credentials',
 
       async authorize(credentials) {
-        const [json, response] = await POST('/auth/signin/credentials', {
+        const [json, response] = await POST(`/auth/signin/credentials`, {
           email: credentials.email,
           password: credentials.password
         })

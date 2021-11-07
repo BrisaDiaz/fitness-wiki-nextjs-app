@@ -8,7 +8,7 @@ export default function AuthProviderButtons({ signIn, setServerMessage }) {
     await signIn(provider)
   }
   return (
-    <article className=" mx-auto  flex flex-col gap-y-2 align-top mt-3">
+    <article className=" mx-auto  flex flex-col gap-2 align-top mt-3">
       <div className="relative w-full">
         <button
           className="py-2 w-full border-2 border-gray-800  shadow hover:shadow-lg  bg-gray-800 font-semibold text-white rounded  focus:ring-2 focus:ring-gray-800 focus:ring-opacity-50 "

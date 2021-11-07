@@ -11,8 +11,9 @@
     "cypress:open": "cypress open"
   },
   "dependencies": {
-    "@prisma/client": "^2.27.0",
+    "@prisma/client": "^2.30.3",
     "bcrypt": "^5.0.1",
+    "caniuse-lite": "^1.0.30001278",
     "eslint-plugin-cypress": "^2.11.3",
     "jsonwebtoken": "^8.5.1",
     "next": "^11.0.1",

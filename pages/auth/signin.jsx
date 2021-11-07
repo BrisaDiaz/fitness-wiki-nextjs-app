@@ -1,9 +1,9 @@
 import Head from 'next/head'
 import { useSession } from 'next-auth/client'
 import useAuthentication from '@/hooks/useAuthentication'
-import AuthProviderButtons from '@/auth/AuthProviderButtons'
-import SigninForm from '@/auth/SigninForm'
-import AuthSection from '@/auth/AuthSection'
+import AuthProviderButtons from '@/components/auth/AuthProviderButtons'
+import SigninForm from '@/components/auth/SigninForm'
+import AuthSection from '@/components/auth/AuthSection'
 
 export default function SignIn() {
   const { isLoading, LoadingComponent } = useAuthentication({
@@ -22,7 +22,7 @@ export default function SignIn() {
           <link rel="icon" href="/favicon.ico" />
         </Head>
 
-        <section className="flex min-h-screen -mt-16 pt-16">
+        <section className="flex min-h-screen min-w-sm  -mt-16 pt-16">
           <AuthSection
             title="Sign In"
             Form={SigninForm}

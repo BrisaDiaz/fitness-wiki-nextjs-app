@@ -1,6 +1,6 @@
 import FormInput from './FormInput'
-import FormButton from '../components/FormButton'
-import validation from '../utils/formInputValidations'
+import FormButton from '../FormButton'
+import validation from '../../utils/formInputValidations'
 
 export default function SignupForm({
   handleSubmit,
@@ -10,7 +10,7 @@ export default function SignupForm({
 }) {
   return (
     <form
-      className="flex flex-col gap-y-2 mb-3"
+      className="flex flex-col gap-2 mb-3"
       onSubmit={handleSubmit(onSubmit)}
     >
       <div className="flex gap-2">
