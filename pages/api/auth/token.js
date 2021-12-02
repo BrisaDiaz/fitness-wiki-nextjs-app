@@ -1,6 +1,6 @@
 import prisma from '@/lib/prisma'
 import jwt from 'jsonwebtoken'
-
+import env from '@/env'
 export default async function signin(req, res) {
   if (req.method !== 'POST')
     return res.status(403).json({ error: true, message: 'Method not allowed' })
@@ -22,7 +22,7 @@ export default async function signin(req, res) {
         .json({ error: true, message: 'This email is not registred' })
 
     ///set cookie
-    const token = jwt.sign({ userId: userFound.id }, process.env.JWT_SECRET)
+    const token = jwt.sign({ userId: userFound.id }, env.JWT_SECRET)
 
     return res.status(200).json({ user: userFound, token })
   } catch (error) {

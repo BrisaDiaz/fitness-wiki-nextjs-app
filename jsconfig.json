@@ -25,6 +25,9 @@
       "@/middlewares/*": [
         "middlewares/*"
       ],
+      "@/env*": [
+        "env.js"
+      ],
     },
 
   },
