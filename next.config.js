@@ -6,7 +6,17 @@ module.exports = withPWA({
   reactStrictMode: true,
   publicRuntimeConfig: {
     API_KEY: process.env.API_KEY,
-    HOST: process.env.HOST
+    HOST: process.env.HOST,
+    ENVIRIOMENT: process.env.ENVIRIOMENT,
+    DATABASE_URL: process.env.DATABASE_URL,
+    SHADOW_DATABASE_URL: process.env.SHADOW_DATABASE_URL,
+    NEXTAUTH_URL: process.env.NEXTAUTH_URL,
+    AUTH_SECRET: process.env.AUTH_SECRET,
+    JWT_SECRET: process.env.JWT_SECRET,
+    GOOGLE_CLIENT_ID: process.env.GOOGLE_CLIENT_ID,
+    GOOGLE_CLIENT_SECRET: process.env.GOOGLE_CLIENT_SECRET,
+    GITHUB_ID: process.env.GITHUB_ID,
+    GITHUB_SECRET: process.env.GITHUB_SECRET
   },
   images: {
     loader: 'imgix',
