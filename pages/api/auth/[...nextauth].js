@@ -14,11 +14,12 @@ export default NextAuth({
         })
 
         if (response.ok && !json.error) {
-          const { user } = json
+          const { user, token } = json
 
           return {
             name: user.first_name + ' ' + user.last_name,
-            email: user.email
+            email: user.email,
+            token: token
           }
         }
 
@@ -75,7 +76,6 @@ export default NextAuth({
     async jwt(token, user) {
       if (user) {
         token.user = { name: user.name, email: user.email }
-
         token.accessToken = user.token
       }
       return token

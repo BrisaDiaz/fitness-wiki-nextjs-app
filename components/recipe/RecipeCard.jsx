@@ -4,7 +4,6 @@ import { useState } from 'react'
 
 export default function RecipeCard({ recipe, children }) {
   const [isHovered, setIsHovered] = useState(false)
-  console.log(recipe)
   return (
     <div
       onMouseEnter={() => setIsHovered(true)}

@@ -73,7 +73,7 @@ export default function Recicipe(props) {
                 />
               </div>
 
-              <div
+              <pre
                 className="break-words leading-loose"
                 dangerouslySetInnerHTML={{ __html: recipe.summary }}
               />

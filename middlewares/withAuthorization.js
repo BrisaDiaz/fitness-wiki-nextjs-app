@@ -6,6 +6,10 @@ export default function withAuthorization(handler) {
     try {
       const token = req.headers.authorization.split(' ')[1]
 
+      console.log('-----------------')
+      console.log(token)
+      console.log('-----------------')
+      console.log(env.JWT_SECRET)
       const decoded = await jwt.verify(token, env.JWT_SECRET)
 
       const userFound = await prisma.user.findUnique({

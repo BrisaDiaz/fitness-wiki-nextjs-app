@@ -179,19 +179,19 @@ export default function Collections({
           <section className="mt-2 grid  gap-2 sm:grid-cols-2 xl:grid-cols-4 lg:grid-cols-3  justify-center max-w-6xl mx-auto place-content-center place-items-center px-16 lg:px-4 xl:px-0">
             {collections.map((collection) =>
               //// dosen't display remove collections from database
-              removedCollections.includes(collection.id) ? null : (
-                <div className="relative" key={collection.id}>
+              removedCollections.includes(collection?.id) ? null : (
+                <div className="relative" key={collection?.id}>
                   <CollectionsCard
                     collection={collection}
                     handleEditMode={handleEditMode}
                     handleDelete={handleDeleteMode}
                   />
-                  {isEditing && collection.id === selectedCollection.id && (
+                  {isEditing && collection?.id === selectedCollection?.id && (
                     <SimpleInputModal
                       callback={handleRenameCollection}
                       title="Rename collection"
                       reference={
-                        removedCollections.includes(collection.id)
+                        removedCollections.includes(collection?.id)
                           ? null
                           : editingModalRef
                       }
