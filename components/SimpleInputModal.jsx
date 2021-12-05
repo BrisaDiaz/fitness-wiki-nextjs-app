@@ -13,8 +13,8 @@ export default function SimpleInputModal({
     inputName: inputOptions.name
   })
   return (
-    <article ref={reference} className=" p-4 pb-6 w-80 modal absolute z-10">
-      <p className="text-2xl text-gray-600 font-semibold text-center  mb-1">
+    <article ref={reference} className=" p-4 pb-6 w-72 modal absolute z-10">
+      <p className="text-2xl text-gray-600 font-semibold text-center  mb-1 capitalize">
         {title}
       </p>
       {children}

@@ -1,5 +1,3 @@
-import { Fragment } from 'react'
-
 export default function SortComponent({
   label,
   options,
@@ -10,22 +8,25 @@ export default function SortComponent({
   sortDirection
 }) {
   return (
-    <div className="flex flex-row  gap-x-1 w-full max-w-sm sm:max-w-xs">
-      <label htmlFor={name} className="mt-1  min-w-max">
+    <div className="flex flex-row justify-start flex-wrap sm:flex-nowrap items-center  gap-2 w-full max-w-sm sm:max-w-xs sm:items-center">
+      <label htmlFor={name} className="  min-w-max">
         {label}
       </label>
 
       {directions.map((direction) => (
-        <Fragment key={direction.value + direction.name}>
+        <div
+          key={direction.value + direction.name}
+          className="flex flex-row align-middle"
+        >
           <label
-            className="mt-1 min-w-max"
+            className="min-w-max mr-2"
             htmlFor={direction.name}
             key={label}
           >
             {direction.name}
           </label>
           <input
-            className="custom-radio-input self-center min-w-max"
+            className="custom-radio-input self-center min-w-max "
             checked={direction.value === sortDirection}
             onChange={onDirectionChange}
             type="radio"
@@ -34,10 +35,10 @@ export default function SortComponent({
             name="sortType"
             value={direction.value}
           />
-        </Fragment>
+        </div>
       ))}
       <select
-        className="capitalize border border-solid border-gray-200 rounded p-1  px-2   shadow-sm  eading-tight focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-opacity-50 appearance-none w-full"
+        className="capitalize border border-solid border-gray-200 rounded p-2  px-4 ml-1 shadow-sm  eading-tight focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-opacity-50 appearance-none w-full sm:w-max"
         id={name}
         name={name}
         defaultValue="healthyness"

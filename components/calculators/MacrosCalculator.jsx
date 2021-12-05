@@ -56,7 +56,7 @@ export default function MacrosCalculator({ children }) {
         <h2 className="calculator-field-title ">
           Step 4: Analyze your results{' '}
         </h2>
-        <h4 className=" text-gray-700 my-3 mb-4 text-2xl font-semibold text-center">
+        <h4 className=" text-gray-700 my-3 mb-4 text-xl sm:text-2xl font-semibold text-center">
           Calorie healthy ranges
         </h4>
         <div className="px-1">
@@ -83,7 +83,7 @@ export default function MacrosCalculator({ children }) {
             <p>Not recommended</p>
           </div>
         </div>
-        <h4 className=" text-gray-700 mb-4 mt-6 text-2xl font-semibold text-center">
+        <h4 className=" text-gray-700 mb-4 mt-6 text-xl sm:text-2xl font-semibold text-center">
           Macronutrients Radios
         </h4>
         <p className="px-1">

@@ -19,11 +19,11 @@ export default function Home() {
       </Head>
       <section className="custom-container bg-dot-pattern bg-repeat relative ">
         <section className="mx-auto max-w-5xl px-1 sm:px-2 pb-10">
-          <h1 className="text-center pt-10 mb-5 px-2 text-3xl sm:text-5xl font-bold text-green-700  drop-shadow-lg easy-in-out  ">
+          <h1 className="text-center pt-16 mb-5 px-2 text-3xl sm:text-5xl font-bold text-green-700  drop-shadow-lg easy-in-out   ">
             Welcome to WikiFit!!
           </h1>
 
-          <h2 className="text-center  text-xl sm:text-2xl px-2 font-semibold text-gray-500 self-align-bottom mb-10 sm:mb-16 hove:scale-105 bg-white rounded-full ">
+          <h2 className="sm:text-center  text-lg sm:text-2xl px-4 font-semibold text-gray-500 self-align-bottom mb-10 sm:mb-16 hove:scale-105 bg-white rounded-full ">
             Here you will find many easy to follow healthy and delicious recipes
             alongside tools that will make it easy for you to add healthy habits
             to your routine.

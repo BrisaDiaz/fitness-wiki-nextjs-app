@@ -28,18 +28,16 @@ export default function CaloriesCalculator() {
           />
           <link rel="icon" href="/favicon.ico" />
         </Head>
-        <section className="pb-16 pt-12 sm:pt-10 px-1 gap-x-2 mx-auto max-w-7xl">
-          <h1 className="text-3xl lg:text-4xl px-2  text-green-700 text-center font-bold mb-10 ">
-            Calculate your daily caloric needs
-          </h1>
+        <section className="pb-16 px-1 gap-x-2 mx-auto max-w-7xl">
+          <h1 className="page-title">Calculate your daily caloric needs</h1>
           <section className="w-full flex flex-wrap gap-2">
-            <div className="mx-auto w-full max-w-sm flex flex-col gap-2 ">
+            <div className="mx-auto w-full max-w-sm flex flex-col gap-4 ">
               <Calculator />
               <DesclaimerText />{' '}
             </div>
 
-            <article className="w-full px-1 sm:px-2 max-w-3xl leading-1 mt-8 mx-auto flex-1 ">
-              <h2 className="text-2xl md:text-3xll  text-green-500 font-semibold mb-5 ">
+            <article className="w-full px-2 max-w-3xl leading-1 sm:mt-6 mx-auto flex-1 ">
+              <h2 className="text-xl sm:text-2xl  md:text-3xll  text-green-500 font-semibold mb-5 ">
                 {' '}
                 How many calories should you eat on average?{' '}
               </h2>
@@ -49,7 +47,7 @@ export default function CaloriesCalculator() {
                 metabolic health, among several others.
               </p>
               <br />
-              <h3 className="text-xl sm:text-2xl  text-green-500 font-semibold my-2">
+              <h3 className="text-lg sm:text-xl  text-green-500 font-semibold my-2">
                 Women
               </h3>
               <p>
@@ -80,7 +78,7 @@ export default function CaloriesCalculator() {
                 significantly higher calorie needs.
               </p>
               <br />
-              <h3 className="text-xl sm:text-2xl text-green-500 font-semibold my-2">
+              <h3 className="text-lg sm:text-xl  text-green-500 font-semibold my-2">
                 Men
               </h3>
               <p>
@@ -110,7 +108,7 @@ export default function CaloriesCalculator() {
                 about 2,200 calories per day.
               </p>{' '}
               <br />
-              <h3 className="text-xl sm:text-2xl text-green-500 font-semibold my-2">
+              <h3 className="text-lg sm:text-xl  text-green-500 font-semibold my-2">
                 Children
               </h3>
               <p>

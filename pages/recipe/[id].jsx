@@ -47,21 +47,18 @@ export default function Recicipe(props) {
         />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main className="px-1 flex flex-col items-center mb-10">
-        <h1 className="text-center text-2xl md:text-3xl lg:text-4xl px-2 font-bold  my-8 text-green-700  ">
-          {recipe.title}
-        </h1>
+      <section className="px-1 flex flex-col items-center mb-10">
+        <h1 className="page-title ">{recipe.title}</h1>
 
         <RecipeHeader hederInfo={hederInfo} />
 
-        <section className="mx-auto px-1 sm:px-0  gap-0 max-w-6xl  flex flex-col-reverse sm:flex-row  w-full sm:justify-evenly ">
-          <section className="  p-2 sm:p-4   w-full border rounded border-gray-200 shadow-lg">
+        <section className="mx-auto px-1 sm:px-2 justify-center  gap-0 max-w-6xl  flex flex-col-reverse lg:flex-row  w-full sm:justify-evenly ">
+          <section className="   p-4  md:px-6 md:pb-6 text-sm sm:text-base w-full border rounded border-gray-200 shadow-lg">
             <div className="mx-auto w-full sm:py-1 relative ">
-              <h2 className="uppercase  text-2xl font-bold text-green-400 mb-2 ml-2">
+              <h2 className="uppercase  text-2xl font-bold text-green-400 mb-4 ml-2">
                 summary
               </h2>
-
-              <div className="w-full max-w-xs max h-56 mr-1 sm:mr-3 float-left">
+              <div className="w-full max-w-sm mr-1 sm:mr-3 mb-3 sm:float-left">
                 <Image
                   className="rounded-md float-left  "
                   width={400}
@@ -72,15 +69,14 @@ export default function Recicipe(props) {
                   alt={recipe?.title}
                 />
               </div>
-
-              <pre
-                className="break-words leading-loose"
+              <div
+                className=""
                 dangerouslySetInnerHTML={{ __html: recipe.summary }}
               />
             </div>
             {instructions && <RecipeDirections steps={instructions} />}
           </section>
-          <section className="mb-10 sm:mb-0 px-0 w-full sm:px-2 sm:w-5/12	 md:w-96 lg:w-2/5 mx-auto">
+          <section className="mb-10 lg:mb-0 px-0 w-full sm:px-2 md:flex md:gap-2  lg:flex-col  lg:w-2/5 mx-auto">
             <ListSheet title="Ingredients">
               {ingredients?.map((ingredient) => (
                 <ListSheetItem
@@ -104,7 +100,7 @@ export default function Recicipe(props) {
             </ListSheet>
           </section>
         </section>
-      </main>
+      </section>
     </>
   )
 }
@@ -119,12 +115,13 @@ export async function getServerSideProps({ query, req }) {
       }
     }
   }
-
+  const recipeId = parseInt(query.id)
   const [recipe, equipment] = await Promise.all([
-    getData(`${query.id}/information`, 'addRecipeInformation=true'),
-    getData(`/${query.id}/equipmentWidget.json`)
+    getData(`${recipeId}/information`, 'addRecipeInformation=true'),
+    getData(`/${recipeId}/equipmentWidget.json`)
   ])
-  if (recipe) {
+
+  if (!recipe) {
     return {
       props: {
         error: true,

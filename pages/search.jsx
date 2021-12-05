@@ -2,6 +2,7 @@ import Head from 'next/head'
 import Image from 'next/image'
 import { useEffect, useState } from 'react'
 import { getSession, useSession } from 'next-auth/client'
+import attachStoredDataToRecipe from '@/utils/attachStoredDataToRecipe'
 
 /// utils
 import { GET } from '@/utils/http'
@@ -46,6 +47,7 @@ export default function SearchPage({
   const [sort, setSort] = useState('healthiness')
   const [sortDirection, setSortDirection] = useState('desc')
   const [recipes, setRecipes] = useState(initialRecipes || [])
+  const [userRecipes, setUserRecipes] = useState([])
   const [isLoading, setIsLoading] = useState(false)
   /// url query
   const query = new URLSearchParams()
@@ -71,7 +73,41 @@ export default function SearchPage({
     if (excludeIngredients.length > 0) {
       query.append('excludeIngredients', excludeIngredients.join(','))
     }
-  }, [search, diet, cuisine, type, sortDirection, sort, excludeIngredients])
+  }, [
+    search,
+    diet,
+    cuisine,
+    type,
+    sortDirection,
+    sort,
+    excludeIngredients,
+    page
+  ])
+
+  ///get all stored user recipes
+  useEffect(() => {
+    const fetchUserRecipes = async (token) => {
+      try {
+        const [data] = await GET(`/recipe/user`, token)
+
+        if (data.results) {
+          setUserRecipes(data.results)
+          //// attach Info Relted Width The Collection
+          const whithCollectionReferenceRecipes = attachStoredDataToRecipe(
+            data.results,
+            recipes
+          )
+
+          setRecipes(whithCollectionReferenceRecipes)
+        }
+      } catch (error) {
+        console.error(error)
+      }
+    }
+    if (token) {
+      fetchUserRecipes(token)
+    }
+  }, [token])
 
   useEffect(() => {
     if (renderCount === 0) return setRenderCount(1)
@@ -85,8 +121,19 @@ export default function SearchPage({
             : consts.MAX_ALLOWED_RESULTS
         )
 
-        setRecipes(data.results)
+        /// if user recipes are available set info releted to the collection
+        if (userRecipes) {
+          const whithCollectionReferenceRecipes = attachStoredDataToRecipe(
+            userRecipes,
+            data.results
+          )
 
+          setRecipes(whithCollectionReferenceRecipes)
+
+          return setIsLoading(false)
+        }
+
+        setRecipes(data.results)
         setIsLoading(false)
       } catch (error) {
         console.error(error)
@@ -122,7 +169,9 @@ export default function SearchPage({
     setCollections,
     collections,
     recipes,
-    setRecipes
+    setRecipes,
+    userRecipes,
+    setUserRecipes
   })
 
   return (
@@ -142,58 +191,58 @@ export default function SearchPage({
       </Head>
 
       <section className="px-1 max-w-1000 mx-auto  mb-10">
-        <h2 className="text-center pb-10 pt-12  text-3xl lg:text-4xl px-2 l font-bold text-green-700  ">
+        <h2 className="page-title ">
           Let us help you find the perfect meal for today!!
         </h2>
-        <FilterTable>
-          <>
-            <SelectComponent
-              onChange={(event) => setCuisine(event.target.value)}
-              label="Cousine Type:"
-              name="cousinType"
-              options={consts.COUSINE_OPTIONS}
-              globalOption="all"
-            />
+        <div className="mx-4">
+          <SearchBar onChange={(event) => setSearch(event.target.value)} />
+          <FilterTable>
+            <>
+              <SelectComponent
+                onChange={(event) => setCuisine(event.target.value)}
+                label="Cousine Type:"
+                name="cousinType"
+                options={consts.COUSINE_OPTIONS}
+                globalOption="all"
+              />
 
-            <SelectComponent
-              onChange={(event) => setType(event.target.value)}
-              label="Meal Type:"
-              name="mealType"
-              options={consts.TYPE_OPTIONS}
-              globalOption="all"
-            />
+              <SelectComponent
+                onChange={(event) => setType(event.target.value)}
+                label="Meal Type:"
+                name="mealType"
+                options={consts.TYPE_OPTIONS}
+                globalOption="all"
+              />
 
-            <SelectComponent
-              onChange={(event) => setDiet(event.target.value)}
-              label="Diet Type:"
-              name="dietType"
-              options={consts.DIET_OPTIONS}
-              globalOption="all"
-            />
+              <SelectComponent
+                onChange={(event) => setDiet(event.target.value)}
+                label="Diet Type:"
+                name="dietType"
+                options={consts.DIET_OPTIONS}
+                globalOption="all"
+              />
 
-            <SortComponent
-              onSortChange={(event) => setSort(event.target.value)}
-              onDirectionChange={(event) =>
-                setSortDirection(event.target.value)
-              }
-              label="Sort By:"
-              name="sortType"
-              options={consts.SORT_OPTIONS}
-              directions={consts.SORT_DIRECIONS}
-              sortDirection={sortDirection}
-            />
-          </>
-        </FilterTable>
-
-        <ListItems
-          items={excludeIngredients}
-          setItems={setExcludeIngredients}
-        />
-        <SearchBar onChange={(event) => setSearch(event.target.value)} />
+              <SortComponent
+                onSortChange={(event) => setSort(event.target.value)}
+                onDirectionChange={(event) =>
+                  setSortDirection(event.target.value)
+                }
+                label="Sort By:"
+                name="sortType"
+                options={consts.SORT_OPTIONS}
+                directions={consts.SORT_DIRECIONS}
+                sortDirection={sortDirection}
+              />
+            </>
+          </FilterTable>
+          <ListItems
+            items={excludeIngredients}
+            setItems={setExcludeIngredients}
+          />
+        </div>
         {isLoading && <LoadingHeart />}
-
         {recipes && recipes !== [] && !isLoading && (
-          <section className="sm:max-w-6xl mx-auto grid flex-col gap-3 flex-wrap md:grid-cols-2  justify-center   my-6  sm:px-5 lg:px-8 px-6">
+          <section className="sm:max-w-6xl mx-auto grid flex-col gap-3 flex-wrap md:grid-cols-2  justify-center   mb-6 mt-10  sm:px-5 lg:px-8 px-6">
             {recipes.map(getFormattedRecipe).map((recipe) => (
               <div className="relative" key={recipe?.id}>
                 {isStoringModalOpen && recipe?.id === selectedRecipe?.id && (
@@ -242,13 +291,16 @@ export default function SearchPage({
             ))}
           </section>
         )}
-
+        {!isLoading && recipes && recipes?.length === 0 && (
+          <h2 className="mt-2 text-green-500 text-2xl font-bold text-center">
+            There is not coincidence for the search
+          </h2>
+        )}
         {serverError && (
           <h2 className="mt-2 text-green-500 text-2xl font-bold text-center">
             Something went wrong
           </h2>
         )}
-
         {totalResults > consts.RESULTS_PER_PAGE && (
           <PaginationComponent
             page={page}

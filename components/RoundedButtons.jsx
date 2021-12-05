@@ -3,7 +3,7 @@ export function AddButton({ onClick, darck, testId }) {
     <div
       data-testid={testId}
       onClick={() => onClick()}
-      className={'w-12 h-12 l rounded-full border   border-gray-100 shadow-lg  cursor-pointer flex justify-center items-center relative transform scale-75 '.concat(
+      className={'w-12 h-12 l rounded-full border   border-green-500 shadow-lg  cursor-pointer flex justify-center items-center relative transform scale-75 '.concat(
         darck
           ? ' bg-green-600 hover:bg-green-700'
           : ' bg-white hover:bg-gray-100'
@@ -27,7 +27,7 @@ export function EditButton({ onClick, testId }) {
     <div
       data-testid={testId}
       onClick={() => onClick()}
-      className="w-10 h-10 rounded-full  bg-white  shadow-md  hover:bg-gray-100 cursor-pointer flex justify-center items-center p-2 transform scale-95"
+      className="w-10 h-10 rounded-full  bg-white  shadow-md  hover:bg-gray-100 cursor-pointer flex justify-center items-center p-2 transform scale-95  border   border-green-500"
     >
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -52,7 +52,7 @@ export function DeleteButton({ onClick, testId }) {
     <div
       data-testid={testId}
       onClick={() => onClick()}
-      className="w-10 h-10 rounded-full  bg-white shadow-md hover:bg-gray-100 cursor-pointer flex justify-center items-center p-2.5 transform scale-95"
+      className="w-10 h-10 rounded-full  bg-white shadow-md hover:bg-gray-100 cursor-pointer flex justify-center items-center p-2.5 transform scale-95  border   border-green-500 "
     >
       <svg
         xmlns="http://www.w3.org/2000/svg"

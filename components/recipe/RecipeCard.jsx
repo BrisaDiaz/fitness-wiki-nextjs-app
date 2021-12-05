@@ -8,12 +8,12 @@ export default function RecipeCard({ recipe, children }) {
     <div
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
-      className="relative flex justify-end sm:justify-start "
+      className="relative flex justify-end sm:justify-start hover:bg-gray-100 sm:hover:bg-white  hover:p-2 sm:hover:p-0 transition duration-150"
       data-testid="recipeCard"
     >
       {isHovered && <div>{children}</div>}
 
-      <article className="w-72 mx-auto  pb-4 sm:p-4 flex flex-col sm:flex-row  sm:items-center shadow-md rounded sm:w-full h-auto transition ease-in-out transform hover:shadow-lg ">
+      <article className="w-72 mx-auto  pb-4 sm:p-4 flex flex-col sm:flex-row  sm:items-center  sm:shadow-sm rounded sm:w-full h-auto transition ease-in-out transform sm:hover:shadow-md sm:border border-gray-100 ">
         <div className=" mx-auto sm:mx-0 h-44 overflow-y-hidden w-full sm:w-3/12  relative flex items-center  sm:h-24  justify-center	rounded-t ">
           <Image
             unoptimized={process.env.ENVIRONMENT !== 'PRODUCTION'}
@@ -24,8 +24,8 @@ export default function RecipeCard({ recipe, children }) {
             alt={recipe?.title}
           />
         </div>
-        <div className="flex flex-col justify-start px-3 w-full sm:w-9/12">
-          <div className="sm:px-2  mt-2 sm:mt-0 ">
+        <div className="flex flex-col justify-start sm:px-4 py-2  w-full sm:w-9/12 ">
+          <div className="sm:px-2  mt-2 sm:mt-0 flex flex-col  gap-1">
             <div className="overflow-x-hidden mb-1 w-full overflow-ellipsis  text-green-400 ">
               <Link href={`/recipe/${recipe?.id}`} passHref>
                 <a
@@ -61,7 +61,7 @@ export default function RecipeCard({ recipe, children }) {
               {` ${recipe?.servings}`}
             </p>
             <div className="overflow-x-hidden w-full overflow-ellipsis   ">
-              <p className="opacity-80 eading-none text-sm whitespace-nowrap  w-full	 ">
+              <p className="opacity-80 eading-none text-sm whitespace-nowrap  overflow-x-hidden w-full overflow-ellipsis  	 ">
                 <span className="text-gray-600 mr-1 ">Diets:</span>
                 {recipe?.diets}
               </p>

@@ -12,13 +12,22 @@ body {
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 }
-.responsive-font {
+pre {
+  font-family: inherit;
+  white-space: initial;
+}
+.responsive-font,
+body {
   font-size: 14px;
 }
-@media screen and (min-width: 450px) {
-  .responsive-font {
+@media screen and (min-width: 650px) {
+  .responsive-font,
+  body {
     font-size: 16px;
   }
+}
+a {
+  @apply text-green-300;
 }
 .custom-container {
   width: 100vw;
@@ -114,22 +123,26 @@ a {
   border: 1.5px solid #059669;
   box-shadow: 1px 1px 2px 0px #00000021;
   cursor: pointer;
+  transform: scale(0.95);
 }
 .custom-radio-input {
   position: relative;
   transform: scale(1.1);
 }
 .calculator-field-title {
-  @apply text-xl sm:text-2xl  font-semibold text-green-500 mb-6 bg-green-100 p-2 text-center shadow;
+  @apply text-lg sm:text-xl  font-semibold text-white mb-6 bg-green-300 p-4 px-6 sm:px-8  pb-5 rounded-lg capitalize border-green-400 border shadow-sm;
 }
 .calculator-field-container {
-  @apply max-w-3xl  w-full;
+  @apply max-w-3xl  w-full mx-2;
+}
+.calculator-field-container:first-child {
+  @apply mt-6;
 }
 .list-leyend {
-  @apply text-gray-700 font-semibold;
+  @apply text-gray-700;
 }
 .page-title {
-  @apply text-center pb-6 pt-10 lg:pt-12  text-3xl lg:text-4xl px-2 font-bold text-green-700;
+  @apply text-center pb-8 pt-14 lg:pt-12  text-2xl sm:text-3xl lg:text-4xl px-2 font-bold text-green-700;
 }
 .line-input {
   @apply px-2 py-3 border-b-2 border-gray-300 placeholder-gray-400  leading-tight focus:outline-none focus:border-green-500 focus:border-opacity-50 appearance-none;

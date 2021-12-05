@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import Image from 'next/image'
-
+import env from '@/env'
 export default function Header({ session, loading, signOut }) {
   const handleLogout = async () => {
     try {
@@ -10,19 +10,19 @@ export default function Header({ session, loading, signOut }) {
     }
   }
   return (
-    <header className=" bg-green-600  px-2 py-4  sm:px-4 shadow-lg fixed  z-50 w-full">
+    <header className=" bg-green-600  px-4 py-3 sm:py-4 shadow-lg fixed  z-50 w-full">
       <nav className="flex justify-between   ">
-        <div className="flex flex-row gap-1 items-center pl-1 ">
+        <div className="flex flex-row gap-1 items-center pl-1 max-w-10/12 sm:max-w-full">
           <Image
             width={30}
             height={30}
-            unoptimized={process.env.ENVIRONMENT !== 'PRODUCTION'}
+            unoptimized={env.ENVIRONMENT !== 'PRODUCTION'}
             src="/heartbeat-solid.svg"
             alt="calories"
             priority={true}
           />
           <Link href="/" passHref>
-            <a href="" className="text-2xl font-semibold text-white">
+            <a href="" className="text-xl sm:text-2xl font-semibold text-white">
               WikiFit
             </a>
           </Link>
@@ -33,7 +33,7 @@ export default function Header({ session, loading, signOut }) {
               <Link href="/auth/signup" passHref>
                 <a
                   href="#"
-                  className="text-lg font-semibold text-white transform scale-90  hover:animate-pulse "
+                  className="text-md sm:text-lg font-semibold text-white transform scale-90  hover:animate-pulse "
                 >
                   Sign Up
                 </a>
@@ -41,7 +41,7 @@ export default function Header({ session, loading, signOut }) {
               <Link href="/auth/signin" passHref>
                 <a
                   href="#"
-                  className="text-lg font-semibold text-white px-2 transform scale-90  bg-green-400 hover:bg-green-500 transition ease-in-out g-green-400 rounded-md  leading-8 border-b-4 border-green-400  hover:border-green-500 hover:animate-pulse "
+                  className="text-md sm:text-lg  font-semibold text-white px-2 transform scale-90  bg-green-400 hover:bg-green-500 transition ease-in-out g-green-400 rounded-md  leading-8 border-b-2 border-green-400  hover:border-green-500 hover:animate-pulse "
                 >
                   Sign In
                 </a>
@@ -52,7 +52,7 @@ export default function Header({ session, loading, signOut }) {
               href="#"
               onClick={() => handleLogout()}
               data-testid="logoutBtn"
-              className="text-lg font-semibold text-white   hover:animate-pulse "
+              className="text-md sm:text-lg  font-semibold text-white   hover:animate-pulse "
             >
               Logout
             </a>

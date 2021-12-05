@@ -1,6 +1,6 @@
 export default function ListSheet({ children, title }) {
   return (
-    <article className="border px-2 py-4   sm:px-4 rounded border-gray-200 shadow-lg ">
+    <article className="border py-4 w-full  px-4 rounded border-gray-200 shadow-lg ">
       <h2 className=" uppercase text-xl  text-center  font-bold text-green-400">
         {title}
       </h2>

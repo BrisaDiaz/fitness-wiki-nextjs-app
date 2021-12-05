@@ -98,7 +98,7 @@ export default function Collection({
         />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <section className="px-1 max-w-1000 mx-auto min-h-screen max-w-6xl">
+      <section className="px-1 pb-10 max-w-1000 mx-auto min-h-screen max-w-6xl">
         <div className="w-32 h-32 sm:w-40 sm:h-40  bg-gray-400 rounded-full mx-auto mt-6 -mb-6   sobject-cover overflow-hidden shadow-md ">
           <Image
             unoptimized={process.env.ENVIRONMENT !== 'PRODUCTION'}

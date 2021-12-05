@@ -8,15 +8,16 @@
     "start": "next start",
     "lint": "next lint ",
     "test": "jest --env=jsdom --watch  --coverage --runInBand",
-    "cypress:open": "cypress open"
+    "cy:open": "npx cypress open",
+    "cy:run":" npx cypress run --spec '**/*.spec.js'"
   },
   "dependencies": {
-    "@prisma/client": "^2.30.3",
+    "@prisma/client": "^3.6.0",
     "bcrypt": "^5.0.1",
     "caniuse-lite": "^1.0.30001278",
     "eslint-plugin-cypress": "^2.11.3",
     "jsonwebtoken": "^8.5.1",
-    "next": "^11.0.1",
+    "next": "^12.0.6",
     "next-auth": "^3.27.3",
     "next-pwa": "^5.2.24",
     "node-fetch": "^2.6.1",
@@ -40,7 +41,7 @@
     "jest": "^27.0.6",
     "postcss": "^8.3.5",
     "prettier": "^2.3.2",
-    "prisma": "^2.29.1",
+    "prisma": "^3.6.0",
     "tailwindcss": "^2.2.4"
   }
 }

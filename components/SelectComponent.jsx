@@ -6,13 +6,12 @@ export default function SelectComponent({
   onChange
 }) {
   return (
-    <div className="flex flex-row  gap-x-1 w-full max-w-sm sm:max-w-xs md:max-w-max">
-      <label htmlFor={name} className="mt-1 min-w-max">
+    <div className="flex flex-col sm:flex-row  gap-2 w-full max-w-sm sm:max-w-xs md:max-w-1/2 lg:w-max sm:items-center">
+      <label htmlFor={name} className=" min-w-max">
         {label}
       </label>
-
       <select
-        className="capitalize border border-solid border-gray-200 rounded p-1  px-2   shadow-sm  eading-tight focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-opacity-50 appearance-none w-full"
+        className="capitalize border border-solid border-gray-200 rounded p-2  px-4   shadow-sm  eading-tight focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-opacity-50 appearance-none w-full md:w-2/5  lg:w-8/12"
         id={name}
         name={name}
         onChange={onChange}

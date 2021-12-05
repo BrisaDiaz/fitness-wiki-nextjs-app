@@ -11,13 +11,13 @@ export default function AddToCollectionModal({
   return (
     <div
       ref={refernce}
-      className="w-80 py-2 modal absolute z-10"
+      className="w-72 pt-4 modal absolute z-10"
       data-testid="storeRecipeModal"
     >
       <h4 className="text-center text-2xl text-gray-600 font-semibold mb-4">
         Store in collection{' '}
       </h4>
-      <ul className="py-4 flex flex-col gap-1 max-h-60 overflow-y-auto ">
+      <ul className="py-4 flex flex-col gap-1 max-h-60 overflow-y-auto border border-gray-100">
         {collections.map((collection) => (
           <li
             key={collection?.name}
@@ -32,13 +32,13 @@ export default function AddToCollectionModal({
                     unoptimized={process.env.ENVIRONMENT !== 'PRODUCTION'}
                     className="rounded-md shadow mx-auto sm:self-center "
                     width={100}
-                    height={75}
+                    height={100}
                     src={collection?.image}
                     alt={collection?.name}
                   />
                 )}
               </div>
-              <p className="ml-2 capitalize font-semibold ">
+              <p className="ml-2 capitalize overflow-x-hidden w-full overflow-ellipsis    ">
                 {collection?.name}
               </p>
             </div>
@@ -57,13 +57,15 @@ export default function AddToCollectionModal({
         ))}
       </ul>
       {!editMode && (
-        <div className="px-2 mx-2 rounded-xl  py-1  flex items-center gap-2 bg-gray-50">
+        <div className="px-5   py-2  flex items-center gap-4 bg-gray-50">
+          <h4 className="text-md front-semibold text-gray-500 capitalize">
+            add a new collection
+          </h4>
           <AddButton
             testId="addANewCollectionBtn"
             darck
             onClick={() => toggleNewCollectionModal()}
           />
-          <h4 className="text-xl text-gray-600 ">Create a new collection</h4>
         </div>
       )}
     </div>

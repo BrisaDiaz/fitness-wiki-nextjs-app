@@ -210,7 +210,7 @@ export default function Collections({
             <span ref={loadMoreSpierRef} />
           </section>
         ) : (
-          <h2 className="text-center text-xl mx-2 -mt-5 text-gray-600 ">
+          <h2 className="text-center text-xl mx-2 sm:-mt-5 text-gray-600 ">
             Your collections inbox in empty.
           </h2>
         )}

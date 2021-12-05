@@ -1,4 +1,4 @@
-import CalculatorSelect from '../calculators/CalculatorSelect'
+import CalculatorSelect from './CalculatorSelect'
 export default function PlanSelectorField({
   setNutritionalPlan,
   planResults,
@@ -19,11 +19,11 @@ export default function PlanSelectorField({
             key={macro.persentage + macro.name}
             className="flex flex-col text-center text-xl capitalize pt-4 gap-x-2 text-gray-700 "
           >
-            <h4 className="text-2xl mr-auto font-semibold text-green-500 ">
+            <h4 className="text-lg sm:text-xl mr-auto font-semibold text-green-500 ">
               {macro.name}
             </h4>
 
-            <span className="text-2xl">{macro.persentage}%</span>
+            <span className="text-xl">{macro.persentage}%</span>
           </div>
         ))}
       </div>

@@ -88,22 +88,22 @@ export default function MealSizeCalculator({ children }) {
       </section>
       <section className="calculator-field-container">
         <h2
-          className={'text-xl sm:text-2xl font-semibold  p-2 text-center shadow  '.concat(
+          className={
             errors.length > 0
-              ? 'text-red-500 mb-6 bg-red-100'
-              : 'text-green-500 mb-6 bg-green-100'
-          )}
+              ? 'text-xl sm:text-2xl font-semibold  p-2 text-center shadow  mb-6 bg-red-400'
+              : 'calculator-field-title '
+          }
         >
           {errors.length > 0 ? 'Error' : `Your results`}
         </h2>
         {errors.length > 0 ? (
           errors.map((error) => (
-            <h2
+            <h3
               key={error}
               className="m-4 text-center text-red-500 text-lg font-semibold"
             >
               {error}
-            </h2>
+            </h3>
           ))
         ) : (
           <>

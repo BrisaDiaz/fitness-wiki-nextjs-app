@@ -9,7 +9,9 @@ export default function useStoreRecipeModal({
   setCurrentCollection,
   collections,
   recipes,
-  setRecipes
+  setRecipes,
+  userRecipes,
+  setUserRecipes
 }) {
   const [isStoringModalOpen, setIsStoringModalOpen] = useState(false)
   const [isCreateModalOpen, setIsCreateModalOpen] = useState(false)
@@ -48,6 +50,18 @@ export default function useStoreRecipeModal({
       array.push(recipe)
       return array
     }, [])
+    if (userRecipes) {
+      const actualizeUserRecipes = {
+        ...userRecipes,
+        [selectedRecipe.id]: {
+          collections: {
+            name: collectionSelected.name,
+            id: collectionSelected.id
+          }
+        }
+      }
+      setUserRecipes(actualizeUserRecipes)
+    }
     setRecipes([...actualizeRecipes])
     setIsCreateModalOpen(false)
     //// set the id as external id reference

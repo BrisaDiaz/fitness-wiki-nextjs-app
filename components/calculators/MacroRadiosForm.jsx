@@ -15,7 +15,7 @@ export default function MacroRadiosForm({ setCustomPlan, setErrors, errors }) {
             <div className="grid text-center justify-items-center text-gray-700">
               <label
                 htmlFor={input.info}
-                className="text-xl -ml-5   text-green-500 font-semibold capitalize "
+                className="text-lg sm:text-xl -ml-5   text-green-500 font-semibold capitalize "
               >
                 {input.info}
               </label>
@@ -28,10 +28,10 @@ export default function MacroRadiosForm({ setCustomPlan, setErrors, errors }) {
                   data-testid={input.info + 'Radio'}
                   name={input.info}
                   {...register(input.info)}
-                  className="p-2 my-1 w-16 border border-gray-200 focus:ring-2 focus:ring-green-500 focus:ring-opacity-50 appearance-none text-center outline-none font-semibold  text-xl"
+                  className="p-2 my-1 w-16 border border-gray-200 focus:ring-2 focus:ring-green-500 focus:ring-opacity-50 appearance-none text-center outline-none font-light  text-xl"
                   defaultValue={input.defaultValue}
                 />
-                <p className="text-2xl ml-1">%</p>
+                <p className="text-xl ml-1">%</p>
               </div>
             </div>
           </div>

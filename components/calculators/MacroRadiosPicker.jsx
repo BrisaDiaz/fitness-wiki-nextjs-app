@@ -1,6 +1,6 @@
 import MacroRadiosForm from './MacroRadiosForm'
 import CalculatorModeSwitch from './CalculatorModeSwitch'
-import PlanSelectorField from '../recipe/PlanSelectorField'
+import PlanSelectorField from './PlanSelectorField'
 import consts from '../../consts/calculatorConstants'
 
 export default function MacroRadiosPicker({

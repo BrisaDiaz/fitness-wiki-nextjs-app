@@ -1,7 +1,4 @@
-import prisma from '@/lib/prisma'
 import withAuthorization from '@/middlewares/withAuthorization'
-import toKeyValue from '@/utils/recipesStoredDataBySourceId'
-import attachStoredDataToRecipe from '@/utils/attachStoredDataToRecipe'
 import { getData } from '@/utils/spoonacularFetchConfig'
 
 async function handler(req, res) {
@@ -15,44 +12,11 @@ async function handleGet(req, res) {
   const query = new URLSearchParams(req.query).toString()
 
   try {
-    const userRecipes = await prisma.recipe.findMany({
-      where: {
-        users: {
-          some: {
-            id: req.userId
-          }
-        },
-        collections: {
-          some: {
-            id: { not: undefined }
-          }
-        }
-      },
-      select: {
-        recipeId: true,
-        collections: {
-          where: {
-            userId: req.userId
-          },
-          select: {
-            name: true,
-            id: true
-          }
-        }
-      }
-    })
-
-    const recipesStoredDataBySourceId = toKeyValue(userRecipes)
     const { results, totalResults } = await getData('complexSearch', query)
-
-    const recipesWithStoredInfo = attachStoredDataToRecipe(
-      recipesStoredDataBySourceId,
-      results
-    )
 
     return res.status(200).json({
       success: true,
-      results: recipesWithStoredInfo,
+      results,
       totalResults
     })
   } catch (error) {

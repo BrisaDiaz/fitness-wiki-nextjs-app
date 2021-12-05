@@ -1,10 +1,10 @@
 export default function MealsSizeTable({ tableData }) {
   return (
     <>
-      <legend className=" font-semibold text-xl   text-gray-700 text-center">
+      <legend className=" font-semibold text-xl   mb-4 text-gray-700 text-center">
         {tableData.title}
       </legend>
-      <div className=" overflow-x-scroll pt-3 px-1">
+      <div className=" overflow-x-auto pt-3 px-1 mb-6">
         <table className="border mx-auto">
           <thead>
             <tr className="bg-green-600 text-white text-xl whitespace-nowrap">

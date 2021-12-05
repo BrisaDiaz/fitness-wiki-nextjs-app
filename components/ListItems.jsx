@@ -33,13 +33,13 @@ export default function ListItems({ items, setItems }) {
             {items.map((item) => (
               <li
                 key={item}
-                className="flex items-center border border-gray-200 p-1.5 pl-0.5 rounded shadow-sm hover:shadow-md"
+                className="flex items-center border border-gray-200 p-1.5  pr-2 rounded shadow-sm hover:shadow-md"
               >
                 <button
                   onClick={() => deleteItem(item)}
                   name="delete"
                   className="
-                   bg-red-500 boder border-red-600 font-bold text-white leading-tigh px-2 py-1 transform scale-75  rounded-full text-xs cursor poiter "
+                   bg-red-500 boder border-red-600 font-bold text-white leading-tigh px-2 mr-1 py-1 transform scale-75  rounded-full text-xs cursor poiter "
                 >
                   X
                 </button>

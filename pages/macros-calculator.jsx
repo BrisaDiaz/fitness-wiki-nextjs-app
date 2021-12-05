@@ -33,8 +33,8 @@ export default function MacrosCalculatorPage() {
           />
           <link rel="icon" href="/favicon.ico" />
         </Head>
-        <div className="pb-5 pt-12  sm:pt-10 px-1 gap-x-2 mx-auto max-w-7xl overflow-y-hidden">
-          <h1 className="text-3xl px-2  text-green-700 text-center font-bold mb-10 lg:text-4xl">
+        <div className="pb-6 px-1 gap-x-2 mx-auto max-w-7xl overflow-y-hidden">
+          <h1 className="page-title">
             Calculate your ideal macronutriens intake
           </h1>
           <MacrosCalculator>

@@ -9,8 +9,8 @@ export default function StoreRecipeControlls({
 }) {
   return (
     <div
-      className={'flex  absolute top-0 transform scale-75 z-10 justify-start items-center  gap-2 max-w-max sm:-mt-1 mt-1.5 sm:'.concat(
-        updateOption ? 'sm:-ml-7 mt-auto ' : ' sm:-ml-2.5 '
+      className={'flex  absolute top-0 transform scale-75 z-10 justify-start items-center  gap-2 max-w-max sm:mt-1 mt-1.5 '.concat(
+        updateOption ? ' mt-auto ' : ' sm:-ml-1.5 '
       )}
     >
       {!updateOption && recipe?.stored && (
