@@ -92,7 +92,7 @@ export default function Collections({
       try {
         const [json] = await POST('/collection', data, token)
 
-        setCollections([...collections, json.data])
+        setCollections([json.data, ...collections])
         setIsLoading(false)
       } catch (error) {
         console.log(error)
