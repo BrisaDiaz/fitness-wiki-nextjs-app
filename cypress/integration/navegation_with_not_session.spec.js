@@ -1,3 +1,4 @@
+/* eslint-disable jest/expect-expect */
 /// <reference types="cypress" />
 
 describe('layout', () => {
@@ -15,6 +16,7 @@ describe('layout', () => {
     cy.get('header').should('not.contain', '[data-testid="sideBar"]')
   })
 
+  // eslint-disable-next-line jest/expect-expect
   it('signin and signup links works', () => {
     cy.get('[href="/auth/signup"]', { timeout: 10000 }).click()
     cy.url().should('contain', '/auth/signup')
@@ -28,47 +30,47 @@ describe('pages restriction', () => {
     cy.request('/api/auth/session')
   })
   it('restrict calories calculator page', () => {
-    cy.visit('/calories-calculator')
+    cy.visit('/calories-calculator', { timeout: 100000 })
     cy.intercept('GET', '/api/auth/*', {}).as('getSession')
     cy.wait('@getSession')
-    cy.url().should('contain', '/auth/signin')
+    cy.url().should('contain', '/auth/signin', { timeout: 30000 })
   })
   it('restrict macros calculator page', () => {
-    cy.visit('/macros-calculator')
+    cy.visit('/macros-calculator', { timeout: 100000 })
     cy.intercept('GET', '/api/auth/*', {}).as('getSession')
     cy.wait('@getSession')
-    cy.url().should('contain', '/auth/signin')
+    cy.url().should('contain', '/auth/signin', { timeout: 30000 })
   })
   it('restrict recipe search page', () => {
-    cy.visit('/search')
+    cy.visit('/search', { timeout: 100000 })
     cy.intercept('GET', '/api/auth/*', {}).as('getSession')
     cy.wait('@getSession')
-    cy.url().should('contain', '/auth/signin')
+    cy.url().should('contain', '/auth/signin', { timeout: 30000 })
   })
   it('restrict meals sizes calculator page', () => {
-    cy.visit('/meals-size-calculator')
+    cy.visit('/meals-size-calculator', { timeout: 100000 })
     cy.intercept('GET', '/api/auth/*', {}).as('getSession')
     cy.wait('@getSession')
-    cy.url().should('contain', '/auth/signin')
+    cy.url().should('contain', '/auth/signin', { timeout: 30000 })
   })
   it('restrict collections page', () => {
-    cy.visit('/collections')
+    cy.visit('/collections', { timeout: 100000 })
     cy.intercept('GET', '/api/auth/*', {}).as('getSession')
     cy.wait('@getSession')
-    cy.url().should('contain', '/auth/signin')
+    cy.url().should('contain', '/auth/signin', { timeout: 30000 })
   })
   it('restrict collection page', () => {
-    cy.visit('/collections/45')
+    cy.visit('/collections/45', { timeout: 100000 })
     cy.intercept('GET', '/api/auth/*', {}).as('getSession')
     cy.wait('@getSession')
-    cy.url().should('contain', '/auth/signin')
+    cy.url().should('contain', '/auth/signin', { timeout: 30000 })
   })
   it('restrict recipe page', () => {
-    cy.visit('/recipe/5')
+    cy.visit('/recipe/5', { timeout: 100000 })
     cy.intercept('GET', '/api/auth/*', {}).as('getSession')
     cy.wait('@getSession')
-    cy.url().should('contain', '/auth/signin')
+    cy.url().should('contain', '/auth/signin', { timeout: 30000 })
+    cy.get('header').should('not.contain', '[href="/auth/signin"]')
+    cy.get('header').should('not.contain', '[href="/auth/signup"]')
   })
-  cy.get('header').should('not.contain', '[href="/auth/signin"]')
-  cy.get('header').should('not.contain', '[href="/auth/signup"]')
 })

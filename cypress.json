@@ -1,5 +1,10 @@
 {
+  "env":
+  {
+    "RETRIES": 2
+  },
   "ignoreTestFiles":"**/examples/*",
   "baseUrl":"http://localhost:3000",
-  "defaultCommandTimeout":5000
+  "defaultCommandTimeout":1000000000,
+  "numTestsKeptInMemory": 0
 }

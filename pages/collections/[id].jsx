@@ -217,7 +217,7 @@ export async function getServerSideProps({ req, query }) {
     `/collection/recipes/${query.id}?number=${RESULTS_PER_PAGE}`,
     session.accessToken
   )
-  console.log(collectionRecipesJson.results)
+
   const [collectionsListJson] = await GET(`/collection`, session.accessToken)
 
   return {

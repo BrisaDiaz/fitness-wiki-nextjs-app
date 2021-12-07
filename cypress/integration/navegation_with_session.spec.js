@@ -1,12 +1,17 @@
+/* eslint-disable jest/expect-expect */
 /// <reference types="cypress" />
 
 describe('layout with session', () => {
+  before(() => {
+    cy.signin()
+  })
   beforeEach(() => {
-    cy.setAuthCookies()
-    cy.visit('/')
+    cy.visit('/', { timeout: 10000 })
     cy.request('/api/auth/session')
   })
-
+  after(() => {
+    cy.clearCookies()
+  })
   it('should display the authenticated layout', () => {
     cy.get('[data-testid="logoutBtn"]', { timeout: 10000 }).should('be.visible')
     cy.get('[data-testid="menuBtn"]', { timeout: 10000 })
@@ -23,9 +28,11 @@ describe('layout with session', () => {
   })
 })
 describe('pages restriction', () => {
-  beforeEach(() => {
-    cy.setAuthCookies()
-    cy.request('/api/auth/session')
+  before(() => {
+    cy.signin()
+  })
+  after(() => {
+    cy.clearCookies()
   })
   it('restrict signin page', () => {
     cy.visit('/auth/signin')
@@ -40,7 +47,7 @@ describe('pages restriction', () => {
 })
 
 describe('access app pages', () => {
-  beforeEach(() => {
+  before(() => {
     cy.setAuthCookies()
     cy.request('/api/auth/session')
   })

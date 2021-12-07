@@ -1,32 +1,39 @@
+/* eslint-disable jest/expect-expect */
 /// <reference types="cypress" />
 
 describe('layout with session', () => {
-  beforeEach(() => {
-    cy.clearCookies()
-    cy.setAuthCookies()
-    cy.task('deleteTestingUserCollections', 'fixedUser@email.com')
+  before(() => {
+    cy.signin()
   })
-  it.only('stores recipe in a new collection collection', () => {
+  beforeEach(() => {
+    cy.task('deleteTestingUserCollections', 'fixedUser@email.com', {
+      timeout: 100010000
+    })
+  })
+  after(() => {
+    cy.clearCookies()
+  })
+  it('stores recipe in a new collection', () => {
     cy.visit('/search')
     cy.intercept('/api/recipe*', { fixure: 'recipes.json' }).as('getRecipes')
-    cy.url().should('contain', '/search')
-    cy.get('[data-testid="recipeCard"]:first', { timeout: 3000 })
+    cy.url().should('contain', '/search', { timeout: 60000 })
+    cy.get('[data-testid="recipeCard"]:first', { timeout: 3000, force: true })
       .as('recipeCard')
-      .trigger('mouseover')
-    cy.get('[data-testid="storeRecipeBtn"]').click()
+      .trigger('mouseover', { force: true })
+    cy.get('[data-testid="storeRecipeBtn"]').click({ force: true })
     cy.get('[data-testid="addANewCollectionBtn"]', { timeout: 3000 }).click()
     cy.get('[name="newCollection"]').type('my collection')
     cy.get('[name="newCollectionForm"]').find('[type="submit"]').click()
     cy.get('@recipeCard').trigger('mouseover')
     cy.get('@recipeCard').find('[data-testid="my-collection-link"]').click()
-    cy.wait(20000)
-    cy.get('h1').should('have.text', 'my collection')
+
+    cy.get('h1').should('have.text', 'my collection', { timeout: 60000 })
     cy.get('@recipeCard').should('be.visible')
   })
 
   it('store a recipe in an already existent collection', () => {
     cy.visit('/collections')
-    cy.url().should('contain', '/collections')
+    cy.url().should('contain', '/collections', { timeout: 60000 })
     cy.get('[data-testid="createAnewCollectionBtn"]', { timeout: 3000 }).click()
     cy.get('[name="newCollection"]').type('another collection')
     cy.get('[type="submit"]').click()
@@ -37,7 +44,7 @@ describe('layout with session', () => {
 
     cy.visit('/search')
     cy.intercept('/api/recipe*', { fixure: 'recipes.json' }).as('getRecipes')
-    cy.url().should('contain', '/search')
+    cy.url().should('contain', '/search', { timeout: 30000 })
     cy.get('[data-testid="recipeCard"]:first', { timeout: 3000 })
       .as('anotherRecipeCard')
       .trigger('mouseover')
@@ -51,8 +58,8 @@ describe('layout with session', () => {
     cy.get('@anotherRecipeCard')
       .find('[data-testid="another-collection-link"]')
       .click()
-    cy.wait(20000)
-    cy.get('h1').should('have.text', 'another collection')
+
+    cy.get('h1').should('have.text', 'another collection', { timeout: 20000 })
     cy.get('@anotherRecipeCard').should('be.visible')
   })
 })

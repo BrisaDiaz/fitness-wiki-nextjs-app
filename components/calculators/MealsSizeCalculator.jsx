@@ -29,7 +29,7 @@ export default function MealSizeCalculator({ children }) {
               htmlFor="totalKcals"
               className="text-xl text-green-500 font-semibold "
             >
-              Calories
+              Calories:
             </label>
             <input
               name="kcals"

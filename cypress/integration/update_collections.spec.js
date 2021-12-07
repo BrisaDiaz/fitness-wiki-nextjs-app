@@ -1,15 +1,18 @@
+/* eslint-disable jest/expect-expect */
 /// <reference types="cypress" />
 
 describe('collection operations', () => {
+  before(cy.signin())
   beforeEach(() => {
-    cy.clearCookies()
-    cy.setAuthCookies()
     cy.task('deleteTestingUserCollections', 'fixedUser@email.com')
     cy.task('createTestingCollections', 'fixedUser@email.com')
+    cy.request('/api/auth/session')
 
     cy.visit('/collections', { timeout: 100000 })
   })
-
+  after(() => {
+    cy.clearCookies()
+  })
   it('renames and delete collections', () => {
     cy.get('[data-testid="collectionCard"]', { timeoute: 3000 }).should(
       'have.length',
@@ -36,8 +39,8 @@ describe('collection operations', () => {
     cy.get('[alt="populated collection"]', {
       timeoute: 3000
     }).click()
-    cy.wait(25000)
-    cy.get('h1').should('have.text', 'populated collection')
+
+    cy.get('h1').should('have.text', 'populated collection', { timeout: 60000 })
     cy.get('section').find('h5', '3 recipes')
 
     cy.get('section')
@@ -65,9 +68,9 @@ describe('collection operations', () => {
       .should('have.length', 1)
     cy.visit('/collections')
 
-    cy.get('[alt="empty collection"]').click()
-    cy.wait(25000)
-    cy.get('h1').should('have.text', 'empty collection')
+    cy.get('[alt="empty collection"]', { timeout: 60000 }).click()
+
+    cy.get('h1').should('have.text', 'empty collection', { timeout: 60000 })
     cy.get('section').find('h5', '1 recipes')
     cy.get('[data-testid="recipeCard"]').should('have.length', 1)
   })

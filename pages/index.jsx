@@ -19,7 +19,7 @@ export default function Home() {
       </Head>
       <section className="custom-container bg-dot-pattern bg-repeat relative ">
         <section className="mx-auto max-w-5xl px-1 sm:px-2 pb-10">
-          <h1 className="text-center pt-16 mb-5 px-2 text-3xl sm:text-5xl font-bold text-green-700  drop-shadow-lg easy-in-out   ">
+          <h1 className="text-center pt-10 mb-5 px-2 text-3xl sm:text-5xl font-bold text-green-700  drop-shadow-lg easy-in-out   ">
             Welcome to WikiFit!!
           </h1>
 

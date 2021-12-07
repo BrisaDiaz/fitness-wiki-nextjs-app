@@ -41,9 +41,7 @@ const handleDelete = async (req, res) => {
         }
       })
     })
-    return res
-      .status(204)
-      .json({ success: true, message: 'Collections deleted successfully' })
+    return res.status(204).send()
   } catch (error) {
     console.log(error)
     return res

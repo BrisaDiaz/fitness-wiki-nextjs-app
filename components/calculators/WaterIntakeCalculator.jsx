@@ -50,7 +50,7 @@ export default function WaterIntakeCalculator({ setWaterIntake }) {
           ))}
         </ul>
       </div>
-      <div className="flex  items-center justify-center -ml-20 sm:ml-0 max-w-min gap-2 ">
+      <div className="flex  items-center justify-center sm:ml-0 max-w-min gap-2 ">
         <label
           htmlFor="workoutTime"
           className="text-xl text-center  text-green-500 font-semibold w-24 "

@@ -11,7 +11,7 @@ export default function AddToCollectionModal({
   return (
     <div
       ref={refernce}
-      className="w-72 pt-4 modal absolute z-10"
+      className="w-72 pt-4 modal absolute z-50"
       data-testid="storeRecipeModal"
     >
       <h4 className="text-center text-2xl text-gray-600 font-semibold mb-4">

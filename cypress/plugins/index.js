@@ -19,7 +19,7 @@
 // eslint-disable-next-line no-unused-vars
 
 // in plugins/index.js
-module.exports = (on, config) => {
+module.exports = (on) => {
   on('task', {
     async deleteTestingUser(email) {
       const fetch = require('node-fetch')
