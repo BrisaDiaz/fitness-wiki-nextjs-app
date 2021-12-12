@@ -19,7 +19,7 @@ export default function DesclaimerText() {
         </svg>
       </div>
       <div className="`p-4 pb-6 ">
-        <h3 className="text-gray-500 text-xl sm:text-2xl font-semibold text-center uppercase mb-4 -mt-4  ">
+        <h3 className="text-gray-500 text-xl sm:text-2xl font-extrabold text-center uppercase mb-4">
           desclaimer
         </h3>
 

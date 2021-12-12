@@ -55,7 +55,7 @@ export default function Recicipe(props) {
         <section className="mx-auto px-1 sm:px-2 justify-center  gap-0 max-w-6xl  flex flex-col-reverse lg:flex-row  w-full sm:justify-evenly ">
           <section className="   p-4  md:px-6 md:pb-6 text-sm sm:text-base w-full border rounded border-gray-200 shadow-lg">
             <div className="mx-auto w-full sm:py-1 relative ">
-              <h2 className="uppercase  text-2xl font-bold text-green-400 mb-4 ml-2">
+              <h2 className="uppercase  text-2xl font-bold text-green-600  mb-4 ml-2">
                 summary
               </h2>
               <div className="w-full max-w-sm mr-1 sm:mr-3 mb-3 sm:float-left">

@@ -3,7 +3,7 @@ import { useSession, signOut } from 'next-auth/client'
 import Sidebar from './Sidebar'
 import Header from './Header'
 import MenuBtn from './MenuBtn'
-
+import ProgressBar from './ProgressBar'
 export default function Layout({ children }) {
   const [session, loading] = useSession()
 
@@ -20,7 +20,7 @@ export default function Layout({ children }) {
   return (
     <>
       <Header {...sessionProps} signOut={signOut} />
-
+      <ProgressBar />
       {session && <Sidebar {...navProps} />}
 
       <main

@@ -27,7 +27,7 @@ export default function MealSizeCalculator({ children }) {
           <div className="flex flex-col sm:flex-row gap-x-2 items-center">
             <label
               htmlFor="totalKcals"
-              className="text-xl text-green-500 font-semibold "
+              className="text-lg text-green-700 font-semibold "
             >
               Calories:
             </label>
@@ -38,7 +38,7 @@ export default function MealSizeCalculator({ children }) {
               id="totalKcals"
               defaultValue="2000"
               onChange={(e) => setTotalKcals(e.target.value)}
-              className="p-2 my-1 w-24 px-4 border border-gray-200 focus:ring-2 focus:ring-green-500 focus:ring-opacity-50 appearance-none text-center outline-none font-semibold  text-xl text-gray-600 "
+              className="p-2 my-1 w-24 px-4 border border-gray-200 focus:ring-2 focus:ring-green-600 focus:ring-opacity-50 appearance-none text-center outline-none font-semibold  text-lg text-gray-600 "
             />
           </div>
           <p className="px-1 text-sm text-gray-600">
@@ -52,17 +52,7 @@ export default function MealSizeCalculator({ children }) {
 
         <WaterIntakeCalculator setWaterIntake={setWaterIntake} />
         <h2 className="calculator-field-title ">
-          Step 3: Set your macros percentage ratios
-        </h2>
-        <div className="max-w-md mx-auto mb-6">
-          <MacroRadiosForm
-            setCustomPlan={setMacrosRadios}
-            setErrors={setErrors}
-            errors={errors}
-          />
-        </div>
-        <h2 className="calculator-field-title ">
-          Step 4: Select your preferred meal frequency
+          Step 3: Select your preferred meal frequency
         </h2>
         <ul className="px-6 mb-6 ">
           {MEALS_FRECUENCIES.map((frecuency) => (
@@ -85,12 +75,22 @@ export default function MealSizeCalculator({ children }) {
             </li>
           ))}
         </ul>
+        <h2 className="calculator-field-title ">
+          Step 4: Set your macros percentage ratios
+        </h2>
+        <div className="max-w-md mx-auto mb-6">
+          <MacroRadiosForm
+            setCustomPlan={setMacrosRadios}
+            setErrors={setErrors}
+            errors={errors}
+          />
+        </div>
       </section>
       <section className="calculator-field-container">
         <h2
           className={
             errors.length > 0
-              ? 'text-xl sm:text-2xl font-semibold  p-2 text-center shadow  mb-6 bg-red-400'
+              ? 'text-lg sm:text-2xl font-semibold  p-2 text-center shadow  mb-6 bg-red-400'
               : 'calculator-field-title '
           }
         >
@@ -116,7 +116,7 @@ export default function MealSizeCalculator({ children }) {
               <span className="font-semibold text-3xl sm:text-2xl text-gray-600 text-center">
                 {' '}
                 <div
-                  className="flex flex-col justify-center text-xl text-center capitalize "
+                  className="flex flex-col justify-center text-lg text-center capitalize "
                   data-testid="totalFiber"
                 >
                   <div className="mx-auto w-11 flex items-center transform ">
@@ -131,14 +131,14 @@ export default function MealSizeCalculator({ children }) {
                       viewBox="0 0 448 512"
                     >
                       <path
-                        fill="#10b981"
+                        fill="#15803d"
                         d="M350.85 129c25.97 4.67 47.27 18.67 63.92 42 14.65 20.67 24.64 46.67 29.96 78 4.67 28.67 4.32 57.33-1 86-7.99 47.33-23.97 87-47.94 119-28.64 38.67-64.59 58-107.87 58-10.66 0-22.3-3.33-34.96-10-8.66-5.33-18.31-8-28.97-8s-20.3 2.67-28.97 8c-12.66 6.67-24.3 10-34.96 10-43.28 0-79.23-19.33-107.87-58-23.97-32-39.95-71.67-47.94-119-5.32-28.67-5.67-57.33-1-86 5.32-31.33 15.31-57.33 29.96-78 16.65-23.33 37.95-37.33 63.92-42 15.98-2.67 37.95-.33 65.92 7 23.97 6.67 44.28 14.67 60.93 24 16.65-9.33 36.96-17.33 60.93-24 27.98-7.33 49.96-9.67 65.94-7zm-54.94-41c-9.32 8.67-21.65 15-36.96 19-10.66 3.33-22.3 5-34.96 5l-14.98-1c-1.33-9.33-1.33-20 0-32 2.67-24 10.32-42.33 22.97-55 9.32-8.67 21.65-15 36.96-19 10.66-3.33 22.3-5 34.96-5l14.98 1 1 15c0 12.67-1.67 24.33-4.99 35-3.99 15.33-10.31 27.67-18.98 37z"
                       ></path>
                     </svg>
                   </div>
                   <h4
                     className={
-                      'text-2xl font-bold border-b-4 mb-1 max-w-min self-center pb-1 my-1 text-green-500 border-green-500'
+                      'text-2xl font-bold border-b-4 mb-1 max-w-min self-center pb-1 my-1 border-green-700  text-green-700'
                     }
                   >
                     Fiber
@@ -152,7 +152,7 @@ export default function MealSizeCalculator({ children }) {
               <span className="font-semibold text-3xl sm:text-2xl text-gray-600 text-center">
                 {' '}
                 <div
-                  className="flex flex-col justify-center text-xl text-center capitalize sm:-mt-3.5"
+                  className="flex flex-col justify-center text-lg text-center capitalize sm:-mt-3.5"
                   data-testid="totalWater"
                 >
                   <div className="mx-auto w-11 flex items-center transform ">
@@ -188,7 +188,7 @@ export default function MealSizeCalculator({ children }) {
             </section>
             <div className="pl-2 pb-6 pt-2 grid gap-2 text-sm ">
               <p>
-                <span className="text-green-700 font-semibold">
+                <span className="text-green-800 font-semibold">
                   Fiber intake:{' '}
                 </span>
                 The Academy of Nutrition and Dietetics recommends consuming
@@ -197,7 +197,7 @@ export default function MealSizeCalculator({ children }) {
               </p>
 
               <p>
-                <span className="text-green-700 font-semibold">
+                <span className="text-green-800 font-semibold">
                   Water intake:{' '}
                 </span>
                 Water makes up an estimated 60% of your body weight. It is a

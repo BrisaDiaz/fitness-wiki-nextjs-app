@@ -36,15 +36,20 @@ module.exports = {
           '0%': { transform: 'translateX(-384px)', opacity: '0' },
           '100%': { transform: 'translateX(0)', opacity: '1' }
         },
-        appearRight: {
-          '0%': { transform: 'translateX(384px)', opacity: '0' },
+        slideBottom: {
+          '0%': { transform: 'translateY(384px)', opacity: '0' },
           '100%': { transform: 'translateX(0)', opacity: '1' }
+        },
+        infiniteXSlide: {
+          '0%': { transform: 'translateX(0)' },
+          '100%': { transform: 'translateX(400%)' }
         }
       },
       animation: {
         beat: 'beat  1s ease-in-out infinite',
         appearLeft: 'appearLeft 1s linear  ',
-        appearRight: 'appearRight 1s linear  '
+        slideBottom: 'slideBottom 1s linear  ',
+        infiniteXSlide: 'infiniteXSlide 1.5s linear infinite  '
       },
 
       backgroundImage: () => ({

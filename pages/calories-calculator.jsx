@@ -37,7 +37,7 @@ export default function CaloriesCalculator() {
             </div>
 
             <article className="w-full px-2 max-w-3xl leading-1 sm:mt-6 mx-auto flex-1 ">
-              <h2 className="text-xl sm:text-2xl  md:text-3xll  text-green-500 font-semibold mb-5 ">
+              <h2 className="text-xl sm:text-2xl  md:text-3xll  text-green-600  font-semibold mb-5 ">
                 {' '}
                 How many calories should you eat on average?{' '}
               </h2>
@@ -47,7 +47,7 @@ export default function CaloriesCalculator() {
                 metabolic health, among several others.
               </p>
               <br />
-              <h3 className="text-lg sm:text-xl  text-green-500 font-semibold my-2">
+              <h3 className="text-lg sm:text-xl  text-green-700  font-semibold my-2">
                 Women
               </h3>
               <p>
@@ -78,7 +78,7 @@ export default function CaloriesCalculator() {
                 significantly higher calorie needs.
               </p>
               <br />
-              <h3 className="text-lg sm:text-xl  text-green-500 font-semibold my-2">
+              <h3 className="text-lg sm:text-xl  text-green-600  font-semibold my-2">
                 Men
               </h3>
               <p>
@@ -108,7 +108,7 @@ export default function CaloriesCalculator() {
                 about 2,200 calories per day.
               </p>{' '}
               <br />
-              <h3 className="text-lg sm:text-xl  text-green-500 font-semibold my-2">
+              <h3 className="text-lg sm:text-xl  text-green-600  font-semibold my-2">
                 Children
               </h3>
               <p>

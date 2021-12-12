@@ -67,7 +67,7 @@ export default function MacrosCalcResults({
                   <path
                     fill={
                       macro.persentage >= 50
-                        ? '#10b981'
+                        ? '#15803d'
                         : macro.persentage >= 20
                         ? '#fbbf24'
                         : '#ef4444'
@@ -85,10 +85,10 @@ export default function MacrosCalcResults({
               <h4
                 className={'text-2xl font-bold border-b-4 mb-1 max-w-min self-center pb-1 my-1 '.concat(
                   macro.persentage >= 50
-                    ? 'text-green-500 border-green-500'
+                    ? 'text-green-700 border-green-700'
                     : macro.persentage >= 20
                     ? 'text-yellow-400 border-yellow-400'
-                    : 'text-red-500 border-red-500 '
+                    : 'text-red-500 border-red-600 '
                 )}
               >
                 {' '}
@@ -120,7 +120,7 @@ export default function MacrosCalcResults({
                 <path
                   fill={
                     adivice === 'recommended'
-                      ? '#10b981'
+                      ? '#15803d'
                       : adivice === 'not recommended'
                       ? '#ef4444'
                       : '#fbbf24'
@@ -132,9 +132,9 @@ export default function MacrosCalcResults({
             <h4
               className={'text-2xl font-bold border-b-4 mb-1 max-w-min self-center pb-1 my-1 '.concat(
                 adivice === 'recommended'
-                  ? 'text-green-500 border-green-500'
+                  ? 'text-green-700   border-green-700  '
                   : adivice === 'not recommended'
-                  ? 'text-red-500 border-red-500 '
+                  ? 'text-red-400 border-red-400 '
                   : 'text-yellow-300 border-yellow-300'
               )}
             >

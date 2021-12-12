@@ -7,7 +7,7 @@ export default function MealsSizeTable({ tableData }) {
       <div className=" overflow-x-auto pt-3 px-1 mb-6">
         <table className="border mx-auto">
           <thead>
-            <tr className="bg-green-600 text-white text-xl whitespace-nowrap">
+            <tr className="bg-green-700 text-white text-md sm:text-lg whitespace-nowrap">
               {tableData.columns.map((leyend) => (
                 <th key={leyend} className="py-3 px-5 text-center min-w-max ">
                   {leyend}

@@ -16,7 +16,7 @@ export default function SideBar({ setIsNavOpen, isNavOpen }) {
   return (
     <>
       <aside
-        className={'h-full w-60 bg-green-600 fixed z-40 pt-20 top-0 p-2 shadow-lg transition easy-in-out '.concat(
+        className={'h-full w-60 bg-green-700 fixed z-40 pt-20 top-0 p-2 shadow-lg transition easy-in-out '.concat(
           isNavOpen ? '-left-0' : '-left-60'
         )}
         data-testid="sidebar"

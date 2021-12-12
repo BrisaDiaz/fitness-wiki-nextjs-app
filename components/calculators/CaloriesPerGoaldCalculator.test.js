@@ -8,7 +8,7 @@ import getCaloriesPerPhysicalGoald from '../../utils/getCaloriesPerPhysicalGoald
 const dataReturn = mocks.fullCalculatorTest.goaldSection.expectResult
 const dataResived = mocks.fullCalculatorTest.AMRSection.expectResult
 const setValue = mocks.fullCalculatorTest.goaldSection.dataSend
-const darkGreen = '#0595569'
+const darkGreen = '#15803d'
 
 jest.mock('../../utils/getCaloriesPerPhysicalGoald', () => jest.fn())
 const setGoaldKcals = jest.fn()

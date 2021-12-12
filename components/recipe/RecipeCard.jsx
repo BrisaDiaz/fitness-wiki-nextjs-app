@@ -26,7 +26,7 @@ export default function RecipeCard({ recipe, children }) {
         </div>
         <div className="flex flex-col justify-start sm:px-4 py-2  w-full sm:w-9/12 ">
           <div className="sm:px-2  mt-2 sm:mt-0 flex flex-col  gap-1">
-            <div className="overflow-x-hidden mb-1 w-full overflow-ellipsis  text-green-400 ">
+            <div className="overflow-x-hidden mb-1 w-full overflow-ellipsis  text-green-600 ">
               <Link href={`/recipe/${recipe?.id}`} passHref>
                 <a
                   href="!#"

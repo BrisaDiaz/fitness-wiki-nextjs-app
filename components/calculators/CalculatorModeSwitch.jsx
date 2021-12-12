@@ -8,8 +8,10 @@ export default function CalculatorModeSwitch({
       {options.map((option) => (
         <li
           key={option.value}
-          className={'flex items-center  text-white relative p-2 rounded-t font-medium border border-green-500 text-sm cursor-pointer '.concat(
-            option.value === optionSelected ? 'bg-green-500' : 'bg-green-300'
+          className={'flex items-center  text-white relative p-2 rounded-t font-medium border  text-sm cursor-pointer '.concat(
+            option.value === optionSelected
+              ? 'bg-green-600 border-green-600  '
+              : 'bg-green-300 border-green-400'
           )}
         >
           <input

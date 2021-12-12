@@ -23,11 +23,11 @@ export default function CaloriesPerGoaldCalculator({
             key={goalOption.title}
             className={'border  p-4 flex flex-col items-center w-52 h-36 relative text-gray-700 '.concat(
               goald === goalOption.title
-                ? 'border-green-500 shadow-mdGreen'
+                ? 'border-green-600 shadow-mdGreen'
                 : 'border-gray-200 shadow-md '
             )}
           >
-            <h4 className="text-2xl text-green-500 text-center  font-semibold capitalize">
+            <h4 className="text-2xl text-green-700 text-center  font-semibold capitalize">
               {goalOption.title}
             </h4>
             <span className="text-3xl">
@@ -51,18 +51,18 @@ export default function CaloriesPerGoaldCalculator({
         <div
           className={'border py-4 flex flex-col items-center  w-52 h-36 relative text-gray-700  '.concat(
             goald === undefined
-              ? 'border-green-500 shadow-mdGreen'
+              ? 'border-green-600 shadow-mdGreen'
               : 'border-gray-200 shadow-md '
           )}
         >
-          <h4 className="text-2xl text-green-500 text-center  capitalize font-semibold">
+          <h4 className="text-2xl text-green-700   text-center  capitalize font-semibold">
             Custom
           </h4>
           <input
             onChange={(e) => setGoaldKcals(e.target.value)}
             type="number"
             min="0"
-            className="p-2 my-1 w-3/4 border border-gray-200 focus:ring-2 focus:ring-green-500 focus:ring-opacity-50 appearance-none text-center outline-none font-semibold placeholder-gray-500 "
+            className="p-2 my-1 w-3/4 border border-gray-200 focus:ring-2 focus:ring-green-600   focus:ring-opacity-50 appearance-none text-center outline-none font-semibold placeholder-gray-500 "
             defaultValue="0000"
           ></input>
           <p>Kcals/Day</p>

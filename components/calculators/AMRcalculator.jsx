@@ -33,7 +33,7 @@ export default function Calculator({ setCaloriesRequired }) {
           data-testid="AMRcalculatorForm"
           onSubmit={handleSubmit(onSubmit)}
           name="calories-calculator"
-          className="px-4 py-5 flex flex-col gap-4 bg-white shadow-md border border-gray-200 relative z-10"
+          className="px-4 py-5 flex flex-col gap-4 bg-white shadow-md border border-gray-300 relative z-10"
         >
           <CalculatorField
             label="Ecuations:"
@@ -86,7 +86,7 @@ export default function Calculator({ setCaloriesRequired }) {
                 register={{ ...register('height', { required: true }) }}
                 name="height"
                 placeholder={system === 'metric' ? 'cm' : 'in'}
-                maxValue="300"
+                maxValue="400"
                 step={system === 'metric' ? '1' : 'any'}
                 errors={errors}
               />
@@ -106,7 +106,7 @@ export default function Calculator({ setCaloriesRequired }) {
           </CalculatorField>
 
           {isStandAloneComponet && (
-            <h2 className="p-2 py-4 text-2xl font-bold text-center bg-green-200 rounded-md text-white border border-green-300">
+            <h2 className="p-2 py-4 text-2xl font-bold text-center bg-green-300 rounded-md text-white border border-green-400">
               Total:
               <span className="ml-1" data-testid="calculator-result">
                 {totalKcals} kcals

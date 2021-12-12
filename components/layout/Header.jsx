@@ -10,19 +10,14 @@ export default function Header({ session, loading, signOut }) {
     }
   }
   return (
-    <header className=" bg-green-600  px-4 py-3 sm:py-4 shadow-lg fixed  z-50 w-full">
+    <header className=" bg-green-700  px-2 sm:px-4 py-3 sm:py-4 shadow-lg fixed  z-50 w-full">
       <nav className="flex justify-between   ">
-        <div className="flex flex-row gap-1 items-center pl-1 max-w-10/12 sm:max-w-full">
-          <Image
-            width={30}
-            height={30}
-            unoptimized={env.ENVIRONMENT !== 'PRODUCTION'}
-            src="/heartbeat-solid.svg"
-            alt="calories"
-            priority={true}
-          />
+        <div className="flex flex-row gap-1 items-center pl-1 max-w-10/12 sm:max-w-full ">
           <Link href="/" passHref>
-            <a href="" className="text-xl sm:text-2xl font-semibold text-white">
+            <a
+              href=""
+              className="text-xl sm:text-2xl font-semibold text-white sm:ml-1"
+            >
               WikiFit
             </a>
           </Link>

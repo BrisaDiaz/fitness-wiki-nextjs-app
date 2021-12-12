@@ -71,7 +71,7 @@ export default function MacrosCalculator({ children }) {
         </div>
         <div className="grid gap-y-1 mt-4  font-light px-2 ">
           <div className="flex gap-2 items-center h-6 ">
-            <span className=" h-full w-6 bg-green-500 " />
+            <span className=" h-full w-6 bg-green-700 " />
             <p>Recommended</p>
           </div>
           <div className="flex gap-2 items-center h-6 ">
@@ -79,7 +79,7 @@ export default function MacrosCalculator({ children }) {
             <p>Moderately recommended</p>
           </div>
           <div className="flex gap-2 items-center  h-6 ">
-            <span className=" h-full w-6 bg-red-500  " />
+            <span className=" h-full w-6 bg-red-600  " />
             <p>Not recommended</p>
           </div>
         </div>
@@ -120,7 +120,7 @@ export default function MacrosCalculator({ children }) {
         <h2
           className={'text-xl sm:text-2xl font-semibold  p-2 text-center  '.concat(
             errors.length > 0
-              ? 'text-red-500 mb-6 bg-red-100'
+              ? 'text-red-600 mb-6 bg-red-200'
               : 'calculator-field-title '
           )}
         >

@@ -57,8 +57,8 @@ export default function AddToCollectionModal({
         ))}
       </ul>
       {!editMode && (
-        <div className="px-5   py-2  flex items-center gap-4 bg-gray-50">
-          <h4 className="text-md front-semibold text-gray-500 capitalize">
+        <div className="px-4 justify-center   py-2  flex items-center gap-2 ">
+          <h4 className="text-md font-semibold text-gray-500 capitalize">
             add a new collection
           </h4>
           <AddButton

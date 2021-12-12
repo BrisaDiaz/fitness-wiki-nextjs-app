@@ -19,7 +19,7 @@ export default function PlanSelectorField({
             key={macro.persentage + macro.name}
             className="flex flex-col text-center text-xl capitalize pt-4 gap-x-2 text-gray-700 "
           >
-            <h4 className="text-lg sm:text-xl mr-auto font-semibold text-green-500 ">
+            <h4 className="text-lg sm:text-xl mr-auto font-semibold text-green-700 ">
               {macro.name}
             </h4>
 
