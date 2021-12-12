@@ -1,6 +1,5 @@
 import Link from 'next/link'
-import Image from 'next/image'
-import env from '@/env'
+
 export default function Header({ session, loading, signOut }) {
   const handleLogout = async () => {
     try {
