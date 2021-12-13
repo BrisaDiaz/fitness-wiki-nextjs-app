@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import env from '@/env'
 export default function ImageGrid() {
   return (
     <section className="max-h-10/12 overflow-hidden  animate-slideBottom">
@@ -11,7 +12,7 @@ export default function ImageGrid() {
             alt="beakfasts"
             width={300}
             height={410}
-            unoptimized={process.env.ENVIRONMENT !== 'PRODUCTION'}
+            unoptimized={env.ENVIRONMENT !== 'PRODUCTION'}
             priority={true}
           />
         </div>
@@ -23,7 +24,8 @@ export default function ImageGrid() {
             alt="beakfasts"
             width={300}
             height={410}
-            unoptimized={process.env.ENVIRONMENT !== 'PRODUCTION'}
+            unoptimized={env.ENVIRONMENT !== 'PRODUCTION'}
+            priority={true}
           />
         </div>
         <div className="  row-span-4     row-start-1 ">
@@ -34,7 +36,7 @@ export default function ImageGrid() {
             alt="beakfasts"
             width={300}
             height={410}
-            unoptimized={process.env.ENVIRONMENT !== 'PRODUCTION'}
+            unoptimized={env.ENVIRONMENT !== 'PRODUCTION'}
             priority={true}
           />
         </div>
@@ -46,7 +48,7 @@ export default function ImageGrid() {
             alt="beakfasts"
             width={300}
             height={410}
-            unoptimized={process.env.ENVIRONMENT !== 'PRODUCTION'}
+            unoptimized={env.ENVIRONMENT !== 'PRODUCTION'}
             priority={true}
           />
         </div>
@@ -58,7 +60,8 @@ export default function ImageGrid() {
             alt="beakfasts"
             width={300}
             height={310}
-            unoptimized={process.env.ENVIRONMENT !== 'PRODUCTION'}
+            unoptimized={env.ENVIRONMENT !== 'PRODUCTION'}
+            priority={true}
           />
         </div>
         <div className="  row-span-4  mt-2   row-start-5">
@@ -69,7 +72,7 @@ export default function ImageGrid() {
             alt="beakfasts"
             width={300}
             height={410}
-            unoptimized={process.env.ENVIRONMENT !== 'PRODUCTION'}
+            unoptimized={env.ENVIRONMENT !== 'PRODUCTION'}
             priority={true}
           />
         </div>

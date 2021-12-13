@@ -35,7 +35,7 @@ export default function Header({ session, loading, signOut }) {
               <Link href="/auth/signin" passHref>
                 <a
                   href="#"
-                  className="text-md sm:text-lg  font-semibold text-white px-2 transform scale-90  bg-green-400 hover:bg-green-500 transition ease-in-out g-green-400 rounded-md  leading-8 border-b-2 border-green-400  hover:border-green-500 hover:animate-pulse "
+                  className="text-md sm:text-lg  font-semibold text-white px-2 py-1 transform scale-90  bg-green-500 hover:bg-green-600 transition ease-in-out g-green-400 rounded-md  leading-8 border-b-2 border-green-500  hover:border-green-600 hover:animate-pulse "
                 >
                   Sign In
                 </a>

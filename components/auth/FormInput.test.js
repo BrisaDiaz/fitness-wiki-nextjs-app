@@ -54,6 +54,6 @@ describe('input render', () => {
 it('display red borders when input contains errors', () => {
   render(<FormInput {...widthErrorsInput} />)
   expect(screen.getByPlaceholderText('*Name')).toHaveStyle(
-    'border-color: #fca5a5;'
+    'border-color: #dc2626;'
   )
 })

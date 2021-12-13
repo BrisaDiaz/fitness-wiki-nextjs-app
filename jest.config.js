@@ -2,7 +2,7 @@ module.exports = {
   automock: false,
   verbose: true,
   testRegex: '.*.test.js',
-  moduleDirectories: ['node_modules', 'src'],
+  moduleDirectories: ['node_modules', 'src', '.'],
   testPathIgnorePatterns: ['<rootDir>/.next/', '<rootDir>/node_modules/'],
   setupFilesAfterEnv: ['<rootDir>/setupTests.js'],
   transform: {

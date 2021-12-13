@@ -14,6 +14,7 @@ import AddToCollectionModal from '@/components/recipe/AddToCollectionModal'
 import StoreRecipeControlls from '@/components/recipe/StoreRecipeControlls'
 import RecipeCard from '@/components/recipe/RecipeCard'
 import SimpleInputModal from '@/components/SimpleInputModal'
+import Dialog from '@/components/Dialog'
 const RESULTS_PER_PAGE = 5
 export default function Collection({
   error,
@@ -47,6 +48,8 @@ export default function Collection({
     isCreateModalOpen,
     selectedRecipe,
     removedRecipes,
+    isDeleteModalOpen,
+    closeDeleteModal,
     handleRecipeStage,
     handleCollectionChange,
     handleRecipeDelete,
@@ -115,7 +118,7 @@ export default function Collection({
           {currentCollection?.length} Recipes
         </h5>
         {recipes?.length < 1 ? (
-          <p className="text-center text-gray-600 text-xl mt-4">
+          <p className="text-center text-gray-600 text-xl mt-10">
             No recipe has been added yet.
           </p>
         ) : (
@@ -138,6 +141,13 @@ export default function Collection({
                         editMode
                       />
                     )}
+                    <Dialog
+                      isModalOpen={isDeleteModalOpen}
+                      closeModal={closeDeleteModal}
+                      title="Confirmation"
+                      message="Are you shoure you want to remove the recipe from your collection?"
+                      onAccept={handleRecipeDelete}
+                    />
                     {isCreateModalOpen && recipe?.id === selectedRecipe?.id && (
                       <SimpleInputModal
                         callback={async (newCollection) =>
@@ -171,7 +181,7 @@ export default function Collection({
                     <RecipeCard recipe={recipe}>
                       <StoreRecipeControlls
                         recipe={recipe}
-                        handleDelete={handleRecipeDelete}
+                        handleDelete={handleRecipeStage}
                         handleUpdate={handleRecipeStage}
                         updateOption={true}
                       />

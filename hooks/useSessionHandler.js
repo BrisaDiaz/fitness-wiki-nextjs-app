@@ -5,7 +5,7 @@ import { POST } from './../utils/http'
 
 export default function useSessionHandler({ title, signIn }) {
   const [isFormLoading, setIsFormLoading] = useState(false)
-  const [serverMessage, setServerMessage] = useState(null)
+  const [serverMessage, setServerMessage] = useState('')
   const router = useRouter()
   const {
     register,
@@ -17,6 +17,11 @@ export default function useSessionHandler({ title, signIn }) {
   useEffect(() => {
     if (router.query.error) {
       setServerMessage(router.query.error)
+
+      setTimeout(() => {
+        setServerMessage('')
+      }, 5000)
+      return
     }
   }, [router])
 
@@ -36,7 +41,11 @@ export default function useSessionHandler({ title, signIn }) {
       })
       setIsFormLoading(false)
       if (response.error)
-        return setServerMessage(response.error || 'Server side error')
+        setServerMessage(response.error || 'Server side error')
+      setTimeout(() => {
+        setServerMessage('')
+      }, 5000)
+      return
     } else {
       try {
         const [json] = await POST(`/auth/signup`, data)
@@ -46,7 +55,11 @@ export default function useSessionHandler({ title, signIn }) {
       } catch (error) {
         setIsFormLoading(false)
         console.log(error)
-        return setServerMessage('Server side error')
+        setServerMessage('Server side error')
+        setTimeout(() => {
+          setServerMessage('')
+        }, 5000)
+        return
       }
     }
   }

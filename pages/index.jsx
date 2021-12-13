@@ -1,5 +1,6 @@
 import Head from 'next/head'
 import ImageGrid from '@/components/layout/ImagesGrid'
+
 export default function Home() {
   return (
     <>
@@ -27,6 +28,7 @@ export default function Home() {
             alongside tools that will make it easy for you to add healthy habits
             to your routine.
           </h2>
+
           <ImageGrid />
         </section>
         <div className="h-1/4 w-full bg-gradient-to-t  from-green-800 to-transparent  fixed z-40 bottom-0  " />

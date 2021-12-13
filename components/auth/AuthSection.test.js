@@ -1,4 +1,6 @@
 import React from 'react'
+import preloadAll from 'jest-next-dynamic'
+
 import { render, screen, act, fireEvent, waitFor } from '@testing-library/react'
 import AuthSection from './AuthSection.jsx'
 import SignupForm from './SignupForm.jsx'
@@ -47,6 +49,9 @@ jest.mock('next/router', () => ({
 
 const useRouter = jest.spyOn(require('next/router'), 'useRouter')
 
+beforeAll(async () => {
+  await preloadAll()
+})
 describe('signup form section', () => {
   const push = jest.fn()
   beforeEach(() => {

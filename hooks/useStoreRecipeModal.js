@@ -14,19 +14,39 @@ export default function useStoreRecipeModal({
   setUserRecipes
 }) {
   const [isStoringModalOpen, setIsStoringModalOpen] = useState(false)
+  const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false)
   const [isCreateModalOpen, setIsCreateModalOpen] = useState(false)
   const [selectedRecipe, setSelectedRecipe] = useState({})
+
   const [removedRecipes, setRemovedRecipes] = useState([])
+
   /// toggle modal
   const storeModalRef = useRef()
   const createModalRef = useRef()
+  const closeDeleteModal = () => {
+    setIsDeleteModalOpen(false)
+  }
+  const openDeleteModal = () => {
+    setIsDeleteModalOpen(true)
+  }
 
-  useOnClickOutside(storeModalRef, () => setIsStoringModalOpen(false))
+  const closeStoreModal = () => {
+    setIsStoringModalOpen(false)
+  }
+  const openStoreModal = () => {
+    setIsStoringModalOpen(true)
+  }
+  useOnClickOutside(storeModalRef, () => closeStoreModal())
   useOnClickOutside(createModalRef, () => setIsCreateModalOpen(false))
   /// stage recipe selected
-  const handleRecipeStage = (recipe) => {
-    setIsStoringModalOpen(true)
+  const handleRecipeStage = (recipe, action) => {
     setSelectedRecipe(recipe)
+    if (action === 'update') {
+      openStoreModal()
+    }
+    if (action === 'delete') {
+      openDeleteModal()
+    }
   }
   /// store recipe inside a collection
   const handleStoreInCollection = async (collectionSelected) => {
@@ -38,7 +58,7 @@ export default function useStoreRecipeModal({
       }
     }
     /// actualize ui
-    setIsStoringModalOpen(false)
+    closeStoreModal()
     const actualizeRecipes = recipes.reduce((array, recipe) => {
       if (recipe.id === selectedRecipe.id) {
         recipe.stored = true
@@ -76,7 +96,7 @@ export default function useStoreRecipeModal({
   }
   ///creates a collection and store the selected recipe
   const handleCreateAndStore = (collectionName) => {
-    setIsStoringModalOpen(false)
+    closeStoreModal()
 
     const postCollection = async (data, token) => {
       try {
@@ -95,7 +115,7 @@ export default function useStoreRecipeModal({
   }
 
   /// remove recipe from the collection
-  const handleRecipeDelete = async (selectedRecipe) => {
+  const handleRecipeDelete = async () => {
     const deteleRecipe = async (id, collectionId, token) => {
       try {
         await DELETE(`/recipe/${id}?fromCollection=${collectionId}`, token)
@@ -122,7 +142,7 @@ export default function useStoreRecipeModal({
       sourceCollectionId: currentCollection.id,
       targetCollectionId: collectionSelected.id
     }
-    setIsStoringModalOpen(false)
+    closeStoreModal()
     setRemovedRecipes([...removedRecipes, selectedRecipe.id])
     currentCollection.length = currentCollection.length - 1
     setCurrentCollection(currentCollection)
@@ -130,7 +150,7 @@ export default function useStoreRecipeModal({
   }
   //creates a collection and  move a recipe into it
   const handleCreateAndChange = (collectionName) => {
-    setIsStoringModalOpen(false)
+    closeStoreModal()
 
     const postCollection = async (data, token) => {
       try {
@@ -154,6 +174,8 @@ export default function useStoreRecipeModal({
     isCreateModalOpen,
     selectedRecipe,
     removedRecipes,
+    isDeleteModalOpen,
+    closeDeleteModal,
     handleStoreInCollection,
     setIsCreateModalOpen,
     handleRecipeStage,

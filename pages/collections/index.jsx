@@ -9,11 +9,11 @@ import { GET, POST, DELETE, PUT } from '@/utils/http'
 /// components
 import Image from 'next/image'
 import SimpleInputModal from '@/components/SimpleInputModal'
-import ConfirmationModal from '@/components/ConfirmationModal'
+
 import LoadingHeart from '@/components/LoadingHeart'
 import CollectionsCard from '@/components/recipe/CollectionsCard'
 import { AddButton } from '@/components/RoundedButtons'
-
+import Dialog from '@/components/Dialog'
 const RESULTS_PER_PAGE = 8
 
 export default function Collections({
@@ -33,8 +33,15 @@ export default function Collections({
   const [totalResults, setTotalResults] = useState(initialTotalResults || 0)
   const [displayedResults, setDisplayedResults] = useState(RESULTS_PER_PAGE)
   const [removedCollections, setRemovedCollections] = useState([])
-  const [isConfirmationModalOpen, setIsConfirmationModalOpen] = useState(false)
+  const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false)
   const [isLoading, setIsLoading] = useState(false)
+
+  const closeDeleteModal = () => {
+    setIsDeleteModalOpen(false)
+  }
+  const openDeleteModal = () => {
+    setIsDeleteModalOpen(true)
+  }
   query.append('offset', offset)
   query.append('number', RESULTS_PER_PAGE)
   const editingModalRef = useRef()
@@ -47,9 +54,9 @@ export default function Collections({
   ////  delete the collection from state and database
   const handleDeleteMode = (collectionToDelete) => {
     setSelectedCollection(collectionToDelete)
-    setIsConfirmationModalOpen(true)
+    openDeleteModal()
   }
-  const handleDelete = (response) => {
+  const handleDelete = () => {
     const deleteCollection = async (id, token) => {
       try {
         await DELETE(`/collection/${id}`, token)
@@ -57,11 +64,9 @@ export default function Collections({
         console.log(error)
       }
     }
-    setIsConfirmationModalOpen(false)
-    if (response) {
-      deleteCollection(selectedCollection.id, token)
-      setRemovedCollections([...removedCollections, selectedCollection.id])
-    }
+    openDeleteModal()
+    deleteCollection(selectedCollection.id, token)
+    setRemovedCollections([...removedCollections, selectedCollection.id])
   }
   /// rename the collection
   const handleRenameCollection = (CollectionNewName) => {
@@ -215,9 +220,12 @@ export default function Collections({
           </h2>
         )}
         {isLoading && <LoadingHeart />}
-        {isConfirmationModalOpen && (
-          <ConfirmationModal
-            setResponse={handleDelete}
+        {isDeleteModalOpen && (
+          <Dialog
+            onAccept={handleDelete}
+            closeModal={closeDeleteModal}
+            isModalOpen={isDeleteModalOpen}
+            title="Confirmation"
             message={
               'All the recipes store in the collection will be lost. Are you sure you want to procced?'
             }

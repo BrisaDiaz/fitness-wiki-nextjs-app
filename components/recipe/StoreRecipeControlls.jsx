@@ -29,7 +29,7 @@ export default function StoreRecipeControlls({
       {!recipe.stored && !updateOption && (
         <button
           data-testid="storeRecipeBtn"
-          onClick={() => handleSelection(recipe)}
+          onClick={() => handleSelection(recipe, 'store')}
           className="ml-1.5 font-bold px-4 py-2  rounded-md bg-red-500 text-white hover:bg-red-600 transition-all ease-in-out shadow"
         >
           Store
@@ -37,10 +37,13 @@ export default function StoreRecipeControlls({
       )}
       {updateOption && (
         <div className="flex gap-1 ">
-          <EditButton testId="editBtn" onClick={() => handleUpdate(recipe)} />
+          <EditButton
+            testId="editBtn"
+            onClick={() => handleUpdate(recipe, 'update')}
+          />
           <DeleteButton
             testId="deleteBtn"
-            onClick={() => handleDelete(recipe)}
+            onClick={() => handleDelete(recipe, 'delete')}
           />
         </div>
       )}
