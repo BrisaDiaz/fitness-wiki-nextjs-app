@@ -36,7 +36,7 @@ export default function CaloriesCalculator() {
               <DesclaimerText />{' '}
             </div>
 
-            <article className="w-full px-2 max-w-3xl leading-1 sm:mt-6 mx-auto flex-1 ">
+            <article className="w-full px-2 max-w-3xl leading-1 sm:mt-6 mx-auto flex-1 bg-white">
               <h2 className="text-xl sm:text-2xl  md:text-3xll  text-green-600  font-semibold mb-5 ">
                 {' '}
                 How many calories should you eat on average?{' '}

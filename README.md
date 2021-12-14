@@ -1,28 +1,31 @@
 # WikiFit Next.js Progresive web app
 
-![image](https://drive.google.com/uc?export=view&id=1C6XlGbyr3g-YZflVbwNekK790VkfqiOA)
-![image](https://drive.google.com/uc?export=view&id=1016yBDIBUUlKGOOBQQFPMsZoGlE0K2S2)
-![image](https://drive.google.com/uc?export=view&id=1LFZ-hlj0aaLb6a1yJJDgrEWkyNBm9LY5)
-![image](https://drive.google.com/uc?export=view&id=1hLttWIfoKaURbg-g5YdpN18SxMYn1f5S)
-![image](https://drive.google.com/uc?export=view&id=1WdK1zY-J5XmOVuNkFSYcb6ga7BGP6O1j)
+![image](https://drive.google.com/uc?export=view&id=1UqbxM00Pm-pUiSE6McABqf7mxd3d8sV4)
+![image](https://drive.google.com/uc?export=view&id=1IDIYQV-juU67ZGneZ0xjdHVM3mXFYKF5)
+![image](https://drive.google.com/uc?export=view&id=1cf5IjSBzulycDOsX14uLLrjhgheKnvqB)
+![image](https://drive.google.com/uc?export=view&id=1fYjsATfQmjGpIZ7DqCVOF9VF94mh2IqT)
+![image](https://drive.google.com/uc?export=view&id=1ob4ILLYSGk5TpKKib8CbLCxGg0mUZEYT)
 
 ### Demo: https://fitness-wiki-nextjs-app.vercel.app
 
 ## Environment variables
+
 >
- - **_API_KEY_**= Authorizationc key from spoonacular account
- - **_HOST_**= http://my-app.om
- - **_NEXTAUTH_URL_**= http://my-app.com
- - **_AUTH_SECRET_**= SHA256 hash string
+
+- **_API_KEY_**= Authorizationc key from spoonacular account
+- **_HOST_**= http://my-app.om
+- **_NEXTAUTH_URL_**= http://my-app.com
+- **_AUTH_SECRET_**= SHA256 hash string
 - **_JWT_SECRET_**= another SHA256 hash string
 - **_DATABASE_URL_**= your postgresql database url
 - **SHADOW_DATABASE_URL**= your shadow database url
- - **_GOOGLE_CLIENT_ID_**= Your google client id
- - **_GOOGLE_CLIENT_SECRET_**= Your google client secret
- - **_GITHUB_ID_**= Your github client id
+- **_GOOGLE_CLIENT_ID_**= Your google client id
+- **_GOOGLE_CLIENT_SECRET_**= Your google client secret
+- **_GITHUB_ID_**= Your github client id
 - **_GITHUB_SECRET_**= Your github client secret
- - **_ENVIRIOMENT_**= DEVELOPMENT / PRODUCTION
->
+- **_ENVIRIOMENT_**= DEVELOPMENT / PRODUCTION
+  >
+
 ## Tecnologies and tools:
 
 - Next.js

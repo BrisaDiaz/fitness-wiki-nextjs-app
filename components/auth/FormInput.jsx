@@ -7,6 +7,7 @@ export default function FormInput({ placeholder, type, register, errors }) {
           : 'border-gray-300 focus:ring-green-600 focus:border-green-600'
       )}
       type={type}
+      focus={errors ? true : false}
       autoComplete="off"
       placeholder={placeholder}
       {...register}

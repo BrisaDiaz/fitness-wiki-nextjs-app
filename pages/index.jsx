@@ -19,7 +19,7 @@ export default function Home() {
       </Head>
       <section className="custom-container bg-dot-pattern bg-repeat relative ">
         <section className="mx-auto max-w-5xl px-1 sm:px-2 pt-10 sm:pt-16 ">
-          <h1 className="text-center text-4xl tracking-tight font-extrabold text-gray-900 sm:text-5xl md:text-6xl mb-2 bg-white w-auto p-2 mx-auto">
+          <h1 className="text-center text-4xl tracking-tight font-extrabold text-gray-900 sm:text-5xl md:text-6xl mb-2 bg-white w-auto p-2 sm:px-4 mx-auto">
             <span className="block xl:inline">Welcome to </span>
             <span className="block text-green-800 xl:inline">WikiFit</span>
           </h1>

@@ -33,7 +33,7 @@ export default function Calculator({ setCaloriesRequired }) {
           data-testid="AMRcalculatorForm"
           onSubmit={handleSubmit(onSubmit)}
           name="calories-calculator"
-          className="px-4 py-5 flex flex-col gap-4 bg-white shadow-md border border-gray-300 relative z-10"
+          className="px-4 py-5 flex flex-col gap-4  shadow-md border border-gray-300 relative z-10"
         >
           <CalculatorField
             label="Ecuations:"
@@ -117,7 +117,7 @@ export default function Calculator({ setCaloriesRequired }) {
           <FormButton text="Calculate" />
         </form>
 
-        <ul className="text-sm mt-6 pl-1">
+        <ul className="text-sm mt-6 pl-1 ">
           {EXERCISE_INTENCITIES.map((intencity) => (
             <li key={intencity.name}>
               <span className="font-semibold ">{intencity.name + ': '}</span>

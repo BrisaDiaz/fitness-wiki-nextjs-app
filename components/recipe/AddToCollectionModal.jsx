@@ -5,7 +5,7 @@ export default function AddToCollectionModal({
   setCollection,
   selectedRecipe,
   collections,
-  toggleNewCollectionModal,
+  handleNewCollection,
   editMode
 }) {
   return (
@@ -64,7 +64,7 @@ export default function AddToCollectionModal({
           <AddButton
             testId="addANewCollectionBtn"
             darck
-            onClick={() => toggleNewCollectionModal()}
+            onClick={handleNewCollection}
           />
         </div>
       )}

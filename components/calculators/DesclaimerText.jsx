@@ -1,7 +1,7 @@
 export default function DesclaimerText() {
   return (
-    <article className="pt-2 px-4 pb-4  my-16 shadow-sm border border-gray-100 rounded relative z-10 bg-white mx-auto max-w-3xl">
-      <div className="w-28 h-28 mx-auto -mt-16 bg-white px-2">
+    <article className="pt-2 px-4 pb-4  my-16 shadow-sm border-2 border-gray-100 rounded relative z-10 bg-white mx-auto max-w-3xl">
+      <div className="w-24  h-24 mx-auto -mt-12 bg-white px-2">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           aria-hidden="true"
@@ -19,10 +19,6 @@ export default function DesclaimerText() {
         </svg>
       </div>
       <div className="`p-4 pb-6 ">
-        <h3 className="text-gray-500 text-xl sm:text-2xl font-extrabold text-center uppercase mb-4">
-          desclaimer
-        </h3>
-
         <p>
           This tool is for use in adults defined as individuals 18 years of age
           or older and not by younger people, or pregnant or breastfeeding

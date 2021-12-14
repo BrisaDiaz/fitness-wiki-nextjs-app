@@ -8,12 +8,12 @@ export default function RecipeCard({ recipe, children }) {
     <div
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
-      className="relative flex justify-end sm:justify-start hover:bg-gray-100 sm:hover:bg-white  hover:p-2 sm:hover:p-0 transition duration-150"
+      className="relative flex justify-end sm:justify-start hover:bg-gray-50  hover:p-2 sm:hover:p-0 transition duration-150"
       data-testid="recipeCard"
     >
       {isHovered && <div>{children}</div>}
 
-      <article className="w-72 mx-auto  pb-4 sm:p-4 flex flex-col sm:flex-row  sm:items-center  sm:shadow-sm rounded sm:w-full h-auto transition ease-in-out transform sm:hover:shadow-md sm:border border-gray-100 ">
+      <article className="w-72 mx-auto  pb-4 sm:p-4 flex flex-col sm:flex-row  sm:items-center  sm:shadow-sm rounded sm:w-full h-auto transition ease-in-out transform sm:hover:shadow-md sm:border border-gray-100   hover:bg-gray-50">
         <div className=" mx-auto sm:mx-0 h-44 overflow-y-hidden w-full sm:w-3/12  relative flex items-center  sm:h-24  justify-center	rounded-t ">
           <Image
             unoptimized={process.env.ENVIRONMENT !== 'PRODUCTION'}

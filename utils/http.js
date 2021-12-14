@@ -1,4 +1,4 @@
-import env from '@/env'
+import env from '../env'
 export async function POST(endpoint, data, token) {
   const response = await fetch(`${env.HOST}/api${endpoint}`, {
     method: 'POST',

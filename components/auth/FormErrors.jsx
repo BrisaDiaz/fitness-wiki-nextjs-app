@@ -4,12 +4,9 @@ export default function FormErrors({ errors }) {
   const errorsMessages = Object.entries(errors).map((error) => error[1].message)
 
   return (
-    <ul classNameName="my-5">
+    <ul className="my-5">
       {errorsMessages.map((message) => (
-        <li
-          classNameName="bg-red-300 text-red-500 font-semibold p-2 rounded mb-1 text-sm border border-red-500"
-          key={message}
-        >
+        <li key={message}>
           <div role="alert">
             <div
               className="flex items-center mb-1 bg-red-200 border-l-4 border-red-700 text-red-500 text-sm font-bold px-4 py-3"

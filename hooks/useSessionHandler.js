@@ -49,7 +49,7 @@ export default function useSessionHandler({ title, signIn }) {
     } else {
       try {
         const [json] = await POST(`/auth/signup`, data)
-        if (json.error) return setServerMessage(json.error)
+        if (json.error) return setServerMessage(json.message)
         setIsFormLoading(false)
         router.push('/auth/signin')
       } catch (error) {

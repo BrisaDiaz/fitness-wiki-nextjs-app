@@ -8,7 +8,7 @@ beforeEach(() => {
 })
 
 it('initialize with the corrects defaults values', () => {
-  expect(screen.getByLabelText('Calories')).toHaveValue(2000)
+  expect(screen.getByLabelText('Calories:')).toHaveValue(2000)
   expect(screen.getByPlaceholderText('kg')).toHaveValue(60)
   expect(screen.getByPlaceholderText('min')).toHaveValue(0)
   expect(screen.getByTestId('proteinsRadio')).toHaveValue(30)
@@ -71,32 +71,32 @@ describe('results changes', () => {
     )
     expect(screen.getByText('Water').parentNode).toHaveTextContent(13)
   })
-  it('change water intake when worckout time or weight change', async () => {
-    await act(async () => userEvent.clear(screen.getByLabelText('Calories')))
+  it('change water intake when workout time or weight change', async () => {
+    await act(async () => userEvent.clear(screen.getByLabelText('Calories:')))
     await act(async () =>
-      userEvent.type(screen.getByLabelText('Calories'), '3000')
+      userEvent.type(screen.getByLabelText('Calories:'), '3000')
     )
-    expect(screen.getByLabelText('Calories')).toHaveValue(3000)
+    expect(screen.getByLabelText('Calories:')).toHaveValue(3000)
     expect(screen.getByText('Fiber').parentNode).toHaveTextContent(42)
   })
 })
 describe('error messages', () => {
   it('toggle error message when calories are below 1200', async () => {
-    await act(async () => userEvent.clear(screen.getByLabelText('Calories')))
+    await act(async () => userEvent.clear(screen.getByLabelText('Calories:')))
     await act(async () =>
-      userEvent.type(screen.getByLabelText('Calories'), '1000')
+      userEvent.type(screen.getByLabelText('Calories:'), '1000')
     )
-    expect(screen.getByLabelText('Calories')).toHaveValue(1000)
+    expect(screen.getByLabelText('Calories:')).toHaveValue(1000)
     expect(
       await screen.findByText(
         'The daily caloric intake should be equal or greater than 1200.'
       )
     ).toBeInTheDocument()
-    await act(async () => userEvent.clear(screen.getByLabelText('Calories')))
+    await act(async () => userEvent.clear(screen.getByLabelText('Calories:')))
     await act(async () =>
-      userEvent.type(screen.getByLabelText('Calories'), '1250')
+      userEvent.type(screen.getByLabelText('Calories:'), '1250')
     )
-    expect(screen.getByLabelText('Calories')).toHaveValue(1250)
+    expect(screen.getByLabelText('Calories:')).toHaveValue(1250)
     expect(
       screen.queryByText(
         'The daily caloric intake should be equal or greater than 1200.'

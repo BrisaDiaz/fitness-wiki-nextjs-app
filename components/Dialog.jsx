@@ -16,7 +16,8 @@ export default function Modal({
     closeModal()
   }
   const handleAccpet = () => {
-    setShowModal(false), onAccept()
+    onAccept()
+    handleClose()
   }
   React.useEffect(() => {
     if (isModalOpen) {
@@ -27,7 +28,11 @@ export default function Modal({
     <>
       {showModal ? (
         <>
-          <div className="justify-center items-center flex overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none">
+          <div
+            className="justify-center items-center flex overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none "
+            onClick={handleClose}
+            data-testid="dialogModal"
+          >
             <div className="relative w-auto my-6 mx-auto max-w-3xl">
               {/*content*/}
               <div className="border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none">
@@ -63,6 +68,7 @@ export default function Modal({
                   <button
                     className="bg-green-600 text-white hover:bg-green-700 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
                     type="button"
+                    data-testid="acceptDialogBtn"
                     onClick={handleAccpet}
                   >
                     Accept

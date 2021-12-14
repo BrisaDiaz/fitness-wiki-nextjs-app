@@ -36,8 +36,8 @@ export default function CollectionsCard({
           />
         )}
       </div>
-      <div className="flex flex-col px-1 py-1.5  w-28 overflow-x-hidden  overflow-ellipsis  ">
-        <h3 className="font-semibold text-lg capitalize text-gray-800 whitespace-nowrap ">
+      <div className="flex flex-col px-1 py-1.5  w-36 overflow-x-hidden overflow-ellipsis  ">
+        <h3 className="font-semibold text-lg capitalize text-gray-800 whitespace-nowrap  overflow-x-hidden w-full overflow-ellipsis   ">
           {collection.name}
         </h3>
         <div className="flex justify-self-start gap-2 -mt-1">

@@ -11,7 +11,7 @@ export default function MacrosCalcResults({
   }, [planResults, defaultCalories])
 
   return (
-    <div className="xl:py-6">
+    <div className="xl:py-6 ">
       {errors.length > 0 ? (
         errors.map((error) => (
           <h2
@@ -26,12 +26,12 @@ export default function MacrosCalcResults({
           {planResults?.macros?.map((macro) => (
             <div
               key={macro.name}
-              className={'flex flex-col justify-center text-center text-xl capitalize '.concat(
+              className={'flex flex-col justify-center text-center text-xl capitalize bg-white '.concat(
                 macro.name === 'fats' && 'sm:-mt-5'
               )}
             >
               <div
-                className={'mx-auto w-11 flex items-center transform opacity-90 '.concat(
+                className={'mx-auto w-11 flex items-center transform opacity-90  '.concat(
                   macro.name === 'fats'
                     ? ' scale-90 '
                     : macro.name === 'proteins'

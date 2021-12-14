@@ -54,6 +54,7 @@ export default function MealSizeCalculator({ children }) {
         <h2 className="calculator-field-title ">
           Step 3: Select your preferred meal frequency
         </h2>
+
         <ul className="px-6 mb-6 ">
           {MEALS_FRECUENCIES.map((frecuency) => (
             <li

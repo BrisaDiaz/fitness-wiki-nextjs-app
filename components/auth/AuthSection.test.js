@@ -6,10 +6,26 @@ import AuthSection from './AuthSection.jsx'
 import SignupForm from './SignupForm.jsx'
 import SigninForm from './SigninForm.jsx'
 import AuthProviderButtons from './AuthProviderButtons.jsx'
-import { signIn } from 'next-auth/client'
-
-jest.mock('next-auth/client')
+import client from 'next-auth/client'
 jest.mock('next/config', () => () => ({ publicRuntimeConfig: { HOST } }))
+jest.mock('next/router', () => ({
+  useRouter() {
+    return {
+      route: '/',
+      pathname: '',
+      query: '',
+      asPath: '',
+      push: jest.fn(),
+      events: {
+        on: jest.fn(),
+        off: jest.fn()
+      },
+      beforePopState: jest.fn(() => null),
+      prefetch: jest.fn(() => null)
+    }
+  }
+}))
+jest.mock('next-auth/client')
 
 const HOST = 'http://localehost:3000'
 
@@ -34,26 +50,16 @@ const authProviders = {
   github: 'Sign in with GitHub',
   google: 'Sign in with Google'
 }
-jest.doMock('next/router', () => jest.fn())
-
-jest.mock('next/router', () => ({
-  useRouter() {
-    return {
-      route: '',
-      pathname: '',
-      query: '',
-      asPath: ''
-    }
-  }
-}))
 
 const useRouter = jest.spyOn(require('next/router'), 'useRouter')
-
 beforeAll(async () => {
   await preloadAll()
 })
+
 describe('signup form section', () => {
-  const push = jest.fn()
+  afterEach(() => {
+    jest.clearAllMocks()
+  })
   beforeEach(() => {
     useRouter.mockImplementation(() => ({
       route: '/auth/signUp',
@@ -61,7 +67,13 @@ describe('signup form section', () => {
       query: '',
       asPath: '',
       replace: jest.fn(),
-      push
+      push: jest.fn(),
+      events: {
+        on: jest.fn(),
+        off: jest.fn()
+      },
+      beforePopState: jest.fn(() => null),
+      prefetch: jest.fn(() => null)
     }))
     render(<AuthSection {...signupProps} />)
   })
@@ -145,13 +157,10 @@ describe('signup form section', () => {
 
     await act(async () => fireEvent.blur(passwordInput))
 
-    expect(global.fetch).not.toHaveBeenCalled()
-
     await act(async () => fireEvent.submit(submit))
 
-    expect(global.fetch).toHaveBeenCalled()
-    expect(push).not.toHaveBeenCalled()
-    await waitFor(() => screen.getByText('This account already exist'))
+    await waitFor(() => screen.findByTestId('auth-server-resonce'))
+    expect(screen.getByText('This account already exist')).toBeInTheDocument()
   })
   it('redirects when sing up success', async () => {
     global.fetch = jest.fn(() =>
@@ -202,26 +211,18 @@ describe('signup form section', () => {
 
     await act(async () => fireEvent.blur(passwordInput))
 
-    expect(global.fetch).not.toHaveBeenCalled()
-    expect(push).not.toHaveBeenCalled()
     await act(async () => fireEvent.submit(submit))
 
-    expect(global.fetch).toHaveBeenCalled()
-    expect(push).toHaveBeenCalled()
+    expect(useRouter).toHaveBeenCalled()
   })
 })
 
 describe('signin form section', () => {
+  afterEach(() => {
+    jest.clearAllMocks()
+  })
   beforeEach(() => {
-    useRouter.mockImplementation(() => ({
-      route: '/auth/signIn',
-      pathname: '',
-      query: '',
-      asPath: '',
-      replace: jest.fn(),
-      push: jest.fn()
-    }))
-    signIn.mockResolvedValue({
+    client.signIn.mockReturnValue({
       error: 'This email is not registered'
     })
     render(<AuthSection {...signinProps} />)
@@ -260,15 +261,19 @@ describe('signin form section', () => {
 
     await act(async () => fireEvent.blur(passwordInput))
 
-    expect(signIn).not.toHaveBeenCalled()
+    expect(client.signIn).not.toHaveBeenCalled()
 
     await act(async () => fireEvent.submit(submit))
 
-    expect(signIn).toHaveBeenCalled()
+    expect(client.signIn).toHaveBeenCalled()
+
     await waitFor(() => screen.getByText('This email is not registered'))
   })
 })
 describe('sign In page width url error', () => {
+  afterEach(() => {
+    jest.clearAllMocks()
+  })
   beforeEach(() => {
     useRouter.mockImplementation(() => ({
       route: '/auth/signIn',
@@ -276,7 +281,13 @@ describe('sign In page width url error', () => {
       query: { error: 'authentication trown error' },
       asPath: '',
       replace: jest.fn(),
-      push: jest.fn()
+      push: jest.fn(),
+      events: {
+        on: jest.fn(),
+        off: jest.fn()
+      },
+      beforePopState: jest.fn(() => null),
+      prefetch: jest.fn(() => null)
     }))
   })
   it('renders the errors got from the URL query', async () => {

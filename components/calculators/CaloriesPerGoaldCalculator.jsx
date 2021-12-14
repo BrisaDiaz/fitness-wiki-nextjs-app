@@ -17,11 +17,11 @@ export default function CaloriesPerGoaldCalculator({
   })
   return (
     <>
-      <div className="flex flex-wrap justify-center gap-4  max-w-xl w-full mx-auto ">
+      <div className="flex flex-wrap justify-center gap-4  max-w-xl w-full mx-auto  ">
         {mainGoaldsValues?.map((goalOption) => (
           <div
             key={goalOption.title}
-            className={'border  p-4 flex flex-col items-center w-52 h-36 relative text-gray-700 '.concat(
+            className={'border  p-4 flex flex-col items-center w-52 h-36 relative text-gray-700 bg-white '.concat(
               goald === goalOption.title
                 ? 'border-green-600 shadow-mdGreen'
                 : 'border-gray-200 shadow-md '
@@ -49,7 +49,7 @@ export default function CaloriesPerGoaldCalculator({
           </div>
         ))}
         <div
-          className={'border py-4 flex flex-col items-center  w-52 h-36 relative text-gray-700  '.concat(
+          className={'border py-4 flex flex-col items-center  w-52 h-36 relative text-gray-700 bg-white  '.concat(
             goald === undefined
               ? 'border-green-600 shadow-mdGreen'
               : 'border-gray-200 shadow-md '
@@ -81,7 +81,7 @@ export default function CaloriesPerGoaldCalculator({
         </div>
       </div>
       {intencityOptions.length > 0 && (
-        <ul className="mt-4 h-20  w-max self-center">
+        <ul className="mt-4 h-20  w-max mx-auto bg-white ">
           {intencityOptions.map((option) => (
             <li
               key={option.name}

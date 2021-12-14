@@ -36,12 +36,18 @@ export default function useStoreRecipeModal({
   const openStoreModal = () => {
     setIsStoringModalOpen(true)
   }
+  const closeCreateModal = () => {
+    setIsCreateModalOpen(false)
+  }
+  const openCreateModal = () => {
+    setIsCreateModalOpen(true)
+  }
   useOnClickOutside(storeModalRef, () => closeStoreModal())
-  useOnClickOutside(createModalRef, () => setIsCreateModalOpen(false))
+  useOnClickOutside(createModalRef, () => closeCreateModal())
   /// stage recipe selected
   const handleRecipeStage = (recipe, action) => {
     setSelectedRecipe(recipe)
-    if (action === 'update') {
+    if (action === 'update' || action === 'store') {
       openStoreModal()
     }
     if (action === 'delete') {
@@ -83,7 +89,7 @@ export default function useStoreRecipeModal({
       setUserRecipes(actualizeUserRecipes)
     }
     setRecipes([...actualizeRecipes])
-    setIsCreateModalOpen(false)
+    closeCreateModal()
     //// set the id as external id reference
 
     const data = {
@@ -94,6 +100,7 @@ export default function useStoreRecipeModal({
 
     await storeRecipeOnCollection(collectionSelected.id, data, token)
   }
+
   ///creates a collection and store the selected recipe
   const handleCreateAndStore = (collectionName) => {
     closeStoreModal()
@@ -177,7 +184,7 @@ export default function useStoreRecipeModal({
     isDeleteModalOpen,
     closeDeleteModal,
     handleStoreInCollection,
-    setIsCreateModalOpen,
+    openCreateModal,
     handleRecipeStage,
     handleCreateAndStore,
     handleRecipeDelete,

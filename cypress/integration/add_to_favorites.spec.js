@@ -2,17 +2,13 @@
 /// <reference types="cypress" />
 
 describe('layout with session', () => {
-  before(() => {
-    cy.signin()
-  })
   beforeEach(() => {
+    cy.signin()
     cy.task('deleteTestingUserCollections', 'fixedUser@email.com', {
       timeout: 100010000
     })
   })
-  after(() => {
-    cy.clearCookies()
-  })
+
   it('stores recipe in a new collection', () => {
     cy.visit('/search')
     cy.intercept('/api/recipe*', { fixure: 'recipes.json' }).as('getRecipes')
@@ -20,9 +16,14 @@ describe('layout with session', () => {
     cy.get('[data-testid="recipeCard"]:first', { timeout: 3000, force: true })
       .as('recipeCard')
       .trigger('mouseover', { force: true })
-    cy.get('[data-testid="storeRecipeBtn"]').click({ force: true })
-    cy.get('[data-testid="addANewCollectionBtn"]', { timeout: 3000 }).click()
-    cy.get('[name="newCollection"]').type('my collection')
+    cy.get('@recipeCard')
+      .get('[data-testid="storeRecipeBtn"]')
+      .click({ force: true })
+    cy.get('[data-testid="storeRecipeModal"]')
+      .as('storeModal')
+      .find('[data-testid="addANewCollectionBtn"]', { timeout: 60000 })
+      .click()
+    cy.get('[name="newCollection"]').type('my collection').blur()
     cy.get('[name="newCollectionForm"]').find('[type="submit"]').click()
     cy.get('@recipeCard').trigger('mouseover')
     cy.get('@recipeCard').find('[data-testid="my-collection-link"]').click()
@@ -35,7 +36,10 @@ describe('layout with session', () => {
     cy.visit('/collections')
     cy.url().should('contain', '/collections', { timeout: 60000 })
     cy.get('[data-testid="createAnewCollectionBtn"]', { timeout: 3000 }).click()
-    cy.get('[name="newCollection"]').type('another collection')
+    cy.get('[data-testid="newCollectionModal"]')
+      .find('[name="newCollection"]', { timeout: 3000 })
+      .type('another collection')
+      .blur()
     cy.get('[type="submit"]').click()
 
     cy.get('[data-testid="collectionCard"]', { timeout: 60000 })

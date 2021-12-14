@@ -9,7 +9,7 @@ describe('layout', () => {
   })
   // eslint-disable-next-line jest/expect-expect
   it('should display the unauthenticated layout', () => {
-    cy.get('h1').should('have.text', 'Welcome to WikiFit!!')
+    cy.get('h1').should('have.text', 'Welcome to WikiFit')
     cy.get('[href="/auth/signup"]', { timeout: 10000 }).should('be.visible')
     cy.get('[href="/auth/signin"]', { timeout: 10000 }).should('be.visible')
     cy.get('main').should('not.contain', '[data-testid="menuBtn"]')
@@ -29,43 +29,31 @@ describe('pages restriction', () => {
     cy.clearCookies()
     cy.request('/api/auth/session')
   })
-  it('restrict calories calculator page', () => {
+  it('restrict page that require authentication', () => {
     cy.visit('/calories-calculator', { timeout: 100000 })
     cy.intercept('GET', '/api/auth/*', {}).as('getSession')
     cy.wait('@getSession')
     cy.url().should('contain', '/auth/signin', { timeout: 30000 })
-  })
-  it('restrict macros calculator page', () => {
     cy.visit('/macros-calculator', { timeout: 100000 })
     cy.intercept('GET', '/api/auth/*', {}).as('getSession')
     cy.wait('@getSession')
     cy.url().should('contain', '/auth/signin', { timeout: 30000 })
-  })
-  it('restrict recipe search page', () => {
     cy.visit('/search', { timeout: 100000 })
     cy.intercept('GET', '/api/auth/*', {}).as('getSession')
     cy.wait('@getSession')
     cy.url().should('contain', '/auth/signin', { timeout: 30000 })
-  })
-  it('restrict meals sizes calculator page', () => {
     cy.visit('/meals-size-calculator', { timeout: 100000 })
     cy.intercept('GET', '/api/auth/*', {}).as('getSession')
     cy.wait('@getSession')
     cy.url().should('contain', '/auth/signin', { timeout: 30000 })
-  })
-  it('restrict collections page', () => {
     cy.visit('/collections', { timeout: 100000 })
     cy.intercept('GET', '/api/auth/*', {}).as('getSession')
     cy.wait('@getSession')
     cy.url().should('contain', '/auth/signin', { timeout: 30000 })
-  })
-  it('restrict collection page', () => {
     cy.visit('/collections/45', { timeout: 100000 })
     cy.intercept('GET', '/api/auth/*', {}).as('getSession')
     cy.wait('@getSession')
     cy.url().should('contain', '/auth/signin', { timeout: 30000 })
-  })
-  it('restrict recipe page', () => {
     cy.visit('/recipe/5', { timeout: 100000 })
     cy.intercept('GET', '/api/auth/*', {}).as('getSession')
     cy.wait('@getSession')

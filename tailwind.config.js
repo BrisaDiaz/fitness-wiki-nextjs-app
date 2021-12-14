@@ -58,7 +58,8 @@ module.exports = {
       backgroundImage: () => ({
         'healthy-food': "url('/healthy-food-bg.jpg')",
         'healthy-burger': "url('/healthy-burger-bg.jpg')",
-        'dot-pattern': "url('/dot-pattern-bg.jpg')"
+        'dot-pattern': "url('/dot-pattern-bg.jpg')",
+        'figures-pattern': "url('/figures-pattern.png')"
       })
     }
   },

@@ -33,11 +33,12 @@ Cypress.Commands.add('signin', () => {
     cy.visit('/auth/signin', { timeout: 100000 })
 
     cy.url().should('contain', '/auth/signin', { timeout: 100000 })
-    cy.get('[name="email"]', { timeout: 100000 }).type('fixedUser@email.com')
-    cy.get('[name="password"]').type('fixeduser')
-    cy.get('[type="submit"]').click()
-    cy.should('not.have', '[data-testid="spinner"]')
+    cy.get('[name="email"]', { timeout: 100000 })
+      .type('fixedUser@email.com')
+      .blur()
 
-    cy.url().should('contain', '/', { timeout: 100000 })
+    cy.get('[name="password"]').type('fixeduser').blur()
+    cy.get('[type="submit"]').click()
+    cy.get('h1').should('have.text', 'Welcome to WikiFit')
   })
 })

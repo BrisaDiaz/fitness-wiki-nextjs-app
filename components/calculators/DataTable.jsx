@@ -17,7 +17,7 @@ export default function MealsSizeTable({ tableData }) {
           </thead>
           <tbody>
             {tableData.data.map((row, index) => (
-              <tr key={index} className="border-b">
+              <tr key={index} className="border-b ">
                 {row.map((data) => (
                   <td className="text-center  py-2 capitalize" key={data}>
                     {data}

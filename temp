@@ -1,0 +1,4 @@
+DATABASE_URL=postgres://oizythytyzokdj:7eddd048fa66b3c7109d87e65eb3ba4ab2150e2ceac3e23caae4bf56784fa4c2@ec2-35-174-122-153.compute-1.amazonaws.com:5432/dd3k2nimpijlq7
+
+SHADOW_DATABASE_URL=postgresql://postgres:naufragio@localhost:5432/wikifit?schema=public
+  shadowDatabaseUrl =  env("SHADOW_DATABASE_URL")

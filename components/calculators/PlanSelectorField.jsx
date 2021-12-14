@@ -5,7 +5,7 @@ export default function PlanSelectorField({
   plans
 }) {
   return (
-    <article className="border border-gray-200 pt-4 px-2 sm:px-4 shadow-md">
+    <article className="border bg-white border-gray-200 pt-4 px-2 sm:px-4 shadow-md">
       <CalculatorSelect
         options={plans}
         name="nutritional-plan"
@@ -19,7 +19,7 @@ export default function PlanSelectorField({
             key={macro.persentage + macro.name}
             className="flex flex-col text-center text-xl capitalize pt-4 gap-x-2 text-gray-700 "
           >
-            <h4 className="text-lg sm:text-xl mr-auto font-semibold text-green-700 ">
+            <h4 className="text-lg  mr-auto font-semibold text-green-700 ">
               {macro.name}
             </h4>
 

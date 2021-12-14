@@ -1,23 +1,27 @@
 import FormButtom from '@/components/FormButton'
-import useSimpleInputModal from '@/hooks/useSimpleInputModal'
+import useLocatedInputModal from '@/hooks/useLocatedInputModal'
 export default function SimpleInputModal({
-  children,
+  avatar,
   title,
   inputOptions,
   dinamicOptions,
   callback,
   reference
 }) {
-  const { register, handleSubmit, onSubmit } = useSimpleInputModal({
+  const { register, handleSubmit, onSubmit } = useLocatedInputModal({
     callback,
     inputName: inputOptions.name
   })
   return (
     <article ref={reference} className=" p-4 pb-6 w-72 modal absolute z-50">
-      <p className="text-2xl text-gray-600 font-semibold text-center  mb-1 capitalize">
+      <p
+        className={'text-2xl text-gray-600 font-semibold text-center  mb-1 capitalize '.concat(
+          avatar ? 'mb-4' : ''
+        )}
+      >
         {title}
       </p>
-      {children}
+      {avatar}
       <form
         name={inputOptions.name + 'Form'}
         className="flex flex-col gap-4"

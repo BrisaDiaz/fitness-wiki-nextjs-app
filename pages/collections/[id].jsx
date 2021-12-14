@@ -13,7 +13,7 @@ import { GET } from '@/utils/http'
 import AddToCollectionModal from '@/components/recipe/AddToCollectionModal'
 import StoreRecipeControlls from '@/components/recipe/StoreRecipeControlls'
 import RecipeCard from '@/components/recipe/RecipeCard'
-import SimpleInputModal from '@/components/SimpleInputModal'
+import LocatedInputModal from '@/components/LocatedInputModal'
 import Dialog from '@/components/Dialog'
 const RESULTS_PER_PAGE = 5
 export default function Collection({
@@ -149,7 +149,7 @@ export default function Collection({
                       onAccept={handleRecipeDelete}
                     />
                     {isCreateModalOpen && recipe?.id === selectedRecipe?.id && (
-                      <SimpleInputModal
+                      <LocatedInputModal
                         callback={async (newCollection) =>
                           await handleCreateAndChange(newCollection)
                         }
@@ -160,23 +160,24 @@ export default function Collection({
                           type: 'text',
                           placeholder: 'Enter name...'
                         }}
-                      >
-                        <div className="w-28 h-28 bg-gray-400 rounded-full mx-auto my-6 sobject-cover overflow-hidden shadow-md">
-                          <Image
-                            unoptimized={
-                              process.env.ENVIRONMENT !== 'PRODUCTION'
-                            }
-                            className="rounded-xl  mx-auto "
-                            width={200}
-                            height={200}
-                            alt={selectedRecipe?.title || 'create collection'}
-                            src={
-                              selectedRecipe?.image ||
-                              '/recipe-default-image.png'
-                            }
-                          />
-                        </div>
-                      </SimpleInputModal>
+                        avatar={
+                          <div className="w-28 h-28 bg-gray-400 rounded-full mx-auto my-6 sobject-cover overflow-hidden shadow-md">
+                            <Image
+                              unoptimized={
+                                process.env.ENVIRONMENT !== 'PRODUCTION'
+                              }
+                              className="rounded-xl  mx-auto "
+                              width={200}
+                              height={200}
+                              alt={selectedRecipe?.title || 'create collection'}
+                              src={
+                                selectedRecipe?.image ||
+                                '/recipe-default-image.png'
+                              }
+                            />
+                          </div>
+                        }
+                      ></LocatedInputModal>
                     )}
                     <RecipeCard recipe={recipe}>
                       <StoreRecipeControlls

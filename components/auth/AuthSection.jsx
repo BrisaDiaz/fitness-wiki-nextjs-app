@@ -57,7 +57,7 @@ export default function AuthSection({
       {isFormLoading && <FormSpinner />}
 
       {serverMessage && (
-        <div role="alert">
+        <div role="alert" data-testid="auth-server-resonce">
           <div
             className="flex items-center bg-blue-200 border-l-4 border-blue-700 text-blue-500 text-sm font-bold px-4 py-3"
             role="alert"

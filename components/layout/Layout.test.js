@@ -3,12 +3,45 @@ import { act, render, screen, waitFor } from '@testing-library/react'
 import Layout from './Layout'
 import userEvent from '@testing-library/user-event'
 import client from 'next-auth/client'
+jest.mock('next/router', () => ({
+  useRouter() {
+    return {
+      route: '/',
+      pathname: '',
+      query: '',
+      asPath: '',
+      push: jest.fn(),
+      events: {
+        on: jest.fn(),
+        off: jest.fn()
+      },
+      beforePopState: jest.fn(() => null),
+      prefetch: jest.fn(() => null)
+    }
+  }
+}))
+jest.mock('next-auth/client')
 
-jest.doMock('next-auth/client', () => jest.fn())
+beforeEach(() => {
+  const useRouter = jest.spyOn(require('next/router'), 'useRouter')
+  useRouter.mockImplementation(() => ({
+    route: '/',
+    pathname: '',
+    query: '',
+    asPath: '',
+    push: jest.fn(),
+    events: {
+      on: jest.fn(),
+      off: jest.fn()
+    },
+    beforePopState: jest.fn(() => null),
+    prefetch: jest.fn(() => null)
+  }))
+})
 
 describe('layout with session', () => {
   beforeEach(() => {
-    client.useSession = jest.fn(() => [
+    client.useSession.mockReturnValue([
       {
         user: {
           email: 'foo@bar.com'
@@ -16,6 +49,7 @@ describe('layout with session', () => {
       },
       false
     ])
+
     render(
       <Layout>
         <section>
@@ -39,7 +73,8 @@ describe('layout with session', () => {
 
 describe('layout without session', () => {
   beforeEach(() => {
-    client.useSession = jest.fn(() => [false, false])
+    client.useSession.mockReturnValue([false, false])
+
     render(
       <Layout>
         <section>

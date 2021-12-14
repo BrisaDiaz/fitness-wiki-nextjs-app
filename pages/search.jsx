@@ -24,7 +24,7 @@ import ListItems from '@/components/ListItems'
 import PaginationComponent from '@/components/PaginationComponent'
 import AddToCollectionModal from '@/components/recipe/AddToCollectionModal'
 import StoreRecipeControlls from '@/components/recipe/StoreRecipeControlls'
-import SimpleInputModal from '@/components/SimpleInputModal'
+import SimpleInputModal from '@/components/LocatedInputModal'
 export default function SearchPage({
   initialRecipes,
   initialTotalResults,
@@ -161,7 +161,7 @@ export default function SearchPage({
     selectedRecipe,
     createModalRef,
     handleStoreInCollection,
-    setIsCreateModalOpen,
+    openCreateModal,
     handleRecipeStage,
     handleCreateAndStore
   } = useStoreRecipeModal({
@@ -249,7 +249,7 @@ export default function SearchPage({
                   <AddToCollectionModal
                     refernce={storeModalRef}
                     setCollection={handleStoreInCollection}
-                    toggleNewCollectionModal={() => setIsCreateModalOpen(true)}
+                    handleNewCollection={openCreateModal}
                     selectedRecipe={selectedRecipe}
                     collections={collections}
                   />

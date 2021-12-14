@@ -1,8 +1,8 @@
-export function AddButton({ onClick, darck, testId }) {
+export function AddButton({ darck, testId, onClick }) {
   return (
     <div
+      onClick={() => onClick && onClick()}
       data-testid={testId}
-      onClick={() => onClick()}
       className={'w-12 h-12 l rounded-full border   border-green-600   shadow-lg  cursor-pointer flex justify-center items-center relative transform scale-75 '.concat(
         darck
           ? ' bg-green-600   hover:bg-green-700'

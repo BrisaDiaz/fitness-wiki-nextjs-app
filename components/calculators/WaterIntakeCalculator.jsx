@@ -17,11 +17,11 @@ export default function WaterIntakeCalculator({ setWaterIntake }) {
         optionSelected={metricSystem}
         setOption={setMetricSystem}
       />
-      <div className="flex flex-col sm:flex-row gap-2   sm:justify-center items-center w-full max-w-md  border py-6 shadow-md">
-        <div className="flex items-center justify-center max-w-min ">
+      <div className="flex flex-col sm:flex-row gap-4   sm:justify-center items-center w-full max-w-md  border py-6 shadow-md bg-white ">
+        <div className="flex items-center justify-center max-w-min gap-1">
           <label
             htmlFor="totalKcals"
-            className="text-lg  text-green-700 font-semibold  ml-2 w-24 sm:w-20"
+            className="text-lg  text-green-700 font-semibold  w-20 sm:w-auto mr-2"
           >
             Weight:
           </label>
@@ -34,15 +34,18 @@ export default function WaterIntakeCalculator({ setWaterIntake }) {
             placeholder={metricSystem === 'metric' ? 'kg' : 'lbs'}
             step={metricSystem === 'metric' ? '1' : 'any'}
             onChange={(e) => setWeight(e.target.value)}
-            className="p-2 my-1 w-20 border border-gray-200 focus:ring-2 focus:ring-green-600 focus:ring-opacity-50 appearance-none text-center outline-none font-light  text-xl text-gray-700 placeholder-end placeh"
+            className="p-2 my-1 w-16 border border-gray-200 focus:ring-2 focus:ring-green-600 focus:ring-opacity-50 appearance-none text-center outline-none text-gray-600  text-xl font-light placeholder-end placeh"
           />
+          <p className="text-lg ml-1 text-gray-600">
+            {metricSystem === 'metric' ? 'kg' : 'lbs'}
+          </p>
         </div>
-        <div className="flex  items-center justify-center sm:ml-0 max-w-min gap-2 ">
+        <div className="flex  items-center justify-center sm:ml-0 max-w-min gap-1 ">
           <label
             htmlFor="workoutTime"
-            className="text-lg  text-center  text-green-700 font-semibold w-24 "
+            className="text-lg  text-center  text-green-700 font-semibold w-24 sm:w-auto "
           >
-            Workout duration:
+            Workout:
           </label>
 
           <input
@@ -54,8 +57,9 @@ export default function WaterIntakeCalculator({ setWaterIntake }) {
             defaultValue={0}
             placeholder="min"
             onChange={(e) => setWorkoutMinutes(e.target.value)}
-            className=" p-2 my-1 w-20  border border-gray-200 focus:ring-2 focus:ring-green-600 focus:ring-opacity-50 appearance-none text-center outline-none  text-xl font-light text-gray-700 placeholder-end"
+            className=" p-2 my-1 w-16  border border-gray-200 focus:ring-2 focus:ring-green-600 focus:ring-opacity-50 appearance-none text-center outline-none  text-xl text-gray-600 font-light placeholder-end"
           />
+          <p className="text-lg ml-1 text-gray-600">min</p>
         </div>
       </div>
     </article>

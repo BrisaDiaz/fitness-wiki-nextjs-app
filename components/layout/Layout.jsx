@@ -20,7 +20,7 @@ export default function Layout({ children }) {
   return (
     <>
       <Header {...sessionProps} signOut={signOut} />
-      <ProgressBar />
+      <ProgressBar externalLoading={loading} />
       {session && <Sidebar {...navProps} />}
 
       <main

@@ -8,8 +8,8 @@ import useOnScreen from '@/hooks/useOnScreen'
 import { GET, POST, DELETE, PUT } from '@/utils/http'
 /// components
 import Image from 'next/image'
-import SimpleInputModal from '@/components/SimpleInputModal'
-
+import LocatedInputModal from '@/components/LocatedInputModal'
+import FullPageInputModal from '@/components/FullPageInputModal'
 import LoadingHeart from '@/components/LoadingHeart'
 import CollectionsCard from '@/components/recipe/CollectionsCard'
 import { AddButton } from '@/components/RoundedButtons'
@@ -25,8 +25,7 @@ export default function Collections({
   const token = session?.accessToken
 
   const [collections, setCollections] = useState(initialCollections || [])
-  const [isEditing, setIsEditing] = useState(false)
-  const [isCreating, setIsCreating] = useState(false)
+  const [isEditingModalOpen, setIsEditingModalOpen] = useState(false)
   const [selectedCollection, setSelectedCollection] = useState({})
   const [page, setPage] = useState(1)
   const [offset, setOffset] = useState(0)
@@ -42,13 +41,19 @@ export default function Collections({
   const openDeleteModal = () => {
     setIsDeleteModalOpen(true)
   }
+  const closeEditModal = () => {
+    setIsEditingModalOpen(false)
+  }
+  const openEditModal = () => {
+    setIsEditingModalOpen(true)
+  }
   query.append('offset', offset)
   query.append('number', RESULTS_PER_PAGE)
   const editingModalRef = useRef()
-  const createModalRef = useRef()
+
   const loadMoreSpierRef = useRef()
   const handleEditMode = (collection) => {
-    setIsEditing(true)
+    openEditModal()
     setSelectedCollection(collection)
   }
   ////  delete the collection from state and database
@@ -70,7 +75,7 @@ export default function Collections({
   }
   /// rename the collection
   const handleRenameCollection = (CollectionNewName) => {
-    setIsEditing(false)
+    closeEditModal()
     const renameCollection = async (id, data, token) => {
       try {
         await PUT(`/collection/${id}`, data, token)
@@ -105,13 +110,10 @@ export default function Collections({
     }
     setIsLoading(true)
     postCollection({ name: newCollectionName }, token)
-
-    setIsCreating(false)
   }
   /// show and hide modals
 
-  useOnClickOutside(editingModalRef, () => setIsEditing(false))
-  useOnClickOutside(createModalRef, () => setIsCreating(false))
+  useOnClickOutside(editingModalRef, () => closeEditModal())
 
   const isIntersepted = useOnScreen(loadMoreSpierRef)
   //// request more collections
@@ -150,23 +152,16 @@ export default function Collections({
       <section className="px-2 sm:px-4 max-w-1000 mx-auto  mb-10 -mt-4 min-h-screen ">
         <h1 className="page-title">Collections</h1>
         <div className="flex justify-end -mt-5 mb-10">
-          <AddButton
-            testId="createAnewCollectionBtn"
-            onClick={() => setIsCreating(!isCreating)}
-          />
-        </div>
-        {isCreating && (
-          <div className="relative mt-36 -mb-36 ">
-            <SimpleInputModal
-              callback={(newCollection) => handleNewCollection(newCollection)}
-              title="Add a new collection"
-              reference={isCreating && createModalRef}
-              inputOptions={{
-                name: 'newCollection',
-                type: 'text',
-                placeholder: 'Enter name...'
-              }}
-            >
+          <FullPageInputModal
+            testId="newCollectionModal"
+            callback={(newCollection) => handleNewCollection(newCollection)}
+            title="Add a new collection"
+            inputOptions={{
+              name: 'newCollection',
+              type: 'text',
+              placeholder: 'Enter name...'
+            }}
+            avatar={
               <div className="w-28 h-28  bg-gray-400 rounded-full mx-auto my-6 sobject-cover overflow-hidden shadow-md">
                 <Image
                   unoptimized={process.env.ENVIRONMENT !== 'PRODUCTION'}
@@ -177,9 +172,12 @@ export default function Collections({
                   src="/recipe-default-image.png"
                 />
               </div>
-            </SimpleInputModal>
-          </div>
-        )}
+            }
+          >
+            <AddButton testId="createAnewCollectionBtn" />
+          </FullPageInputModal>
+        </div>
+
         {collections.length > 0 ? (
           <section className="mt-2 grid  gap-2 sm:grid-cols-2 xl:grid-cols-4 lg:grid-cols-3  justify-center max-w-6xl mx-auto place-content-center place-items-center px-16 lg:px-4 xl:px-0">
             {collections.map((collection) =>
@@ -191,23 +189,24 @@ export default function Collections({
                     handleEditMode={handleEditMode}
                     handleDelete={handleDeleteMode}
                   />
-                  {isEditing && collection?.id === selectedCollection?.id && (
-                    <SimpleInputModal
-                      callback={handleRenameCollection}
-                      title="Rename collection"
-                      reference={
-                        removedCollections.includes(collection?.id)
-                          ? null
-                          : editingModalRef
-                      }
-                      inputOptions={{
-                        name: 'newName',
-                        defaultValue: selectedCollection.name,
-                        type: 'text',
-                        placeholder: 'New name...'
-                      }}
-                    />
-                  )}
+                  {isEditingModalOpen &&
+                    collection?.id === selectedCollection?.id && (
+                      <LocatedInputModal
+                        callback={handleRenameCollection}
+                        title="Rename collection"
+                        reference={
+                          removedCollections.includes(collection?.id)
+                            ? null
+                            : editingModalRef
+                        }
+                        inputOptions={{
+                          name: 'newName',
+                          defaultValue: selectedCollection.name,
+                          type: 'text',
+                          placeholder: 'New name...'
+                        }}
+                      />
+                    )}
                 </div>
               )
             )}

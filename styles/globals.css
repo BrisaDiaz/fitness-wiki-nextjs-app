@@ -12,6 +12,8 @@ body {
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 }
+main {
+}
 pre {
   font-family: inherit;
   white-space: initial;
@@ -96,7 +98,7 @@ a {
   text-shadow: 1px 1px 0 #00000070;
 }
 
-.custom-radio-input:checked::after {
+/* .custom-radio-input:checked::after {
   position: absolute;
   content: ' ';
   width: 45%;
@@ -128,22 +130,22 @@ a {
 .custom-radio-input {
   position: relative;
   transform: scale(1);
-}
+} */
 
 .calculator-field-title {
   @apply text-lg sm:text-xl  font-bold text-white mb-6 bg-green-300 p-4 px-6 sm:px-8  pb-5 rounded-lg capitalize border-green-400   border shadow-sm;
 }
 .calculator-field-container {
-  @apply max-w-3xl  w-full mx-2;
+  @apply max-w-3xl  w-full;
 }
 .calculator-field-container:first-child {
-  @apply mt-6;
+  @apply mt-6 bg-white;
 }
 .list-leyend {
   @apply text-gray-700;
 }
 .page-title {
-  @apply text-center pb-8 pt-14 lg:pt-12  text-2xl sm:text-3xl lg:text-4xl px-2 font-bold text-gray-600;
+  @apply text-center mb-8 mt-14 lg:mt-12  text-2xl sm:text-3xl lg:text-4xl mx-2 font-bold text-gray-600;
 }
 .line-input {
   @apply px-2 py-3 border-b-2 border-gray-300 placeholder-gray-400  leading-tight focus:outline-none focus:border-green-500 focus:border-opacity-50 appearance-none;

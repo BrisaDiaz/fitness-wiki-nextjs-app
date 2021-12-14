@@ -8,9 +8,11 @@
     "start": "next start",
     "lint": "next lint ",
     "seed": "node prisma/seed.js",
-    "test": "jest --env=jsdom --watch  --coverage --runInBand",
-    "cy:open": " cypress open",
-    "cy:run": "  cypress run ",
+    "test": "jest --env=jsdom --watchAll  --coverage --runInBand",
+    "cy:open-only": "cypress open",
+    "cy:run-only": "cypress run",
+    "cy:open": "start-server-and-test dev 3000 cy:open-only",
+    "cy:run": "start-server-and-test dev 3000 cy:run-only",
     "e2e": "start-server-and-test start http://localhost:3000  cy:run"
   },
   "dependencies": {
