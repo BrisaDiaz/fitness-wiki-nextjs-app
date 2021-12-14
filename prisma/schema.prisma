@@ -2,9 +2,10 @@
 // learn more about it in the docs: https://pris.ly/d/prisma-schema
 
 datasource db {
-  provider = "postgresql"
-  url = env("DATABASE_URL")
-  shadowDatabaseUrl =  env("SHADOW_DATABASE_URL")
+  provider          = "postgresql"
+  url               = env("DATABASE_URL")
+  shadowDatabaseUrl = env("SHADOW_DATABASE_URL")
+
 
 }
 
@@ -14,24 +15,24 @@ generator client {
 }
 
 model User {
-  id         Int      @id @default(autoincrement())
-  first_name String?
-  last_name  String?
-  email      String?  @unique
-  password   String?
-  recipes Recipe[]
+  id          Int          @id @default(autoincrement())
+  first_name  String?
+  last_name   String?
+  email       String?      @unique
+  password    String?
+  recipes     Recipe[]
   collections Collection[]
-  createdAt  DateTime @default(now()) @map(name: "created_at")
-  updatedAt  DateTime @updatedAt @map(name: "updated_at")
-  @@map("users")
+  createdAt   DateTime     @default(now()) @map(name: "created_at")
+  updatedAt   DateTime     @updatedAt @map(name: "updated_at")
 
+  @@map("users")
 }
 
 model Recipe {
   id             Int          @id @default(autoincrement())
-  recipeId  Int? @unique
-  title           String?
-  calories      String?
+  recipeId       Int?         @unique
+  title          String?
+  calories       String?
   servings       String?
   diets          String?
   image          String?
@@ -53,6 +54,6 @@ model Collection {
   userId    Int?
   createdAt DateTime @default(now()) @map(name: "created_at")
   updatedAt DateTime @updatedAt @map(name: "updated_at")
-  recipes Recipe[]
+  recipes   Recipe[]
 
 }

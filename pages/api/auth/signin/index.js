@@ -9,7 +9,7 @@ export default async function signin(req, res) {
   if (!email)
     return res
       .status(400)
-      .json({ error: true, message: 'Email must bee provided' })
+      .json({ error: true, message: 'Email must be provided' })
   try {
     /// verify user is registred
     const userFound = await prisma.user.findUnique({
