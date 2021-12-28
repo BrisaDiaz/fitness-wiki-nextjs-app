@@ -35,14 +35,7 @@ module.exports = {
           '0%, 100%': { transform: 'scale(0.9)' },
           '50%': { transform: 'scale(1.1)' }
         },
-        appearLeft: {
-          '0%': { transform: 'translateX(-384px)', opacity: '0' },
-          '100%': { transform: 'translateX(0)', opacity: '1' }
-        },
-        slideBottom: {
-          '0%': { transform: 'translateY(384px)', opacity: '0' },
-          '100%': { transform: 'translateX(0)', opacity: '1' }
-        },
+
         infiniteXSlide: {
           '0%': { transform: 'translateX(0)' },
           '100%': { transform: 'translateX(400%)' }
@@ -50,8 +43,6 @@ module.exports = {
       },
       animation: {
         beat: 'beat  1s ease-in-out infinite',
-        appearLeft: 'appearLeft 1s linear  ',
-        slideBottom: 'slideBottom 1s linear  ',
         infiniteXSlide: 'infiniteXSlide 1.5s linear infinite  '
       },
 

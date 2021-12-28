@@ -25,9 +25,9 @@ export default function Layout({ children }) {
 
       <main
         data-testid="page-wrapper"
-        className={
-          isNavOpen ? 'relative left-60 pt-16 ' : 'relative left-0 pt-16'
-        }
+        className={`relative pt-16 transition easy-in-out  duration-500 left-0 ${
+          isNavOpen ? 'translate-x-60' : 'translate-x-0'
+        }	`}
       >
         {children}
         {session && <MenuBtn {...navProps} />}
