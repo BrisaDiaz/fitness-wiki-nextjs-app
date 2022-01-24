@@ -27,7 +27,7 @@ export default function AddToCollectionModal({
   return (
     <div
       id={'modal ' + id}
-      className={'w-72 pt-4 modal absolute z-50 '.concat(
+      className={'w-72 pt-4   z-50 modal  '.concat(
         isModalOpen ? 'scale-100 ' : ' scale-0'
       )}
       data-testid="storeRecipeModal"
@@ -69,7 +69,7 @@ export default function AddToCollectionModal({
                   ?.split(' ')
                   ?.join('-')}`}
                 onClick={() => setCollection(collection)}
-                className="opacity-0 group-hover:opacity-100 focus:opacity-100 font-bold px-4 py-1.5 rounded-md bg-red-500 text-white hover:bg-red-600  focus:bg-red-600   transition-all ease-in-out shadow transform scale-95"
+                className="opacity-0 group-hover:opacity-100 focus:opacity-100 font-bold px-4 py-1.5 rounded-md bg-red-500 text-white hover:bg-red-600  focus:bg-red-600   transition-all ease-in-out shadow transform scale-95 "
               >
                 Store
               </button>
