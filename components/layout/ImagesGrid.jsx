@@ -12,10 +12,8 @@ export default function ImageGrid() {
             alt="beakfasts"
             width={300}
             height={410}
-      
-           loading="eager"
-            unoptimized={env.ENVIRONMENT !== 'PRODUCTION'}
             loading="eager"
+            unoptimized={env.ENVIRONMENT !== 'PRODUCTION'}
           />
         </div>
         <div className=" row-span-4     row-start-2">
@@ -25,7 +23,6 @@ export default function ImageGrid() {
             src="/salad-image.jpg"
             alt="beakfasts"
             width={300}
-  loading="eager"
             height={410}
             unoptimized={env.ENVIRONMENT !== 'PRODUCTION'}
             loading="eager"
@@ -50,10 +47,9 @@ export default function ImageGrid() {
             src="/pizza-image.jpg"
             alt="beakfasts"
             width={300}
-  loading="eager"
+            loading="eager"
             height={410}
             unoptimized={env.ENVIRONMENT !== 'PRODUCTION'}
-            loading="eager"
           />
         </div>
         <div className=" row-span-3     mt-2  row-start-6 ">
@@ -63,10 +59,9 @@ export default function ImageGrid() {
             src="/pie-image.jpg"
             alt="beakfasts"
             width={300}
-  loading="eager"
+            loading="eager"
             height={310}
             unoptimized={env.ENVIRONMENT !== 'PRODUCTION'}
-            loading="eager"
           />
         </div>
         <div className="  row-span-4  mt-2   row-start-5">
@@ -75,11 +70,10 @@ export default function ImageGrid() {
             layout="responsive"
             src="/soup-image.jpg"
             alt="beakfasts"
-  loading="eager"
+            loading="eager"
             width={300}
             height={410}
             unoptimized={env.ENVIRONMENT !== 'PRODUCTION'}
-            loading="eager"
           />
         </div>
       </div>
