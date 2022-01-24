@@ -64,6 +64,8 @@ export default function Recicipe(props) {
                   width={400}
                   height={280}
                   layout="responsive"
+                  placeholder="blur"
+                  blurDataURL="/recipe-placeholder.png"
                   unoptimized={process.env.ENVIRONMENT !== 'PRODUCTION'}
                   src={recipe?.image}
                   alt={recipe?.title}

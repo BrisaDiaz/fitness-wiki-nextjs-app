@@ -1,12 +1,20 @@
 import Link from 'next/link'
+
 import { EditButton, DeleteButton } from '@/components/RoundedButtons'
 export default function StoreRecipeControlls({
   handleSelection,
   handleDelete,
   handleUpdate,
   updateOption,
-  recipe
+  recipe,
+  tabIndex
 }) {
+  const handleClick = (e, onClick) => {
+    if (onClick) onClick()
+    e.preventDefault()
+    e.stopPropagation()
+  }
+
   return (
     <div
       className={'flex  absolute top-0 transform scale-75 z-10 justify-start items-center  gap-2 max-w-max sm:mt-1 mt-1.5 '.concat(
@@ -15,7 +23,7 @@ export default function StoreRecipeControlls({
     >
       {!updateOption && recipe?.stored && (
         <Link href={`/collections/${recipe?.collection?.id}`} passHref>
-          <a
+          <h6
             data-testid={`${recipe?.collection?.name
               .split(' ')
               .join('-')}-link`}
@@ -23,13 +31,13 @@ export default function StoreRecipeControlls({
             className="font-semibold pointer px-4 py-2 bg-gray-100 rounded-lg capitalize"
           >
             {recipe?.collection?.name}
-          </a>
+          </h6>
         </Link>
       )}
       {!recipe.stored && !updateOption && (
         <button
           data-testid="storeRecipeBtn"
-          onClick={() => handleSelection(recipe, 'store')}
+          onClick={(e) => handleClick(e, handleSelection(recipe, 'store'))}
           className="ml-1.5 font-bold px-4 py-2  rounded-md bg-red-500 text-white hover:bg-red-600 transition-all ease-in-out shadow"
         >
           Store
@@ -38,10 +46,12 @@ export default function StoreRecipeControlls({
       {updateOption && (
         <div className="flex gap-1 ">
           <EditButton
+            tabIndex={tabIndex}
             testId="editBtn"
             onClick={() => handleUpdate(recipe, 'update')}
           />
           <DeleteButton
+            tabIndex={tabIndex}
             testId="deleteBtn"
             onClick={() => handleDelete(recipe, 'delete')}
           />

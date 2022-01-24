@@ -1,34 +1,51 @@
-export function AddButton({ darck, testId, onClick }) {
+const handleClick = (e, onClick) => {
+  if (!onClick) return
+  onClick()
+  e.preventDefault()
+  e.stopPropagation()
+}
+export function AddButton({ dark, testId, onClick, tabIndex }) {
   return (
     <div
-      onClick={() => onClick && onClick()}
+      arial-label="add"
       data-testid={testId}
-      className={'w-12 h-12 l rounded-full border   border-green-600   shadow-lg  cursor-pointer flex justify-center items-center relative transform scale-75 '.concat(
-        darck
-          ? ' bg-green-600   hover:bg-green-700'
-          : ' bg-white hover:bg-gray-100'
+      className={'w-12 h-12 l rounded-full border   border-gray-300   shadow-lg  cursor-pointer flex justify-center items-center relative transform scale-75  relative z-20 '.concat(
+        dark
+          ? ' bg-green-600   hover:bg-green-700 focus-within:bg-green-700'
+          : ' bg-white hover:bg-gray-100 focus-within:bg-gray-100'
       )}
     >
+      <button
+        tabIndex={tabIndex || 0}
+        className="absolute w-full h-full z-10 top-0 left-0 bg-transparent rounded-full"
+        onClick={(e) => handleClick(e, onClick)}
+      />
+
       <div
         className={'h-6 w-1 broder-b-6 rounded-full self-center absolute   '.concat(
-          darck ? ' bg-white ' : 'bg-gray-600 '
+          dark ? ' bg-white ' : 'bg-gray-600 '
         )}
       />
       <div
         className={'h-6 w-1 broder-b-6  rounded-full self-center absolute transform rotate-90   '.concat(
-          darck ? ' bg-white ' : 'bg-gray-600 '
+          dark ? ' bg-white ' : 'bg-gray-600 '
         )}
       />
     </div>
   )
 }
-export function EditButton({ onClick, testId }) {
+export function EditButton({ onClick, testId, tabIndex }) {
   return (
     <div
       data-testid={testId}
-      onClick={() => onClick()}
-      className="w-10 h-10 rounded-full  bg-white  shadow-md  hover:bg-gray-100 cursor-pointer flex justify-center items-center p-2 transform scale-95  border   border-green-600  "
+      arial-label="edit"
+      className="w-10 h-10 rounded-full  bg-white  shadow-md  hover:bg-gray-100 cursor-pointer flex justify-center items-center p-2 transform scale-95  border   border-green-600  relative z-20"
     >
+      <button
+        tabIndex={tabIndex || 0}
+        className="absolute w-full h-full z-10 top-0 left-0 bg-transparent rounded-full"
+        onClick={(e) => handleClick(e, onClick)}
+      />
       <svg
         xmlns="http://www.w3.org/2000/svg"
         aria-hidden="true"
@@ -47,13 +64,18 @@ export function EditButton({ onClick, testId }) {
     </div>
   )
 }
-export function DeleteButton({ onClick, testId }) {
+export function DeleteButton({ onClick, testId, tabIndex }) {
   return (
     <div
+      arial-label="delete"
       data-testid={testId}
-      onClick={() => onClick()}
-      className="w-10 h-10 rounded-full  bg-white shadow-md hover:bg-gray-100 cursor-pointer flex justify-center items-center p-2.5 transform scale-95  border   border-green-600   "
+      className="w-10 h-10 rounded-full  bg-white shadow-md hover:bg-gray-100 cursor-pointer flex justify-center items-center p-2.5 transform scale-95  border   border-green-600 relative z-20  "
     >
+      <button
+        tabIndex={tabIndex || 0}
+        className="absolute w-full h-full z-10 top-0 left-0 bg-transparent rounded-full"
+        onClick={(e) => handleClick(e, onClick)}
+      />
       <svg
         xmlns="http://www.w3.org/2000/svg"
         aria-hidden="true"

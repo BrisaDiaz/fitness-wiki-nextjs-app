@@ -5,8 +5,9 @@ import WaterIntakeCalculator from './WaterIntakeCalculator'
 export default function MealSizeCalculator({ children }) {
   const {
     setMacrosRadios,
-    setErrors,
+    setError,
     setTotalKcals,
+    cleanError,
     setMealFrecuency,
     setWaterIntake,
     tableData,
@@ -69,6 +70,7 @@ export default function MealSizeCalculator({ children }) {
                 checked={mealFrecuency === frecuency.value}
                 type="radio"
                 onChange={(e) => setMealFrecuency(e.target.value)}
+                aria-labelledby={frecuency.info}
               />
               <label htmlFor={frecuency.value} className="cursor-pointer">
                 {frecuency.info}.
@@ -82,8 +84,8 @@ export default function MealSizeCalculator({ children }) {
         <div className="max-w-md mx-auto mb-6">
           <MacroRadiosForm
             setCustomPlan={setMacrosRadios}
-            setErrors={setErrors}
-            errors={errors}
+            setError={setError}
+            cleanError={cleanError}
           />
         </div>
       </section>
@@ -91,8 +93,8 @@ export default function MealSizeCalculator({ children }) {
         <h2
           className={
             errors.length > 0
-              ? 'text-lg sm:text-2xl font-semibold  p-2 text-center shadow  mb-6 bg-red-400'
-              : 'calculator-field-title '
+              ? 'text-lg text-white sm:text-2xl font-semibold  p-2 text-center shadow  mb-6 bg-red-400'
+              : 'calculator-field-title text-white'
           }
         >
           {errors.length > 0 ? 'Error' : `Your results`}

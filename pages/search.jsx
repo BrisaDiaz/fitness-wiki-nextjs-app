@@ -156,10 +156,12 @@ export default function SearchPage({
 
   const {
     isStoringModalOpen,
-    storeModalRef,
+
     isCreateModalOpen,
     selectedRecipe,
-    createModalRef,
+
+    closeStoreModal,
+    closeCreateModal,
     handleStoreInCollection,
     openCreateModal,
     handleRecipeStage,
@@ -245,42 +247,45 @@ export default function SearchPage({
           <section className="sm:max-w-6xl mx-auto grid flex-col gap-3 flex-wrap md:grid-cols-2  justify-center   mb-6 mt-10  sm:px-5 lg:px-8 px-6">
             {recipes.map(getFormattedRecipe).map((recipe) => (
               <div className="relative" key={recipe?.id}>
-                {isStoringModalOpen && recipe?.id === selectedRecipe?.id && (
-                  <AddToCollectionModal
-                    refernce={storeModalRef}
-                    setCollection={handleStoreInCollection}
-                    handleNewCollection={openCreateModal}
-                    selectedRecipe={selectedRecipe}
-                    collections={collections}
-                  />
-                )}
-                {isCreateModalOpen && recipe?.id === selectedRecipe?.id && (
-                  <SimpleInputModal
-                    callback={async (newCollection) =>
-                      await handleCreateAndStore(newCollection)
-                    }
-                    title="Add a new collection"
-                    reference={isCreateModalOpen && createModalRef}
-                    inputOptions={{
-                      name: 'newCollection',
-                      type: 'text',
-                      placeholder: 'Enter name...'
-                    }}
-                  >
-                    <div className="w-28 h-28 bg-gray-400 rounded-full mx-auto my-6 sobject-cover overflow-hidden shadow-md">
-                      <Image
-                        unoptimized={process.env.ENVIRONMENT !== 'PRODUCTION'}
-                        className="rounded-xl  mx-auto "
-                        width={200}
-                        height={200}
-                        alt={selectedRecipe?.title || 'create collection'}
-                        src={
-                          selectedRecipe?.image || '/recipe-default-image.png'
-                        }
-                      />
-                    </div>
-                  </SimpleInputModal>
-                )}
+                <AddToCollectionModal
+                  id={recipe.id}
+                  isModalOpen={
+                    isStoringModalOpen && recipe?.id === selectedRecipe?.id
+                  }
+                  setCollection={handleStoreInCollection}
+                  handleNewCollection={openCreateModal}
+                  selectedRecipe={selectedRecipe}
+                  collections={collections}
+                  closeModal={closeStoreModal}
+                />
+
+                <SimpleInputModal
+                  callback={async (newCollection) =>
+                    await handleCreateAndStore(newCollection)
+                  }
+                  isModalOpen={
+                    isCreateModalOpen && recipe?.id === selectedRecipe?.id
+                  }
+                  title="Add a new collection"
+                  closeModal={closeCreateModal}
+                  inputOptions={{
+                    name: 'newCollection',
+                    type: 'text',
+                    placeholder: 'Enter name...'
+                  }}
+                >
+                  <div className="w-28 h-28 bg-gray-400 rounded-full mx-auto my-6 sobject-cover overflow-hidden shadow-md">
+                    <Image
+                      unoptimized={process.env.ENVIRONMENT !== 'PRODUCTION'}
+                      className="rounded-xl  mx-auto "
+                      width={200}
+                      height={200}
+                      alt={selectedRecipe?.title || 'create collection'}
+                      src={selectedRecipe?.image || '/recipe-default-image.png'}
+                    />
+                  </div>
+                </SimpleInputModal>
+
                 <RecipeCard recipe={recipe}>
                   <StoreRecipeControlls
                     recipe={recipe}

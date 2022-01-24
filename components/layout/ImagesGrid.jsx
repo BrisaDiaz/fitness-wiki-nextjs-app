@@ -13,7 +13,7 @@ export default function ImageGrid() {
             width={300}
             height={410}
             unoptimized={env.ENVIRONMENT !== 'PRODUCTION'}
-            priority={true}
+            loading="eager"
           />
         </div>
         <div className=" row-span-4     row-start-2">
@@ -25,7 +25,7 @@ export default function ImageGrid() {
             width={300}
             height={410}
             unoptimized={env.ENVIRONMENT !== 'PRODUCTION'}
-            priority={true}
+            loading="eager"
           />
         </div>
         <div className="  row-span-4     row-start-1 ">
@@ -37,7 +37,7 @@ export default function ImageGrid() {
             width={300}
             height={410}
             unoptimized={env.ENVIRONMENT !== 'PRODUCTION'}
-            priority={true}
+            loading="eager"
           />
         </div>
         <div className="row-span-4     mt-2  row-start-5">
@@ -49,7 +49,7 @@ export default function ImageGrid() {
             width={300}
             height={410}
             unoptimized={env.ENVIRONMENT !== 'PRODUCTION'}
-            priority={true}
+            loading="eager"
           />
         </div>
         <div className=" row-span-3     mt-2  row-start-6 ">
@@ -61,7 +61,7 @@ export default function ImageGrid() {
             width={300}
             height={310}
             unoptimized={env.ENVIRONMENT !== 'PRODUCTION'}
-            priority={true}
+            loading="eager"
           />
         </div>
         <div className="  row-span-4  mt-2   row-start-5">
@@ -73,7 +73,7 @@ export default function ImageGrid() {
             width={300}
             height={410}
             unoptimized={env.ENVIRONMENT !== 'PRODUCTION'}
-            priority={true}
+            loading="eager"
           />
         </div>
       </div>

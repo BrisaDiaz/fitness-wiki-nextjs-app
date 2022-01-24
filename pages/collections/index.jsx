@@ -2,7 +2,7 @@ import { useState, useRef, useEffect } from 'react'
 import Head from 'next/head'
 import { getSession, useSession } from 'next-auth/client'
 /// hooks
-import useOnClickOutside from '@/hooks/useOnClickOutside'
+
 import useOnScreen from '@/hooks/useOnScreen'
 /// utils
 import { GET, POST, DELETE, PUT } from '@/utils/http'
@@ -49,7 +49,6 @@ export default function Collections({
   }
   query.append('offset', offset)
   query.append('number', RESULTS_PER_PAGE)
-  const editingModalRef = useRef()
 
   const loadMoreSpierRef = useRef()
   const handleEditMode = (collection) => {
@@ -112,8 +111,6 @@ export default function Collections({
     postCollection({ name: newCollectionName }, token)
   }
   /// show and hide modals
-
-  useOnClickOutside(editingModalRef, () => closeEditModal())
 
   const isIntersepted = useOnScreen(loadMoreSpierRef)
   //// request more collections
@@ -189,24 +186,23 @@ export default function Collections({
                     handleEditMode={handleEditMode}
                     handleDelete={handleDeleteMode}
                   />
-                  {isEditingModalOpen &&
-                    collection?.id === selectedCollection?.id && (
-                      <LocatedInputModal
-                        callback={handleRenameCollection}
-                        title="Rename collection"
-                        reference={
-                          removedCollections.includes(collection?.id)
-                            ? null
-                            : editingModalRef
-                        }
-                        inputOptions={{
-                          name: 'newName',
-                          defaultValue: selectedCollection.name,
-                          type: 'text',
-                          placeholder: 'New name...'
-                        }}
-                      />
-                    )}
+
+                  <LocatedInputModal
+                    isModalOpen={
+                      isEditingModalOpen &&
+                      collection?.id === selectedCollection?.id
+                    }
+                    id={collection.id}
+                    callback={handleRenameCollection}
+                    title="Rename collection"
+                    closeModal={closeEditModal}
+                    inputOptions={{
+                      name: 'newName',
+                      defaultValue: selectedCollection.name,
+                      type: 'text',
+                      placeholder: 'New name...'
+                    }}
+                  />
                 </div>
               )
             )}

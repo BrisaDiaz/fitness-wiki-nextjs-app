@@ -4,71 +4,84 @@ import { useState } from 'react'
 
 export default function RecipeCard({ recipe, children }) {
   const [isHovered, setIsHovered] = useState(false)
-  return (
-    <div
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
-      className="relative flex justify-end sm:justify-start hover:bg-gray-50  hover:p-2 sm:hover:p-0 transition duration-150"
-      data-testid="recipeCard"
-    >
-      {isHovered && <div>{children}</div>}
 
-      <article className="w-72 mx-auto  pb-4 sm:p-4 flex flex-col sm:flex-row  sm:items-center  sm:shadow-sm rounded sm:w-full h-auto transition ease-in-out transform sm:hover:shadow-md sm:border border-gray-100   hover:bg-gray-50">
-        <div className=" mx-auto sm:mx-0 h-44 overflow-y-hidden w-full sm:w-3/12  relative flex items-center  sm:h-24  justify-center	rounded-t ">
-          <Image
-            unoptimized={process.env.ENVIRONMENT !== 'PRODUCTION'}
-            className="rounded shadow mx-auto sm:self-center sm:rounded"
-            width={320}
-            height={260}
-            src={recipe?.image}
-            alt={recipe?.title}
-          />
-        </div>
-        <div className="flex flex-col justify-start sm:px-4 py-2  w-full sm:w-9/12 ">
-          <div className="sm:px-2  mt-2 sm:mt-0 flex flex-col  gap-1">
-            <div className="overflow-x-hidden mb-1 w-full overflow-ellipsis  text-green-600 ">
-              <Link href={`/recipe/${recipe?.id}`} passHref>
-                <a
-                  href="!#"
-                  className=" text-lg  w-full leading-3 font-serif whitespace-nowrap  	 "
-                >
-                  {recipe?.title}
-                </a>
-              </Link>
+  return (
+    <Link href={`/recipe/${recipe?.id}`} passHref>
+      <a
+        href="!#"
+        onMouseEnter={() => setIsHovered(true)}
+        onMouseLeave={() => setIsHovered(false)}
+        onTouchMove={() => setIsHovered(true)}
+        onFocus={() => setIsHovered(true)}
+        onBlur={() => setIsHovered(false)}
+        tabIndex={0}
+        className="group"
+      >
+        <div
+          className="relative flex justify-end sm:justify-start border sm:border-gray-200  border-transparent  hover:border-gray-300  hover:p-2 sm:hover:p-0 transition duration-150 z-20 group-focus:p-2 sm:group-focus:p-0 transition-all  duration-500"
+          data-testid="recipeCard"
+        >
+          <div
+            className={isHovered ? 'opacity-1 -top-full ' : 'opacity-0 top-0  '}
+          >
+            {children}
+          </div>
+
+          <article className="w-72 mx-auto  pb-4 sm:p-4 flex flex-col sm:flex-row  sm:items-center  sm:shadow-sm rounded sm:w-full h-auto transition ease-in-out transform sm:hover:shadow-md sm:border border-gray-100   hover:bg-gray-50 ">
+            <div className=" mx-auto sm:mx-0 h-44 overflow-y-hidden w-full sm:w-3/12  relative flex items-center  sm:h-24  justify-center	rounded-t  relative -z-10">
+              <Image
+                unoptimized={process.env.ENVIRONMENT !== 'PRODUCTION'}
+                className="rounded shadow mx-auto sm:self-center sm:rounded"
+                width={320}
+                height={260}
+                placeholder="blur"
+                blurDataURL="/recipe-placeholder.png"
+                src={recipe?.image}
+                alt={recipe?.title}
+              />
             </div>
-            <div className="flex flex-row  justify-between gap-x-2 flex-wrap w-full">
-              <p className="opacity-80 leading-5 text-sm ">
-                <span className="text-gray-600  ">Energy:</span>
-                {` ${recipe.calories}`}
-              </p>
-              <div className="flex flex-row  gap-1  ">
-                <Image
-                  className="w-4 align-self-start"
-                  src="/clock-regular.svg"
-                  unoptimized={process.env.ENVIRONMENT !== 'PRODUCTION'}
-                  width={15}
-                  height={15}
-                  alt="time"
-                />
+            <div className="flex flex-col justify-start sm:px-4 py-2  w-full sm:w-9/12 ">
+              <div className="sm:px-2  mt-2 sm:mt-0 flex flex-col  gap-1">
+                <div className="mb-1 w-full overflow-hidden  text-green-600 ">
+                  <h4 className=" text-lg  w-full leading-3 py-1 font-serif truncate whitespace-nowrap overflow-ellipsis   	 ">
+                    {recipe?.title}
+                  </h4>
+                </div>
+                <div className="flex flex-row  justify-between gap-x-2 flex-wrap w-full">
+                  <p className="opacity-80 leading-5 text-sm ">
+                    <span className="text-gray-600  ">Energy:</span>
+                    {` ${recipe.calories}`}
+                  </p>
+                  <div className="flex flex-row  gap-1  ">
+                    <Image
+                      className="w-4 align-self-start"
+                      src="/clock-regular.svg"
+                      unoptimized={process.env.ENVIRONMENT !== 'PRODUCTION'}
+                      width={15}
+                      height={15}
+                      alt="time"
+                    />
+                    <p className="opacity-80 leading-5 text-sm ">
+                      {recipe?.readyInMinutes}
+                      min
+                    </p>
+                  </div>
+                </div>
                 <p className="opacity-80 leading-5 text-sm ">
-                  {recipe?.readyInMinutes}
-                  min
+                  <span className="text-gray-600  ">Servings:</span>
+                  {` ${recipe?.servings}`}
                 </p>
+                <div className="overflow-x-hidden w-full overflow-ellipsis   ">
+                  <p className="opacity-80 eading-none text-sm whitespace-nowrap  overflow-x-hidden w-full overflow-ellipsis  	 ">
+                    <span className="text-gray-600 mr-1 ">Diets:</span>
+                    {recipe?.diets}
+                  </p>
+                </div>
               </div>
             </div>
-            <p className="opacity-80 leading-5 text-sm ">
-              <span className="text-gray-600  ">Servings:</span>
-              {` ${recipe?.servings}`}
-            </p>
-            <div className="overflow-x-hidden w-full overflow-ellipsis   ">
-              <p className="opacity-80 eading-none text-sm whitespace-nowrap  overflow-x-hidden w-full overflow-ellipsis  	 ">
-                <span className="text-gray-600 mr-1 ">Diets:</span>
-                {recipe?.diets}
-              </p>
-            </div>
-          </div>
+          </article>
         </div>
-      </article>
-    </div>
+      </a>
+    </Link>
   )
 }

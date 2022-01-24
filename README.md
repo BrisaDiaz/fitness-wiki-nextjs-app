@@ -44,6 +44,7 @@
 
 1. Progresive app
 1. Responsive layout.
+1. Keyboard accessibility.
 1. Pagination, filtering, sorting and keyword searching of recipes from Spoonacular API.
 1. Display of collection label in recipes already stored by the user.
 1. Reusable and tested components.

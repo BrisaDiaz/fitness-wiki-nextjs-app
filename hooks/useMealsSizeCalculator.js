@@ -20,12 +20,19 @@ export default function useMealsSizeCalculator() {
   const [fiberResults, setFiberResults] = useState(DEFAULT_FIBER_INTAKE)
 
   const [waterIntake, setWaterIntake] = useState(DEFAULT_WATER_INTAKE)
+
+  const setError = (newError) => {
+    errors.indexOf(newError) ? setErrors([...errors, newError]) : false
+  }
+  const cleanError = (toCleanError) => {
+    const cleanError = errors.filter((error) => error !== toCleanError)
+    setErrors(cleanError)
+  }
   useEffect(() => {
-    const cleanError = errors.filter((error) => error !== ERRORS.calories)
     if (totalKcals * 1 < 1200 && errors.indexOf(ERRORS.calories) === -1)
-      return setErrors([...errors, ERRORS.calories])
+      return setError(ERRORS.calories)
     if (totalKcals * 1 < 1200) return
-    return setErrors(cleanError)
+    cleanError(ERRORS.calories)
   }, [totalKcals])
 
   useEffect(() => {
@@ -42,7 +49,8 @@ export default function useMealsSizeCalculator() {
 
   return {
     setMacrosRadios,
-    setErrors,
+    setError,
+    cleanError,
     setTotalKcals,
     setMealFrecuency,
     setWaterIntake,
@@ -51,6 +59,7 @@ export default function useMealsSizeCalculator() {
     waterIntake,
     mealFrecuency,
     errors,
+
     MEALS_FRECUENCIES
   }
 }

@@ -1,6 +1,6 @@
 import Link from 'next/link'
 
-export default function Header({ session, loading, signOut }) {
+export default function Header({ session, loading, signOut, MenuButton }) {
   const handleLogout = async () => {
     try {
       signOut()
@@ -51,6 +51,7 @@ export default function Header({ session, loading, signOut }) {
               Logout
             </a>
           ) : null}
+          {session && <MenuButton />}
         </div>
       </nav>
     </header>

@@ -30,6 +30,7 @@ export default function AuthSection({
           height={20}
           src="/unlock-alt-solid.svg"
           alt="session"
+          loading="eager"
           unoptimized={process.env.ENVIRONMENT !== 'PRODUCTION'}
         />
       </div>

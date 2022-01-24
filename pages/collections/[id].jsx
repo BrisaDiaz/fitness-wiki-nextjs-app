@@ -43,13 +43,14 @@ export default function Collection({
 
   const {
     isStoringModalOpen,
-    storeModalRef,
-    createModalRef,
+
     isCreateModalOpen,
     selectedRecipe,
     removedRecipes,
     isDeleteModalOpen,
     closeDeleteModal,
+    closeCreateModal,
+    closeStoreModal,
     handleRecipeStage,
     handleCollectionChange,
     handleRecipeDelete,
@@ -105,6 +106,7 @@ export default function Collection({
         <div className="w-32 h-32 sm:w-40 sm:h-40  bg-gray-400 rounded-full mx-auto mt-6 -mb-6   sobject-cover overflow-hidden shadow-md ">
           <Image
             unoptimized={process.env.ENVIRONMENT !== 'PRODUCTION'}
+            loading="eager"
             className="rounded-xl  mx-auto "
             width={200}
             height={200}
@@ -128,19 +130,18 @@ export default function Collection({
                 //// dosen't display recipes remove from the database
                 removedRecipes?.includes(recipe.id) ? null : (
                   <div className="relative" key={recipe?.id}>
-                    {isStoringModalOpen && recipe?.id === selectedRecipe.id && (
-                      <AddToCollectionModal
-                        refernce={
-                          removedRecipes?.includes(recipe.id)
-                            ? null
-                            : storeModalRef
-                        }
-                        setCollection={handleCollectionChange}
-                        selectedRecipe={selectedRecipe}
-                        collections={collectionsList}
-                        editMode
-                      />
-                    )}
+                    <AddToCollectionModal
+                      id={recipe.id}
+                      isModalOpen={
+                        isStoringModalOpen && recipe?.id === selectedRecipe.id
+                      }
+                      closeModal={closeStoreModal}
+                      setCollection={handleCollectionChange}
+                      selectedRecipe={selectedRecipe}
+                      collections={collectionsList}
+                      editMode
+                    />
+
                     <Dialog
                       isModalOpen={isDeleteModalOpen}
                       closeModal={closeDeleteModal}
@@ -148,37 +149,40 @@ export default function Collection({
                       message="Are you shoure you want to remove the recipe from your collection?"
                       onAccept={handleRecipeDelete}
                     />
-                    {isCreateModalOpen && recipe?.id === selectedRecipe?.id && (
-                      <LocatedInputModal
-                        callback={async (newCollection) =>
-                          await handleCreateAndChange(newCollection)
-                        }
-                        title="Add a new collection"
-                        reference={isCreateModalOpen && createModalRef}
-                        inputOptions={{
-                          name: 'newCollection',
-                          type: 'text',
-                          placeholder: 'Enter name...'
-                        }}
-                        avatar={
-                          <div className="w-28 h-28 bg-gray-400 rounded-full mx-auto my-6 sobject-cover overflow-hidden shadow-md">
-                            <Image
-                              unoptimized={
-                                process.env.ENVIRONMENT !== 'PRODUCTION'
-                              }
-                              className="rounded-xl  mx-auto "
-                              width={200}
-                              height={200}
-                              alt={selectedRecipe?.title || 'create collection'}
-                              src={
-                                selectedRecipe?.image ||
-                                '/recipe-default-image.png'
-                              }
-                            />
-                          </div>
-                        }
-                      ></LocatedInputModal>
-                    )}
+
+                    <LocatedInputModal
+                      callback={async (newCollection) =>
+                        await handleCreateAndChange(newCollection)
+                      }
+                      isModalOpen={
+                        isCreateModalOpen && recipe?.id === selectedRecipe?.id
+                      }
+                      title="Add a new collection"
+                      inputOptions={{
+                        name: 'newCollection',
+                        type: 'text',
+                        placeholder: 'Enter name...'
+                      }}
+                      closeModal={closeCreateModal}
+                      avatar={
+                        <div className="w-28 h-28 bg-gray-400 rounded-full mx-auto my-6 sobject-cover overflow-hidden shadow-md">
+                          <Image
+                            unoptimized={
+                              process.env.ENVIRONMENT !== 'PRODUCTION'
+                            }
+                            className="rounded-xl  mx-auto "
+                            width={200}
+                            height={200}
+                            alt={selectedRecipe?.title || 'create collection'}
+                            src={
+                              selectedRecipe?.image ||
+                              '/recipe-default-image.png'
+                            }
+                          />
+                        </div>
+                      }
+                    />
+
                     <RecipeCard recipe={recipe}>
                       <StoreRecipeControlls
                         recipe={recipe}

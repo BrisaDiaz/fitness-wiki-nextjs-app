@@ -1,9 +1,7 @@
-import { useRouter } from 'next/router'
-export default function SideBar({ setIsNavOpen, isNavOpen }) {
-  const router = useRouter()
-  const handleClick = (href) => {
+import Link from 'next/link'
+export default function SideBar({ setIsNavOpen, isNavOpen, tabIndex }) {
+  const handleClick = () => {
     setIsNavOpen(false)
-    router.push(href)
   }
 
   const menuLinks = [
@@ -20,15 +18,24 @@ export default function SideBar({ setIsNavOpen, isNavOpen }) {
           isNavOpen ? '-translate-x-0' : '-translate-x-60'
         }`}
         data-testid="sidebar"
+        aria-label="navegation bar"
       >
-        <ul className="p-2">
+        <ul className="p-2 w-full">
           {menuLinks.map((link) => (
             <li
               key={link.name}
-              onClick={() => handleClick(link.href)}
-              className="text-center text-white text-xl font-semibold cursor-pointer capitalize transition easy-in-out px-2 hover:animate-pulse mb-2 whitespace-nowrap"
+              className="hover:animate-pulse  focus-within:animate-pulse mb-2 w-full "
+              onClick={handleClick}
             >
-              {link.name}
+              <Link href={link.href} passHref>
+                <a
+                  tabIndex={tabIndex}
+                  href="#"
+                  className="text-center text-white text-xl font-semibold cursor-pointer capitalize transition easy-in-out w-full   whitespace-nowrap  "
+                >
+                  {link.name}
+                </a>
+              </Link>
             </li>
           ))}
         </ul>

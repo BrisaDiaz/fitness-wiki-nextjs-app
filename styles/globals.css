@@ -131,6 +131,10 @@ a {
   position: relative;
   transform: scale(1);
 } */
+*:focus {
+  outline-offset: 4px;
+  outline-color: #15803d;
+}
 
 .calculator-field-title {
   @apply text-lg sm:text-xl  font-bold text-white mb-6 bg-green-300 p-4 px-6 sm:px-8  pb-5 rounded-lg capitalize border-green-400   border shadow-sm;
@@ -151,7 +155,7 @@ a {
   @apply px-2 py-3 border-b-2 border-gray-300 placeholder-gray-400  leading-tight focus:outline-none focus:border-green-500 focus:border-opacity-50 appearance-none;
 }
 .modal-shape {
-  @apply w-80  bg-white z-20 rounded-xl border border-gray-100 shadow-lg;
+  @apply w-80  bg-white z-20 rounded-xl border border-gray-300 shadow-lg;
 }
 .btn-primary {
   @apply w-full bg-green-600 hover:bg-green-700 px-2  pt-1 pb-1.5 rounded font-semibold text-white shadow hover:shadow-lg focus:ring-2 focus:ring-green-500 focus:ring-opacity-50;
@@ -160,5 +164,8 @@ a {
   @apply w-full hover:bg-gray-100 px-2 pt-1 pb-1.5 text-gray-700 rounded font-semibold hover:text-white shadow hover:shadow-lg focus:ring-2 focus:ring-green-500 focus:ring-opacity-50;
 }
 .modal {
-  @apply w-80 absolute transform -translate-x-2/4 -translate-y-2/4 left-2/4 top-2/4 bg-white z-20 rounded-xl border border-gray-100 shadow-lg;
+  @apply w-80 absolute transform -translate-x-2/4 -translate-y-2/4 left-2/4 top-2/4 bg-white z-20 rounded-xl border border-gray-300 shadow-lg;
+}
+.modal input {
+  @apply my-1;
 }

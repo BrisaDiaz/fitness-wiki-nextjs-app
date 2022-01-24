@@ -14,16 +14,11 @@ export default function CalculatorModeSwitch({
               : 'bg-green-300 border-green-400'
           )}
         >
-          <input
-            className="opacity-0 absolute z-10 w-full h-full cursor-pointer"
-            onChange={(e) => setOption(e.target.value)}
-            type="radio"
-            id={option.value}
-            value={option.value}
-            data-testid={option.value}
-            name="planType"
-            checked={optionSelected === option.value}
+          <button
+            className="absolute w-full h-full z-10 top-0 left-0 bg-transparent"
+            onClick={() => setOption(option.value)}
           />
+
           <label htmlFor={option.value} className="ml-1 cursor-pointer ">
             {option.info}
           </label>

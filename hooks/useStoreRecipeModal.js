@@ -1,5 +1,5 @@
-import { useState, useRef } from 'react'
-import useOnClickOutside from '@/hooks/useOnClickOutside'
+import { useState } from 'react'
+
 import { POST, DELETE, PUT } from '@/utils/http'
 
 export default function useStoreRecipeModal({
@@ -20,9 +20,6 @@ export default function useStoreRecipeModal({
 
   const [removedRecipes, setRemovedRecipes] = useState([])
 
-  /// toggle modal
-  const storeModalRef = useRef()
-  const createModalRef = useRef()
   const closeDeleteModal = () => {
     setIsDeleteModalOpen(false)
   }
@@ -40,10 +37,10 @@ export default function useStoreRecipeModal({
     setIsCreateModalOpen(false)
   }
   const openCreateModal = () => {
+    closeStoreModal()
     setIsCreateModalOpen(true)
   }
-  useOnClickOutside(storeModalRef, () => closeStoreModal())
-  useOnClickOutside(createModalRef, () => closeCreateModal())
+
   /// stage recipe selected
   const handleRecipeStage = (recipe, action) => {
     setSelectedRecipe(recipe)
@@ -102,9 +99,7 @@ export default function useStoreRecipeModal({
   }
 
   ///creates a collection and store the selected recipe
-  const handleCreateAndStore = (collectionName) => {
-    closeStoreModal()
-
+  const handleCreateAndStore = async (collectionName) => {
     const postCollection = async (data, token) => {
       try {
         const [json] = await POST('/collection', data, token)
@@ -118,7 +113,8 @@ export default function useStoreRecipeModal({
       }
     }
 
-    postCollection({ name: collectionName }, token)
+    await postCollection({ name: collectionName }, token)
+    openStoreModal()
   }
 
   /// remove recipe from the collection
@@ -145,6 +141,8 @@ export default function useStoreRecipeModal({
         console.log(error)
       }
     }
+
+    if (currentCollection.id === collectionSelected.id) return closeStoreModal()
     const data = {
       sourceCollectionId: currentCollection.id,
       targetCollectionId: collectionSelected.id
@@ -176,13 +174,14 @@ export default function useStoreRecipeModal({
   }
   return {
     isStoringModalOpen,
-    storeModalRef,
-    createModalRef,
+
     isCreateModalOpen,
     selectedRecipe,
     removedRecipes,
     isDeleteModalOpen,
     closeDeleteModal,
+    closeCreateModal,
+    closeStoreModal,
     handleStoreInCollection,
     openCreateModal,
     handleRecipeStage,

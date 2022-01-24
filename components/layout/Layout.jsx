@@ -1,9 +1,12 @@
-import { useState } from 'react'
+import React, { useState } from 'react'
 import { useSession, signOut } from 'next-auth/client'
 import Sidebar from './Sidebar'
 import Header from './Header'
 import MenuBtn from './MenuBtn'
 import ProgressBar from './ProgressBar'
+import useOnClickOutside from '@/hooks/useOnClickOutside'
+import useModalFocus from '@/hooks/useModalFocus'
+
 export default function Layout({ children }) {
   const [session, loading] = useSession()
 
@@ -17,11 +20,41 @@ export default function Layout({ children }) {
     isNavOpen,
     setIsNavOpen
   }
+  const handleCloseNav = () => {
+    setIsNavOpen(false)
+  }
+  const handleOpenNav = () => {
+    setIsNavOpen(true)
+  }
+  const modalRef = React.useRef(null)
+  useOnClickOutside(modalRef, handleCloseNav)
+  const { tabIndex } = useModalFocus({
+    isOpen: isNavOpen,
+    moldalSelector: `[aria-label="navegation bar"]`,
+    onEscape: handleCloseNav
+  })
+  const handleKeyDown = (event) => {
+    if (event.key === 'm') {
+      handleOpenNav()
+    }
+  }
+  React.useEffect(() => {
+    document.addEventListener('keydown', handleKeyDown, false)
+
+    return () => {
+      document.removeEventListener('keydown', handleKeyDown, false)
+    }
+  }, [])
+
   return (
     <>
-      <Header {...sessionProps} signOut={signOut} />
+      <Header
+        {...sessionProps}
+        signOut={signOut}
+        MenuButton={() => <MenuBtn {...navProps} tabIndex={session ? 0 : -1} />}
+      />
       <ProgressBar externalLoading={loading} />
-      {session && <Sidebar {...navProps} />}
+      {session && <Sidebar {...navProps} tabIndex={tabIndex} />}
 
       <main
         data-testid="page-wrapper"
@@ -30,7 +63,6 @@ export default function Layout({ children }) {
         }	`}
       >
         {children}
-        {session && <MenuBtn {...navProps} />}
       </main>
     </>
   )
