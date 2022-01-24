@@ -1,12 +1,14 @@
 # WikiFit Next.js Progresive web app
 
+### Demo: https://fitness-wiki-nextjs-app.vercel.app
+
 ![image](https://drive.google.com/uc?export=view&id=1UqbxM00Pm-pUiSE6McABqf7mxd3d8sV4)
 ![image](https://drive.google.com/uc?export=view&id=1IDIYQV-juU67ZGneZ0xjdHVM3mXFYKF5)
 ![image](https://drive.google.com/uc?export=view&id=1cf5IjSBzulycDOsX14uLLrjhgheKnvqB)
 ![image](https://drive.google.com/uc?export=view&id=1fYjsATfQmjGpIZ7DqCVOF9VF94mh2IqT)
 ![image](https://drive.google.com/uc?export=view&id=1ob4ILLYSGk5TpKKib8CbLCxGg0mUZEYT)
 
-### Demo: https://fitness-wiki-nextjs-app.vercel.app
+
 
 ## Environment variables
 

@@ -12,6 +12,8 @@ export default function ImageGrid() {
             alt="beakfasts"
             width={300}
             height={410}
+      
+           loading="eager"
             unoptimized={env.ENVIRONMENT !== 'PRODUCTION'}
             loading="eager"
           />
@@ -23,6 +25,7 @@ export default function ImageGrid() {
             src="/salad-image.jpg"
             alt="beakfasts"
             width={300}
+  loading="eager"
             height={410}
             unoptimized={env.ENVIRONMENT !== 'PRODUCTION'}
             loading="eager"
@@ -47,6 +50,7 @@ export default function ImageGrid() {
             src="/pizza-image.jpg"
             alt="beakfasts"
             width={300}
+  loading="eager"
             height={410}
             unoptimized={env.ENVIRONMENT !== 'PRODUCTION'}
             loading="eager"
@@ -59,6 +63,7 @@ export default function ImageGrid() {
             src="/pie-image.jpg"
             alt="beakfasts"
             width={300}
+  loading="eager"
             height={310}
             unoptimized={env.ENVIRONMENT !== 'PRODUCTION'}
             loading="eager"
@@ -70,6 +75,7 @@ export default function ImageGrid() {
             layout="responsive"
             src="/soup-image.jpg"
             alt="beakfasts"
+  loading="eager"
             width={300}
             height={410}
             unoptimized={env.ENVIRONMENT !== 'PRODUCTION'}
