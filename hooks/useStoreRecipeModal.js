@@ -119,7 +119,7 @@ export default function useStoreRecipeModal({
 
   /// remove recipe from the collection
   const handleRecipeDelete = async () => {
-    const deteleRecipe = async (id, collectionId, token) => {
+    const deleteRecipe = async (id, collectionId, token) => {
       try {
         await DELETE(`/recipe/${id}?fromCollection=${collectionId}`, token)
       } catch (error) {
@@ -129,10 +129,10 @@ export default function useStoreRecipeModal({
     setRemovedRecipes([...removedRecipes, selectedRecipe.id])
     currentCollection.length = currentCollection.length - 1
     setCurrentCollection(currentCollection)
-    await deteleRecipe(selectedRecipe.id, currentCollection.id, token)
+    await deleteRecipe(selectedRecipe.id, currentCollection.id, token)
   }
 
-  /// move a recipe to other collection
+  /// move a recipe to otheir collection
   const handleCollectionChange = (collectionSelected) => {
     const updateRecipeCollection = async (id, data, token) => {
       try {

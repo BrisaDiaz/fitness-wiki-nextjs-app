@@ -3,33 +3,16 @@
     "jsx": "preserve",
     "baseUrl": ".",
     "paths": {
-        "@/*": [
-          "*"
-        ],
-      "@/components/*": [
-        "components/*"
-      ],
-      "@/lib/*": [
-        "lib/*"
-      ],
+      "@/*": ["*"],
+      "@/components/*": ["components/*"],
+      "@/lib/*": ["lib/*"],
 
-      "@/utils/*": [
-            "utils/*"
-          ],
-      "@/consts/*": [
-              "consts/*"
-            ],
-                "@/hooks/*": [
-              "hooks/*"
-            ],
-      "@/middlewares/*": [
-        "middlewares/*"
-      ],
-      "@/env*": [
-        "env.js"
-      ],
-    },
-
+      "@/utils/*": ["utils/*"],
+      "@/constants/*": ["constants/*"],
+      "@/hooks/*": ["hooks/*"],
+      "@/middleware/*": ["middleware/*"],
+      "@/env*": ["env.js"]
+    }
   },
-  "exclude": [ "node_modules",".next","out"]
+  "exclude": ["node_modules", ".next", "out"]
 }

@@ -17,7 +17,7 @@ afterEach(() => {
   jest.clearAllMocks()
 })
 
-it('diplays the correct buttons', () => {
+it('displays the correct buttons', () => {
   render(<PaginationComponent page={1} {...props} />)
   expect(screen.getByText('1')).toBeInTheDocument()
   expect(screen.getByText('2')).toBeInTheDocument()
@@ -41,7 +41,7 @@ it('call functions with correct values and centralized  select number when click
   expect(setOffset).toHaveBeenCalledWith(6)
 })
 
-it('call functions with correct values and sentralized  select number when clicking prev', async () => {
+it('call functions with correct values and centralized  select number when clicking prev', async () => {
   render(<PaginationComponent page={5} {...props} />)
 
   expect(screen.queryByRole('button', { name: 'Next' })).not.toBeInTheDocument()
@@ -57,7 +57,7 @@ it('call functions with correct values and sentralized  select number when click
   expect(setOffset).toHaveBeenCalledWith(18)
 })
 
-it('call functions with correct values and sentralized  select number when clicking number button directly', async () => {
+it('call functions with correct values and centralized  select number when clicking number button directly', async () => {
   render(<PaginationComponent page={5} {...props} />)
 
   await act(async () => userEvent.click(screen.getByText('3')))
@@ -68,7 +68,7 @@ it('call functions with correct values and sentralized  select number when click
   expect(setOffset).toHaveBeenCalledWith(12)
 })
 
-it('diplay next and prev buttons when there are prev and next page', () => {
+it('display next and prev buttons when theire are prev and next page', () => {
   render(<PaginationComponent page={3} {...props} />)
   expect(screen.queryByRole('button', { name: 'Next' })).toBeInTheDocument()
   expect(screen.queryByRole('button', { name: 'Prev' })).toBeInTheDocument()

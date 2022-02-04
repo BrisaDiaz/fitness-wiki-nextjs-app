@@ -2,7 +2,7 @@ import Head from 'next/head'
 import { useSession } from 'next-auth/client'
 import useAuthentication from '../hooks/useAuthentication'
 import MealsSizeCalculator from '@/components/calculators/MealsSizeCalculator'
-import DesclaimerText from '@/components/calculators/DesclaimerText'
+import DeclaimerText from '@/components/calculators/DeclaimerText'
 export default function MealSizeCalculatorPage() {
   const { isLoading, LoadingComponent } = useAuthentication({
     getSession: useSession,
@@ -28,7 +28,7 @@ export default function MealSizeCalculatorPage() {
 
           <meta
             name="keywords"
-            content="macros,fat loss,bulking,mantain,vegetarian diet, iet, calories per day,daily caloric intake,calories formulas,calories calculator,calories per meals, macronutrients per meal,water intake,fiber intake"
+            content="macros,fat loss,bulking,maintain,vegetarian diet, iet, calories per day,daily caloric intake,calories formulas,calories calculator,calories per meals, macronutrients per meal,water intake,fiber intake"
           />
           <link rel="icon" href="/favicon.ico" />
         </Head>
@@ -37,7 +37,7 @@ export default function MealSizeCalculatorPage() {
 
           <MealsSizeCalculator>
             <section className="pt-4 max-w-2xl  xl:max-w-6xl w-full mx-auto xl:-mt-5 ">
-              <DesclaimerText />
+              <DeclaimerText />
             </section>
           </MealsSizeCalculator>
         </div>

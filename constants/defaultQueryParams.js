@@ -1,4 +1,4 @@
-const COUSINE_OPTIONS = [
+const COUSINS_OPTIONS = [
   'African',
   'American',
   'British',
@@ -21,7 +21,7 @@ const COUSINE_OPTIONS = [
   'Mexican',
   'Middle Eastern',
   ' Nordic',
-  'Southern',
+  'Southeirn',
   'Spanish',
   'Thai',
   'Vietnamese'
@@ -73,7 +73,7 @@ const SORT_OPTIONS = [
   'sugar',
   'zinc'
 ]
-const SORT_DIRECIONS = [
+const SORT_DIRECTIONS = [
   { name: 'More', value: 'asc' },
   { name: 'Less', value: 'desc' }
 ]
@@ -81,11 +81,11 @@ const RESULTS_PER_PAGE = 6
 const MAX_OFFSET_NUMBER = 900
 const MAX_ALLOWED_RESULTS = MAX_OFFSET_NUMBER + RESULTS_PER_PAGE
 module.exports = {
-  COUSINE_OPTIONS,
+  COUSINS_OPTIONS,
   DIET_OPTIONS,
   TYPE_OPTIONS,
   SORT_OPTIONS,
-  SORT_DIRECIONS,
+  SORT_DIRECTIONS,
   RESULTS_PER_PAGE,
   MAX_ALLOWED_RESULTS
 }

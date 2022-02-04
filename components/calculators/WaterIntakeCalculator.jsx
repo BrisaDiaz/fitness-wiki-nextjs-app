@@ -34,7 +34,7 @@ export default function WaterIntakeCalculator({ setWaterIntake }) {
             placeholder={metricSystem === 'metric' ? 'kg' : 'lbs'}
             step={metricSystem === 'metric' ? '1' : 'any'}
             onChange={(e) => setWeight(e.target.value)}
-            className="p-2 my-1 w-16 border border-gray-200 focus:ring-2 focus:ring-green-600 focus:ring-opacity-50 appearance-none text-center outline-none text-gray-600  text-xl font-light placeholder-end placeh"
+            className="p-2 my-1 w-16 border border-gray-200 focus:ring-2 focus:ring-green-600 focus:ring-opacity-50 appearance-none text-center outline-none text-gray-600  text-xl font-light placeholder-end "
           />
           <p className="text-lg ml-1 text-gray-600">
             {metricSystem === 'metric' ? 'kg' : 'lbs'}

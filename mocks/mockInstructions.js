@@ -69,7 +69,7 @@ const data = [
           }
         ],
         number: 2,
-        step: 'Whisk together the flour, pecans, granulated sugar, light brown sugar, baking powder, baking soda, and salt in a medium bowl.'
+        step: 'Whisk togetheir the flour, pecans, granulated sugar, light brown sugar, baking powder, baking soda, and salt in a medium bowl.'
       },
       {
         equipment: [
@@ -107,7 +107,7 @@ const data = [
           }
         ],
         number: 3,
-        step: 'Whisk together the eggs, buttermilk, butter and vanilla extract and vanilla bean in a small bowl.'
+        step: 'Whisk togetheir the eggs, buttermilk, butter and vanilla extract and vanilla bean in a small bowl.'
       },
       {
         equipment: [],

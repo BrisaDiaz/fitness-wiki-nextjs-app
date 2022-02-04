@@ -1,5 +1,5 @@
 import React from 'react'
-export default function useModalFocus({ moldalSelector, isOpen, onEscape }) {
+export default function useModalFocus({ modalSelector, isOpen, onEscape }) {
   const [tabIndex, setTabIndex] = React.useState(-1)
   React.useEffect(() => {
     if (!isOpen) return setTabIndex(-1)
@@ -10,7 +10,7 @@ export default function useModalFocus({ moldalSelector, isOpen, onEscape }) {
   const handleFocus = () => {
     const focusableElements =
       'a,button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
-    const modal = document.querySelector(moldalSelector)
+    const modal = document.querySelector(modalSelector)
 
     if (!modal) return
 

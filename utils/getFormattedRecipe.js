@@ -4,7 +4,7 @@ export default function getFormattedRecipe(recipe) {
     image: recipe.image,
     title: recipe.title,
     servings: `${recipe?.servings} (${recipe?.nutrition?.weightPerServing?.amount} ${recipe?.nutrition?.weightPerServing?.unit})`,
-    diets: recipe?.diets?.join(' - ') || 'unspecify',
+    diets: recipe?.diets?.join(' - ') || 'unspecified',
     readyInMinutes: recipe?.readyInMinutes,
     calories: `${recipe?.nutrition?.nutrients[0]?.amount} ${recipe?.nutrition?.nutrients[0]?.unit}`,
     stored: recipe?.stored,

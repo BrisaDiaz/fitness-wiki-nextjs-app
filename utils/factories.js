@@ -1,9 +1,9 @@
 export class Macro {
-  constructor(totalCalories, name, persentage) {
+  constructor(totalCalories, name, percentage) {
     this.name = name
-    this.persentage = persentage
+    this.percentage = percentage
     this.caloriesPerGram = name === 'proteins' || name === 'carbs' ? 4 : 9
-    this.kals = Math.floor(totalCalories * (this.persentage / 100))
+    this.kals = Math.floor(totalCalories * (this.percentage / 100))
     this.grams = Math.floor(this.kals / this.caloriesPerGram)
   }
 }

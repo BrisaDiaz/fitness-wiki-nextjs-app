@@ -13,12 +13,12 @@ export default function Calculator({ setCaloriesRequired }) {
     totalKcals,
     system,
     errors,
-    isStandAloneComponet,
+    isStandAloneComponent,
     METRIC_SYSTEMS,
     EQUATIONS,
     GENRES,
     ACTIVITY_LEVELS,
-    EXERCISE_INTENCITIES
+    EXERCISE_INTENSITIES
   } = useAMRCalculator({ setCaloriesRequired })
   return (
     <>
@@ -36,7 +36,7 @@ export default function Calculator({ setCaloriesRequired }) {
           className="px-4 py-5 flex flex-col gap-4  shadow-md border border-gray-300 relative z-10"
         >
           <CalculatorField
-            label="Ecuations:"
+            label="Equations:"
             name="activityLevel"
             direction="vertical"
           >
@@ -105,7 +105,7 @@ export default function Calculator({ setCaloriesRequired }) {
             />
           </CalculatorField>
 
-          {isStandAloneComponet && (
+          {isStandAloneComponent && (
             <h2 className="p-2 py-4 text-2xl font-bold text-center bg-green-300 rounded-md text-white border border-green-400">
               Total:
               <span className="ml-1" data-testid="calculator-result">
@@ -118,10 +118,10 @@ export default function Calculator({ setCaloriesRequired }) {
         </form>
 
         <ul className="text-sm mt-6 pl-1 ">
-          {EXERCISE_INTENCITIES.map((intencity) => (
-            <li key={intencity.name}>
-              <span className="font-semibold ">{intencity.name + ': '}</span>
-              {intencity.definition}
+          {EXERCISE_INTENSITIES.map((intensity) => (
+            <li key={intensity.name}>
+              <span className="font-semibold ">{intensity.name + ': '}</span>
+              {intensity.definition}
             </li>
           ))}
         </ul>

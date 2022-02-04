@@ -1,5 +1,5 @@
 const ACTIVITY_LEVELS = [
-  { info: 'Little or no excercise', value: '1.2' },
+  { info: 'Little or no exercise', value: '1.2' },
   { info: 'Exercise 1-3 days/week', value: '1.375' },
   { info: 'Exercise 4-5 days/week', value: '1.55' },
   { info: 'Intense exercise 6-7 days/week', value: '1.725' },
@@ -9,7 +9,7 @@ const METRIC_SYSTEMS = [
   { info: 'Metric', value: 'metric' },
   { info: 'Imperial', value: 'imperial' }
 ]
-const EXERCISE_INTENCITIES = [
+const EXERCISE_INTENSITIES = [
   {
     name: 'Exercise',
     definition: '15-30 minutes of elevated heart rate activity.'
@@ -41,12 +41,12 @@ const NUTRITIONAL_PLANS = [
   { info: 'Vegetarian', value: 'vegetarian' },
   { info: 'Ornish', value: 'ornish' },
   { info: 'American', value: 'american' },
-  { info: 'Recomended for weight loss', value: 'weightLoss' },
-  { info: 'Recomended for maintenance', value: 'maintenance' },
-  { info: 'Recomended for muscle gain', value: 'bulking' }
+  { info: 'Recommended for weight loss', value: 'weightLoss' },
+  { info: 'Recommended for maintenance', value: 'maintenance' },
+  { info: 'Recommended for muscle gain', value: 'bulking' }
 ]
 const PLAN_TYPES = [
-  { info: 'Pedifined plan', value: 'predifined' },
+  { info: 'Predefined plan', value: 'predefined' },
   { info: 'Your own plan', value: 'custom' }
 ]
 const DEFAULT_MACROS_INPUTS = [
@@ -54,7 +54,7 @@ const DEFAULT_MACROS_INPUTS = [
   { info: 'proteins', defaultValue: '30' },
   { info: 'fats', defaultValue: '20' }
 ]
-const MEALS_FRECUENCIES = [
+const MEALS_FREQUENCIES = [
   { info: '3 Meals , 2 snacks', value: '3meals2snacks' },
   { info: '3 Meals , 3 snacks', value: '3meals3snacks' },
   { info: '5 Meals, equally split', value: '5meals' },
@@ -98,7 +98,7 @@ const ERRORS = {
   macroRadios: 'The macros must sum up to 100%'
 }
 const data = {
-  EXERCISE_INTENCITIES,
+  EXERCISE_INTENSITIES,
   METRIC_SYSTEMS,
   ACTIVITY_LEVELS,
   EQUATIONS,
@@ -107,7 +107,7 @@ const data = {
   NUTRITIONAL_PLANS,
   PLAN_TYPES,
   DEFAULT_MACROS_INPUTS,
-  MEALS_FRECUENCIES,
+  MEALS_FREQUENCIES,
   DEFAULT_DATA_TABLE,
   DEFAULT_MACROS_RADIOS,
   DEFAULT_WATER_INTAKE,

@@ -2,7 +2,7 @@ import Head from 'next/head'
 import { useSession } from 'next-auth/client'
 import MacrosCalculator from '@/components/calculators/MacrosCalculator'
 import useAuthentication from '../hooks/useAuthentication'
-import DesclaimerText from '@/components/calculators/DesclaimerText'
+import DeclaimerText from '@/components/calculators/DeclaimerText'
 export default function MacrosCalculatorPage() {
   const { isLoading, LoadingComponent } = useAuthentication({
     getSession: useSession,
@@ -23,23 +23,23 @@ export default function MacrosCalculatorPage() {
           <title>Macros calculator</title>
           <meta
             name="description"
-            content="This macro calculator estimates the macronutrient needs of a person based on their age, physical characteristics, activity level, and body weight goals. Also it allows you to set a macro distrubution rate base on ammount used for different diets or set a persolized rate on your own and in your results you get a feedback addjust to your profile."
+            content="This macro calculator estimates the macronutrient needs of a person based on their age, physical characteristics, activity level, and body weight goals. Also it allows you to set a macro distribution rate base on amount used for different diets or set a personalized rate on your own and in your results you get a feedback adjust to your profile."
           />
 
           <meta
             name="keywords"
-            content="macros,fat loss,bulking,mantain,vegetarian diet,keto diet, paleo diet,mediterranean diet,calorie needs,calories per day,daily caloric intake,calories formulas,calories calculator,harris benedict, mifflin jeor, weight loss formula,MBR,AMR,basal metabolic
+            content="macros,fat loss,bulking,maintain,vegetarian diet,keto diet, paleo diet,mediterranean diet,calorie needs,calories per day,daily caloric intake,calories formulas,calories calculator,harris benedict, mifflin jeor, weight loss formula,MBR,AMR,basal metabolic
         rate,active metabolic rate"
           />
           <link rel="icon" href="/favicon.ico" />
         </Head>
         <div className="pb-6 px-1 gap-x-2 mx-auto max-w-7xl overflow-y-hidden">
           <h1 className="page-title">
-            Calculate your ideal macronutriens intake
+            Calculate your ideal macronutrients intake
           </h1>
           <MacrosCalculator>
             <section className="pt-4  w-full mx-auto">
-              <DesclaimerText />
+              <DeclaimerText />
             </section>
           </MacrosCalculator>
         </div>

@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react'
-import consts from '../consts/calculatorConstants'
+import constants from '../constants/calculatorConstants'
 import getWaterIntake from '../utils/getWaterIntake'
 export default function useWaterIntakeCalculator({ setWaterIntake }) {
-  const { METRIC_SYSTEMS } = consts
+  const { METRIC_SYSTEMS } = constants
 
   const [metricSystem, setMetricSystem] = useState('metric')
   const [weight, setWeight] = useState(60)

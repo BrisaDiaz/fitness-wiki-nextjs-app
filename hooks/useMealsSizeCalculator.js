@@ -1,21 +1,21 @@
 import { useState, useEffect } from 'react'
-import consts from '../consts/calculatorConstants'
+import constants from '../constants/calculatorConstants'
 import getCaloriesPerMeal from '../utils/getCaloriesPerMeal'
-import getMealTableFiels from '../utils/getMealTableFiels'
+import getMealTableFields from '../utils/getMealTableFields'
 
 export default function useMealsSizeCalculator() {
   const {
     DEFAULT_MACROS_RADIOS,
     DEFAULT_DATA_TABLE,
-    MEALS_FRECUENCIES,
+    MEALS_FREQUENCIES,
     DEFAULT_WATER_INTAKE,
     DEFAULT_FIBER_INTAKE,
     ERRORS
-  } = consts
+  } = constants
   const [macroRadios, setMacrosRadios] = useState(DEFAULT_MACROS_RADIOS)
   const [errors, setErrors] = useState([])
   const [totalKcals, setTotalKcals] = useState(2000)
-  const [mealFrecuency, setMealFrecuency] = useState('3meals2snacks')
+  const [mealFrequency, setMealFrequency] = useState('3meals2snacks')
   const [tableData, setTableData] = useState(DEFAULT_DATA_TABLE)
   const [fiberResults, setFiberResults] = useState(DEFAULT_FIBER_INTAKE)
 
@@ -40,26 +40,26 @@ export default function useMealsSizeCalculator() {
     const results = getCaloriesPerMeal(
       totalKcals,
       macroRadios.macros,
-      mealFrecuency
+      mealFrequency
     )
     setFiberResults(results.totalFiber)
-    const formattedData = getMealTableFiels(results)
+    const formattedData = getMealTableFields(results)
     setTableData(formattedData)
-  }, [totalKcals, mealFrecuency, errors, macroRadios])
+  }, [totalKcals, mealFrequency, errors, macroRadios])
 
   return {
     setMacrosRadios,
     setError,
     cleanError,
     setTotalKcals,
-    setMealFrecuency,
+    setMealFrequency,
     setWaterIntake,
     tableData,
     fiberResults,
     waterIntake,
-    mealFrecuency,
+    mealFrequency,
     errors,
 
-    MEALS_FRECUENCIES
+    MEALS_FREQUENCIES
   }
 }

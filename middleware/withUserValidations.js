@@ -18,7 +18,7 @@ export default function withUserValidations(handler) {
       if (userFound)
         return res
           .status(400)
-          .json({ error: true, message: 'This email is already registred' })
+          .json({ error: true, message: 'This email is already registered' })
 
       return handler(req, res)
     } catch (error) {

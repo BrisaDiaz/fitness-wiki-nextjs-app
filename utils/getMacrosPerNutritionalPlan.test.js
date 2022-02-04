@@ -1,22 +1,22 @@
 import getMacrosPerNutritionalPlan from './getMacrosPerNutritionalPlan'
 import mocks from '../mocks/mockMacrosCalculatorData'
 
-it('return error message when pass the name of a non suportet plan', () => {
+it('return error message when pass the name of a non supported plan', () => {
   expect(() =>
-    getMacrosPerNutritionalPlan(2000, 'not-support-plan', 'predifined')
+    getMacrosPerNutritionalPlan(2000, 'not-support-plan', 'predefined')
   ).toThrow("not-support-plan isn't between the nutritional plans supported")
 })
 
-it('return error message when ther is any parameter lost', () => {
-  expect(() => getMacrosPerNutritionalPlan(2000, 'predifined')).toThrow(
-    '1:Target calories, 2:plan and 3:type of plan are requred, instead was send 1:2000, 2:predifined, 3:undefined'
+it('return error message when their is any parameter lost', () => {
+  expect(() => getMacrosPerNutritionalPlan(2000, 'predefined')).toThrow(
+    '1:Target calories, 2:plan and 3:type of plan are required, instead was send 1:2000, 2:predefined, 3:undefined'
   )
 })
 it('return error message when the type of plan is not supported', () => {
   expect(() =>
     getMacrosPerNutritionalPlan(2000, 'not-support-plan', 'customized')
   ).toThrow(
-    `"customized" is not a type of plan suported is must be either "predifined" or "custom" `
+    `"customized" is not a type of plan supported is must be eitheir "predefined" or "custom" `
   )
 })
 
@@ -35,12 +35,12 @@ it('return the correct values when custom macros radios are set', () => {
     )
   ).toEqual(mocks.customMacrosRadiosTest.expectResult)
 })
-it('return the correct values when a predifined plan is selected', () => {
+it('return the correct values when a predefined plan is selected', () => {
   expect(
     getMacrosPerNutritionalPlan(
       2000,
-      mocks.predifinedPlanTest.dataSend,
-      'predifined'
+      mocks.predefinedPlanTest.dataSend,
+      'predefined'
     )
-  ).toEqual(mocks.predifinedPlanTest.expectResult)
+  ).toEqual(mocks.predefinedPlanTest.expectResult)
 })

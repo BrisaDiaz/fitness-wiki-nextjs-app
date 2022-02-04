@@ -83,10 +83,10 @@ describe('layout without session', () => {
       </Layout>
     )
   })
-  it('reder pages as childrens even if there is not session', async () => {
+  it('reder pages as childrens even if theire is not session', async () => {
     expect(screen.getByText('Some Page Title')).toBeInTheDocument()
   })
-  it('dose not render menuBtn and sidebar if there is not session', () => {
+  it('dose not render menuBtn and sidebar if theire is not session', () => {
     expect(screen.queryByTestId('menuBtn')).not.toBeInTheDocument()
     expect(screen.queryByTestId('sidebar')).not.toBeInTheDocument()
   })

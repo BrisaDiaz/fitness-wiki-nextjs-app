@@ -1,5 +1,5 @@
 import prisma from '@/lib/prisma'
-import withAuthorization from '@/middlewares/withAuthorization'
+import withAuthorization from '@/middleware/withAuthorization'
 function handler(req, res) {
   if (req.method === 'GET') {
     return handleGet(req, res)
@@ -15,7 +15,7 @@ function handler(req, res) {
     return handleDelete(req, res)
   }
 }
-//// returns collection releted info
+//// returns collection related info
 async function handleGet(req, res) {
   const id = req.query.id * 1
 
@@ -47,7 +47,7 @@ async function handlePost(req, res) {
   const collectionId = req.query.id * 1
 
   try {
-    // / creates if the ricipe reference dose not exits already
+    // / creates if the recipe reference dose not exits already
     let recipeRecord
 
     const foundRecipe = await prisma.recipe.findUnique({

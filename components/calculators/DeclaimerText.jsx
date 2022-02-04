@@ -1,4 +1,4 @@
-export default function DesclaimerText() {
+export default function DeclaimerText() {
   return (
     <article className="pt-2 px-4 pb-4  my-16 shadow-sm border-2 border-gray-100 rounded relative z-10 bg-white mx-auto max-w-3xl">
       <div className="w-24  h-24 mx-auto -mt-12 bg-white px-2">

@@ -8,7 +8,7 @@ import ListSheet from '@/components/recipe/ListSheet'
 import ListSheetItem from '@/components/recipe/ListSheetItem'
 import RecipeDirections from '@/components/recipe/RecipeDirections'
 
-export default function Recicipe(props) {
+export default function Recipe(props) {
   if (props.error) return <DefaultErrorPage statusCode={props.statusCode} />
 
   let { recipe, instructions, equipment, nutrition, ingredients } = props

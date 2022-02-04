@@ -11,7 +11,7 @@ export default async function signin(req, res) {
       .status(400)
       .json({ error: true, message: 'Email must be provided' })
   try {
-    /// verify user is registred
+    /// verify user is registered
     const userFound = await prisma.user.findUnique({
       where: {
         email: email
@@ -20,7 +20,7 @@ export default async function signin(req, res) {
     if (!userFound)
       return res
         .status(404)
-        .json({ error: true, message: 'This email is not registred' })
+        .json({ error: true, message: 'This email is not registered' })
 
     const token = jwt.sign({ userId: userFound.id }, env.JWT_SECRET)
 

@@ -3,25 +3,25 @@ import env from '@/env'
 export default function ImageGrid() {
   return (
     <section className="max-h-10/12 overflow-hidden  animate-slideBottom">
-      <div className="grid grid-cols-3 sm:grid-cols-3 auto-rows-auto   gap-x-2  w-full relative ">
+      <div className="grid grid-cols-3 sm:grid-cols-3  gap-x-2  w-full relative ">
         <div className="row-span-4      row-start-1">
           <Image
             className="rounded-xl  max-w-full"
             layout="responsive"
             src="/smoothie-image.jpg"
-            alt="beakfasts"
+            alt="breakfasts"
             width={300}
             height={410}
             loading="eager"
             unoptimized={env.ENVIRONMENT !== 'PRODUCTION'}
           />
         </div>
-        <div className=" row-span-4     row-start-2">
+        <div className=" row-span-4     row-start-2 ">
           <Image
             className="rounded-xl  "
             layout="responsive"
             src="/salad-image.jpg"
-            alt="beakfasts"
+            alt="breakfasts"
             width={300}
             height={410}
             unoptimized={env.ENVIRONMENT !== 'PRODUCTION'}
@@ -32,8 +32,8 @@ export default function ImageGrid() {
           <Image
             className="rounded-xl "
             layout="responsive"
-            src="/breackfast-image.jpg"
-            alt="beakfasts"
+            src="/breakfasts-image.jpg"
+            alt="breakfasts"
             width={300}
             height={410}
             unoptimized={env.ENVIRONMENT !== 'PRODUCTION'}
@@ -45,7 +45,7 @@ export default function ImageGrid() {
             className="rounded-xl  max-w-full"
             layout="responsive"
             src="/pizza-image.jpg"
-            alt="beakfasts"
+            alt="breakfasts"
             width={300}
             loading="eager"
             height={410}
@@ -57,7 +57,7 @@ export default function ImageGrid() {
             className="rounded-xl  "
             layout="responsive"
             src="/pie-image.jpg"
-            alt="beakfasts"
+            alt="breakfasts"
             width={300}
             loading="eager"
             height={310}
@@ -69,7 +69,7 @@ export default function ImageGrid() {
             className="rounded-xl "
             layout="responsive"
             src="/soup-image.jpg"
-            alt="beakfasts"
+            alt="breakfasts"
             loading="eager"
             width={300}
             height={410}

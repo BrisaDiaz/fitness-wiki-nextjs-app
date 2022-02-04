@@ -5,9 +5,9 @@ export default function MacrosCalcResults({
   planResults,
   defaultCalories
 }) {
-  const [adivice, setAdivice] = useState('recommended')
+  const [advice, setAdvice] = useState('recommended')
   useEffect(() => {
-    setAdivice(getAdvice(defaultCalories, planResults.totalKcals))
+    setAdvice(getAdvice(defaultCalories, planResults.totalKcals))
   }, [planResults, defaultCalories])
 
   return (
@@ -66,9 +66,9 @@ export default function MacrosCalcResults({
                   <title>{macro.name}Svg</title>
                   <path
                     fill={
-                      macro.persentage >= 50
+                      macro.percentage >= 50
                         ? '#15803d'
-                        : macro.persentage >= 20
+                        : macro.percentage >= 20
                         ? '#fbbf24'
                         : '#ef4444'
                     }
@@ -84,9 +84,9 @@ export default function MacrosCalcResults({
               </div>
               <h4
                 className={'text-2xl font-bold border-b-4 mb-1 max-w-min self-center pb-1 my-1 '.concat(
-                  macro.persentage >= 50
+                  macro.percentage >= 50
                     ? 'text-green-700 border-green-700'
-                    : macro.persentage >= 20
+                    : macro.percentage >= 20
                     ? 'text-yellow-400 border-yellow-400'
                     : 'text-red-500 border-red-600 '
                 )}
@@ -119,9 +119,9 @@ export default function MacrosCalcResults({
                 <title>KcalsSvg</title>
                 <path
                   fill={
-                    adivice === 'recommended'
+                    advice === 'recommended'
                       ? '#15803d'
-                      : adivice === 'not recommended'
+                      : advice === 'not recommended'
                       ? '#ef4444'
                       : '#fbbf24'
                   }
@@ -131,9 +131,9 @@ export default function MacrosCalcResults({
             </div>
             <h4
               className={'text-2xl font-bold border-b-4 mb-1 max-w-min self-center pb-1 my-1 '.concat(
-                adivice === 'recommended'
+                advice === 'recommended'
                   ? 'text-green-700   border-green-700  '
-                  : adivice === 'not recommended'
+                  : advice === 'not recommended'
                   ? 'text-red-400 border-red-400 '
                   : 'text-yellow-300 border-yellow-300'
               )}

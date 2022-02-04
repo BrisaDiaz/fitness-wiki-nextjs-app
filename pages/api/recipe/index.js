@@ -1,4 +1,4 @@
-import withAuthorization from '@/middlewares/withAuthorization'
+import withAuthorization from '@/middleware/withAuthorization'
 import { getData } from '@/utils/spoonacularFetchConfig'
 
 async function handler(req, res) {
@@ -7,7 +7,7 @@ async function handler(req, res) {
   }
   return res.status(405).json({ success: false, message: 'Method not allowed' })
 }
-//// returs  all the recipes  from the external api associated  to the user collections
+//// returns  all the recipes  from the external api associated  to the user collections
 async function handleGet(req, res) {
   const query = new URLSearchParams(req.query).toString()
 

@@ -57,7 +57,7 @@ const handlePost = async (req, res) => {
         email: req.query.email
       }
     })
-    const pulatedCollection = await prisma.collection.create({
+    const populatedCollection = await prisma.collection.create({
       data: {
         name: 'populated collection',
         userId: user.id,
@@ -80,7 +80,7 @@ const handlePost = async (req, res) => {
           },
           data: {
             collections: {
-              connect: { id: pulatedCollection.id }
+              connect: { id: populatedCollection.id }
             },
             users: {
               connect: { id: user.id }
@@ -101,7 +101,7 @@ const handlePost = async (req, res) => {
           servings: recipe.servings,
 
           collections: {
-            connect: { id: pulatedCollection.id }
+            connect: { id: populatedCollection.id }
           },
           users: {
             connect: { id: user.id }

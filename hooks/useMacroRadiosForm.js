@@ -1,4 +1,4 @@
-import consts from '../consts/calculatorConstants'
+import constants from '../constants/calculatorConstants'
 import { useForm } from 'react-hook-form'
 
 export default function MacroRadiosForm({
@@ -7,7 +7,7 @@ export default function MacroRadiosForm({
 
   cleanError
 }) {
-  const { DEFAULT_MACROS_INPUTS, ERRORS } = consts
+  const { DEFAULT_MACROS_INPUTS, ERRORS } = constants
   const { register, handleSubmit } = useForm({
     mode: 'onBlur'
   })
@@ -18,9 +18,9 @@ export default function MacroRadiosForm({
     const customFats = data.fats * 1
     const customCarbs = data.carbs * 1
 
-    const totalPersentage = customCarbs + customProts + customFats
+    const totalPercentage = customCarbs + customProts + customFats
 
-    if (totalPersentage !== 100) return setError(ERRORS.macroRadios)
+    if (totalPercentage !== 100) return setError(ERRORS.macroRadios)
     cleanError(ERRORS.macroRadios)
 
     const customPlan = {

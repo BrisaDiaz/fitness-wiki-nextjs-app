@@ -14,14 +14,14 @@ it('dose not render any link while is still loading', () => {
   expect(screen.queryByText('Sign Up')).not.toBeInTheDocument()
   expect(screen.queryByText('Logout')).not.toBeInTheDocument()
 })
-it('display signin and signup link when there is not session', () => {
+it('display signin and signup link when theire is not session', () => {
   render(<Header loading={false} session={false} signOut={signOut} />)
   expect(screen.getByText('Sign In')).toBeInTheDocument()
   expect(screen.getByText('Sign Up')).toBeInTheDocument()
   expect(screen.queryByText('Logout')).not.toBeInTheDocument()
 })
 
-it('display Logout link when there is not session', () => {
+it('display Logout link when theire is not session', () => {
   render(<Header loading={false} signOut={signOut} session={Session} />)
   expect(screen.getByText('Logout')).toBeInTheDocument()
   expect(screen.queryByText('Sign In')).not.toBeInTheDocument()

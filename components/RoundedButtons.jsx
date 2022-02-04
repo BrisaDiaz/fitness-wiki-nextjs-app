@@ -22,12 +22,12 @@ export function AddButton({ dark, testId, onClick, tabIndex }) {
       />
 
       <div
-        className={'h-6 w-1 broder-b-6 rounded-full self-center absolute   '.concat(
+        className={'h-6 w-1 rounded-full self-center absolute   '.concat(
           dark ? ' bg-white ' : 'bg-gray-600 '
         )}
       />
       <div
-        className={'h-6 w-1 broder-b-6  rounded-full self-center absolute transform rotate-90   '.concat(
+        className={'h-6 w-1  rounded-full self-center absolute transform rotate-90   '.concat(
           dark ? ' bg-white ' : 'bg-gray-600 '
         )}
       />

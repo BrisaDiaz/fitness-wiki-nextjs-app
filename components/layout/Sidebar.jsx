@@ -18,7 +18,7 @@ export default function SideBar({ setIsNavOpen, isNavOpen, tabIndex }) {
           isNavOpen ? '-translate-x-0' : '-translate-x-60'
         }`}
         data-testid="sidebar"
-        aria-label="navegation bar"
+        aria-label="navigation bar"
       >
         <ul className="p-2 w-full">
           {menuLinks.map((link) => (

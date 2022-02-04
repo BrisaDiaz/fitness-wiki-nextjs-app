@@ -12,7 +12,7 @@ import getFormattedRecipe from '@/utils/getFormattedRecipe'
 
 import useStoreRecipeModal from '@/hooks/useStoreRecipeModal'
 ///constants
-import * as consts from '@/consts/defaultQueryParams'
+import * as constants from '@/constants/defaultQueryParams'
 ///components
 import RecipeCard from '@/components/recipe/RecipeCard'
 import LoadingHeart from '@/components/LoadingHeart'
@@ -23,7 +23,7 @@ import FilterTable from '@/components/FilterTable'
 import ListItems from '@/components/ListItems'
 import PaginationComponent from '@/components/PaginationComponent'
 import AddToCollectionModal from '@/components/recipe/AddToCollectionModal'
-import StoreRecipeControlls from '@/components/recipe/StoreRecipeControlls'
+import StoreRecipeControls from '@/components/recipe/StoreRecipeControls'
 import SimpleInputModal from '@/components/LocatedInputModal'
 export default function SearchPage({
   initialRecipes,
@@ -32,7 +32,7 @@ export default function SearchPage({
 }) {
   const [session] = useSession()
   const token = session?.accessToken
-  /// preven fetch on mount
+  /// prevent fetch on mount
   const [renderCount, setRenderCount] = useState(0)
   const [serverError, setServerError] = useState(false)
   const [search, setSearch] = useState('')
@@ -55,7 +55,7 @@ export default function SearchPage({
   query.append('sort', sort)
   query.append('offset', offset)
   query.append('addRecipeNutrition', 'true')
-  query.append('number', consts.RESULTS_PER_PAGE)
+  query.append('number', constants.RESULTS_PER_PAGE)
 
   useEffect(() => {
     if (search) {
@@ -92,13 +92,13 @@ export default function SearchPage({
 
         if (data.results) {
           setUserRecipes(data.results)
-          //// attach Info Relted Width The Collection
-          const whithCollectionReferenceRecipes = attachStoredDataToRecipe(
+          //// attach Info Related Width The Collection
+          const withCollectionReferenceRecipes = attachStoredDataToRecipe(
             data.results,
             recipes
           )
 
-          setRecipes(whithCollectionReferenceRecipes)
+          setRecipes(withCollectionReferenceRecipes)
         }
       } catch (error) {
         console.error(error)
@@ -116,19 +116,19 @@ export default function SearchPage({
       try {
         const [data] = await GET(`/recipe?${query}`, token)
         setTotalResults(
-          data.totalResults <= consts.MAX_ALLOWED_RESULTS
+          data.totalResults <= constants.MAX_ALLOWED_RESULTS
             ? data.totalResults
-            : consts.MAX_ALLOWED_RESULTS
+            : constants.MAX_ALLOWED_RESULTS
         )
 
-        /// if user recipes are available set info releted to the collection
+        /// if user recipes are available set info related to the collection
         if (userRecipes) {
-          const whithCollectionReferenceRecipes = attachStoredDataToRecipe(
+          const withCollectionReferenceRecipes = attachStoredDataToRecipe(
             userRecipes,
             data.results
           )
 
-          setRecipes(whithCollectionReferenceRecipes)
+          setRecipes(withCollectionReferenceRecipes)
 
           return setIsLoading(false)
         }
@@ -204,7 +204,7 @@ export default function SearchPage({
                 onChange={(event) => setCuisine(event.target.value)}
                 label="Cousine Type:"
                 name="cousinType"
-                options={consts.COUSINE_OPTIONS}
+                options={constants.COUSINS_OPTIONS}
                 globalOption="all"
               />
 
@@ -212,7 +212,7 @@ export default function SearchPage({
                 onChange={(event) => setType(event.target.value)}
                 label="Meal Type:"
                 name="mealType"
-                options={consts.TYPE_OPTIONS}
+                options={constants.TYPE_OPTIONS}
                 globalOption="all"
               />
 
@@ -220,7 +220,7 @@ export default function SearchPage({
                 onChange={(event) => setDiet(event.target.value)}
                 label="Diet Type:"
                 name="dietType"
-                options={consts.DIET_OPTIONS}
+                options={constants.DIET_OPTIONS}
                 globalOption="all"
               />
 
@@ -231,8 +231,8 @@ export default function SearchPage({
                 }
                 label="Sort By:"
                 name="sortType"
-                options={consts.SORT_OPTIONS}
-                directions={consts.SORT_DIRECIONS}
+                options={constants.SORT_OPTIONS}
+                directions={constants.SORT_DIRECTIONS}
                 sortDirection={sortDirection}
               />
             </>
@@ -274,7 +274,7 @@ export default function SearchPage({
                     placeholder: 'Enter name...'
                   }}
                 >
-                  <div className="w-28 h-28 bg-gray-400 rounded-full mx-auto my-6 sobject-cover overflow-hidden shadow-md">
+                  <div className="w-28 h-28 bg-gray-400 rounded-full mx-auto my-6 subject-cover overflow-hidden shadow-md">
                     <Image
                       unoptimized={process.env.ENVIRONMENT !== 'PRODUCTION'}
                       className="rounded-xl  mx-auto "
@@ -287,7 +287,7 @@ export default function SearchPage({
                 </SimpleInputModal>
 
                 <RecipeCard recipe={recipe}>
-                  <StoreRecipeControlls
+                  <StoreRecipeControls
                     recipe={recipe}
                     handleSelection={handleRecipeStage}
                   />
@@ -306,13 +306,13 @@ export default function SearchPage({
             Something went wrong
           </h2>
         )}
-        {totalResults > consts.RESULTS_PER_PAGE && (
+        {totalResults > constants.RESULTS_PER_PAGE && (
           <PaginationComponent
             page={page}
             setPage={setPage}
             totalResults={totalResults}
             setOffset={setOffset}
-            resultsPerPage={consts.RESULTS_PER_PAGE}
+            resultsPerPage={constants.RESULTS_PER_PAGE}
           />
         )}
       </section>
@@ -334,7 +334,7 @@ export async function getServerSideProps({ req }) {
   query.append('sort', 'healthiness')
   query.append('offset', 0)
   query.append('addRecipeNutrition', 'true')
-  query.append('number', consts.RESULTS_PER_PAGE)
+  query.append('number', constants.RESULTS_PER_PAGE)
   const [recipes] = await GET(`/recipe?${query}`, session.accessToken)
   const [collectionsJson] = await GET('/collection', session.accessToken)
 
@@ -342,9 +342,9 @@ export async function getServerSideProps({ req }) {
     props: {
       initialRecipes: recipes.results || [],
       initialTotalResults:
-        recipes.totalResults < consts.MAX_ALLOWED_RESULTS
+        recipes.totalResults < constants.MAX_ALLOWED_RESULTS
           ? recipes.totalResults
-          : consts.MAX_ALLOWED_RESULTS,
+          : constants.MAX_ALLOWED_RESULTS,
       collectionsList: collectionsJson?.data || []
     }
   }

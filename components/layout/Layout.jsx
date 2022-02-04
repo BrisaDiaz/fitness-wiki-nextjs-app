@@ -30,7 +30,7 @@ export default function Layout({ children }) {
   useOnClickOutside(modalRef, handleCloseNav)
   const { tabIndex } = useModalFocus({
     isOpen: isNavOpen,
-    moldalSelector: `[aria-label="navegation bar"]`,
+    modalSelector: `[aria-label="navigation bar"]`,
     onEscape: handleCloseNav
   })
   const handleKeyDown = (event) => {

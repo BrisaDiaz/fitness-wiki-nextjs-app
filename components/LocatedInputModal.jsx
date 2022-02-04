@@ -1,5 +1,5 @@
 import React from 'react'
-import FormButtom from '@/components/FormButton'
+import FormButton from '@/components/FormButton'
 import useLocatedInputModal from '@/hooks/useLocatedInputModal'
 import useOnClickOutside from '@/hooks/useOnClickOutside'
 import useModalFocus from '@/hooks/useModalFocus'
@@ -8,7 +8,7 @@ export default function SimpleInputModal({
   avatar,
   title,
   inputOptions,
-  dinamicOptions,
+  dynamicOptions,
   callback,
   closeModal,
   isModalOpen,
@@ -24,7 +24,7 @@ export default function SimpleInputModal({
   })
   const { tabIndex } = useModalFocus({
     isOpen: isModalOpen,
-    moldalSelector: `[id="modal ${id}"]`,
+    modalSelector: `[id="modal ${id}"]`,
     onEscape: closeModal
   })
 
@@ -56,11 +56,11 @@ export default function SimpleInputModal({
           {...register(inputOptions.name, { required: true })}
           defaultValue={inputOptions.defaultValue || ''}
           placeholder={inputOptions.placeholder || ''}
-          {...dinamicOptions}
+          {...dynamicOptions}
           className="w-full  line-input capitalize"
         />
         <div className="w-28 mx-auto">
-          <FormButtom text="Save" tabIndex={tabIndex} />
+          <FormButton text="Save" tabIndex={tabIndex} />
         </div>
       </form>
     </article>

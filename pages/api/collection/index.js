@@ -1,5 +1,5 @@
 import prisma from '@/lib/prisma'
-import withAuthorization from '@/middlewares/withAuthorization'
+import withAuthorization from '@/middleware/withAuthorization'
 
 async function handler(req, res) {
   if (req.method === 'POST') {

@@ -1,6 +1,6 @@
 export default function getDataFormated(rawData) {
   const dataTable = {
-    title: `Suggested meals size for ${rawData.frecuency} a day`,
+    title: `Suggested meals size for ${rawData.frequency} a day`,
     columns: [
       'Name',
       'Total kcals',

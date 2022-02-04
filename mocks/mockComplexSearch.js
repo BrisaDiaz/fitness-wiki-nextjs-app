@@ -1,4 +1,4 @@
-const responce = {
+const response = {
   results: [
     {
       vegetarian: false,
@@ -3549,7 +3549,7 @@ const responce = {
         }
       },
       summary:
-        'The recipe The Best Chili is ready <b>in about 2 hours and 10 minutes</b> and is definitely a spectacular <b>gluten free and dairy free</b> option for lovers of American food. For <b>$2.01 per serving</b>, this recipe <b>covers 29%</b> of your daily requirements of vitamins and minerals. This recipe makes 8 servings with <b>323 calories</b>, <b>33g of protein</b>, and <b>7g of fat</b> each. This recipe from Pink When has 65475 fans. It works well as a rather cheap main course. It can be enjoyed any time, but it is especially good for <b>The Super Bowl</b>. A mixture of group pepper, oregano, tomato paste, and a handful of other ingredients are all it takes to make this recipe so flavorful. To use up the white sugar you could follow this main course with the <a href="https://spoonacular.com/recipes/whole-wheat-refined-sugar-free-sugar-cookies-557184">Whole Wheat Refined Sugar Free Sugar Cookies</a> as a dessert. All things considered, we decided this recipe <b>deserves a spoonacular score of 97%</b>. This score is outstanding. Try <a href="https://spoonacular.com/recipes/5th-annual-chili-contest-entry-2-jamaican-jerk-chili-+-weekly-menu-612833">5th Annual Chili Contest: Entry #2 – Jamaican Jerk Chili + Weekly Menu</a> for similar recipes.',
+        'The recipe The Best Chili is ready <b>in about 2 hours and 10 minutes</b> and is definitely a spectacular <b>gluten free and dairy free</b> option for lovers of American food. For <b>$2.01 per serving</b>, this recipe <b>covers 29%</b> of your daily requirements of vitamins and minerals. This recipe makes 8 servings with <b>323 calories</b>, <b>33g of protein</b>, and <b>7g of fat</b> each. This recipe from Pink When has 65475 fans. It works well as a ratheir cheap main course. It can be enjoyed any time, but it is especially good for <b>The Super Bowl</b>. A mixture of group pepper, oregano, tomato paste, and a handful of otheir ingredients are all it takes to make this recipe so flavorful. To use up the white sugar you could follow this main course with the <a href="https://spoonacular.com/recipes/whole-wheat-refined-sugar-free-sugar-cookies-557184">Whole Wheat Refined Sugar Free Sugar Cookies</a> as a dessert. All things considered, we decided this recipe <b>deserves a spoonacular score of 97%</b>. This score is outstanding. Try <a href="https://spoonacular.com/recipes/5th-annual-chili-contest-entry-2-jamaican-jerk-chili-+-weekly-menu-612833">5th Annual Chili Contest: Entry #2 – Jamaican Jerk Chili + Weekly Menu</a> for similar recipes.',
       cuisines: ['American'],
       dishTypes: ['lunch', 'main course', 'main dish', 'dinner'],
       diets: ['gluten free', 'dairy free'],
@@ -3704,7 +3704,7 @@ const responce = {
       readyInMinutes: 28,
       servings: 6,
       sourceUrl:
-        'http://asouthern-soul.blogspot.com/2014/11/sausage-pepperoni-stromboli.html',
+        'http://asoutheirn-soul.blogspot.com/2014/11/sausage-pepperoni-stromboli.html',
       image: 'https://spoonacular.com/recipeImages/776505-312x231.jpg',
       imageType: 'jpg',
       nutrition: {
@@ -5704,7 +5704,7 @@ const responce = {
         }
       },
       summary:
-        'Sausage & Pepperoni Stromboli might be just the main course you are searching for. For <b>$2.58 per serving</b>, this recipe <b>covers 19%</b> of your daily requirements of vitamins and minerals. One serving contains <b>689 calories</b>, <b>33g of protein</b>, and <b>45g of fat</b>. This recipe is liked by 64426 foodies and cooks. A mixture of egg, mozzarella cheese, parmesan cheese, and a handful of other ingredients are all it takes to make this recipe so yummy. To use up the pizza dough you could follow this main course with the <a href="https://spoonacular.com/recipes/grilled-dessert-pizza-203680">Grilled Dessert Pizza</a> as a dessert. All things considered, we decided this recipe <b>deserves a spoonacular score of 70%</b>. This score is good. Try <a href="https://spoonacular.com/recipes/pepperoni-sausage-stromboli-570172">Pepperoni & Sausage Stromboli</a>, <a href="https://spoonacular.com/recipes/pepperoni-stromboli-176095">Pepperoni Stromboli</a>, and <a href="https://spoonacular.com/recipes/pepperoni-stromboli-444704">Pepperoni Stromboli</a> for similar recipes.',
+        'Sausage & Pepperoni Stromboli might be just the main course you are searching for. For <b>$2.58 per serving</b>, this recipe <b>covers 19%</b> of your daily requirements of vitamins and minerals. One serving contains <b>689 calories</b>, <b>33g of protein</b>, and <b>45g of fat</b>. This recipe is liked by 64426 foodies and cooks. A mixture of egg, mozzarella cheese, parmesan cheese, and a handful of otheir ingredients are all it takes to make this recipe so yummy. To use up the pizza dough you could follow this main course with the <a href="https://spoonacular.com/recipes/grilled-dessert-pizza-203680">Grilled Dessert Pizza</a> as a dessert. All things considered, we decided this recipe <b>deserves a spoonacular score of 70%</b>. This score is good. Try <a href="https://spoonacular.com/recipes/pepperoni-sausage-stromboli-570172">Pepperoni & Sausage Stromboli</a>, <a href="https://spoonacular.com/recipes/pepperoni-stromboli-176095">Pepperoni Stromboli</a>, and <a href="https://spoonacular.com/recipes/pepperoni-stromboli-444704">Pepperoni Stromboli</a> for similar recipes.',
       cuisines: [],
       dishTypes: ['lunch', 'main course', 'main dish', 'dinner'],
       diets: [],
@@ -5844,7 +5844,7 @@ const responce = {
             },
             {
               number: 8,
-              step: 'Place pepperoni slices on top of cheese then sprinkle with 3/4 cup Parmesan cheese.Gently roll in short sides of dough to form a seal around filling.Starting on long side of dough, carefully roll into one third of Stromboli. Using parchment, roll dough again until reaching opposite end. Pinch together and place seam side down.',
+              step: 'Place pepperoni slices on top of cheese then sprinkle with 3/4 cup Parmesan cheese.Gently roll in short sides of dough to form a seal around filling.Starting on long side of dough, carefully roll into one third of Stromboli. Using parchment, roll dough again until reaching opposite end. Pinch togetheir and place seam side down.',
               ingredients: [
                 {
                   id: 1007057,
@@ -7633,7 +7633,7 @@ const responce = {
         }
       },
       summary:
-        'How to Make OREO Turkeys for Thanksgiving might be a good recipe to expand your dessert repertoire. This recipe makes 48 servings with <b>122 calories</b>, <b>1g of protein</b>, and <b>7g of fat</b> each. For <b>24 cents per serving</b>, this recipe <b>covers 2%</b> of your daily requirements of vitamins and minerals. It can be enjoyed any time, but it is especially good for <b>Thanksgiving</b>. It is brought to you by Pink When. 59476 people have made this recipe and would make it again. A mixture of candy corn, cream cheese, candy eyes, and a handful of other ingredients are all it takes to make this recipe so tasty. From preparation to the plate, this recipe takes roughly <b>40 minutes</b>. All things considered, we decided this recipe <b>deserves a spoonacular score of 0%</b>. This score is improvable. Users who liked this recipe also liked <a href="https://spoonacular.com/recipes/oreo-turkeys-thanksgiving-snack-138063">Oreo Turkeys (Thanksgiving Snack)</a>, <a href="https://spoonacular.com/recipes/cakespy-thanksgiving-cookie-turkeys-50158">Cakespy: Thanksgiving Cookie Turkeys</a>, and <a href="https://spoonacular.com/recipes/make-ahead-turkey-thanksgiving-gravy-75170">Make Ahead Turkey (thanksgiving) Gravy</a>.',
+        'How to Make OREO Turkeys for Thanksgiving might be a good recipe to expand your dessert repertoire. This recipe makes 48 servings with <b>122 calories</b>, <b>1g of protein</b>, and <b>7g of fat</b> each. For <b>24 cents per serving</b>, this recipe <b>covers 2%</b> of your daily requirements of vitamins and minerals. It can be enjoyed any time, but it is especially good for <b>Thanksgiving</b>. It is brought to you by Pink When. 59476 people have made this recipe and would make it again. A mixture of candy corn, cream cheese, candy eyes, and a handful of otheir ingredients are all it takes to make this recipe so tasty. From preparation to the plate, this recipe takes roughly <b>40 minutes</b>. All things considered, we decided this recipe <b>deserves a spoonacular score of 0%</b>. This score is improvable. Users who liked this recipe also liked <a href="https://spoonacular.com/recipes/oreo-turkeys-thanksgiving-snack-138063">Oreo Turkeys (Thanksgiving Snack)</a>, <a href="https://spoonacular.com/recipes/cakespy-thanksgiving-cookie-turkeys-50158">Cakespy: Thanksgiving Cookie Turkeys</a>, and <a href="https://spoonacular.com/recipes/make-ahead-turkey-thanksgiving-gravy-75170">Make Ahead Turkey (thanksgiving) Gravy</a>.',
       cuisines: [],
       dishTypes: ['dessert'],
       diets: [],
@@ -7747,7 +7747,7 @@ const responce = {
             },
             {
               number: 6,
-              step: 'Add 5 candy corn to the back of the ball as tail feathers.',
+              step: 'Add 5 candy corn to the back of the ball as tail featheirs.',
               ingredients: [
                 {
                   id: 93637,
@@ -12503,7 +12503,7 @@ const responce = {
         }
       },
       summary:
-        'World’s Greatest Lasagna Roll Ups might be just the <b>Mediterranean</b> recipe you are searching for. This recipe makes 18 servings with <b>422 calories</b>, <b>22g of protein</b>, and <b>16g of fat</b> each. For <b>$1.37 per serving</b>, this recipe <b>covers 16%</b> of your daily requirements of vitamins and minerals. A mixture of ground beef, ricotta cheese, parsley, and a handful of other ingredients are all it takes to make this recipe so scrumptious. 35951 person have made this recipe and would make it again. From preparation to the plate, this recipe takes roughly <b>1 hour and 50 minutes</b>. All things considered, we decided this recipe <b>deserves a spoonacular score of 73%</b>. This score is good. Try <a href="https://spoonacular.com/recipes/freezer-lasagna-roll-ups-917017">Freezer Lasagna Roll Ups</a>, <a href="https://spoonacular.com/recipes/chicken-bacon-ranch-lasagna-roll-ups-926669">Chicken Bacon Ranch Lasagna Roll Ups</a>, and <a href="https://spoonacular.com/recipes/easy-pepperoni-pizza-lasagna-roll-ups-919103">Easy Pepperoni Pizza Lasagna Roll Ups</a> for similar recipes.',
+        'World’s Greatest Lasagna Roll Ups might be just the <b>Mediterranean</b> recipe you are searching for. This recipe makes 18 servings with <b>422 calories</b>, <b>22g of protein</b>, and <b>16g of fat</b> each. For <b>$1.37 per serving</b>, this recipe <b>covers 16%</b> of your daily requirements of vitamins and minerals. A mixture of ground beef, ricotta cheese, parsley, and a handful of otheir ingredients are all it takes to make this recipe so scrumptious. 35951 person have made this recipe and would make it again. From preparation to the plate, this recipe takes roughly <b>1 hour and 50 minutes</b>. All things considered, we decided this recipe <b>deserves a spoonacular score of 73%</b>. This score is good. Try <a href="https://spoonacular.com/recipes/freezer-lasagna-roll-ups-917017">Freezer Lasagna Roll Ups</a>, <a href="https://spoonacular.com/recipes/chicken-bacon-ranch-lasagna-roll-ups-926669">Chicken Bacon Ranch Lasagna Roll Ups</a>, and <a href="https://spoonacular.com/recipes/easy-pepperoni-pizza-lasagna-roll-ups-919103">Easy Pepperoni Pizza Lasagna Roll Ups</a> for similar recipes.',
       cuisines: ['Mediterranean', 'Italian', 'European'],
       dishTypes: [
         'antipasti',
@@ -14858,7 +14858,7 @@ const responce = {
         }
       },
       summary:
-        'This recipe makes 3 servings with <b>576 calories</b>, <b>21g of protein</b>, and <b>33g of fat</b> each. For <b>$1.55 per serving</b>, this recipe <b>covers 15%</b> of your daily requirements of vitamins and minerals. Head to the store and pick up ricotta, milk, pistachios, and a few other things to make it today. It can be enjoyed any time, but it is especially good for <b>Summer</b>. From preparation to the plate, this recipe takes roughly <b>45 minutes</b>. Many people made this recipe, and 19636 would say it hit the spot. It is a good option if you\'re following a <b>gluten free and vegetarian</b> diet. All things considered, we decided this recipe <b>deserves a spoonacular score of 67%</b>. This score is good. Try <a href="https://spoonacular.com/recipes/chocolate-dipped-cannoli-with-pistachios-355861">Chocolate-Dipped Cannoli with Pistachios</a>, <a href="https://spoonacular.com/recipes/soft-cannoli-cookie-sandwiches-with-almond-orange-and-dark-chocolate-683998">Soft Cannoli Cookie Sandwiches with Almond, Orange, and Dark Chocolate</a>, and <a href="https://spoonacular.com/recipes/dark-white-chocolate-chip-oatmeal-cookies-with-pistachios-and-dried-bluberries-608097">Dark & White Chocolate Chip Oatmeal Cookies with Pistachios and Dried Bluberries</a> for similar recipes.',
+        'This recipe makes 3 servings with <b>576 calories</b>, <b>21g of protein</b>, and <b>33g of fat</b> each. For <b>$1.55 per serving</b>, this recipe <b>covers 15%</b> of your daily requirements of vitamins and minerals. Head to the store and pick up ricotta, milk, pistachios, and a few otheir things to make it today. It can be enjoyed any time, but it is especially good for <b>Summer</b>. From preparation to the plate, this recipe takes roughly <b>45 minutes</b>. Many people made this recipe, and 19636 would say it hit the spot. It is a good option if you\'re following a <b>gluten free and vegetarian</b> diet. All things considered, we decided this recipe <b>deserves a spoonacular score of 67%</b>. This score is good. Try <a href="https://spoonacular.com/recipes/chocolate-dipped-cannoli-with-pistachios-355861">Chocolate-Dipped Cannoli with Pistachios</a>, <a href="https://spoonacular.com/recipes/soft-cannoli-cookie-sandwiches-with-almond-orange-and-dark-chocolate-683998">Soft Cannoli Cookie Sandwiches with Almond, Orange, and Dark Chocolate</a>, and <a href="https://spoonacular.com/recipes/dark-white-chocolate-chip-oatmeal-cookies-with-pistachios-and-dried-bluberries-608097">Dark & White Chocolate Chip Oatmeal Cookies with Pistachios and Dried Bluberries</a> for similar recipes.',
       cuisines: [],
       dishTypes: ['lunch', 'main course', 'main dish', 'dinner'],
       diets: ['gluten free', 'lacto ovo vegetarian'],
@@ -19183,7 +19183,7 @@ const responce = {
         }
       },
       summary:
-        'Turkey Pot Pie might be just the main course you are searching for. This recipe makes 8 servings with <b>728 calories</b>, <b>23g of protein</b>, and <b>42g of fat</b> each. For <b>$2.06 per serving</b>, this recipe <b>covers 26%</b> of your daily requirements of vitamins and minerals. This recipe is liked by 17134 foodies and cooks. If you have celery seed, butter, flour, and a few other ingredients on hand, you can make it. All things considered, we decided this recipe <b>deserves a spoonacular score of 89%</b>. This score is tremendous. Try <a href="https://spoonacular.com/recipes/instant-pot-chicken-pot-pie-soup-916463">Instant Pot Chicken Pot Pie Soup</a>, <a href="https://spoonacular.com/recipes/chicken-pot-pie-pockets-908274">Chicken Pot Pie Pockets</a>, and <a href="https://spoonacular.com/recipes/homemade-chicken-pot-pie-soup-922614">Homemade Chicken Pot Pie Soup</a> for similar recipes.',
+        'Turkey Pot Pie might be just the main course you are searching for. This recipe makes 8 servings with <b>728 calories</b>, <b>23g of protein</b>, and <b>42g of fat</b> each. For <b>$2.06 per serving</b>, this recipe <b>covers 26%</b> of your daily requirements of vitamins and minerals. This recipe is liked by 17134 foodies and cooks. If you have celery seed, butter, flour, and a few otheir ingredients on hand, you can make it. All things considered, we decided this recipe <b>deserves a spoonacular score of 89%</b>. This score is tremendous. Try <a href="https://spoonacular.com/recipes/instant-pot-chicken-pot-pie-soup-916463">Instant Pot Chicken Pot Pie Soup</a>, <a href="https://spoonacular.com/recipes/chicken-pot-pie-pockets-908274">Chicken Pot Pie Pockets</a>, and <a href="https://spoonacular.com/recipes/homemade-chicken-pot-pie-soup-922614">Homemade Chicken Pot Pie Soup</a> for similar recipes.',
       cuisines: [],
       dishTypes: ['lunch', 'main course', 'main dish', 'dinner'],
       diets: [],
@@ -19284,7 +19284,7 @@ const responce = {
             },
             {
               number: 2,
-              step: 'Remove from heat and mix with the drained vegetables and turkey.Step 3: Fill two pie crusts with your turkey and vegetable mixture. Carefully top each pie with another pie crust, pinching the sides together.',
+              step: 'Remove from heat and mix with the drained vegetables and turkey.Step 3: Fill two pie crusts with your turkey and vegetable mixture. Carefully top each pie with anotheir pie crust, pinching the sides togetheir.',
               ingredients: [
                 {
                   id: 18334,
@@ -19314,7 +19314,7 @@ const responce = {
           steps: [
             {
               number: 1,
-              step: 'Bake uncovered in the preheated oven until the pies are golden brown, about 30 minutes. If the tops of the pies are browning too quickly, place a sheet of foil over the pie crusts and continue to bake. Cool for about 10 minutes before serving.This has to be one of the most delicious pot pie recipes I have ever tasted! What a great way to use up that leftover turkey. Another great substitution for turkey would also be to use a Rotisserie chicken. MMmmmm. I will be trying that soon.Have you ever tried a pot pie recipe? What about a Turkey Pot Pie Recipe? Make sure to save this one for those cold and snowy days ahead!JOIN 500,000 SUBSCRIBERS!Join over 500,000 others who follow Pink',
+              step: 'Bake uncovered in the preheated oven until the pies are golden brown, about 30 minutes. If the tops of the pies are browning too quickly, place a sheet of foil over the pie crusts and continue to bake. Cool for about 10 minutes before serving.This has to be one of the most delicious pot pie recipes I have ever tasted! What a great way to use up that leftover turkey. Anotheir great substitution for turkey would also be to use a Rotisserie chicken. MMmmmm. I will be trying that soon.Have you ever tried a pot pie recipe? What about a Turkey Pot Pie Recipe? Make sure to save this one for those cold and snowy days ahead!JOIN 500,000 SUBSCRIBERS!Join over 500,000 otheirs who follow Pink',
               ingredients: [
                 {
                   id: 99246,
@@ -19419,4 +19419,4 @@ const responce = {
   totalResults: 5076
 }
 
-export default responce
+export default response

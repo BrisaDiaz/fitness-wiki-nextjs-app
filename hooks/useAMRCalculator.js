@@ -1,9 +1,9 @@
 import { useState } from 'react'
 import { useForm } from 'react-hook-form'
-import consts from '../consts/calculatorConstants'
+import constants from '../constants/calculatorConstants'
 import getDailyKcals from '../utils/getDailyKcals'
 export default function useAMRCalculator({ setCaloriesRequired }) {
-  const isStandAloneComponet = setCaloriesRequired ? false : true
+  const isStandAloneComponent = setCaloriesRequired ? false : true
   const [system, setSystem] = useState('metric')
   const [totalKcals, setTotalKcals] = useState(0)
   const {
@@ -22,7 +22,7 @@ export default function useAMRCalculator({ setCaloriesRequired }) {
     data.weight = data.weight * 1
     data.height = data.height * 1
     data.activityLevel = data.activityLevel * 1
-    isStandAloneComponet
+    isStandAloneComponent
       ? setTotalKcals(getDailyKcals(data))
       : setCaloriesRequired(getDailyKcals(data))
   }
@@ -31,14 +31,14 @@ export default function useAMRCalculator({ setCaloriesRequired }) {
     EQUATIONS,
     GENRES,
     ACTIVITY_LEVELS,
-    EXERCISE_INTENCITIES
-  } = consts
+    EXERCISE_INTENSITIES
+  } = constants
   return {
     setSystem,
     register,
     handleSubmit,
     onSubmit,
-    isStandAloneComponet,
+    isStandAloneComponent,
     totalKcals,
     system,
     errors,
@@ -46,6 +46,6 @@ export default function useAMRCalculator({ setCaloriesRequired }) {
     EQUATIONS,
     GENRES,
     ACTIVITY_LEVELS,
-    EXERCISE_INTENCITIES
+    EXERCISE_INTENSITIES
   }
 }

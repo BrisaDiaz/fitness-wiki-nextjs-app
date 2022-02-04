@@ -145,7 +145,7 @@ a {
 .calculator-field-container:first-child {
   @apply mt-6 bg-white;
 }
-.list-leyend {
+.list-legend {
   @apply text-gray-700;
 }
 .page-title {

@@ -11,31 +11,31 @@ describe('collection operations', () => {
     cy.visit('/collections', { timeout: 100000 })
   })
 
-  // it('renames and delete collections', () => {
-  //   cy.get('[data-testid="collectionCard"]', { timeoute: 3000 }).should(
-  //     'have.length',
-  //     2
-  //   )
-  //   cy.get('[data-testid="collectionCard"]:first')
-  //     .as('collection')
-  //     .trigger('mouseover')
-  //   cy.get('@collection').find('[data-testid="editBtn"]').click()
-  //   cy.get('[name="newName"]').clear().type('rename collection')
-  //   cy.get('[type="submit"]').click()
-  //   cy.get('@collection', { timeoute: 3000 })
-  //     .find('h3')
-  //     .should('have.text', 'rename collection')
-  //   cy.get('@collection').trigger('mouseover')
-  //   cy.get('@collection').find('[data-testid="deleteBtn"]').click()
-  //   cy.get('[data-testid="dialogModal"]', { timeout: 3000 })
-  //     .get('[data-testid="acceptDialogBtn"]')
-  //     .click()
-  //   cy.get('[data-testid="collectionCard"]', { timeoute: 3000 }).should(
-  //     'have.length',
-  //     1
-  //   )
-  // })
-  it('delete and moves recipes to another collection', () => {
+  it('renames and delete collections', () => {
+    cy.get('[data-testid="collectionCard"]', { timeoute: 3000 }).should(
+      'have.length',
+      2
+    )
+    cy.get('[data-testid="collectionCard"]:first')
+      .as('collection')
+      .trigger('mouseover')
+    cy.get('@collection').find('[data-testid="editBtn"]').click()
+    cy.get('[name="newName"]').clear().type('rename collection')
+    cy.get('[type="submit"]').click()
+    cy.get('@collection', { timeoute: 3000 })
+      .find('h3')
+      .should('have.text', 'rename collection')
+    cy.get('@collection').trigger('mouseover')
+    cy.get('@collection').find('[data-testid="deleteBtn"]').click()
+    cy.get('[data-testid="dialogModal"]', { timeout: 3000 })
+      .get('[data-testid="acceptDialogBtn"]')
+      .click()
+    cy.get('[data-testid="collectionCard"]', { timeoute: 3000 }).should(
+      'have.length',
+      1
+    )
+  })
+  it('delete and moves recipes to anotheir collection', () => {
     cy.get('[alt="populated collection"]', {
       timeoute: 3000
     }).click()

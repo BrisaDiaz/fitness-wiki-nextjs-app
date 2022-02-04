@@ -1,7 +1,7 @@
 import Link from 'next/link'
 
 import { EditButton, DeleteButton } from '@/components/RoundedButtons'
-export default function StoreRecipeControlls({
+export default function StoreRecipeControls({
   handleSelection,
   handleDelete,
   handleUpdate,

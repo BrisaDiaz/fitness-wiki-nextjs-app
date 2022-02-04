@@ -5,16 +5,16 @@ const widthDefaultMaitenanceRadiosResult = {
       grams: 150,
       kals: 600,
       name: 'proteins',
-      persentage: 30
+      percentage: 30
     },
     {
       caloriesPerGram: 4,
       grams: 250,
       kals: 1000,
       name: 'carbs',
-      persentage: 50
+      percentage: 50
     },
-    { caloriesPerGram: 9, grams: 44, kals: 400, name: 'fats', persentage: 20 }
+    { caloriesPerGram: 9, grams: 44, kals: 400, name: 'fats', percentage: 20 }
   ],
   planName: 'custom plan',
   totalGrams: 444,
@@ -42,16 +42,16 @@ const customMacrosRadiosTest = {
         grams: 250,
         kals: 1000,
         name: 'proteins',
-        persentage: 50
+        percentage: 50
       },
       {
         caloriesPerGram: 4,
         grams: 150,
         kals: 600,
         name: 'carbs',
-        persentage: 30
+        percentage: 30
       },
-      { caloriesPerGram: 9, grams: 44, kals: 400, name: 'fats', persentage: 20 }
+      { caloriesPerGram: 9, grams: 44, kals: 400, name: 'fats', percentage: 20 }
     ],
     planName: 'custom plan',
     totalGrams: 444,
@@ -59,7 +59,7 @@ const customMacrosRadiosTest = {
   }
 }
 
-const predifinedPlanTest = {
+const predefinedPlanTest = {
   dataSend: 'vegetarian',
   expectResult: {
     macros: [
@@ -68,41 +68,41 @@ const predifinedPlanTest = {
         grams: 85,
         kals: 340,
         name: 'proteins',
-        persentage: 17
+        percentage: 17
       },
       {
         caloriesPerGram: 4,
         grams: 285,
         kals: 1140,
         name: 'carbs',
-        persentage: 57
+        percentage: 57
       },
-      { caloriesPerGram: 9, grams: 68, kals: 620, name: 'fats', persentage: 31 }
+      { caloriesPerGram: 9, grams: 68, kals: 620, name: 'fats', percentage: 31 }
     ],
     planName: 'vegetarian',
     totalGrams: 438,
     totalKcals: 2000
   }
 }
-const caloriesPerGoaldTest = {
+const caloriesPerGoalTest = {
   dataSend: 2500,
   expectResult: [
     {
       defaultValue: 2125,
-      intencities: [
-        { name: 'suggested', porsentage: 15, value: 2125 },
-        { name: 'aggressive ', porsentage: 20, value: 2000 },
-        { name: 'reckless  ', porsentage: 25, value: 1875 }
+      intensities: [
+        { name: 'suggested', percentage: 15, value: 2125 },
+        { name: 'aggressive ', percentage: 20, value: 2000 },
+        { name: 'reckless  ', percentage: 25, value: 1875 }
       ],
       title: 'fat loss'
     },
     { defaultValue: 2500, title: 'maintain' },
     {
       defaultValue: 2625,
-      intencities: [
-        { name: 'cautious', porsentage: 5, value: 2625 },
-        { name: 'text book', porsentage: 10, value: 2750 },
-        { name: 'aggressive', porsentage: 15, value: 2875 }
+      intensities: [
+        { name: 'cautious', percentage: 5, value: 2625 },
+        { name: 'text book', percentage: 10, value: 2750 },
+        { name: 'aggressive', percentage: 15, value: 2875 }
       ],
       title: 'bulking'
     }
@@ -121,39 +121,39 @@ const fullCalculatorTest = {
     },
     expectResult: 4184
   },
-  goaldSection: {
+  goalSection: {
     expectResult: [
       {
         defaultValue: 3556,
-        intencities: [
-          { name: 'suggested', porsentage: 15, value: 3556 },
-          { name: 'aggressive', porsentage: 20, value: 3347 },
-          { name: 'reckless', porsentage: 25, value: 3138 }
+        intensities: [
+          { name: 'suggested', percentage: 15, value: 3556 },
+          { name: 'aggressive', percentage: 20, value: 3347 },
+          { name: 'reckless', percentage: 25, value: 3138 }
         ],
         title: 'fat loss'
       },
       { defaultValue: 4184, title: 'maintain' },
       {
         defaultValue: 4393,
-        intencities: [
-          { name: 'cautious', porsentage: 5, value: 4393 },
-          { name: 'text book', porsentage: 10, value: 4602 },
-          { name: 'aggressive', porsentage: 15, value: 4811 }
+        intensities: [
+          { name: 'cautious', percentage: 5, value: 4393 },
+          { name: 'text book', percentage: 10, value: 4602 },
+          { name: 'aggressive', percentage: 15, value: 4811 }
         ],
         title: 'bulking'
       }
     ],
     dataSend: {
-      goald: 'fat loss',
+      goal: 'fat loss',
       intecity: 'aggressive',
       value: 3347
     }
   },
   nutritionalPlanSection: {
     dataSend: {
-      dietType: 'predifined',
+      dietType: 'predefined',
       plan: 'mediterranean',
-      goaldkals: 3347
+      goalkals: 3347
     },
     expectResult: {
       macros: [
@@ -161,19 +161,19 @@ const fullCalculatorTest = {
           grams: 397,
           kcals: 1589,
           name: 'carbs',
-          persentage: 38
+          percentage: 38
         },
         {
           grams: 167,
           kcals: 669,
           name: 'proteins',
-          persentage: 16
+          percentage: 16
         },
         {
           grams: 213,
           kcals: 1924,
           name: 'fats',
-          persentage: 46
+          percentage: 46
         }
       ],
       planName: 'mediterranean',
@@ -203,8 +203,8 @@ const fullCalculatorTest = {
 const data = {
   widthDefaultMaitenanceRadiosResult,
   customMacrosRadiosTest,
-  predifinedPlanTest,
-  caloriesPerGoaldTest,
+  predefinedPlanTest,
+  caloriesPerGoalTest,
   fullCalculatorTest
 }
 

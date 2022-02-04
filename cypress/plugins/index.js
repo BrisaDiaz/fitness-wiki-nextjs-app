@@ -58,7 +58,7 @@ module.exports = (on) => {
           image: 'https://spoonacular.com/recipeImages/776505-312x231.jpg',
           title: 'Sausage & Pepperoni Stromboli',
           servings: '6 289 g',
-          diets: 'unspecify',
+          diets: 'unspecified',
           readyInMinutes: 28,
           calories: '689.39 kcal'
         },
@@ -67,7 +67,7 @@ module.exports = (on) => {
           image: 'https://spoonacular.com/recipeImages/715449-312x231.jpg',
           title: 'How to Make OREO Turkeys for Thanksgiving',
           servings: '48 25 g',
-          diets: 'unspecify',
+          diets: 'unspecified',
           readyInMinutes: 40,
           calories: '121.58 kcal'
         }

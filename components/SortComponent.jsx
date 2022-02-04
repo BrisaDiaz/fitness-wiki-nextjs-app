@@ -41,7 +41,7 @@ export default function SortComponent({
         className="capitalize border border-solid border-gray-200 rounded p-2  px-4 ml-1 shadow-sm  eading-tight focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-opacity-50 appearance-none w-full sm:w-max"
         id={name}
         name={name}
-        defaultValue="healthyness"
+        defaultValue="healthiness"
         onChange={onSortChange}
       >
         {options.map((option) => (

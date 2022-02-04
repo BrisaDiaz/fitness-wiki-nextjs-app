@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 
 export default function useOnClickOutside(ref, handler, options) {
-  const [isTouched, setisTouched] = useState(false)
+  const [isTouched, setIsTouched] = useState(false)
 
   useEffect(
     () => {
@@ -9,10 +9,10 @@ export default function useOnClickOutside(ref, handler, options) {
         // Do nothing if clicking ref's element or descendent elements
 
         if (!ref?.current || ref?.current?.contains(event.target)) {
-          setisTouched(true)
+          setIsTouched(true)
           return
         }
-        setisTouched(false)
+        setIsTouched(false)
         if (handler && !options) handler(event)
 
         if (options && options?.isActiveElement === true) handler(event)

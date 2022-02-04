@@ -14,7 +14,7 @@ const macrosRadios = {
 
 const with3meals2snacksExpectResults = {
   dailyCalories: 2500,
-  frecuency: '3 meals and 2 snacks',
+  frequency: '3 meals and 2 snacks',
   meals: [
     {
       info: {
@@ -23,21 +23,21 @@ const with3meals2snacksExpectResults = {
           grams: 46,
           kals: 187,
           name: 'carbs',
-          persentage: 30
+          percentage: 30
         },
         fats: {
           caloriesPerGram: 9,
           grams: 13,
           kals: 125,
           name: 'fats',
-          persentage: 20
+          percentage: 20
         },
         proteins: {
           caloriesPerGram: 4,
           grams: 78,
           kals: 312,
           name: 'proteins',
-          persentage: 50
+          percentage: 50
         },
         totalGrams: 137,
         totalkcals: 625
@@ -51,21 +51,21 @@ const with3meals2snacksExpectResults = {
           grams: 23,
           kals: 93,
           name: 'carbs',
-          persentage: 30
+          percentage: 30
         },
         fats: {
           caloriesPerGram: 9,
           grams: 6,
           kals: 62,
           name: 'fats',
-          persentage: 20
+          percentage: 20
         },
         proteins: {
           caloriesPerGram: 4,
           grams: 39,
           kals: 156,
           name: 'proteins',
-          persentage: 50
+          percentage: 50
         },
         totalGrams: 68,
         totalkcals: 312
@@ -79,21 +79,21 @@ const with3meals2snacksExpectResults = {
           grams: 46,
           kals: 187,
           name: 'carbs',
-          persentage: 30
+          percentage: 30
         },
         fats: {
           caloriesPerGram: 9,
           grams: 13,
           kals: 125,
           name: 'fats',
-          persentage: 20
+          percentage: 20
         },
         proteins: {
           caloriesPerGram: 4,
           grams: 78,
           kals: 312,
           name: 'proteins',
-          persentage: 50
+          percentage: 50
         },
         totalGrams: 137,
         totalkcals: 625
@@ -107,21 +107,21 @@ const with3meals2snacksExpectResults = {
           grams: 23,
           kals: 93,
           name: 'carbs',
-          persentage: 30
+          percentage: 30
         },
         fats: {
           caloriesPerGram: 9,
           grams: 6,
           kals: 62,
           name: 'fats',
-          persentage: 20
+          percentage: 20
         },
         proteins: {
           caloriesPerGram: 4,
           grams: 39,
           kals: 156,
           name: 'proteins',
-          persentage: 50
+          percentage: 50
         },
         totalGrams: 68,
         totalkcals: 312
@@ -135,21 +135,21 @@ const with3meals2snacksExpectResults = {
           grams: 46,
           kals: 187,
           name: 'carbs',
-          persentage: 30
+          percentage: 30
         },
         fats: {
           caloriesPerGram: 9,
           grams: 13,
           kals: 125,
           name: 'fats',
-          persentage: 20
+          percentage: 20
         },
         proteins: {
           caloriesPerGram: 4,
           grams: 78,
           kals: 312,
           name: 'proteins',
-          persentage: 50
+          percentage: 50
         },
         totalGrams: 137,
         totalkcals: 625
@@ -161,7 +161,7 @@ const with3meals2snacksExpectResults = {
 }
 const with3meals3snacksExpectResults = {
   dailyCalories: 2500,
-  frecuency: '3 meals and 3 snacks',
+  frequency: '3 meals and 3 snacks',
   meals: [
     {
       info: {
@@ -170,21 +170,21 @@ const with3meals3snacksExpectResults = {
           grams: 46,
           kals: 187,
           name: 'carbs',
-          persentage: 30
+          percentage: 30
         },
         fats: {
           caloriesPerGram: 9,
           grams: 13,
           kals: 125,
           name: 'fats',
-          persentage: 20
+          percentage: 20
         },
         proteins: {
           caloriesPerGram: 4,
           grams: 78,
           kals: 312,
           name: 'proteins',
-          persentage: 50
+          percentage: 50
         },
         totalGrams: 137,
         totalkcals: 625
@@ -198,21 +198,21 @@ const with3meals3snacksExpectResults = {
           grams: 18,
           kals: 75,
           name: 'carbs',
-          persentage: 30
+          percentage: 30
         },
         fats: {
           caloriesPerGram: 9,
           grams: 5,
           kals: 50,
           name: 'fats',
-          persentage: 20
+          percentage: 20
         },
         proteins: {
           caloriesPerGram: 4,
           grams: 31,
           kals: 125,
           name: 'proteins',
-          persentage: 50
+          percentage: 50
         },
         totalGrams: 54,
         totalkcals: 250
@@ -226,21 +226,21 @@ const with3meals3snacksExpectResults = {
           grams: 46,
           kals: 187,
           name: 'carbs',
-          persentage: 30
+          percentage: 30
         },
         fats: {
           caloriesPerGram: 9,
           grams: 13,
           kals: 125,
           name: 'fats',
-          persentage: 20
+          percentage: 20
         },
         proteins: {
           caloriesPerGram: 4,
           grams: 78,
           kals: 312,
           name: 'proteins',
-          persentage: 50
+          percentage: 50
         },
         totalGrams: 137,
         totalkcals: 625
@@ -254,21 +254,21 @@ const with3meals3snacksExpectResults = {
           grams: 18,
           kals: 75,
           name: 'carbs',
-          persentage: 30
+          percentage: 30
         },
         fats: {
           caloriesPerGram: 9,
           grams: 5,
           kals: 50,
           name: 'fats',
-          persentage: 20
+          percentage: 20
         },
         proteins: {
           caloriesPerGram: 4,
           grams: 31,
           kals: 125,
           name: 'proteins',
-          persentage: 50
+          percentage: 50
         },
         totalGrams: 54,
         totalkcals: 250
@@ -282,21 +282,21 @@ const with3meals3snacksExpectResults = {
           grams: 37,
           kals: 150,
           name: 'carbs',
-          persentage: 30
+          percentage: 30
         },
         fats: {
           caloriesPerGram: 9,
           grams: 11,
           kals: 100,
           name: 'fats',
-          persentage: 20
+          percentage: 20
         },
         proteins: {
           caloriesPerGram: 4,
           grams: 62,
           kals: 250,
           name: 'proteins',
-          persentage: 50
+          percentage: 50
         },
         totalGrams: 110,
         totalkcals: 500
@@ -310,21 +310,21 @@ const with3meals3snacksExpectResults = {
           grams: 18,
           kals: 75,
           name: 'carbs',
-          persentage: 30
+          percentage: 30
         },
         fats: {
           caloriesPerGram: 9,
           grams: 5,
           kals: 50,
           name: 'fats',
-          persentage: 20
+          percentage: 20
         },
         proteins: {
           caloriesPerGram: 4,
           grams: 31,
           kals: 125,
           name: 'proteins',
-          persentage: 50
+          percentage: 50
         },
         totalGrams: 54,
         totalkcals: 250
@@ -336,7 +336,7 @@ const with3meals3snacksExpectResults = {
 }
 const with5equalMealsExpectResults = {
   dailyCalories: 2500,
-  frecuency: '5 equally split meals',
+  frequency: '5 equally split meals',
   meals: [
     {
       info: {
@@ -345,21 +345,21 @@ const with5equalMealsExpectResults = {
           grams: 37,
           kals: 150,
           name: 'carbs',
-          persentage: 30
+          percentage: 30
         },
         fats: {
           caloriesPerGram: 9,
           grams: 11,
           kals: 100,
           name: 'fats',
-          persentage: 20
+          percentage: 20
         },
         proteins: {
           caloriesPerGram: 4,
           grams: 62,
           kals: 250,
           name: 'proteins',
-          persentage: 50
+          percentage: 50
         },
         totalGrams: 110,
         totalkcals: 500
@@ -373,21 +373,21 @@ const with5equalMealsExpectResults = {
           grams: 37,
           kals: 150,
           name: 'carbs',
-          persentage: 30
+          percentage: 30
         },
         fats: {
           caloriesPerGram: 9,
           grams: 11,
           kals: 100,
           name: 'fats',
-          persentage: 20
+          percentage: 20
         },
         proteins: {
           caloriesPerGram: 4,
           grams: 62,
           kals: 250,
           name: 'proteins',
-          persentage: 50
+          percentage: 50
         },
         totalGrams: 110,
         totalkcals: 500
@@ -401,21 +401,21 @@ const with5equalMealsExpectResults = {
           grams: 37,
           kals: 150,
           name: 'carbs',
-          persentage: 30
+          percentage: 30
         },
         fats: {
           caloriesPerGram: 9,
           grams: 11,
           kals: 100,
           name: 'fats',
-          persentage: 20
+          percentage: 20
         },
         proteins: {
           caloriesPerGram: 4,
           grams: 62,
           kals: 250,
           name: 'proteins',
-          persentage: 50
+          percentage: 50
         },
         totalGrams: 110,
         totalkcals: 500
@@ -429,21 +429,21 @@ const with5equalMealsExpectResults = {
           grams: 37,
           kals: 150,
           name: 'carbs',
-          persentage: 30
+          percentage: 30
         },
         fats: {
           caloriesPerGram: 9,
           grams: 11,
           kals: 100,
           name: 'fats',
-          persentage: 20
+          percentage: 20
         },
         proteins: {
           caloriesPerGram: 4,
           grams: 62,
           kals: 250,
           name: 'proteins',
-          persentage: 50
+          percentage: 50
         },
         totalGrams: 110,
         totalkcals: 500
@@ -457,21 +457,21 @@ const with5equalMealsExpectResults = {
           grams: 37,
           kals: 150,
           name: 'carbs',
-          persentage: 30
+          percentage: 30
         },
         fats: {
           caloriesPerGram: 9,
           grams: 11,
           kals: 100,
           name: 'fats',
-          persentage: 20
+          percentage: 20
         },
         proteins: {
           caloriesPerGram: 4,
           grams: 62,
           kals: 250,
           name: 'proteins',
-          persentage: 50
+          percentage: 50
         },
         totalGrams: 110,
         totalkcals: 500
@@ -483,7 +483,7 @@ const with5equalMealsExpectResults = {
 }
 const with6equalMealsExpectResults = {
   dailyCalories: 2500,
-  frecuency: '6 equally split meals',
+  frequency: '6 equally split meals',
   meals: [
     {
       info: {
@@ -492,21 +492,21 @@ const with6equalMealsExpectResults = {
           grams: 31,
           kals: 125,
           name: 'carbs',
-          persentage: 30
+          percentage: 30
         },
         fats: {
           caloriesPerGram: 9,
           grams: 9,
           kals: 83,
           name: 'fats',
-          persentage: 20
+          percentage: 20
         },
         proteins: {
           caloriesPerGram: 4,
           grams: 52,
           kals: 208,
           name: 'proteins',
-          persentage: 50
+          percentage: 50
         },
         totalGrams: 92,
         totalkcals: 416
@@ -520,21 +520,21 @@ const with6equalMealsExpectResults = {
           grams: 31,
           kals: 125,
           name: 'carbs',
-          persentage: 30
+          percentage: 30
         },
         fats: {
           caloriesPerGram: 9,
           grams: 9,
           kals: 83,
           name: 'fats',
-          persentage: 20
+          percentage: 20
         },
         proteins: {
           caloriesPerGram: 4,
           grams: 52,
           kals: 208,
           name: 'proteins',
-          persentage: 50
+          percentage: 50
         },
         totalGrams: 92,
         totalkcals: 416
@@ -548,21 +548,21 @@ const with6equalMealsExpectResults = {
           grams: 31,
           kals: 125,
           name: 'carbs',
-          persentage: 30
+          percentage: 30
         },
         fats: {
           caloriesPerGram: 9,
           grams: 9,
           kals: 83,
           name: 'fats',
-          persentage: 20
+          percentage: 20
         },
         proteins: {
           caloriesPerGram: 4,
           grams: 52,
           kals: 208,
           name: 'proteins',
-          persentage: 50
+          percentage: 50
         },
         totalGrams: 92,
         totalkcals: 416
@@ -576,21 +576,21 @@ const with6equalMealsExpectResults = {
           grams: 31,
           kals: 125,
           name: 'carbs',
-          persentage: 30
+          percentage: 30
         },
         fats: {
           caloriesPerGram: 9,
           grams: 9,
           kals: 83,
           name: 'fats',
-          persentage: 20
+          percentage: 20
         },
         proteins: {
           caloriesPerGram: 4,
           grams: 52,
           kals: 208,
           name: 'proteins',
-          persentage: 50
+          percentage: 50
         },
         totalGrams: 92,
         totalkcals: 416
@@ -604,21 +604,21 @@ const with6equalMealsExpectResults = {
           grams: 31,
           kals: 125,
           name: 'carbs',
-          persentage: 30
+          percentage: 30
         },
         fats: {
           caloriesPerGram: 9,
           grams: 9,
           kals: 83,
           name: 'fats',
-          persentage: 20
+          percentage: 20
         },
         proteins: {
           caloriesPerGram: 4,
           grams: 52,
           kals: 208,
           name: 'proteins',
-          persentage: 50
+          percentage: 50
         },
         totalGrams: 92,
         totalkcals: 416
@@ -632,21 +632,21 @@ const with6equalMealsExpectResults = {
           grams: 31,
           kals: 125,
           name: 'carbs',
-          persentage: 30
+          percentage: 30
         },
         fats: {
           caloriesPerGram: 9,
           grams: 9,
           kals: 83,
           name: 'fats',
-          persentage: 20
+          percentage: 20
         },
         proteins: {
           caloriesPerGram: 4,
           grams: 52,
           kals: 208,
           name: 'proteins',
-          persentage: 50
+          percentage: 50
         },
         totalGrams: 92,
         totalkcals: 416
@@ -658,7 +658,7 @@ const with6equalMealsExpectResults = {
 }
 const with5taperedMealsExpectResults = {
   dailyCalories: 2500,
-  frecuency: '5 meals tapering off calories',
+  frequency: '5 meals tapering off calories',
   meals: [
     {
       info: {
@@ -667,21 +667,21 @@ const with5taperedMealsExpectResults = {
           grams: 46,
           kals: 187,
           name: 'carbs',
-          persentage: 30
+          percentage: 30
         },
         fats: {
           caloriesPerGram: 9,
           grams: 13,
           kals: 125,
           name: 'fats',
-          persentage: 20
+          percentage: 20
         },
         proteins: {
           caloriesPerGram: 4,
           grams: 78,
           kals: 312,
           name: 'proteins',
-          persentage: 50
+          percentage: 50
         },
         totalGrams: 137,
         totalkcals: 625
@@ -695,21 +695,21 @@ const with5taperedMealsExpectResults = {
           grams: 46,
           kals: 187,
           name: 'carbs',
-          persentage: 30
+          percentage: 30
         },
         fats: {
           caloriesPerGram: 9,
           grams: 13,
           kals: 125,
           name: 'fats',
-          persentage: 20
+          percentage: 20
         },
         proteins: {
           caloriesPerGram: 4,
           grams: 78,
           kals: 312,
           name: 'proteins',
-          persentage: 50
+          percentage: 50
         },
         totalGrams: 137,
         totalkcals: 625
@@ -723,21 +723,21 @@ const with5taperedMealsExpectResults = {
           grams: 37,
           kals: 150,
           name: 'carbs',
-          persentage: 30
+          percentage: 30
         },
         fats: {
           caloriesPerGram: 9,
           grams: 11,
           kals: 100,
           name: 'fats',
-          persentage: 20
+          percentage: 20
         },
         proteins: {
           caloriesPerGram: 4,
           grams: 62,
           kals: 250,
           name: 'proteins',
-          persentage: 50
+          percentage: 50
         },
         totalGrams: 110,
         totalkcals: 500
@@ -751,21 +751,21 @@ const with5taperedMealsExpectResults = {
           grams: 28,
           kals: 112,
           name: 'carbs',
-          persentage: 30
+          percentage: 30
         },
         fats: {
           caloriesPerGram: 9,
           grams: 8,
           kals: 75,
           name: 'fats',
-          persentage: 20
+          percentage: 20
         },
         proteins: {
           caloriesPerGram: 4,
           grams: 46,
           kals: 187,
           name: 'proteins',
-          persentage: 50
+          percentage: 50
         },
         totalGrams: 82,
         totalkcals: 375
@@ -779,21 +779,21 @@ const with5taperedMealsExpectResults = {
           grams: 28,
           kals: 112,
           name: 'carbs',
-          persentage: 30
+          percentage: 30
         },
         fats: {
           caloriesPerGram: 9,
           grams: 8,
           kals: 75,
           name: 'fats',
-          persentage: 20
+          percentage: 20
         },
         proteins: {
           caloriesPerGram: 4,
           grams: 46,
           kals: 187,
           name: 'proteins',
-          persentage: 50
+          percentage: 50
         },
         totalGrams: 82,
         totalkcals: 375
@@ -805,7 +805,7 @@ const with5taperedMealsExpectResults = {
 }
 const with6taperedMealsExpectResults = {
   dailyCalories: 2500,
-  frecuency: '6 meals tapering off calories',
+  frequency: '6 meals tapering off calories',
   meals: [
     {
       info: {
@@ -814,21 +814,21 @@ const with6taperedMealsExpectResults = {
           grams: 23,
           kals: 93,
           name: 'carbs',
-          persentage: 30
+          percentage: 30
         },
         fats: {
           caloriesPerGram: 9,
           grams: 6,
           kals: 62,
           name: 'fats',
-          persentage: 20
+          percentage: 20
         },
         proteins: {
           caloriesPerGram: 4,
           grams: 39,
           kals: 156,
           name: 'proteins',
-          persentage: 50
+          percentage: 50
         },
         totalGrams: 68,
         totalkcals: 312
@@ -842,21 +842,21 @@ const with6taperedMealsExpectResults = {
           grams: 50,
           kals: 200,
           name: 'carbs',
-          persentage: 30
+          percentage: 30
         },
         fats: {
           caloriesPerGram: 9,
           grams: 14,
           kals: 133,
           name: 'fats',
-          persentage: 20
+          percentage: 20
         },
         proteins: {
           caloriesPerGram: 4,
           grams: 83,
           kals: 334,
           name: 'proteins',
-          persentage: 50
+          percentage: 50
         },
         totalGrams: 147,
         totalkcals: 669
@@ -870,21 +870,21 @@ const with6taperedMealsExpectResults = {
           grams: 50,
           kals: 200,
           name: 'carbs',
-          persentage: 30
+          percentage: 30
         },
         fats: {
           caloriesPerGram: 9,
           grams: 14,
           kals: 133,
           name: 'fats',
-          persentage: 20
+          percentage: 20
         },
         proteins: {
           caloriesPerGram: 4,
           grams: 83,
           kals: 334,
           name: 'proteins',
-          persentage: 50
+          percentage: 50
         },
         totalGrams: 147,
         totalkcals: 669
@@ -898,21 +898,21 @@ const with6taperedMealsExpectResults = {
           grams: 50,
           kals: 200,
           name: 'carbs',
-          persentage: 30
+          percentage: 30
         },
         fats: {
           caloriesPerGram: 9,
           grams: 14,
           kals: 133,
           name: 'fats',
-          persentage: 20
+          percentage: 20
         },
         proteins: {
           caloriesPerGram: 4,
           grams: 83,
           kals: 334,
           name: 'proteins',
-          persentage: 50
+          percentage: 50
         },
         totalGrams: 147,
         totalkcals: 669
@@ -926,21 +926,21 @@ const with6taperedMealsExpectResults = {
           grams: 50,
           kals: 200,
           name: 'carbs',
-          persentage: 30
+          percentage: 30
         },
         fats: {
           caloriesPerGram: 9,
           grams: 14,
           kals: 133,
           name: 'fats',
-          persentage: 20
+          percentage: 20
         },
         proteins: {
           caloriesPerGram: 4,
           grams: 83,
           kals: 334,
           name: 'proteins',
-          persentage: 50
+          percentage: 50
         },
         totalGrams: 147,
         totalkcals: 669
@@ -954,21 +954,21 @@ const with6taperedMealsExpectResults = {
           grams: 36,
           kals: 147,
           name: 'carbs',
-          persentage: 30
+          percentage: 30
         },
         fats: {
           caloriesPerGram: 9,
           grams: 10,
           kals: 98,
           name: 'fats',
-          persentage: 20
+          percentage: 20
         },
         proteins: {
           caloriesPerGram: 4,
           grams: 61,
           kals: 246,
           name: 'proteins',
-          persentage: 50
+          percentage: 50
         },
         totalGrams: 107,
         totalkcals: 492

@@ -7,7 +7,7 @@ describe('name validator', () => {
   })
   it('returns error message when no name is pass', () => {
     expect(validators.nameValidator('First name')).toBe(
-      'First name is requred.'
+      'First name is required.'
     )
   })
 
@@ -32,7 +32,7 @@ describe('name validator', () => {
 })
 describe('email validator', () => {
   it('returns error message when no email is pass', () => {
-    expect(validators.emailValidator()).toBe('Email is requred.')
+    expect(validators.emailValidator()).toBe('Email is required.')
   })
   it('returns error message when email is not valid', () => {
     expect(validators.emailValidator('abc.def@mail')).toBe(
@@ -54,7 +54,7 @@ describe('email validator', () => {
 })
 describe('password validator', () => {
   it('returns error message when no password is pass', () => {
-    expect(validators.passwordValidator()).toBe('Password is requred.')
+    expect(validators.passwordValidator()).toBe('Password is required.')
   })
   it('returns error when password is shorter than 5 characters', () => {
     expect(validators.passwordValidator('shor')).toBe(

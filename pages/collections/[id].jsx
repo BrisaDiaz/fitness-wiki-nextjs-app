@@ -11,7 +11,7 @@ import useStoreRecipeModal from '@/hooks/useStoreRecipeModal'
 import { GET } from '@/utils/http'
 /// components
 import AddToCollectionModal from '@/components/recipe/AddToCollectionModal'
-import StoreRecipeControlls from '@/components/recipe/StoreRecipeControlls'
+import StoreRecipeControls from '@/components/recipe/StoreRecipeControls'
 import RecipeCard from '@/components/recipe/RecipeCard'
 import LocatedInputModal from '@/components/LocatedInputModal'
 import Dialog from '@/components/Dialog'
@@ -65,10 +65,10 @@ export default function Collection({
     setCollections,
     setCurrentCollection
   })
-  const isIntersepted = useOnScreen(loadMoreSpierRef)
+  const isIntersected = useOnScreen(loadMoreSpierRef)
   //// request more recipes
   useEffect(() => {
-    if (displayedResults < totalResults && isIntersepted) {
+    if (displayedResults < totalResults && isIntersected) {
       const fetchRecipesOnCollection = async (id, query, recipes, token) => {
         try {
           const [json] = await GET(`/collection/recipes/${id}?${query}`, token)
@@ -84,7 +84,7 @@ export default function Collection({
       fetchRecipesOnCollection(currentCollection.id, query, recipes, token)
     }
     return
-  }, [isIntersepted])
+  }, [isIntersected])
 
   if (error) return <DefaultErrorPage statusCode={statusCode} />
   return (
@@ -94,7 +94,7 @@ export default function Collection({
 
         <meta
           name="description"
-          content="Divide and Store your favorites recipes inside your diffrent collections."
+          content="Divide and Store your favorites recipes inside your different collections."
         />
         <meta
           name="keywords"
@@ -103,7 +103,7 @@ export default function Collection({
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <section className="px-1 pb-10 max-w-1000 mx-auto min-h-screen max-w-6xl">
-        <div className="w-32 h-32 sm:w-40 sm:h-40  bg-gray-400 rounded-full mx-auto mt-6 -mb-6   sobject-cover overflow-hidden shadow-md ">
+        <div className="w-32 h-32 sm:w-40 sm:h-40  bg-gray-400 rounded-full mx-auto mt-6 -mb-6   subject-cover overflow-hidden shadow-md ">
           <Image
             unoptimized={process.env.ENVIRONMENT !== 'PRODUCTION'}
             loading="eager"
@@ -127,7 +127,7 @@ export default function Collection({
           <>
             <section className="sm:max-w-6xl mx-auto grid flex-col gap-3 flex-wrap md:grid-cols-2  justify-center mt-2 mb-6 sm:my-6  sm:px-5 lg:px-8 ">
               {recipes.map((recipe) =>
-                //// dosen't display recipes remove from the database
+                //// doesn't display recipes remove from the database
                 removedRecipes?.includes(recipe.id) ? null : (
                   <div className="relative" key={recipe?.id}>
                     <AddToCollectionModal
@@ -146,7 +146,7 @@ export default function Collection({
                       isModalOpen={isDeleteModalOpen}
                       closeModal={closeDeleteModal}
                       title="Confirmation"
-                      message="Are you shoure you want to remove the recipe from your collection?"
+                      message="Are you sure you want to remove the recipe from your collection?"
                       onAccept={handleRecipeDelete}
                     />
 
@@ -165,7 +165,7 @@ export default function Collection({
                       }}
                       closeModal={closeCreateModal}
                       avatar={
-                        <div className="w-28 h-28 bg-gray-400 rounded-full mx-auto my-6 sobject-cover overflow-hidden shadow-md">
+                        <div className="w-28 h-28 bg-gray-400 rounded-full mx-auto my-6 subject-cover overflow-hidden shadow-md">
                           <Image
                             unoptimized={
                               process.env.ENVIRONMENT !== 'PRODUCTION'
@@ -184,7 +184,7 @@ export default function Collection({
                     />
 
                     <RecipeCard recipe={recipe}>
-                      <StoreRecipeControlls
+                      <StoreRecipeControls
                         recipe={recipe}
                         handleDelete={handleRecipeStage}
                         handleUpdate={handleRecipeStage}

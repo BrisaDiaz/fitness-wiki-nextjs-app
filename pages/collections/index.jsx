@@ -112,7 +112,7 @@ export default function Collections({
   }
   /// show and hide modals
 
-  const isIntersepted = useOnScreen(loadMoreSpierRef)
+  const isIntersected = useOnScreen(loadMoreSpierRef)
   //// request more collections
   useEffect(() => {
     const fetchCollection = async (query, collections) => {
@@ -124,13 +124,13 @@ export default function Collections({
         console.log(error)
       }
     }
-    if (isIntersepted && displayedResults < totalResults) {
+    if (isIntersected && displayedResults < totalResults) {
       setOffset(page * RESULTS_PER_PAGE)
       setPage(page + 1)
       setDisplayedResults(displayedResults + RESULTS_PER_PAGE)
       fetchCollection(query, collections)
     }
-  }, [isIntersepted])
+  }, [isIntersected])
   return (
     <>
       <Head>
@@ -138,7 +138,7 @@ export default function Collections({
 
         <meta
           name="description"
-          content="Divide and Store your favorites recipes inside your diffrent collections."
+          content="Divide and Store your favorites recipes inside your different collections."
         />
         <meta
           name="keywords"
@@ -159,7 +159,7 @@ export default function Collections({
               placeholder: 'Enter name...'
             }}
             avatar={
-              <div className="w-28 h-28  bg-gray-400 rounded-full mx-auto my-6 sobject-cover overflow-hidden shadow-md">
+              <div className="w-28 h-28  bg-gray-400 rounded-full mx-auto my-6 subject-cover overflow-hidden shadow-md">
                 <Image
                   unoptimized={process.env.ENVIRONMENT !== 'PRODUCTION'}
                   className="rounded-xl  mx-auto "
@@ -178,7 +178,7 @@ export default function Collections({
         {collections.length > 0 ? (
           <section className="mt-2 grid  gap-2 sm:grid-cols-2 xl:grid-cols-4 lg:grid-cols-3  justify-center max-w-6xl mx-auto place-content-center place-items-center px-16 lg:px-4 xl:px-0">
             {collections.map((collection) =>
-              //// dosen't display remove collections from database
+              //// doesn't display remove collections from database
               removedCollections.includes(collection?.id) ? null : (
                 <div className="relative" key={collection?.id}>
                   <CollectionsCard
@@ -222,7 +222,7 @@ export default function Collections({
             isModalOpen={isDeleteModalOpen}
             title="Confirmation"
             message={
-              'All the recipes store in the collection will be lost. Are you sure you want to procced?'
+              'All the recipes store in the collection will be lost. Are you sure you want to proceed?'
             }
           />
         )}

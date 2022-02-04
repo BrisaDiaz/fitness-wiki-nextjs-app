@@ -14,7 +14,7 @@ const mockInputs = {
   height: 165,
   genre: { name: 'Woman', value: 'woman' },
   equation: { name: 'Mifflin St.Jeor', value: 'mifflin' },
-  activity: { name: 'Little or no excercise', value: '1.2' },
+  activity: { name: 'Little or no exercise', value: '1.2' },
   result: 1605
 }
 
@@ -43,7 +43,7 @@ describe('calculator as an stand alone component', () => {
       lightGreen
     )
   })
-  it('toggle metrick system when click on options', async () => {
+  it('toggle metric system when click on options', async () => {
     await act(async () =>
       userEvent.click(screen.getByText('imperial', { exact: false }))
     )
@@ -166,7 +166,7 @@ describe('calculator as an not stand alone component', () => {
     getDailyKcals.mockImplementation(() => mockInputs.result)
     render(<AMRcalculator setCaloriesRequired={setCaloriesRequired} />)
   })
-  it('dose not show result displater component is', () => {
+  it('dose not show result', () => {
     expect(
       screen.queryByText('0 kcals', { exact: false })
     ).not.toBeInTheDocument()

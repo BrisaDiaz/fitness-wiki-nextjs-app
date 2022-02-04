@@ -1,50 +1,50 @@
 import { useState, useEffect } from 'react'
 import getMacrosPerNutritionalPlan from '../utils/getMacrosPerNutritionalPlan'
-import consts from '../consts/calculatorConstants'
+import constants from '../constants/calculatorConstants'
 
 export default function useMacroCalculator() {
   // calories got by user info input or 2000 default
   const [defaultCalories, setDefaultCalories] = useState(2000)
   // calories customized by the user
-  const [goaldKcals, setGoaldKcals] = useState(2000)
-  // switch predifined macros distribution or a custom
-  const [planType, setPlanType] = useState('predifined')
+  const [goalKcals, setGoalKcals] = useState(2000)
+  // switch predefined macros distribution or a custom
+  const [planType, setPlanType] = useState('predefined')
   // error on user macros inputs
   const [errors, setErrors] = useState([])
   // name of the plan select, default firs plan of the list
   const [nutritionalPlan, setNutritionalPlan] = useState(
-    consts.NUTRITIONAL_PLANS[0].value
+    constants.NUTRITIONAL_PLANS[0].value
   )
-  // custom plan with macros distibution set by user default emty
+  // custom plan with macros distribution set by user default empty
   const [customPlan, setCustomPlan] = useState({})
 
   const [planResults, setPlanResults] = useState(
-    getMacrosPerNutritionalPlan(goaldKcals, nutritionalPlan, planType)
+    getMacrosPerNutritionalPlan(goalKcals, nutritionalPlan, planType)
   )
-  // reset the target clories ammount according to new user info inputs
+  // reset the target clories amount according to new user info inputs
   useEffect(() => {
-    setGoaldKcals(defaultCalories)
+    setGoalKcals(defaultCalories)
   }, [defaultCalories])
-  // calculate the results for a predifined plan or custom plan
+  // calculate the results for a predefined plan or custom plan
 
   useEffect(() => {
-    planType === 'predifined'
+    planType === 'predefined'
       ? setPlanResults(
-          getMacrosPerNutritionalPlan(goaldKcals, nutritionalPlan, planType)
+          getMacrosPerNutritionalPlan(goalKcals, nutritionalPlan, planType)
         )
       : setPlanResults(
-          getMacrosPerNutritionalPlan(goaldKcals, customPlan, planType)
+          getMacrosPerNutritionalPlan(goalKcals, customPlan, planType)
         )
-  }, [planType, goaldKcals, nutritionalPlan, customPlan])
+  }, [planType, goalKcals, nutritionalPlan, customPlan])
 
   return {
     setDefaultCalories,
     setPlanType,
     setNutritionalPlan,
     setCustomPlan,
-    setGoaldKcals,
+    setGoalKcals,
     setErrors,
-    goaldKcals,
+    goalKcals,
     planType,
     errors,
     planResults,

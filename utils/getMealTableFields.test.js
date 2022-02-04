@@ -1,4 +1,4 @@
-import getMealTableFiels from './getMealTableFiels'
+import getMealTableFields from './getMealTableFields'
 import mocks from '../mocks/mockCaloriesPerMealData'
 
 const expectResult = {
@@ -13,8 +13,8 @@ const expectResult = {
   title: 'Suggested meals size for 3 meals and 2 snacks a day'
 }
 
-it('return data formated correctly', () => {
-  expect(getMealTableFiels(mocks.with3meals2snacksExpectResults)).toEqual(
+it('return data formatted correctly', () => {
+  expect(getMealTableFields(mocks.with3meals2snacksExpectResults)).toEqual(
     expectResult
   )
 })

@@ -16,10 +16,10 @@ const setPlanType = jest.fn(),
   setCustomPlan = jest.fn(),
   setErrors = jest.fn()
 
-const predifinedPlanProps = {
+const predefinedPlanProps = {
   setPlanType,
   setNutritionalPlan,
-  planType: 'predifined',
+  planType: 'predefined',
   errors: [],
   planResults: initialPlanResults
 }
@@ -32,20 +32,20 @@ const customMacroRadiosProps = {
   planResults: {}
 }
 
-describe('component on predifined mode', () => {
+describe('component on predefined mode', () => {
   beforeEach(() => {
     getMacrosPerNutritionalPlan.mockImplementation(() => initialPlanResults)
-    render(<MacroRadiosPicker {...predifinedPlanProps} />)
+    render(<MacroRadiosPicker {...predefinedPlanProps} />)
   })
   it('renderize the resived macro radios', () => {
     initialPlanResults.macros.forEach((macro) => {
       expect(screen.getByText(macro.name).parentNode).toHaveTextContent(
-        macro.persentage
+        macro.percentage
       )
     })
   })
-  it('swith the component mode between predifined and custom', async () => {
-    expect(screen.getByText('Pedifined plan').parentNode).toHaveStyle(
+  it('swith the component mode between predefined and custom', async () => {
+    expect(screen.getByText('Predefined plan').parentNode).toHaveStyle(
       'background-color:',
       darkGreen
     )
@@ -57,7 +57,7 @@ describe('component on predifined mode', () => {
 
     expect(setPlanType).toHaveBeenLastCalledWith('custom')
   })
-  it('set a predifined plan', async () => {
+  it('set a predefined plan', async () => {
     await act(async () =>
       userEvent.selectOptions(screen.getByRole('combobox'), ['vegetarian'])
     )

@@ -1,5 +1,5 @@
 import prisma from '@/lib/prisma'
-import withAuthorization from '@/middlewares/withAuthorization'
+import withAuthorization from '@/middleware/withAuthorization'
 
 async function handler(req, res) {
   if (req.method === 'DELETE') {
@@ -52,7 +52,7 @@ async function handleDelete(req, res) {
   }
 }
 
-//// moves the recipe to other collection beloging to the user
+//// moves the recipe to otheir collection belonging to the user
 async function handleUpdate(req, res) {
   const { sourceCollectionId, targetCollectionId } = req.body
   const recipeId = req.query.id * 1
@@ -113,7 +113,7 @@ async function handleUpdate(req, res) {
     })
     return res
       .status(200)
-      .json({ success: true, message: 'Recipe translated succesfully' })
+      .json({ success: true, message: 'Recipe translated successfully' })
   } catch (error) {
     console.log(error)
     return res

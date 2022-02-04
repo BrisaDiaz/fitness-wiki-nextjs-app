@@ -8,14 +8,14 @@ export default function MealSizeCalculator({ children }) {
     setError,
     setTotalKcals,
     cleanError,
-    setMealFrecuency,
+    setMealFrequency,
     setWaterIntake,
     tableData,
     fiberResults,
     waterIntake,
-    mealFrecuency,
+    mealFrequency,
     errors,
-    MEALS_FRECUENCIES
+    MEALS_FREQUENCIES
   } = useMealsSizeCalculator()
 
   return (
@@ -43,7 +43,7 @@ export default function MealSizeCalculator({ children }) {
             />
           </div>
           <p className="px-1 text-sm text-gray-600">
-            The ammount of calories you will be eating per day must be equal or
+            The amount of calories you will be eating per day must be equal or
             greater than 1200.
           </p>
         </div>
@@ -57,23 +57,23 @@ export default function MealSizeCalculator({ children }) {
         </h2>
 
         <ul className="px-6 mb-6 ">
-          {MEALS_FRECUENCIES.map((frecuency) => (
+          {MEALS_FREQUENCIES.map((frequency) => (
             <li
-              key={frecuency.value}
-              className="flex gap-2 items-center mb-1 cursor-pointer list-leyend "
+              key={frequency.value}
+              className="flex gap-2 items-center mb-1 cursor-pointer list-legend "
             >
               <input
                 className=" custom-radio-input"
-                id={frecuency.value}
+                id={frequency.value}
                 name="mealFracuency"
-                value={frecuency.value}
-                checked={mealFrecuency === frecuency.value}
+                value={frequency.value}
+                checked={mealFrequency === frequency.value}
                 type="radio"
-                onChange={(e) => setMealFrecuency(e.target.value)}
-                aria-labelledby={frecuency.info}
+                onChange={(e) => setMealFrequency(e.target.value)}
+                aria-labelledby={frequency.info}
               />
-              <label htmlFor={frecuency.value} className="cursor-pointer">
-                {frecuency.info}.
+              <label htmlFor={frequency.value} className="cursor-pointer">
+                {frequency.info}.
               </label>
             </li>
           ))}

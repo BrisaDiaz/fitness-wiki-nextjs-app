@@ -1,6 +1,6 @@
 export const nameValidator = (fieldName, value) => {
   if (!fieldName) return `The name of the field wasn't provided.`
-  if (!value) return `${fieldName} is requred.`
+  if (!value) return `${fieldName} is required.`
 
   if (value.trim().length < 3)
     return `${fieldName} must be at least 3 characters.`
@@ -15,7 +15,7 @@ export const nameValidator = (fieldName, value) => {
   return true
 }
 export const emailValidator = (value) => {
-  if (!value) return `Email is requred.`
+  if (!value) return `Email is required.`
 
   const isValidEmail =
     /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(
@@ -27,7 +27,7 @@ export const emailValidator = (value) => {
 }
 
 export const passwordValidator = (value) => {
-  if (!value) return `Password is requred.`
+  if (!value) return `Password is required.`
 
   if (value.length < 5) return `Password must be at least 5 characters.`
   return true

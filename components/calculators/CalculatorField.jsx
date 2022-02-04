@@ -10,7 +10,7 @@ export default function CalculatorInput({ children, label, name, direction }) {
       <div
         className={
           direction === 'vertical'
-            ? 'flex  items-cente justify-center gap-y-3  w-full '
+            ? 'flex  items-center justify-center gap-y-3  w-full '
             : ' flex items-center w-full'
         }
       >

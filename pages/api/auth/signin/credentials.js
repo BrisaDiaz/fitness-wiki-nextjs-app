@@ -20,7 +20,7 @@ export default async function signin(req, res) {
     if (!userFound)
       return res
         .status(404)
-        .json({ error: true, message: 'This email is not registred' })
+        .json({ error: true, message: 'This email is not registered' })
 
     const isCorrectPassword = await bcrypt.compare(password, userFound.password)
 

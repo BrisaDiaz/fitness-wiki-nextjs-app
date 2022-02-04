@@ -20,7 +20,7 @@ export default function AddToCollectionModal({
   })
   const { tabIndex } = useModalFocus({
     isOpen: isModalOpen,
-    moldalSelector: `[id="modal ${id}"]`,
+    modalSelector: `[id="modal ${id}"]`,
     onEscape: closeModal
   })
 

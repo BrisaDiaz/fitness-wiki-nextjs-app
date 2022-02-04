@@ -84,7 +84,7 @@ describe('signup form section', () => {
     expect(link).toHaveAttribute('href', signupProps.linkURL)
   })
 
-  it('diplay error messages  and  delete those who input is valid', async () => {
+  it('display error messages  and  delete those who input is valid', async () => {
     const passwordInput = screen.getByPlaceholderText('Password*')
     const nameInput = screen.getByPlaceholderText('First Name*')
 
@@ -278,7 +278,7 @@ describe('sign In page width url error', () => {
     useRouter.mockImplementation(() => ({
       route: '/auth/signIn',
       pathname: '',
-      query: { error: 'authentication trown error' },
+      query: { error: 'authentication trowed error' },
       asPath: '',
       replace: jest.fn(),
       push: jest.fn(),
@@ -293,7 +293,7 @@ describe('sign In page width url error', () => {
   it('renders the errors got from the URL query', async () => {
     render(<AuthSection {...signinProps} />)
     expect(
-      await screen.findByText('authentication trown error')
+      await screen.findByText('authentication trowed error')
     ).toBeInTheDocument()
   })
 })

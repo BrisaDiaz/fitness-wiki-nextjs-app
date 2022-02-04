@@ -1,7 +1,7 @@
 import React from 'react'
 import { render, screen, act } from '@testing-library/react'
 import MealsSizeCalculator from './MealsSizeCalculator'
-import consts from '../../consts/calculatorConstants'
+import constants from '../../constants/calculatorConstants'
 import userEvent from '@testing-library/user-event'
 beforeEach(() => {
   render(<MealsSizeCalculator />)
@@ -18,12 +18,12 @@ it('initialize with the corrects defaults values', () => {
     screen.getByRole('radio', { name: '3 Meals , 2 snacks.' })
   ).toBeChecked()
   expect(screen.getByText('Fiber').parentNode).toHaveTextContent(
-    consts.DEFAULT_FIBER_INTAKE
+    constants.DEFAULT_FIBER_INTAKE
   )
   expect(screen.getByText('Water').parentNode).toHaveTextContent(
-    consts.DEFAULT_WATER_INTAKE.cups
+    constants.DEFAULT_WATER_INTAKE.cups
   )
-  consts.DEFAULT_DATA_TABLE.data.forEach((row) =>
+  constants.DEFAULT_DATA_TABLE.data.forEach((row) =>
     row.forEach((cellData) =>
       expect(
         screen.getAllByText(cellData, { exact: false }).length
@@ -31,12 +31,12 @@ it('initialize with the corrects defaults values', () => {
     )
   )
   expect(
-    screen.getByText(consts.DEFAULT_DATA_TABLE.title, { exact: false })
+    screen.getByText(constants.DEFAULT_DATA_TABLE.title, { exact: false })
   ).toBeInTheDocument()
 })
 
 describe('results changes', () => {
-  it('recalculate results when the meal frecuency change', async () => {
+  it('recalculate results when the meal frequency change', async () => {
     await act(async () =>
       userEvent.click(
         screen.getByRole('radio', { name: '5 Meals, equally split.' })
@@ -47,7 +47,7 @@ describe('results changes', () => {
     ).toBeChecked()
 
     expect(
-      screen.queryByText(consts.DEFAULT_DATA_TABLE.title, { exact: false })
+      screen.queryByText(constants.DEFAULT_DATA_TABLE.title, { exact: false })
     ).not.toBeInTheDocument()
 
     expect(
@@ -56,7 +56,7 @@ describe('results changes', () => {
       })
     ).toBeInTheDocument()
   })
-  it('change fiber intake when caloric itake change', async () => {
+  it('change fiber intake when caloric intake change', async () => {
     await act(async () => userEvent.click(screen.getByLabelText('Imperial')))
     await act(async () => userEvent.clear(screen.getByPlaceholderText('lbs')))
     await act(async () =>

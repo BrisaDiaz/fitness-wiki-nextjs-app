@@ -1,10 +1,10 @@
 import { Meal } from './factories'
 
-function with3meals2snacksFrecuency(calories, radios) {
+function with3meals2snacksFrequency(calories, radios) {
   const mealInfo = new Meal((calories * 0.75) / 3, radios)
   const snacklInfo = new Meal((calories * 0.25) / 2, radios)
   const results = {
-    frecuency: '3 meals and 2 snacks',
+    frequency: '3 meals and 2 snacks',
     meals: [
       {
         name: 'meal 1',
@@ -30,13 +30,13 @@ function with3meals2snacksFrecuency(calories, radios) {
   }
   return results
 }
-function with3meals3snacksFrecuency(calories, radios) {
+function with3meals3snacksFrequency(calories, radios) {
   const meal1and2Info = new Meal((calories * 0.5) / 2, radios)
   const meal3Info = new Meal(calories * 0.2, radios)
   const snackInfo = new Meal((calories * 0.3) / 3, radios)
 
   const results = {
-    frecuency: '3 meals and 3 snacks',
+    frequency: '3 meals and 3 snacks',
     meals: [
       {
         name: 'meal 1',
@@ -67,7 +67,7 @@ function with3meals3snacksFrecuency(calories, radios) {
   }
   return results
 }
-function withEquealMeals(mealsNumber, calories, radios) {
+function withEqualMeals(mealsNumber, calories, radios) {
   const mealInfo = new Meal(calories / mealsNumber, radios)
 
   let meals = []
@@ -79,18 +79,18 @@ function withEquealMeals(mealsNumber, calories, radios) {
     })
   }
   const results = {
-    frecuency: `${mealsNumber} equally split meals`,
+    frequency: `${mealsNumber} equally split meals`,
     meals
   }
   return results
 }
 
-function with5taperedMealsFrecuency(calories, radios) {
+function with5taperedMealsFrequency(calories, radios) {
   const meal1and2Info = new Meal((calories * 0.5) / 2, radios)
   const meal3Info = new Meal(calories * 0.2, radios)
   const meal4and5Info = new Meal((calories * 0.3) / 2, radios)
   const results = {
-    frecuency: '5 meals tapering off calories',
+    frequency: '5 meals tapering off calories',
     meals: [
       {
         name: 'meal 1',
@@ -116,7 +116,7 @@ function with5taperedMealsFrecuency(calories, radios) {
   }
   return results
 }
-function with6taperedMealsFrecuency(calories, radios) {
+function with6taperedMealsFrequency(calories, radios) {
   const meal1Info = new Meal(calories * 0.125, radios)
   const rest = calories - calories * 0.125
   const meal6Info = new Meal(rest * 0.225, radios)
@@ -124,7 +124,7 @@ function with6taperedMealsFrecuency(calories, radios) {
   const meal3and4and5Info = new Meal(rest2 / 3, radios)
 
   const results = {
-    frecuency: '6 meals tapering off calories',
+    frequency: '6 meals tapering off calories',
     meals: [
       {
         name: 'meal 1',
@@ -155,26 +155,26 @@ function with6taperedMealsFrecuency(calories, radios) {
   return results
 }
 
-export default function getCaloriesPerMeal(calories, radios, frecuency) {
+export default function getCaloriesPerMeal(calories, radios, frequency) {
   let results
 
-  if (frecuency === '3meals2snacks') {
-    results = with3meals2snacksFrecuency(calories, radios)
+  if (frequency === '3meals2snacks') {
+    results = with3meals2snacksFrequency(calories, radios)
   }
-  if (frecuency === '3meals3snacks') {
-    results = with3meals3snacksFrecuency(calories, radios)
+  if (frequency === '3meals3snacks') {
+    results = with3meals3snacksFrequency(calories, radios)
   }
-  if (frecuency === '5meals') {
-    results = withEquealMeals(5, calories, radios)
+  if (frequency === '5meals') {
+    results = withEqualMeals(5, calories, radios)
   }
-  if (frecuency === '6meals') {
-    results = withEquealMeals(6, calories, radios)
+  if (frequency === '6meals') {
+    results = withEqualMeals(6, calories, radios)
   }
-  if (frecuency === '5taperedMeals') {
-    results = with5taperedMealsFrecuency(calories, radios)
+  if (frequency === '5taperedMeals') {
+    results = with5taperedMealsFrequency(calories, radios)
   }
-  if (frecuency === '6taperedMeals') {
-    results = with6taperedMealsFrecuency(calories, radios)
+  if (frequency === '6taperedMeals') {
+    results = with6taperedMealsFrequency(calories, radios)
   }
 
   results.dailyCalories = calories

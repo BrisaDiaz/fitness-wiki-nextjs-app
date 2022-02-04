@@ -1,7 +1,7 @@
 import MacroRadiosForm from './MacroRadiosForm'
 import CalculatorModeSwitch from './CalculatorModeSwitch'
 import PlanSelectorField from './PlanSelectorField'
-import consts from '../../consts/calculatorConstants'
+import constants from '../../constants/calculatorConstants'
 
 export default function MacroRadiosPicker({
   planType,
@@ -15,14 +15,14 @@ export default function MacroRadiosPicker({
   return (
     <div className="max-w-md mx-auto">
       <CalculatorModeSwitch
-        options={consts.PLAN_TYPES}
+        options={constants.PLAN_TYPES}
         optionSelected={planType}
         setOption={setPlanType}
       />
 
-      {planType === 'predifined' ? (
+      {planType === 'predefined' ? (
         <PlanSelectorField
-          plans={consts.NUTRITIONAL_PLANS}
+          plans={constants.NUTRITIONAL_PLANS}
           planResults={planResults}
           setNutritionalPlan={setNutritionalPlan}
         />

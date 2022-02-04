@@ -17,7 +17,7 @@ export default function Modal({
     setShowModal(false)
     closeModal()
   }
-  const handleAccpet = () => {
+  const handleAccept = () => {
     onAccept()
     handleClose()
   }
@@ -30,7 +30,7 @@ export default function Modal({
   useOnClickOutside(dialogRef, handleClose)
   const { tabIndex } = useModalFocus({
     isOpen: showModal,
-    moldalSelector: '[aria-label="confirmation dialog"]',
+    modalSelector: '[aria-label="confirmation dialog"]',
     onEscape: handleClose
   })
 
@@ -80,7 +80,7 @@ export default function Modal({
                 className="bg-green-600 text-white hover:bg-green-700 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg  mr-1 mb-1 ease-linear transition-all duration-150"
                 type="button"
                 data-testid="acceptDialogBtn"
-                onClick={handleAccpet}
+                onClick={handleAccept}
                 tabIndex={tabIndex}
               >
                 Accept

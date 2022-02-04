@@ -2,7 +2,7 @@ import Head from 'next/head'
 import { useSession } from 'next-auth/client'
 import useAuthentication from '../hooks/useAuthentication'
 import Calculator from '@/components/calculators/AMRcalculator'
-import DesclaimerText from '@/components/calculators/DesclaimerText'
+import DeclaimerText from '@/components/calculators/DeclaimerText'
 export default function CaloriesCalculator() {
   const { isLoading, LoadingComponent } = useAuthentication({
     getSession: useSession,
@@ -33,7 +33,7 @@ export default function CaloriesCalculator() {
           <section className="w-full flex flex-wrap gap-2">
             <div className="mx-auto w-full max-w-sm flex flex-col gap-4 ">
               <Calculator />
-              <DesclaimerText />{' '}
+              <DeclaimerText />{' '}
             </div>
 
             <article className="w-full px-2 max-w-3xl leading-1 sm:mt-6 mx-auto flex-1 bg-white">
@@ -44,7 +44,7 @@ export default function CaloriesCalculator() {
               <p>
                 The answer to this question depends on numerous factors,
                 including your age, height, current weight, activity level, and
-                metabolic health, among several others.
+                metabolic health, among several otheirs.
               </p>
               <br />
               <h3 className="text-lg sm:text-xl  text-green-700  font-semibold my-2">

@@ -16,14 +16,14 @@ export default function PlanSelectorField({
       <div className="flex gap-4 mb-6 flex-wrap justify-evenly">
         {planResults?.macros?.map((macro) => (
           <div
-            key={macro.persentage + macro.name}
+            key={macro.percentage + macro.name}
             className="flex flex-col text-center text-xl capitalize pt-4 gap-x-2 text-gray-700 "
           >
             <h4 className="text-lg  mr-auto font-semibold text-green-700 ">
               {macro.name}
             </h4>
 
-            <span className="text-xl">{macro.persentage}%</span>
+            <span className="text-xl">{macro.percentage}%</span>
           </div>
         ))}
       </div>

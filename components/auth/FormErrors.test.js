@@ -3,10 +3,10 @@ import { render, screen } from '@testing-library/react'
 import mockErrors from '../../mocks/mockFormErrors'
 import FormErrors from './FormErrors.jsx'
 
-const emtyErrors = {}
+const emptyErrors = {}
 
-it("dosen't render when there is not errors", () => {
-  const { container } = render(<FormErrors errors={emtyErrors} />)
+it("doesn't render when theire is not errors", () => {
+  const { container } = render(<FormErrors errors={emptyErrors} />)
   expect(container).not.toContainHTML('ul')
 })
 

@@ -1,5 +1,5 @@
 import prisma from '@/lib/prisma'
-import withAuthorization from '@/middlewares/withAuthorization'
+import withAuthorization from '@/middleware/withAuthorization'
 
 async function handler(req, res) {
   if (req.method === 'GET') {
@@ -8,7 +8,7 @@ async function handler(req, res) {
   return res.status(405).json({ success: false, message: 'Method not allowed' })
 }
 
-/// get all the recipes releted to the collecion
+/// get all the recipes related to the collection
 async function handleGet(req, res) {
   const id = req.query.id * 1
   const offset = req.query.offset * 1

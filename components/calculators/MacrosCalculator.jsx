@@ -1,6 +1,6 @@
 import useMacroCalculator from '../../hooks/useMacroCalculator'
 import AMRcalculator from './AMRcalculator'
-import CaloriesPerGoaldCalculator from './CaloriesPerGoaldCalculator'
+import CaloriesPerGoalCalculator from './CaloriesPerGoalCalculator'
 import MacroRadiosPicker from './MacroRadiosPicker'
 import MacrosCalcResults from './MacrosCalcResults'
 
@@ -10,9 +10,9 @@ export default function MacrosCalculator({ children }) {
     setPlanType,
     setNutritionalPlan,
     setCustomPlan,
-    setGoaldKcals,
+    setGoalKcals,
     setErrors,
-    goaldKcals,
+    goalKcals,
     planType,
     errors,
     planResults,
@@ -28,13 +28,13 @@ export default function MacrosCalculator({ children }) {
       </section>
       <section className="calculator-field-container flex flex-col ">
         <h2 className="calculator-field-title ">
-          Step 2: Choose your goals and intencity{' '}
+          Step 2: Choose your goals and intensity{' '}
         </h2>
         <div className="mb-6">
-          <CaloriesPerGoaldCalculator
+          <CaloriesPerGoalCalculator
             defaultCalories={defaultCalories}
-            goaldKcals={goaldKcals}
-            setGoaldKcals={setGoaldKcals}
+            goalKcals={goalKcals}
+            setGoalKcals={setGoalKcals}
           />
         </div>
         <section className="calculator-field-container">
@@ -113,7 +113,7 @@ export default function MacrosCalculator({ children }) {
         </div>
         <p className="text-sm mt-4 p-1 text-center">
           {' '}
-          Visual representation of the macro caloric redio.
+          Visual representation of the macro caloric radio.
         </p>
       </section>
       <section className="calculator-field-container ">

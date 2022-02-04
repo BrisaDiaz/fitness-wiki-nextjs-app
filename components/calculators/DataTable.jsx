@@ -8,9 +8,9 @@ export default function MealsSizeTable({ tableData }) {
         <table className="border mx-auto">
           <thead>
             <tr className="bg-green-700 text-white text-md sm:text-lg whitespace-nowrap">
-              {tableData.columns.map((leyend) => (
-                <th key={leyend} className="py-3 px-5 text-center min-w-max ">
-                  {leyend}
+              {tableData.columns.map((legend) => (
+                <th key={legend} className="py-3 px-5 text-center min-w-max ">
+                  {legend}
                 </th>
               ))}
             </tr>
