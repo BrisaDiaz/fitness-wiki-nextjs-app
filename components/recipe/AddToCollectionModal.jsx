@@ -49,7 +49,7 @@ export default function AddToCollectionModal({
               <div className="w-14 h-10 bg-gray-400 rounded-md ml-2  ">
                 {collection?.image && (
                   <Image
-                    unoptimized={process.env.ENVIRONMENT !== 'PRODUCTION'}
+                    unoptimized={process.env.NODE_ENV !== 'PRODUCTION'}
                     className="rounded-md shadow mx-auto sm:self-center "
                     width={100}
                     height={100}

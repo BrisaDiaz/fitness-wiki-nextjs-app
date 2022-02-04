@@ -161,7 +161,7 @@ export default function Collections({
             avatar={
               <div className="w-28 h-28  bg-gray-400 rounded-full mx-auto my-6 subject-cover overflow-hidden shadow-md">
                 <Image
-                  unoptimized={process.env.ENVIRONMENT !== 'PRODUCTION'}
+                  unoptimized={process.env.NODE_ENV !== 'PRODUCTION'}
                   className="rounded-xl  mx-auto "
                   width={200}
                   height={200}

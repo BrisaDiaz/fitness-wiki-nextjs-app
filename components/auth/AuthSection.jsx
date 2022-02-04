@@ -31,7 +31,7 @@ export default function AuthSection({
           src="/unlock-alt-solid.svg"
           alt="session"
           loading="eager"
-          unoptimized={process.env.ENVIRONMENT !== 'PRODUCTION'}
+          unoptimized={process.env.NODE_ENV !== 'PRODUCTION'}
         />
       </div>
       <h4 className="text-center text-2xl mb-4 ">{title}</h4>

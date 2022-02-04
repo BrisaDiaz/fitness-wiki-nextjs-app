@@ -9,7 +9,7 @@ export default function RecipeHeader({ hederInfo }) {
           label={itemInfo.label}
           info={itemInfo.info}
           image={itemInfo.image}
-          unoptimized={process.env.ENVIRONMENT !== 'PRODUCTION'}
+          unoptimized={process.env.NODE_ENV !== 'PRODUCTION'}
         />
       ))}
     </article>

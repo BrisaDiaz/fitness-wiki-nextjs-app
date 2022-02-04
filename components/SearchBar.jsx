@@ -11,7 +11,7 @@ export default function SeachBar({ onChange }) {
       />
       <div className=" -ml-10 bg-white z-10 h-5 mt-3 flex items-center">
         <Image
-          unoptimized={process.env.ENVIRONMENT !== 'PRODUCTION'}
+          unoptimized={process.env.NODE_ENV !== 'PRODUCTION'}
           width={25}
           height={25}
           quality={75}

@@ -66,7 +66,7 @@ export default function Recipe(props) {
                   layout="responsive"
                   placeholder="blur"
                   blurDataURL="/recipe-placeholder.png"
-                  unoptimized={process.env.ENVIRONMENT !== 'PRODUCTION'}
+                  unoptimized={process.env.NODE_ENV !== 'PRODUCTION'}
                   src={recipe?.image}
                   alt={recipe?.title}
                 />

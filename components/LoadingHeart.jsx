@@ -13,7 +13,7 @@ export default function LoadingHeart({ fullHeight }) {
           height={80}
           src="/heartbeat-solid.svg"
           alt="loading..."
-          unoptimized={process.env.ENVIRONMENT !== 'PRODUCTION'}
+          unoptimized={process.env.NODE_ENV !== 'PRODUCTION'}
         />
       </div>
     </section>

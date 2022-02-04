@@ -105,7 +105,7 @@ export default function Collection({
       <section className="px-1 pb-10 max-w-1000 mx-auto min-h-screen max-w-6xl">
         <div className="w-32 h-32 sm:w-40 sm:h-40  bg-gray-400 rounded-full mx-auto mt-6 -mb-6   subject-cover overflow-hidden shadow-md ">
           <Image
-            unoptimized={process.env.ENVIRONMENT !== 'PRODUCTION'}
+            unoptimized={process.env.NODE_ENV !== 'PRODUCTION'}
             loading="eager"
             className="rounded-xl  mx-auto "
             width={200}
@@ -167,9 +167,7 @@ export default function Collection({
                       avatar={
                         <div className="w-28 h-28 bg-gray-400 rounded-full mx-auto my-6 subject-cover overflow-hidden shadow-md">
                           <Image
-                            unoptimized={
-                              process.env.ENVIRONMENT !== 'PRODUCTION'
-                            }
+                            unoptimized={process.env.NODE_ENV !== 'PRODUCTION'}
                             className="rounded-xl  mx-auto "
                             width={200}
                             height={200}
