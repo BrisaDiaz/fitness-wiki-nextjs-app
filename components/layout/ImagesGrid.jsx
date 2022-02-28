@@ -2,7 +2,7 @@ import Image from 'next/image'
 import env from '@/env'
 export default function ImageGrid() {
   return (
-    <section className="max-h-10/12 overflow-hidden  animate-slideBottom">
+    <section className="max-h-10/12 overflow-hidden  animate-slideBottom max-w-2xl mx-auto">
       <div className="grid grid-cols-3 sm:grid-cols-3  gap-x-2  w-full relative ">
         <div className="row-span-4      row-start-1">
           <Image

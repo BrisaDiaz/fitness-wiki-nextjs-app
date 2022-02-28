@@ -102,7 +102,7 @@ export default function Collection({
         />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <section className="px-1 pb-10 max-w-1000 mx-auto min-h-screen max-w-6xl">
+      <section className="page px-1 pb-10 max-w-1000 min-h-screen">
         <div className="w-32 h-32 sm:w-40 sm:h-40  bg-gray-400 rounded-full mx-auto mt-6 -mb-6   subject-cover overflow-hidden shadow-md ">
           <Image
             unoptimized={process.env.NODE_ENV !== 'PRODUCTION'}
@@ -125,7 +125,7 @@ export default function Collection({
           </p>
         ) : (
           <>
-            <section className="sm:max-w-6xl mx-auto grid flex-col gap-3 flex-wrap md:grid-cols-2  justify-center mt-2 mb-6 sm:my-6  sm:px-5 lg:px-8 ">
+            <section className="sm:max-w-6xl mx-auto grid flex-col gap-3 flex-wrap md:grid-cols-2  justify-center mt-2 mb-6 sm:my-6  sm:px-5 lg:px-8  ">
               {recipes.map((recipe) =>
                 //// doesn't display recipes remove from the database
                 removedRecipes?.includes(recipe.id) ? null : (

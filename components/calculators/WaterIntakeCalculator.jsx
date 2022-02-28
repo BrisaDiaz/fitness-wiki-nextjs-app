@@ -11,14 +11,14 @@ export default function WaterIntakeCalculator({ setWaterIntake }) {
   } = useWaterIntakeCalculator({ setWaterIntake })
 
   return (
-    <article className="max-w-md mx-auto mt-6 mb-8">
+    <article className="max-w-md mx-auto mt-6 mb-8 ">
       <CalculatorModeSwitch
         options={METRIC_SYSTEMS}
         optionSelected={metricSystem}
         setOption={setMetricSystem}
       />
-      <div className="flex flex-col sm:flex-row gap-4   sm:justify-center items-center w-full max-w-md  border py-6 shadow-md bg-white ">
-        <div className="flex items-center justify-center max-w-min gap-1">
+      <div className="flex flex-col sm:flex-row gap-4   sm:justify-center items-center w-full max-w-md  border py-6 shadow-md bg-white rounded">
+        <div className="flex items-center justify-center max-w-min gap-1 ">
           <label
             htmlFor="totalKcals"
             className="text-lg  text-green-700 font-semibold  w-20 sm:w-auto mr-2"
@@ -34,7 +34,7 @@ export default function WaterIntakeCalculator({ setWaterIntake }) {
             placeholder={metricSystem === 'metric' ? 'kg' : 'lbs'}
             step={metricSystem === 'metric' ? '1' : 'any'}
             onChange={(e) => setWeight(e.target.value)}
-            className="p-2 my-1 w-16 border border-gray-200 focus:ring-2 focus:ring-green-600 focus:ring-opacity-50 appearance-none text-center outline-none text-gray-600  text-xl font-light placeholder-end "
+            className="p-2 pr-0 my-1 w-16 border border-gray-200 focus:ring-2 focus:ring-green-600 focus:ring-opacity-50 appearance-none text-center outline-none text-gray-600  text-xl font-light placeholder-end rounded "
           />
           <p className="text-lg ml-1 text-gray-600">
             {metricSystem === 'metric' ? 'kg' : 'lbs'}
@@ -57,7 +57,7 @@ export default function WaterIntakeCalculator({ setWaterIntake }) {
             defaultValue={0}
             placeholder="min"
             onChange={(e) => setWorkoutMinutes(e.target.value)}
-            className=" p-2 my-1 w-16  border border-gray-200 focus:ring-2 focus:ring-green-600 focus:ring-opacity-50 appearance-none text-center outline-none  text-xl text-gray-600 font-light placeholder-end"
+            className=" p-2 pr-0 my-1 w-16  border border-gray-200 focus:ring-2 focus:ring-green-600 focus:ring-opacity-50 appearance-none text-center outline-none  text-xl text-gray-600 font-light placeholder-end rounded"
           />
           <p className="text-lg ml-1 text-gray-600">min</p>
         </div>

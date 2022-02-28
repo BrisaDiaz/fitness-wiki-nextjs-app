@@ -33,15 +33,12 @@ export default function MacrosCalculatorPage() {
           />
           <link rel="icon" href="/favicon.ico" />
         </Head>
-        <div className="pb-6 px-1 gap-x-2 mx-auto max-w-7xl overflow-y-hidden">
-          <h1 className="page-title">
-            Calculate your ideal macronutrients intake
-          </h1>
-          <MacrosCalculator>
-            <section className="pt-4  w-full mx-auto">
-              <DeclaimerText />
-            </section>
-          </MacrosCalculator>
+        <h1 className="page-title">Macronutrients calculator</h1>
+        <div className="page pb-6 gap-x-2 lg:flex ">
+          <MacrosCalculator />
+          <section className="w-full mx-auto max-w-sm">
+            <DeclaimerText />
+          </section>
         </div>
       </>
     )

@@ -12,7 +12,9 @@ body {
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 }
-main {
+
+.page {
+  @apply max-w-5xl mx-auto;
 }
 pre {
   font-family: inherit;
@@ -98,58 +100,23 @@ a {
   text-shadow: 1px 1px 0 #00000070;
 }
 
-/* .custom-radio-input:checked::after {
-  position: absolute;
-  content: ' ';
-  width: 45%;
-  height: 45%;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background: #11a775;
-  border-radius: 50%;
-  z-index: 2;
-  cursor: pointer;
-}
-.custom-radio-input::before {
-  position: absolute;
-  content: ' ';
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  border-radius: 50%;
-  z-index: 1;
-  border-radius: 50%;
-  background: #fff;
-  border: 1.5px solid #059669;
-  box-shadow: 1px 1px 2px 0px #00000021;
-  cursor: pointer;
-  transform: scale(0.95);
-}
-.custom-radio-input {
-  position: relative;
-  transform: scale(1);
-} */
 *:focus {
   outline-offset: 4px;
   outline-color: #15803d;
 }
 
 .calculator-field-title {
-  @apply text-lg sm:text-xl  font-bold text-white mb-6 bg-green-300 p-4 px-6 sm:px-8  pb-5 rounded-lg capitalize border-green-400   border shadow-sm;
+  @apply text-lg sm:text-xl  font-bold text-white mb-6 bg-green-500 p-4 px-6 sm:px-8  pb-5 rounded-lg capitalize border-green-400   border shadow-sm;
 }
 .calculator-field-container {
-  @apply max-w-3xl  w-full;
+  @apply max-w-xl  w-full;
 }
-.calculator-field-container:first-child {
-  @apply mt-6 bg-white;
-}
+
 .list-legend {
   @apply text-gray-700;
 }
 .page-title {
-  @apply text-center mb-8 mt-14 lg:mt-12  text-2xl sm:text-3xl lg:text-4xl mx-2 font-bold text-gray-600;
+  @apply text-center my-6 mb-10 text-3xl lg:text-4xl mx-2 font-bold text-gray-600;
 }
 .line-input {
   @apply px-2 py-3 border-b-2 border-gray-300 placeholder-gray-400  leading-tight focus:outline-none focus:border-green-500 focus:border-opacity-50 appearance-none;
@@ -165,9 +132,6 @@ a {
 }
 .modal {
   @apply w-80   bg-white z-20 rounded-xl border border-gray-300 shadow-lg absolute;
-  position: absolute;
-  transform: translateY(50%);
-  top: -40%;
 }
 .modal input {
   @apply my-1;

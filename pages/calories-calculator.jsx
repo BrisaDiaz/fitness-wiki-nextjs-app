@@ -28,9 +28,9 @@ export default function CaloriesCalculator() {
           />
           <link rel="icon" href="/favicon.ico" />
         </Head>
-        <section className="pb-16 px-1 gap-x-2 mx-auto max-w-7xl">
-          <h1 className="page-title">Calculate your daily caloric needs</h1>
-          <section className="w-full flex flex-wrap gap-2">
+        <section className="pb-16 px-1 gap-x-2 mx-auto max-w-5xl">
+          <h1 className="page-title">Daily caloric needs calculator</h1>
+          <section className="w-full md:flex flex-wrap gap-3 sm:px-4">
             <div className="mx-auto w-full max-w-sm flex flex-col gap-4 ">
               <Calculator />
               <DeclaimerText />{' '}

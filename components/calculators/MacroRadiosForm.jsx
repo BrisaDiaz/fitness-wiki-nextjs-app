@@ -12,7 +12,7 @@ export default function MacroRadiosForm({
   return (
     <form
       onSubmit={handleSubmit(onSubmit)}
-      className="border border-gray-200 py-4 px-2 sm:px-4 shadow-md w-full bg-white "
+      className="border border-gray-200 py-4 px-2 sm:px-4 shadow-md w-full bg-white rounded"
     >
       <div className="flex gap-1 mb-6 flex-wrap justify-evenly ">
         {DEFAULT_MACROS_INPUTS.map((input) => (
@@ -33,7 +33,7 @@ export default function MacroRadiosForm({
                   data-testid={input.info + 'Radio'}
                   name={input.info}
                   {...register(input.info)}
-                  className="p-2 my-1 w-16 border border-gray-200 focus:ring-2 focus:ring-green-700 focus:ring-opacity-50 appearance-none text-center outline-none font-light  text-xl"
+                  className=" p-2 pr-0 my-1 w-16 border border-gray-200 focus:ring-2 focus:ring-green-700 focus:ring-opacity-50 appearance-none text-center outline-none font-light  text-xl rounded"
                   defaultValue={input.defaultValue}
                 />
                 <p className="text-xl ml-1">%</p>

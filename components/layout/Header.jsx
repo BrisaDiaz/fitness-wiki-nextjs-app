@@ -9,7 +9,7 @@ export default function Header({ session, loading, signOut, MenuButton }) {
     }
   }
   return (
-    <header className=" bg-green-700  px-2 sm:px-4 py-3 sm:py-4 shadow-lg fixed  z-50 w-full">
+    <header className=" bg-green-700  px-2 sm:px-4 py-2  shadow-lg fixed  z-40 w-full">
       <nav className="flex justify-between   ">
         <div className="flex flex-row gap-1 items-center pl-1 max-w-10/12 sm:max-w-full ">
           <Link href="/" passHref>

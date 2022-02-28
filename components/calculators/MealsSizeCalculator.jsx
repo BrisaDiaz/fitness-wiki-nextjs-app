@@ -19,11 +19,9 @@ export default function MealSizeCalculator({ children }) {
   } = useMealsSizeCalculator()
 
   return (
-    <div className="mx-auto flex flex-col flex-wrap max-w-7xl gap-x-4  justify-center items-center ">
+    <div className="flex flex-col flex-wrap gap-x-4  justify-center items-center ">
       <section className="calculator-field-container ">
-        <h2 className="calculator-field-title ">
-          Step 1: Set calories per day
-        </h2>
+        <h2 className="calculator-field-title ">Set calories per day</h2>
         <div className="flex flex-col sm:flex-row gap-2 items-center mb-6 max-w-md mx-auto">
           <div className="flex flex-col sm:flex-row gap-x-2 items-center">
             <label
@@ -39,7 +37,7 @@ export default function MealSizeCalculator({ children }) {
               id="totalKcals"
               defaultValue="2000"
               onChange={(e) => setTotalKcals(e.target.value)}
-              className="p-2 my-1 w-24 px-4 border border-gray-200 focus:ring-2 focus:ring-green-600 focus:ring-opacity-50 appearance-none text-center outline-none font-semibold  text-lg text-gray-600 "
+              className=" p-2 pr-0 my-1 w-24 px-4 border border-gray-200 focus:ring-2 focus:ring-green-600 focus:ring-opacity-50 appearance-none text-center outline-none font-semibold  text-lg text-gray-600 rounded"
             />
           </div>
           <p className="px-1 text-sm text-gray-600">
@@ -48,12 +46,12 @@ export default function MealSizeCalculator({ children }) {
           </p>
         </div>
         <h2 className="calculator-field-title ">
-          Step 2: Set your weight and daily workout minutes
+          Set your weight and daily workout minutes
         </h2>
 
         <WaterIntakeCalculator setWaterIntake={setWaterIntake} />
         <h2 className="calculator-field-title ">
-          Step 3: Select your preferred meal frequency
+          Select your preferred meal frequency
         </h2>
 
         <ul className="px-6 mb-6 ">
@@ -79,7 +77,7 @@ export default function MealSizeCalculator({ children }) {
           ))}
         </ul>
         <h2 className="calculator-field-title ">
-          Step 4: Set your macros percentage ratios
+          Set your macros percentage ratios
         </h2>
         <div className="max-w-md mx-auto mb-6">
           <MacroRadiosForm

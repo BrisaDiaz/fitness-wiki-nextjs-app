@@ -31,7 +31,7 @@ export default function SimpleInputModal({
   return (
     <article
       ref={modalRef}
-      className={' p-4 pb-6 w-72 modal  z-50 '.concat(
+      className={' p-4 pb-6 w-72 modal  z-50  top-2 left-0'.concat(
         isModalOpen ? 'scale-100 ' : ' scale-0'
       )}
       aria-label={title}

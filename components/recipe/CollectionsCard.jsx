@@ -29,7 +29,7 @@ export default function CollectionsCard({
           onMouseLeave={() => setIsHovered(false)}
           onFocus={() => setIsHovered(true)}
           onBlur={() => setIsHovered(false)}
-          className="w-60 h-60 mx-auto cursor-pointer "
+          className=" mx-auto cursor-pointer "
           data-testid="collectionCard"
         >
           <div className="rounded-2xl bg-gray-300 w-full h-40 overflow-hidden object-center flex items-center border border-gray-200">

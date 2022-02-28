@@ -4,7 +4,7 @@ import CaloriesPerGoalCalculator from './CaloriesPerGoalCalculator'
 import MacroRadiosPicker from './MacroRadiosPicker'
 import MacrosCalcResults from './MacrosCalcResults'
 
-export default function MacrosCalculator({ children }) {
+export default function MacrosCalculator() {
   const {
     setDefaultCalories,
     setPlanType,
@@ -22,13 +22,13 @@ export default function MacrosCalculator({ children }) {
     <div className="flex flex-wrap max-w-7xl gap-x-4 gap-y-6 justify-center ">
       <section className="calculator-field-container">
         <h2 className="calculator-field-title ">
-          Step 1: Calculate your daily calories required
+          Calculate your daily calories required
         </h2>
         <AMRcalculator setCaloriesRequired={setDefaultCalories} />
       </section>
       <section className="calculator-field-container flex flex-col ">
         <h2 className="calculator-field-title ">
-          Step 2: Choose your goals and intensity{' '}
+          Choose your goals and intensity{' '}
         </h2>
         <div className="mb-6">
           <CaloriesPerGoalCalculator
@@ -39,7 +39,7 @@ export default function MacrosCalculator({ children }) {
         </div>
         <section className="calculator-field-container">
           <h2 className=" calculator-field-title  ">
-            Step 3: Select/Set your nutritional plan
+            Select/Set your nutritional plan
           </h2>
           <MacroRadiosPicker
             setPlanType={setPlanType}
@@ -52,21 +52,33 @@ export default function MacrosCalculator({ children }) {
           />
         </section>
       </section>
-      <section className="calculator-field-container  mb-4">
-        <h2 className="calculator-field-title ">
-          Step 4: Analyze your results{' '}
+      <section className="calculator-field-container ">
+        <h2
+          className={'text-xl sm:text-2xl font-semibold  p-2 text-center  '.concat(
+            errors.length > 0
+              ? 'text-red-600 mb-6 bg-red-200'
+              : 'calculator-field-title '
+          )}
+        >
+          {errors.length > 0 ? 'Error' : `Your results`}
         </h2>
+        {/* Display the results or error message */}
+
+        <MacrosCalcResults
+          errors={errors}
+          planResults={planResults}
+          defaultCalories={defaultCalories}
+        />
+      </section>
+      <section className="calculator-field-container  mb-4">
+        <h2 className="calculator-field-title ">Analyze your results </h2>
         <h4 className=" text-gray-700 my-3 mb-4 text-xl sm:text-2xl font-semibold text-center">
           Calorie healthy ranges
         </h4>
         <div className="px-1">
           <p>
             The ranges are calculated based on the caloric needs got from the
-            step 1.
-          </p>
-          <p>
-            If the step 1 is skipped, then a caloric need of 2000 Kcals/Day is
-            used as default.
+            step 1, or a default caloric need of 2000 Kcals/Day.
           </p>
         </div>
         <div className="grid gap-y-1 mt-4  font-light px-2 ">
@@ -115,25 +127,6 @@ export default function MacrosCalculator({ children }) {
           {' '}
           Visual representation of the macro caloric radio.
         </p>
-      </section>
-      <section className="calculator-field-container ">
-        <h2
-          className={'text-xl sm:text-2xl font-semibold  p-2 text-center  '.concat(
-            errors.length > 0
-              ? 'text-red-600 mb-6 bg-red-200'
-              : 'calculator-field-title '
-          )}
-        >
-          {errors.length > 0 ? 'Error' : `Your results`}
-        </h2>
-        {/* Display the results or error message */}
-
-        <MacrosCalcResults
-          errors={errors}
-          planResults={planResults}
-          defaultCalories={defaultCalories}
-        />
-        {children}
       </section>
     </div>
   )

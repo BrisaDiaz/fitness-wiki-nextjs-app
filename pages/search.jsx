@@ -192,7 +192,7 @@ export default function SearchPage({
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <section className="px-1 max-w-1000 mx-auto  mb-10">
+      <section className="page px-1 max-w-1000 mx-auto  mb-10">
         <h2 className="page-title ">
           Let us help you find the perfect meal for today!!
         </h2>

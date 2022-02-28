@@ -47,12 +47,12 @@ export default function Recipe(props) {
         />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <section className="px-1 flex flex-col items-center mb-10">
+      <section className="page px-1 flex flex-col items-center mb-10">
         <h1 className="page-title ">{recipe.title}</h1>
 
         <RecipeHeader hederInfo={hederInfo} />
 
-        <section className="mx-auto px-1 sm:px-2 justify-center  gap-0 max-w-6xl  flex flex-col-reverse lg:flex-row  w-full sm:justify-evenly ">
+        <section className="px-1 sm:px-2 justify-center  gap-0  flex flex-col-reverse lg:flex-row  w-full sm:justify-evenly ">
           <section className="   p-4  md:px-6 md:pb-6 text-sm sm:text-base w-full border rounded border-gray-200 shadow-lg">
             <div className="mx-auto w-full sm:py-1 relative ">
               <h2 className="uppercase  text-2xl font-bold text-green-600  mb-4 ml-2">

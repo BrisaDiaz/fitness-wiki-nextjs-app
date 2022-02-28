@@ -33,7 +33,7 @@ export default function Calculator({ setCaloriesRequired }) {
           data-testid="AMRcalculatorForm"
           onSubmit={handleSubmit(onSubmit)}
           name="calories-calculator"
-          className="px-4 py-5 flex flex-col gap-4  shadow-md border border-gray-300 relative z-10"
+          className="px-4 py-5 flex flex-col gap-4  shadow-md border border-gray-300 relative rounded"
         >
           <CalculatorField
             label="Equations:"
@@ -47,7 +47,7 @@ export default function Calculator({ setCaloriesRequired }) {
               testId="equationSelect"
             />
           </CalculatorField>
-          <div className="w-full flex gap-1.5 items-center justify-between">
+          <div className="w-full flex gap-2 sm:gap-4 items-center justify-between">
             <CalculatorField label="Genre:" name="genre">
               <CalculatorSelect
                 register={{ ...register('genre', { required: true }) }}
@@ -66,7 +66,7 @@ export default function Calculator({ setCaloriesRequired }) {
               />
             </CalculatorField>
           </div>
-          <div className="w-full flex gap-1.5 items-center justify-between">
+          <div className="w-full flex gap-2 sm:gap-4 items-center justify-between">
             <CalculatorField label="Weight:" name="weight">
               <CalculatorInput
                 name="weight"
@@ -106,7 +106,7 @@ export default function Calculator({ setCaloriesRequired }) {
           </CalculatorField>
 
           {isStandAloneComponent && (
-            <h2 className="p-2 py-4 text-2xl font-bold text-center bg-green-300 rounded-md text-white border border-green-400">
+            <h2 className="p-2 py-4 text-2xl font-bold text-center bg-green-500 rounded-md text-white border border-green-400">
               Total:
               <span className="ml-1" data-testid="calculator-result">
                 {totalKcals} kcals

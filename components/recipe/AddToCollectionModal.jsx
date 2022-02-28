@@ -27,7 +27,7 @@ export default function AddToCollectionModal({
   return (
     <div
       id={'modal ' + id}
-      className={'w-72 pt-4   z-50 modal  '.concat(
+      className={'w-72 pt-4   z-50 modal  -translate-y-1/2	top-1/2  left-1/2 -translate-x-1/2  '.concat(
         isModalOpen ? 'scale-100 ' : ' scale-0'
       )}
       data-testid="storeRecipeModal"

@@ -7,7 +7,7 @@ import useOnScreen from '@/hooks/useOnScreen'
 /// utils
 import { GET, POST, DELETE, PUT } from '@/utils/http'
 /// components
-import Image from 'next/image'
+
 import LocatedInputModal from '@/components/LocatedInputModal'
 import FullPageInputModal from '@/components/FullPageInputModal'
 import LoadingHeart from '@/components/LoadingHeart'
@@ -23,7 +23,7 @@ export default function Collections({
   const query = new URLSearchParams()
   const [session] = useSession()
   const token = session?.accessToken
-
+  const [isCreateCollectionModal, setIsCreateCollectionModal] = useState(false)
   const [collections, setCollections] = useState(initialCollections || [])
   const [isEditingModalOpen, setIsEditingModalOpen] = useState(false)
   const [selectedCollection, setSelectedCollection] = useState({})
@@ -34,7 +34,12 @@ export default function Collections({
   const [removedCollections, setRemovedCollections] = useState([])
   const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false)
   const [isLoading, setIsLoading] = useState(false)
-
+  const closeCreateModal = () => {
+    setIsCreateCollectionModal(false)
+  }
+  const openCreateModal = () => {
+    setIsCreateCollectionModal(true)
+  }
   const closeDeleteModal = () => {
     setIsDeleteModalOpen(false)
   }
@@ -146,37 +151,30 @@ export default function Collections({
         />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <section className="px-2 sm:px-4 max-w-1000 mx-auto  mb-10 -mt-4 min-h-screen ">
+
+      <FullPageInputModal
+        testId="newCollectionModal"
+        isOpen={isCreateCollectionModal}
+        onClose={closeCreateModal}
+        callback={(newCollection) => handleNewCollection(newCollection)}
+        title="Add a new collection"
+        inputOptions={{
+          name: 'newCollection',
+          type: 'text',
+          placeholder: 'Enter name...'
+        }}
+      />
+      <section className="page px-2 sm:px-0 mb-10 ">
         <h1 className="page-title">Collections</h1>
-        <div className="flex justify-end -mt-5 mb-10">
-          <FullPageInputModal
-            testId="newCollectionModal"
-            callback={(newCollection) => handleNewCollection(newCollection)}
-            title="Add a new collection"
-            inputOptions={{
-              name: 'newCollection',
-              type: 'text',
-              placeholder: 'Enter name...'
-            }}
-            avatar={
-              <div className="w-28 h-28  bg-gray-400 rounded-full mx-auto my-6 subject-cover overflow-hidden shadow-md">
-                <Image
-                  unoptimized={process.env.NODE_ENV !== 'PRODUCTION'}
-                  className="rounded-xl  mx-auto "
-                  width={200}
-                  height={200}
-                  alt="new collection"
-                  src="/recipe-default-image.png"
-                />
-              </div>
-            }
-          >
-            <AddButton testId="createAnewCollectionBtn" />
-          </FullPageInputModal>
+        <div className="flex justify-end -mt-5 mb-10 ">
+          <AddButton
+            testId="createAnewCollectionBtn"
+            onClick={openCreateModal}
+          />
         </div>
 
         {collections.length > 0 ? (
-          <section className="mt-2 grid  gap-2 sm:grid-cols-2 xl:grid-cols-4 lg:grid-cols-3  justify-center max-w-6xl mx-auto place-content-center place-items-center px-16 lg:px-4 xl:px-0">
+          <section className="mt-2 grid  gap-2 sm:grid-cols-2 md:grid-cols-3   lg:grid-cols-4 justify-center  place-content-center place-items-center  px-4 lg:px-2">
             {collections.map((collection) =>
               //// doesn't display remove collections from database
               removedCollections.includes(collection?.id) ? null : (

@@ -4,22 +4,15 @@ import FormButton from '@/components/FormButton'
 import useOnClickOutside from '@/hooks/useOnClickOutside'
 import useModalFocus from '@/hooks/useModalFocus'
 export default function SimpleInputModal({
-  children,
   title,
+  isOpen,
+  onClose,
   inputOptions,
   dynamicOptions,
   callback,
-  avatar,
+
   testId
 }) {
-  const [isModalOpen, setisModalOpen] = React.useState(false)
-  const handleOpen = () => {
-    setisModalOpen(true)
-  }
-  const handleClose = () => {
-    setisModalOpen(false)
-  }
-
   const { register, handleSubmit } = useForm({
     mode: 'onBlur'
   })
@@ -27,36 +20,34 @@ export default function SimpleInputModal({
     e.preventDefault()
     e.stopPropagation()
     callback(data[inputOptions.name])
-    handleClose()
+    onClose()
   }
 
   const modalRef = React.useRef(null)
-  useOnClickOutside(modalRef, handleClose)
+  useOnClickOutside(modalRef, onClose)
   const { tabIndex } = useModalFocus({
-    isOpen: isModalOpen,
+    isOpen: isOpen,
     modalSelector: `[aria-label="${title}"]`,
-    onEscape: handleClose
+    onEscape: onClose
   })
   return (
     <>
-      <div onClick={handleOpen}>{children}</div>
-
       <div
-        className={'justify-center items-center flex overflow-x-hidden overflow-y-auto fixed inset-0 z-40 outline-none focus:outline-none '.concat(
-          isModalOpen ? 'scale-100 ' : ' scale-0'
+        className={'justify-center items-center fle fixed z-50    w-screen top-20 left-0  backdrop-blur-xs '.concat(
+          isOpen ? 'scale-100 ' : ' scale-0'
         )}
       >
-        <div className="relative w-auto my-6 mx-auto max-w-3xl">
+        <div className="relative   z-50 w-screen flex justify-center ">
           <article
             ref={modalRef}
-            className=" p-4 pb-6 w-72 modal absolute z-50"
+            className=" p-4 pb-6 w-72 modal "
             aria-label={title}
             data-testid={testId}
           >
             <p className="text-2xl text-gray-600 font-semibold text-center  mb-1 capitalize">
               {title}
             </p>
-            {avatar}
+
             <form
               name={inputOptions.name + 'Form'}
               className="flex flex-col gap-4"
