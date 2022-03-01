@@ -22,7 +22,7 @@ export default function SignIn() {
           <link rel="icon" href="/favicon.ico" />
         </Head>
 
-        <section className="flex min-h-screen min-w-sm  -mt-16 pt-16">
+        <section className="flex full-screen-h  min-w-sm ">
           <AuthSection
             title="Sign In"
             Form={SigninForm}
@@ -35,7 +35,7 @@ export default function SignIn() {
             </>
           </AuthSection>
 
-          <section className="w-full bg-green-200 bg-healthy-burger bg-cover"></section>
+          <section className="w-full bg-green-200 bg-healthy-burger bg-cove "></section>
         </section>
       </>
     )

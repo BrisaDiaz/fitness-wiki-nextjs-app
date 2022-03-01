@@ -1,4 +1,3 @@
-import Image from 'next/image'
 import Link from 'next/link'
 import useSessionHandler from '../../hooks/useSessionHandler'
 import { signIn } from 'next-auth/client'
@@ -25,14 +24,16 @@ export default function AuthSection({
   return (
     <section className="w-full max-w-md  flex-none px-2 sm:px-5 p-4 mt-5">
       <div className="w-10 h-10 rounded-full bg-green-700 mx-auto flex items-center justify-center">
-        <Image
-          width={20}
-          height={20}
-          src="/unlock-alt-solid.svg"
-          alt="session"
-          loading="eager"
-          unoptimized={process.env.NODE_ENV !== 'PRODUCTION'}
-        />
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          height="24px"
+          viewBox="0 0 24 24"
+          width="24px"
+          fill="#fff"
+        >
+          <path d="M0 0h24v24H0z" fill="none" />
+          <path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm3.1-9H8.9V6c0-1.71 1.39-3.1 3.1-3.1 1.71 0 3.1 1.39 3.1 3.1v2z" />
+        </svg>
       </div>
       <h4 className="text-center text-2xl mb-4 ">{title}</h4>
       <Form

@@ -21,7 +21,7 @@ export default function SingUp() {
           <link rel="icon" href="/favicon.ico" />
         </Head>
 
-        <section className="w-full flex min-h-screen -mt-16 pt-16">
+        <section className="w-full flex full-screen-h ">
           <AuthSection
             title="Sign Up"
             Form={SignupForm}

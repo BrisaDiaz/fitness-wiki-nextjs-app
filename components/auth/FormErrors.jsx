@@ -9,7 +9,7 @@ export default function FormErrors({ errors }) {
         <li key={message}>
           <div role="alert">
             <div
-              className="flex items-center mb-1 bg-red-200 border-l-4 border-red-700 text-red-500 text-sm font-bold px-4 py-3"
+              className="flex items-center mb-1 bg-red-200 border-l-4 border-red-700 text-red-500 text-sm font-bold px-4 py-1"
               role="alert"
             >
               <svg

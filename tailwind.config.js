@@ -39,11 +39,23 @@ module.exports = {
         infiniteXSlide: {
           '0%': { transform: 'translateX(0)' },
           '100%': { transform: 'translateX(400%)' }
+        },
+        slidBottom: {
+          '0%': {
+            transform: 'translateY(1000px)',
+            opacity: 0
+          },
+          ' 100%': {
+            transform: 'translateY(0)',
+            opacity: 1
+          }
         }
       },
       animation: {
         beat: 'beat  1s ease-in-out infinite',
-        infiniteXSlide: 'infiniteXSlide 1.5s linear infinite  '
+        infiniteXSlide: 'infiniteXSlide 1.5s linear infinite',
+        slidBottom:
+          'slidBottom 0.6s  cubic-bezier(0.250, 0.460, 0.450, 0.940) both'
       },
 
       backgroundImage: () => ({

@@ -1,22 +1,20 @@
 import Image from 'next/image'
 import env from '@/env'
+import React from 'react'
 export default function ImageGrid() {
+  const [hasRender, setHasRender] = React.useState(false)
+  React.useEffect(() => {
+    setHasRender(true)
+  }, [])
+
   return (
-    <section className="max-h-10/12 overflow-hidden  animate-slideBottom max-w-2xl mx-auto">
-      <div className="grid grid-cols-3 sm:grid-cols-3  gap-x-2  w-full relative ">
-        <div className="row-span-4      row-start-1">
-          <Image
-            className="rounded-xl  max-w-full"
-            layout="responsive"
-            src="/smoothie-image.jpg"
-            alt="breakfasts"
-            width={300}
-            height={410}
-            loading="eager"
-            unoptimized={env.NODE_ENV !== 'PRODUCTION'}
-          />
-        </div>
-        <div className=" row-span-4     row-start-2 ">
+    <section className="max-h-10/12 overflow-hidden   max-w-7xl mx-auto">
+      <div className="grid grid-cols-3 md:grid-cols-5  gap-x-2  w-full relative min-w-lg ">
+        <div
+          className={' row-span-4     -row-start-2 '.concat(
+            hasRender ? 'animate-slidBottom' : ''
+          )}
+        >
           <Image
             className="rounded-xl  "
             layout="responsive"
@@ -28,7 +26,43 @@ export default function ImageGrid() {
             loading="eager"
           />
         </div>
-        <div className="  row-span-4     row-start-1 ">
+        <div
+          className={'row-span-4    row-start-1 '.concat(
+            hasRender ? 'animate-slidBottom' : ''
+          )}
+        >
+          <Image
+            className="rounded-xl  max-w-full"
+            layout="responsive"
+            src="/smoothie-image.jpg"
+            alt="breakfasts"
+            width={300}
+            height={410}
+            loading="eager"
+            unoptimized={env.NODE_ENV !== 'PRODUCTION'}
+          />
+        </div>
+        <div
+          className={' row-span-4     row-start-2  '.concat(
+            hasRender ? 'animate-slidBottom' : ''
+          )}
+        >
+          <Image
+            className="rounded-xl  "
+            layout="responsive"
+            src="/rice.jpg"
+            alt="breakfasts"
+            width={300}
+            height={410}
+            unoptimized={env.NODE_ENV !== 'PRODUCTION'}
+            loading="eager"
+          />
+        </div>
+        <div
+          className={'  row-span-4     row-start-1 '.concat(
+            hasRender ? 'animate-slidBottom' : ''
+          )}
+        >
           <Image
             className="rounded-xl "
             layout="responsive"
@@ -40,7 +74,44 @@ export default function ImageGrid() {
             loading="eager"
           />
         </div>
-        <div className="row-span-4     mt-2  row-start-5">
+        <div
+          className={' row-span-4     row-start-2 '.concat(
+            hasRender ? 'animate-slidBottom' : ''
+          )}
+        >
+          <Image
+            className="rounded-xl  "
+            layout="responsive"
+            src="/eggs-potatoes.jpg"
+            alt="breakfasts"
+            width={300}
+            height={410}
+            unoptimized={env.NODE_ENV !== 'PRODUCTION'}
+            loading="eager"
+          />
+        </div>
+        <div
+          className={' row-span-4     mt-2  row-start-5 '.concat(
+            hasRender ? 'animate-slidBottom' : ''
+          )}
+        >
+          <Image
+            className="rounded-xl  "
+            layout="responsive"
+            src="/chicken-salad.jpg"
+            alt="breakfasts"
+            width={300}
+            loading="eager"
+            height={410}
+            unoptimized={env.NODE_ENV !== 'PRODUCTION'}
+          />
+        </div>
+
+        <div
+          className={'row-span-4     mt-2  row-start-5 '.concat(
+            hasRender ? 'animate-slidBottom' : ''
+          )}
+        >
           <Image
             className="rounded-xl  max-w-full"
             layout="responsive"
@@ -52,19 +123,27 @@ export default function ImageGrid() {
             unoptimized={env.NODE_ENV !== 'PRODUCTION'}
           />
         </div>
-        <div className=" row-span-3     mt-2  row-start-6 ">
+        <div
+          className={' row-span-3     mt-2  row-start-6 '.concat(
+            hasRender ? 'animate-slidBottom' : ''
+          )}
+        >
           <Image
             className="rounded-xl  "
             layout="responsive"
-            src="/pie-image.jpg"
+            src="/pancakes.jpg"
             alt="breakfasts"
             width={300}
             loading="eager"
-            height={310}
+            height={300}
             unoptimized={env.NODE_ENV !== 'PRODUCTION'}
           />
         </div>
-        <div className="  row-span-4  mt-2   row-start-5">
+        <div
+          className={'  row-span-4  mt-2   row-start-5 '.concat(
+            hasRender ? 'animate-slidBottom' : ''
+          )}
+        >
           <Image
             className="rounded-xl "
             layout="responsive"
@@ -73,6 +152,22 @@ export default function ImageGrid() {
             loading="eager"
             width={300}
             height={410}
+            unoptimized={env.NODE_ENV !== 'PRODUCTION'}
+          />
+        </div>
+        <div
+          className={' row-span-3     mt-2  row-start-6 '.concat(
+            hasRender ? 'animate-slidBottom' : ''
+          )}
+        >
+          <Image
+            className="rounded-xl  "
+            layout="responsive"
+            src="/pie-image.jpg"
+            alt="breakfasts"
+            width={300}
+            loading="eager"
+            height={310}
             unoptimized={env.NODE_ENV !== 'PRODUCTION'}
           />
         </div>

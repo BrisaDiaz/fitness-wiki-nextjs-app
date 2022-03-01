@@ -12,7 +12,12 @@ body {
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 }
-
+main {
+  padding-top: 54px;
+}
+.full-screen-h {
+  min-height: calc(100vh - 54px);
+}
 .page {
   @apply max-w-5xl mx-auto;
 }
