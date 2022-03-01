@@ -10,7 +10,7 @@ jest.mock('../../utils/getMacrosPerNutritionalPlan', () => jest.fn())
 const initialPlanResults =
   mocks.fullCalculatorTest.nutritionalPlanSection.expectResult
 const darkGreen = '#0595569'
-const lightGreen = '#6EE7B7'
+const lightGreen = '#22c55e'
 const setPlanType = jest.fn(),
   setNutritionalPlan = jest.fn(),
   setCustomPlan = jest.fn(),

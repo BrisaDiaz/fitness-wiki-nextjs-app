@@ -5,7 +5,7 @@ import userEvent from '@testing-library/user-event'
 import getDailyKcals from '../../utils/getDailyKcals'
 
 const darkGreen = '#0595569'
-const lightGreen = '#6EE7B7'
+const lightGreen = '#22c55e'
 const redBorderColor = 'rgb(209, 213, 219)'
 
 const mockInputs = {
