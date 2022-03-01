@@ -34,7 +34,7 @@ export default function Layout({ children }) {
     onEscape: handleCloseNav
   })
   const handleKeyDown = (event) => {
-    if (event.key === 'm' && session.user) {
+    if (event.key === 'm' && session?.user) {
       handleOpenNav()
     }
   }
