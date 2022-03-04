@@ -1,5 +1,5 @@
-# WikiFit Next.js Progressive web app
-# Wikifit
+# WikiFit Progressive web app
+
   
 > Application created to search for recipes and calculate nutritional requirements adjusted to the profile and diet of users.
   
