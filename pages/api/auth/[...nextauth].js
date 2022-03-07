@@ -35,8 +35,8 @@ export default NextAuth({
       clientSecret: env.GOOGLE_CLIENT_SECRET
     })
   ],
-  debug: env.ENVIRIONMENT === 'DEVELOPMENT',
-  secret: env.AUTH_SECRET,
+
+  secret: env.NEXTAUTH_SECRET,
   session: {
     jwt: true
   },
