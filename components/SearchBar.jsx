@@ -1,4 +1,3 @@
-import Image from 'next/image'
 export default function SeachBar({ onChange }) {
   return (
     <div className="flex flex-row justify-center my-5 -ml-2">
