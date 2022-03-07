@@ -1,4 +1,3 @@
-import Image from 'next/image'
 import { useRouter } from 'next/router'
 export default function AuthProviderButtons({ signIn, setServerMessage }) {
   const router = useRouter()
@@ -11,39 +10,81 @@ export default function AuthProviderButtons({ signIn, setServerMessage }) {
     <article className=" mx-auto  flex flex-col gap-2 align-top mt-3">
       <div className="relative w-full">
         <button
-          className="py-2 w-full border-2 border-gray-800  shadow hover:shadow-lg  bg-gray-800 font-semibold text-white rounded  focus:ring-2 focus:ring-gray-800 focus:ring-opacity-50 "
+          className="py-2 w-full border border-gray-800  shadow hover:shadow-lg  bg-gray-800 font-semibold text-white rounded  focus:ring-2 focus:ring-gray-800 focus:ring-opacity-50   "
           onClick={() => handleSignIn('github')}
         >
           Sign in with GitHub
         </button>
-        <div className="absolute right-2    top-2">
-          <Image
-            className="rounded"
-            alt="singin with google"
-            width={30}
-            height={30}
-            src="/github-brands.svg"
-            unoptimized={process.env.NODE_ENV !== 'PRODUCTION'}
-          />
+        <div className="absolute right-2    top-1">
+          <svg
+            width={35}
+            height={35}
+            viewBox="0 0 50 50"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M40 0H10C4.47715 0 0 4.47715 0 10V40C0 45.5228 4.47715 50 10 50H40C45.5228 50 50 45.5228 50 40V10C50 4.47715 45.5228 0 40 0Z"
+              fill="url(#paint0_linear_400_500)"
+            />
+            <path
+              d="M18.9927 42.5359C19.5852 42.291 20.0002 41.7254 20.0002 41.067V36.747C20.0002 36.5894 20.0135 36.4254 20.0343 36.259C20.0227 36.2622 20.0118 36.2646 20.0002 36.267C20.0002 36.267 17.5002 36.267 17.0002 36.267C15.7502 36.267 14.6668 35.787 14.1668 34.827C13.5835 33.787 13.3335 32.027 11.8335 31.067C11.5835 30.907 11.7502 30.667 12.2502 30.667C12.7502 30.747 13.8335 31.387 14.5002 32.267C15.2502 33.147 16.0002 33.867 17.3335 33.867C19.406 33.867 20.5168 33.767 21.1852 33.423C21.9635 32.3119 23.041 31.467 24.1668 31.467V31.447C19.4435 31.3014 16.426 29.7942 15.021 27.467C11.9668 27.5006 9.30766 27.791 7.79016 28.0326C7.74182 27.771 7.70016 27.5079 7.66432 27.243C9.16182 27.0062 11.7002 26.7254 14.6185 26.6719C14.5252 26.451 14.4443 26.2246 14.376 25.9926C11.4502 25.8502 8.92516 25.9614 7.5535 26.0702C7.53682 25.8046 7.51432 25.5399 7.511 25.271C8.88516 25.163 11.3418 25.055 14.1927 25.1822C14.1268 24.7822 14.0843 24.3734 14.0843 23.9479C14.0843 22.5879 14.5843 21.1479 15.501 19.9479C15.0843 18.5879 14.501 15.7079 15.6677 14.6679C17.9177 14.6679 19.501 15.7079 20.251 16.3479C21.6668 15.787 23.2502 15.467 25.0002 15.467C26.7502 15.467 28.3335 15.787 29.6668 16.347C30.4168 15.707 32.0002 14.667 34.2502 14.667C35.5002 15.787 34.8335 18.667 34.4168 19.947C35.3335 21.147 35.8335 22.507 35.7502 23.947C35.7502 24.3342 35.7127 24.7079 35.6585 25.0742C38.5743 24.9366 41.0977 25.047 42.4952 25.1559C42.4935 25.4254 42.4677 25.6886 42.4527 25.955C41.0602 25.8446 38.4735 25.731 35.4868 25.8839C35.4127 26.1526 35.3227 26.4142 35.216 26.6679C38.171 26.7046 40.7702 26.979 42.3393 27.219C42.3035 27.4846 42.2618 27.7479 42.2135 28.0086C40.6202 27.7639 37.9043 27.4774 34.8143 27.463C33.4268 29.7654 30.4643 31.267 25.8335 31.4422V31.467C28.0002 31.467 30.0002 34.587 30.0002 36.747V41.067C30.0002 41.7254 30.4152 42.291 31.0077 42.5359C38.6418 40.1102 44.1668 33.1982 44.1668 25.067C44.1668 14.9214 35.5693 6.66699 25.0002 6.66699C14.431 6.66699 5.8335 14.9214 5.8335 25.067C5.8335 33.1982 11.3585 40.1102 18.9927 42.5359Z"
+              fill="#fff"
+            />
+            <path
+              d="M40 0.625H10C4.82233 0.625 0.625 4.82233 0.625 10V40C0.625 45.1777 4.82233 49.375 10 49.375H40C45.1777 49.375 49.375 45.1777 49.375 40V10C49.375 4.82233 45.1777 0.625 40 0.625Z"
+              strokeOpacity="0.17"
+            />
+            <defs>
+              <linearGradient
+                id="paint0_linear_400_500"
+                x1="25"
+                y1="0"
+                x2="25"
+                y2="50"
+                gradientUnits="userSpaceOnUse"
+              >
+                <stop stopColor="transparent" />
+                <stop offset="1" stopColor="transparent" />
+              </linearGradient>
+            </defs>
+          </svg>
         </div>
       </div>
 
       <div className="relative w-full">
         <button
-          className="py-2 w-full border-2 border-blue-500 shadow hover:shadow-lg bg-blue-500 font-semibold text-white rounded focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 "
+          className="py-2 w-full border  border-gray-200  shadow hover:shadow-lg bg-white font-semibold  text-gray-700  rounded focus:ring-2 focus:ring-gray-500 focus:ring-opacity-50 "
           onClick={() => handleSignIn('google')}
         >
           Sign in with Google
         </button>
-        <div className="absolute right-2    top-2">
-          <Image
-            className="rounded"
-            alt="singin with google"
-            width={30}
-            height={30}
-            src="/google-logo.png"
-            unoptimized={process.env.NODE_ENV !== 'PRODUCTION'}
-          />
+        <div className="absolute right-3    top-2">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            width={27}
+            height={27}
+          >
+            <g transform="matrix(1, 0, 0, 1, 27.009001, -39.238998)">
+              <path
+                fill="#4285F4"
+                d="M -3.264 51.509 C -3.264 50.719 -3.334 49.969 -3.454 49.239 L -14.754 49.239 L -14.754 53.749 L -8.284 53.749 C -8.574 55.229 -9.424 56.479 -10.684 57.329 L -10.684 60.329 L -6.824 60.329 C -4.564 58.239 -3.264 55.159 -3.264 51.509 Z"
+              />
+              <path
+                fill="#34A853"
+                d="M -14.754 63.239 C -11.514 63.239 -8.804 62.159 -6.824 60.329 L -10.684 57.329 C -11.764 58.049 -13.134 58.489 -14.754 58.489 C -17.884 58.489 -20.534 56.379 -21.484 53.529 L -25.464 53.529 L -25.464 56.619 C -23.494 60.539 -19.444 63.239 -14.754 63.239 Z"
+              />
+              <path
+                fill="#FBBC05"
+                d="M -21.484 53.529 C -21.734 52.809 -21.864 52.039 -21.864 51.239 C -21.864 50.439 -21.724 49.669 -21.484 48.949 L -21.484 45.859 L -25.464 45.859 C -26.284 47.479 -26.754 49.299 -26.754 51.239 C -26.754 53.179 -26.284 54.999 -25.464 56.619 L -21.484 53.529 Z"
+              />
+              <path
+                fill="#EA4335"
+                d="M -14.754 43.989 C -12.984 43.989 -11.404 44.599 -10.154 45.789 L -6.734 42.369 C -8.804 40.429 -11.514 39.239 -14.754 39.239 C -19.444 39.239 -23.494 41.939 -25.464 45.859 L -21.484 48.949 C -20.534 46.099 -17.884 43.989 -14.754 43.989 Z"
+              />
+            </g>
+          </svg>
         </div>
       </div>
     </article>

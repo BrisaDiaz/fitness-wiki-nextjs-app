@@ -21,21 +21,18 @@ export default function Header({ session, loading, signOut, MenuButton }) {
             </a>
           </Link>
         </div>
-        <div className="flex items-center br-1 gap-0">
+        <div className="flex items-center br-1 gap-3">
           {!loading && !session ? (
             <>
               <Link href="/auth/signup" passHref>
-                <a
-                  href="#"
-                  className="text-md sm:text-lg font-semibold text-white transform scale-90  hover:animate-pulse "
-                >
+                <a href="#" className="text-md text-white transform leading-6 ">
                   Sign Up
                 </a>
               </Link>
               <Link href="/auth/signin" passHref>
                 <a
                   href="#"
-                  className="text-md sm:text-lg  font-semibold text-white px-2 py-1 transform scale-90  bg-green-500 hover:bg-green-600 transition ease-in-out g-green-400 rounded-md  leading-8 border-b-2 border-green-500  hover:border-green-600 hover:animate-pulse "
+                  className="text-md   text-white px-1 py-0 transform  bg-green-500 hover:bg-green-600 transition ease-in-out g-green-400 rounded-md  leading-6 border-b-2 border-green-500  hover:border-green-600  "
                 >
                   Sign In
                 </a>

@@ -13,10 +13,10 @@ body {
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 }
 main {
-  padding-top: 54px;
+  padding-top: 48px;
 }
 .full-screen-h {
-  min-height: calc(100vh - 54px);
+  min-height: calc(100vh - 48px);
 }
 .page {
   @apply max-w-5xl mx-auto;
