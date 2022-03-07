@@ -1,25 +1,23 @@
 import { useState, useEffect } from 'react'
 
-function useScreen() {
-  const getScreen = () => {
-    if (typeof window !== 'undefined' && window.screen) {
-      return window.screen
-    }
-    return undefined
-  }
-
-  const [screen, setScreen] = useState(undefined > getScreen())
-
-  function handleSize() {
-    setScreen(getScreen())
-  }
-
+export default function useWindowSize() {
+  const [windowSize, setWindowSize] = useState({
+    width: undefined,
+    height: undefined
+  })
   useEffect(() => {
-    document.addEventListener('resize', handleSize)
-    return () => document.removeEventListener('resize', handleSize)
+    function handleResize() {
+      setWindowSize({
+        width: window.innerWidth,
+        height: window.innerHeight
+      })
+    }
+
+    window.addEventListener('resize', handleResize)
+
+    handleResize()
+
+    return () => window.removeEventListener('resize', handleResize)
   }, [])
-
-  return screen
+  return windowSize
 }
-
-export default useScreen

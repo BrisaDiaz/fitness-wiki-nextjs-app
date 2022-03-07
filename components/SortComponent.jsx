@@ -38,7 +38,7 @@ export default function SortComponent({
         </div>
       ))}
       <select
-        className="capitalize border border-solid border-gray-200 rounded p-2  px-4 ml-1 shadow-sm  eading-tight focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-opacity-50 appearance-none w-full sm:w-max"
+        className="capitalize border border-solid border-gray-200 rounded-lg  p-2  px-4 shadow-sm  eading-tight focus:outline-none focus:ring-2 focus:ring-green-600 appearance-none w-full sm:w-max"
         id={name}
         name={name}
         defaultValue="healthiness"

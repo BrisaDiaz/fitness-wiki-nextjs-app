@@ -35,7 +35,7 @@ export default function SignIn() {
             </>
           </AuthSection>
 
-          <section className="w-full bg-green-200 bg-healthy-burger bg-cove "></section>
+          <section className="w-full bg-fixed bg-green-200 bg-healthy-burger bg-cover bg-no-repeat"></section>
         </section>
       </>
     )

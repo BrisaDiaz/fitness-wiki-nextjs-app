@@ -95,7 +95,7 @@ a {
   border-radius: 50%;
   border-width: 125px;
   border-top-color: #181717;
-  border-left-color: #ef4444;
+  border-left-color: #dc2626;
   transform: rotate(245deg);
   border-right-color: transparent;
   border-bottom-color: transparent;
@@ -121,10 +121,10 @@ a {
   @apply text-gray-700;
 }
 .page-title {
-  @apply text-center my-6 mb-10 text-3xl lg:text-4xl mx-2 font-bold text-gray-600;
+  @apply text-center my-8 mb-12 text-3xl lg:text-4xl mx-2 font-bold text-gray-600;
 }
 .line-input {
-  @apply px-2 py-3 border-b-2 border-gray-300 placeholder-gray-400  leading-tight focus:outline-none focus:border-green-500 focus:border-opacity-50 appearance-none;
+  @apply px-2 py-3 border-b-2 border-gray-300 placeholder-gray-400  leading-tight focus:outline-none focus:border-green-600 appearance-none;
 }
 .modal-shape {
   @apply w-80  bg-white z-20 rounded-xl border border-gray-300 shadow-lg;
@@ -140,4 +140,15 @@ a {
 }
 .modal input {
   @apply my-1;
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+::-webkit-scrollbar-track {
+  @apply bg-gray-100;
+}
+::-webkit-scrollbar-thumb {
+  @apply bg-gray-400;
 }

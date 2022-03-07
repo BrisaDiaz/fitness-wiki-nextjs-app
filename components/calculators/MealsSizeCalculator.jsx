@@ -23,7 +23,7 @@ export default function MealSizeCalculator({ children }) {
       <section className="calculator-field-container ">
         <h2 className="calculator-field-title ">Set calories per day</h2>
         <div className="flex flex-col sm:flex-row gap-2 items-center mb-6 max-w-md mx-auto">
-          <div className="flex flex-col sm:flex-row gap-x-2 items-center">
+          <div className="flex  gap-x-2 items-center">
             <label
               htmlFor="totalKcals"
               className="text-lg text-green-700 font-semibold "
@@ -37,7 +37,7 @@ export default function MealSizeCalculator({ children }) {
               id="totalKcals"
               defaultValue="2000"
               onChange={(e) => setTotalKcals(e.target.value)}
-              className=" p-2 pr-0 my-1 w-24 px-4 border border-gray-200 focus:ring-2 focus:ring-green-600 focus:ring-opacity-50 appearance-none text-center outline-none font-semibold  text-lg text-gray-600 rounded"
+              className=" p-2 md:pr-0  my-1 w-24 px-4 border border-gray-200 focus:ring-2 focus:ring-green-600 focus:ring-opacity-50 appearance-none text-center outline-none font-semibold  text-lg text-gray-600 rounded"
             />
           </div>
           <p className="px-1 text-sm text-gray-600">

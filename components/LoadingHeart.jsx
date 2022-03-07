@@ -7,7 +7,7 @@ export default function LoadingHeart({ fullHeight }) {
         fullHeight ? ' h-screen -mt-30' : 'h-96'
       )}
     >
-      <div className=" animate-beat  w-full  flex justify-center ">
+      <div className=" animate-beat  w-full  flex justify-center items-center">
         <Image
           width={80}
           height={80}

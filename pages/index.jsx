@@ -24,7 +24,7 @@ export default function Home() {
             <span className="">Welcome to </span>
             <span className=" text-green-800 ">WikiFit</span>
           </h1>
-          <h2 className="sm:text-center p-2 pb-4 text-md sm:text-2xl sm:leading-8 font-medium self-align-bottom mb-6 sm:mb-16 hove:scale-105 bg-white rounded-full  text-gray-600 max-w-4xl  mx-auto">
+          <h2 className="sm:text-center p-2 pb-4 text-md sm:text-2xl sm:leading-8 font-medium self-align-bottom mb-6 sm:mb-10 hove:scale-105 bg-white rounded-full  text-gray-600 max-w-4xl  mx-auto">
             Here you will find many easy to follow healthy and delicious recipes
             alongside tools that will make it easy for you to add healthy habits
             to your routine.

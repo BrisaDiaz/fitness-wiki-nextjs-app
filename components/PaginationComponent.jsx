@@ -22,7 +22,7 @@ export default function PaginationComponent({
         {page > 1 && (
           <button
             type="button"
-            className="px-2 pb-1  border-2 border-transparent shadow-md rounded bg-green-600 hover:bg-green-700
+            className="px-2 pb-0.5  border-2 border-transparent shadow-md rounded bg-green-600 hover:bg-green-700
  font-semibold text-white"
             onClick={() => handlePrevious()}
           >
@@ -90,7 +90,7 @@ export default function PaginationComponent({
         {page < maxPage && (
           <button
             type="button"
-            className="px-2 pb-1  border-2 border-transparent shadow-md rounded bg-green-600 hover:bg-green-700
+            className="px-2 pb-0.5  border-2 border-transparent shadow-md rounded bg-green-600 hover:bg-green-700
  font-semibold text-white"
             onClick={() => handleNext()}
           >

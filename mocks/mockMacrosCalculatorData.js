@@ -192,7 +192,7 @@ const fullCalculatorTest = {
     },
     {
       title: 'fats',
-      color: '#ef4444'
+      color: '#dc2626'
     },
     {
       title: 'Kcals',

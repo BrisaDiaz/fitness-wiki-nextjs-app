@@ -32,7 +32,7 @@ export default function Header({ session, loading, signOut, MenuButton }) {
               <Link href="/auth/signin" passHref>
                 <a
                   href="#"
-                  className="text-md   text-white px-1 py-0 transform  bg-green-500 hover:bg-green-600 transition ease-in-out g-green-400 rounded-md  leading-6 border-b-2 border-green-500  hover:border-green-600  "
+                  className="text-md   text-white px-1.5 py-0 transform  bg-green-500 hover:bg-green-600 transition ease-in-out g-green-400 rounded-md  leading-6 border-b-2 border-green-500  hover:border-green-600  "
                 >
                   Sign In
                 </a>

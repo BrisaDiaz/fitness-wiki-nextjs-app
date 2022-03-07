@@ -11,7 +11,8 @@ export default function MacrosCalculator() {
     setNutritionalPlan,
     setCustomPlan,
     setGoalKcals,
-    setErrors,
+    setError,
+    cleanError,
     goalKcals,
     planType,
     errors,
@@ -47,8 +48,8 @@ export default function MacrosCalculator() {
             setCustomPlan={setCustomPlan}
             planType={planType}
             planResults={planResults}
-            setError={setErrors}
-            errors={errors}
+            setError={setError}
+            cleanError={cleanError}
           />
         </section>
       </section>

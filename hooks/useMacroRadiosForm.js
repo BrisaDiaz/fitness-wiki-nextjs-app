@@ -1,7 +1,7 @@
 import constants from '../constants/calculatorConstants'
 import { useForm } from 'react-hook-form'
 
-export default function MacroRadiosForm({
+export default function useMacroRadiosForm({
   setCustomPlan,
   setError,
 

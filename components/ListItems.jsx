@@ -10,9 +10,9 @@ export default function ListItems({ items, setItems }) {
     <article className="mt-5">
       <form
         onSubmit={handleSubmit(onSubmit)}
-        className="max-w-sm mx-auto w-full"
+        className="max-w-sm mx-auto w-full f"
       >
-        <div className="flex items-end gap-2 justify-center ">
+        <div className="flex items-end gap-1 justify-center ">
           <input
             className=" w-full line-input "
             type="text"

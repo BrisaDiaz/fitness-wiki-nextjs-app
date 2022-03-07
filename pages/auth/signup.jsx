@@ -28,7 +28,7 @@ export default function SingUp() {
             linkText="Did you already have an account? Sign In"
             linkURL="/auth/signin"
           />
-          <section className="w-full bg-green-200  bg-healthy-food bg-cover" />
+          <section className="w-full bg-green-200  bg-healthy-food bg-cover bg-no-repeat" />
         </section>
       </>
     )

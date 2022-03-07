@@ -1,7 +1,7 @@
 export default function MenuBtn({ isNavOpen, setIsNavOpen, tabIndex }) {
   return (
     <div
-      className="w-10 h-10  rounded-full ml-2 cursor-pointer z-40 flex flex-col  justify-center items-center shadow-md transform  scale-75 transition ease-in-out bg-green-700   duration-500  hover:bg-green-600  focus-within:bg-green-600   relative   p-2 gap-1  p-2 gap-1  border border-white focus-within:border-transparent"
+      className="w-10 h-10  rounded-full  cursor-pointer z-40 flex flex-col  justify-center items-center shadow-md transform  scale-75 transition ease-in-out bg-green-700   duration-500  hover:bg-green-600  focus-within:bg-green-600   relative   p-2 gap-1  p-2 gap-1  border border-white focus-within:border-transparent"
       data-testid="menuBtn"
     >
       <button

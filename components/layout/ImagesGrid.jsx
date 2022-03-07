@@ -7,7 +7,8 @@ export default function ImageGrid() {
   React.useEffect(() => {
     setHasRender(true)
   }, [])
-  // const screen = useScreen()
+  const screen = useScreen()
+  console.log(screen)
   return (
     <section className="max-h-10/12 overflow-hidden   max-w-7xl mx-auto ">
       <div className="grid grid-cols-3 md:grid-cols-5  gap-x-2  w-full relative min-w-lg ml-2 md:ml-0 ">
@@ -70,7 +71,7 @@ export default function ImageGrid() {
             src="/breakfasts-image.jpg"
             alt="breakfasts"
             width={300}
-            height={310}
+            height={screen.width >= 768 ? 310 : 410}
             unoptimized={env.NODE_ENV !== 'PRODUCTION'}
             loading="eager"
           />
@@ -120,7 +121,7 @@ export default function ImageGrid() {
             alt="pizzas"
             width={300}
             loading="eager"
-            height={300}
+            height={310}
             unoptimized={env.NODE_ENV !== 'PRODUCTION'}
           />
         </div>

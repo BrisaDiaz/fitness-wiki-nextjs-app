@@ -9,8 +9,8 @@ export default function MacroRadiosPicker({
   setPlanType,
   setNutritionalPlan,
   setCustomPlan,
-  setErrors,
-  errors
+  setError,
+  cleanError
 }) {
   return (
     <div className="max-w-md mx-auto">
@@ -29,8 +29,8 @@ export default function MacroRadiosPicker({
       ) : (
         <MacroRadiosForm
           setCustomPlan={setCustomPlan}
-          setErrors={setErrors}
-          errors={errors}
+          setError={setError}
+          cleanError={cleanError}
         />
       )}
     </div>

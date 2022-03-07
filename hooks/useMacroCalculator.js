@@ -37,13 +37,21 @@ export default function useMacroCalculator() {
         )
   }, [planType, goalKcals, nutritionalPlan, customPlan])
 
+  const setError = (newError) => {
+    errors.indexOf(newError) ? setErrors([...errors, newError]) : false
+  }
+  const cleanError = (toCleanError) => {
+    const cleanError = errors.filter((error) => error !== toCleanError)
+    setErrors(cleanError)
+  }
   return {
     setDefaultCalories,
     setPlanType,
     setNutritionalPlan,
     setCustomPlan,
     setGoalKcals,
-    setErrors,
+    setError,
+    cleanError,
     goalKcals,
     planType,
     errors,

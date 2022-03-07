@@ -47,7 +47,7 @@ export default function CaloriesCalculator() {
                 metabolic health, among several otheirs.
               </p>
               <br />
-              <h3 className="text-lg sm:text-xl  text-green-700  font-semibold my-2">
+              <h3 className="text-lg sm:text-xl  text-green-600  font-semibold mb-3">
                 Women
               </h3>
               <p>
@@ -78,7 +78,7 @@ export default function CaloriesCalculator() {
                 significantly higher calorie needs.
               </p>
               <br />
-              <h3 className="text-lg sm:text-xl  text-green-600  font-semibold my-2">
+              <h3 className="text-lg sm:text-xl  text-green-600  font-semibold mb-3">
                 Men
               </h3>
               <p>
@@ -108,7 +108,7 @@ export default function CaloriesCalculator() {
                 about 2,200 calories per day.
               </p>{' '}
               <br />
-              <h3 className="text-lg sm:text-xl  text-green-600  font-semibold my-2">
+              <h3 className="text-lg sm:text-xl  text-green-600  font-semibold mb-3">
                 Children
               </h3>
               <p>

@@ -7,6 +7,7 @@ export default function MacroRadiosForm({
 
   cleanError
 }) {
+  console.log(setError, cleanError)
   const { register, handleSubmit, onSubmit, DEFAULT_MACROS_INPUTS } =
     useMacroRadiosForm({ setCustomPlan, setError, cleanError })
   return (
@@ -33,7 +34,7 @@ export default function MacroRadiosForm({
                   data-testid={input.info + 'Radio'}
                   name={input.info}
                   {...register(input.info)}
-                  className=" p-2 pr-0 my-1 w-16 border border-gray-200 focus:ring-2 focus:ring-green-700 focus:ring-opacity-50 appearance-none text-center outline-none font-light  text-xl rounded"
+                  className=" p-2 md:pr-0 my-1 w-16 border border-gray-200 focus:ring-2 focus:ring-green-700 focus:ring-opacity-50 appearance-none text-center outline-none font-light  text-xl rounded"
                   defaultValue={input.defaultValue}
                 />
                 <p className="text-xl ml-1">%</p>

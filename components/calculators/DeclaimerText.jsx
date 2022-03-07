@@ -1,24 +1,30 @@
 export default function DeclaimerText() {
   return (
     <article className="pt-2 px-4 pb-4  my-10 shadow-sm border-2 border-gray-100 rounded relative z-10 bg-white mx-auto max-w-3xl">
-      <div className="w-20 h-20 mx-auto -mt-12 bg-white px-2">
+      <div className="  -mt-12 bg-white px-2 pb-6 max-w-max mx-auto">
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          aria-hidden="true"
-          focusable="false"
-          data-prefix="fas"
-          data-icon="exclamation-triangle"
-          className="svg-inline--fa fa-exclamation-triangle fa-w-18"
-          role="img"
-          viewBox="0 0 576 512"
+          enable-background="new 0 0 24 24"
+          height="80px"
+          viewBox="0 0 24 24"
+          width="auto"
+          fill="#9ca3af"
         >
-          <path
-            fill="#9ca3af"
-            d="M569.517 440.013C587.975 472.007 564.806 512 527.94 512H48.054c-36.937 0-59.999-40.055-41.577-71.987L246.423 23.985c18.467-32.009 64.72-31.951 83.154 0l239.94 416.028zM288 354c-25.405 0-46 20.595-46 46s20.595 46 46 46 46-20.595 46-46-20.595-46-46-46zm-43.673-165.346l7.418 136c.347 6.364 5.609 11.346 11.982 11.346h48.546c6.373 0 11.635-4.982 11.982-11.346l7.418-136c.375-6.874-5.098-12.654-11.982-12.654h-63.383c-6.884 0-12.356 5.78-11.981 12.654z"
-          />
+          <g>
+            <rect fill="none" height="24" width="24" />
+          </g>
+          <g>
+            <g>
+              <g>
+                <path d="M12,5.99L19.53,19H4.47L12,5.99 M12,2L1,21h22L12,2L12,2z" />
+                <polygon points="13,16 11,16 11,18 13,18" />
+                <polygon points="13,10 11,10 11,15 13,15" />
+              </g>
+            </g>
+          </g>
         </svg>
       </div>
-      <div className="`p-4 pb-6 text-sm leading-6">
+      <div className="` pb-6 text-sm leading-6 text-center">
         <p>
           This tool is for use in adults defined as individuals 18 years of age
           or older and not by younger people, or pregnant or breastfeeding

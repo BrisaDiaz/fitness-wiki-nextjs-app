@@ -23,15 +23,17 @@ export default function StoreRecipeControls({
     >
       {!updateOption && recipe?.stored && (
         <Link href={`/collections/${recipe?.collection?.id}`} passHref>
-          <h6
-            data-testid={`${recipe?.collection?.name
-              .split(' ')
-              .join('-')}-link`}
-            href="!#"
-            className="font-semibold pointer px-4 py-2 bg-gray-100 rounded-lg capitalize"
-          >
-            {recipe?.collection?.name}
-          </h6>
+          <a href="" className="rounded-md transition-all ease-in-out  ">
+            <h6
+              data-testid={`${recipe?.collection?.name
+                .split(' ')
+                .join('-')}-link`}
+              href="!#"
+              className="font-semibold pointer px-4 py-2 bg-gray-200 rounded-lg capitalize"
+            >
+              {recipe?.collection?.name}
+            </h6>
+          </a>
         </Link>
       )}
       {!recipe.stored && !updateOption && (
