@@ -34,6 +34,7 @@ export default function RecipeCard({ recipe, children }) {
                 className="rounded shadow mx-auto sm:self-center sm:rounded"
                 width={320}
                 height={260}
+                objectFit="cover"
                 placeholder="blur"
                 blurDataURL="/recipe-placeholder.png"
                 src={recipe?.image}

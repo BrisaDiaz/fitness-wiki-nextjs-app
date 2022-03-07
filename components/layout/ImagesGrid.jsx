@@ -22,6 +22,7 @@ export default function ImageGrid() {
             layout="responsive"
             src="/salad-image.jpg"
             alt="salads"
+            objectFit="cover"
             width={300}
             height={410}
             unoptimized={env.NODE_ENV !== 'PRODUCTION'}
@@ -40,6 +41,7 @@ export default function ImageGrid() {
             alt="smoothies"
             width={300}
             height={410}
+            objectFit="cover"
             loading="eager"
             unoptimized={env.NODE_ENV !== 'PRODUCTION'}
           />
@@ -53,6 +55,7 @@ export default function ImageGrid() {
             className="rounded-xl  "
             layout="responsive"
             src="/rice.jpg"
+            objectFit="cover"
             alt="lunches"
             width={300}
             height={410}
@@ -70,6 +73,7 @@ export default function ImageGrid() {
             layout="responsive"
             src="/breakfasts-image.jpg"
             alt="breakfasts"
+            objectFit="cover"
             width={300}
             height={screen.width >= 768 ? 310 : 410}
             unoptimized={env.NODE_ENV !== 'PRODUCTION'}
@@ -85,6 +89,7 @@ export default function ImageGrid() {
             className="rounded-xl  "
             layout="responsive"
             src="/eggs-potatoes.jpg"
+            objectFit="cover"
             alt="lunches"
             width={300}
             height={410}
@@ -105,6 +110,7 @@ export default function ImageGrid() {
             width={300}
             loading="eager"
             height={410}
+            objectFit="cover"
             unoptimized={env.NODE_ENV !== 'PRODUCTION'}
           />
         </div>
@@ -118,6 +124,7 @@ export default function ImageGrid() {
             className="rounded-xl  max-w-full"
             layout="responsive"
             src="/pizza-image.jpg"
+            objectFit="cover"
             alt="pizzas"
             width={300}
             loading="eager"
@@ -136,6 +143,7 @@ export default function ImageGrid() {
             src="/pancakes.jpg"
             alt="desserts"
             loading="eager"
+            objectFit="cover"
             unoptimized={env.NODE_ENV !== 'PRODUCTION'}
           />
         </div>
@@ -150,6 +158,7 @@ export default function ImageGrid() {
             src="/soup-image.jpg"
             alt="soups"
             loading="eager"
+            objectFit="cover"
             width={300}
             height={310}
             unoptimized={env.NODE_ENV !== 'PRODUCTION'}
@@ -164,6 +173,7 @@ export default function ImageGrid() {
             className="rounded-xl  "
             layout="responsive"
             src="/pie-image.jpg"
+            objectFit="cover"
             alt="desserts"
             width={300}
             loading="eager"

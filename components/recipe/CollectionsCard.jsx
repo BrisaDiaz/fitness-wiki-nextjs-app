@@ -39,6 +39,7 @@ export default function CollectionsCard({
                 className="rounded-xl  mx-auto  border border-gray-200 shadow group-hover:brightness-50"
                 width={300}
                 height={230}
+                objectFit="cover"
                 alt={collection.name}
                 src={collection?.image}
               />
