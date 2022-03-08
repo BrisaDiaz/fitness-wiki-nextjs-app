@@ -8,10 +8,10 @@ export default function ImageGrid() {
     setHasRender(true)
   }, [])
   const screen = useScreen()
-  console.log(screen)
+
   return (
-    <section className="max-h-10/12 overflow-hidden   max-w-7xl mx-auto ">
-      <div className="grid grid-cols-3 md:grid-cols-5  gap-x-2  w-full relative min-w-lg ml-2 md:ml-0 ">
+    <section className="   max-w-7xl mx-auto ">
+      <div className="grid grid-cols-3 md:grid-cols-5  gap-x-2  w-full relative min-w-lg   ">
         <div
           className={' row-span-4     -row-start-2 '.concat(
             hasRender ? 'animate-slidBottom' : ''
@@ -47,7 +47,7 @@ export default function ImageGrid() {
           />
         </div>
         <div
-          className={' row-span-4     row-start-2  '.concat(
+          className={' row-span-4   hidden md:block     row-start-2  '.concat(
             hasRender ? 'animate-slidBottom' : ''
           )}
         >
@@ -64,7 +64,7 @@ export default function ImageGrid() {
           />
         </div>
         <div
-          className={'  row-span-4     row-start-1 md:row-start-3  md:row-span-3  '.concat(
+          className={'  row-span-4     row-start-2 md:row-start-3  md:row-span-3  '.concat(
             hasRender ? 'animate-slidBottom' : ''
           )}
         >
@@ -81,7 +81,7 @@ export default function ImageGrid() {
           />
         </div>
         <div
-          className={' row-span-4     row-start-2 '.concat(
+          className={' row-span-4   hidden md:block  row-start-2 '.concat(
             hasRender ? 'animate-slidBottom' : ''
           )}
         >
@@ -116,7 +116,7 @@ export default function ImageGrid() {
         </div>
 
         <div
-          className={'row-span-2     mt-2  row-start-6  '.concat(
+          className={'row-span-3     mt-2  row-start-6  '.concat(
             hasRender ? 'animate-slidBottom' : ''
           )}
         >
@@ -148,7 +148,7 @@ export default function ImageGrid() {
           />
         </div>
         <div
-          className={'  row-span-4  mt-2   row-start-5  md:row-start-6   '.concat(
+          className={'  row-span-4  mt-2  hidden md:block   row-start-5  md:row-start-6   '.concat(
             hasRender ? 'animate-slidBottom' : ''
           )}
         >
@@ -165,7 +165,7 @@ export default function ImageGrid() {
           />
         </div>
         <div
-          className={' row-span-3     mt-2  row-start-6 '.concat(
+          className={' row-span-3   hidden md:block    mt-2  row-start-6 '.concat(
             hasRender ? 'animate-slidBottom' : ''
           )}
         >
@@ -182,6 +182,59 @@ export default function ImageGrid() {
           />
         </div>
       </div>
+      {screen.width < 768 ? (
+        <div className="grid grid-cols-3 md:hidden grid-rows-4  gap-x-2  w-full  min-w-lg ">
+          <div
+            className={' row-span-4       mt-2 '.concat(
+              hasRender ? 'animate-slidBottom' : ''
+            )}
+          >
+            <Image
+              className="rounded-xl  "
+              layout="fill"
+              src="/eggs-potatoes.jpg"
+              alt="lunches"
+              loading="eager"
+              objectFit="cover"
+              unoptimized={env.NODE_ENV !== 'PRODUCTION'}
+            />
+          </div>
+          <div
+            className={'  row-span-4  mt-2    '.concat(
+              hasRender ? 'animate-slidBottom' : ''
+            )}
+          >
+            <Image
+              className="rounded-xl "
+              layout="responsive"
+              src="/soup-image.jpg"
+              alt="soups"
+              loading="eager"
+              objectFit="cover"
+              width={300}
+              height={410}
+              unoptimized={env.NODE_ENV !== 'PRODUCTION'}
+            />
+          </div>
+          <div
+            className={' row-span-4     mt-2  r'.concat(
+              hasRender ? 'animate-slidBottom' : ''
+            )}
+          >
+            <Image
+              className="rounded-xl  "
+              layout="responsive"
+              src="/pie-image.jpg"
+              objectFit="cover"
+              alt="desserts"
+              width={300}
+              loading="eager"
+              height={410}
+              unoptimized={env.NODE_ENV !== 'PRODUCTION'}
+            />
+          </div>
+        </div>
+      ) : null}
     </section>
   )
 }
