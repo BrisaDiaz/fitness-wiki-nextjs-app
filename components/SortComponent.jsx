@@ -8,7 +8,7 @@ export default function SortComponent({
   sortDirection
 }) {
   return (
-    <div className="flex flex-row justify-start flex-wrap sm:flex-nowrap items-center  gap-2 w-full max-w-sm sm:max-w-xs sm:items-center">
+    <div className="flex flex-row justify-start flex-wrap sm:flex-nowrap items-center  gap-1 w-full max-w-sm sm:max-w-xs sm:items-center">
       <label htmlFor={name} className="  min-w-max">
         {label}
       </label>

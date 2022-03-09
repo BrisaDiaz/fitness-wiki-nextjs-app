@@ -6,7 +6,7 @@ export default function SelectComponent({
   onChange
 }) {
   return (
-    <div className="flex flex-col sm:flex-row  gap-2 w-full max-w-sm sm:max-w-xs md:max-w-1/2 lg:w-max sm:items-center">
+    <div className="flex flex-col sm:flex-row  gap-1 w-full max-w-sm sm:max-w-xs md:max-w-1/2 lg:w-max sm:items-center">
       <label htmlFor={name} className=" min-w-max">
         {label}
       </label>
