@@ -8,9 +8,9 @@
 
 ## 📸 Screenshots
 
-![image](https://drive.google.com/uc?export=view&id=1UqbxM00Pm-pUiSE6McABqf7mxd3d8sV4)
-![image](https://drive.google.com/uc?export=view&id=1IDIYQV-juU67ZGneZ0xjdHVM3mXFYKF5)
-![image](https://drive.google.com/uc?export=view&id=1cf5IjSBzulycDOsX14uLLrjhgheKnvqB)
+![image](https://res.cloudinary.com/myproyects/image/upload/v1644361152/proyects/wki-2-min_x0zsph.webp)
+![image](https://res.cloudinary.com/myproyects/image/upload/v1646099043/proyects/screencapture-localhost-3000-search-2022-02-28-19_07_13-min_gj3fmb.webp)
+![image](https://res.cloudinary.com/myproyects/image/upload/v1646099044/proyects/screencapture-localhost-3000-calories-calculator-2022-02-28-20_21_10-min_c0shab.webp)
 
 ## 🤐 Environment variables
 

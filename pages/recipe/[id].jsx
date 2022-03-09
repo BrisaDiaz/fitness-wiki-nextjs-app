@@ -6,12 +6,12 @@ import { getData } from '../../utils/spoonacularFetchConfig'
 import RecipeHeader from '@/components/recipe/RecipeHeader'
 import ListSheet from '@/components/recipe/ListSheet'
 import ListSheetItem from '@/components/recipe/ListSheetItem'
-import RecipeDirections from '@/components/recipe/RecipeDirections'
+import RecipeInstructions from '@/components/recipe/RecipeInstructions'
 
 export default function Recipe(props) {
   if (props.error) return <DefaultErrorPage statusCode={props.statusCode} />
 
-  let { recipe, instructions, equipment, nutrition, ingredients } = props
+  let { recipe, instructions, equipment, ingredients } = props
 
   const hederInfo = [
     {
@@ -22,8 +22,8 @@ export default function Recipe(props) {
         <svg
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 24 24"
-          width={25}
-          height={25}
+          width={20}
+          height={20}
           fill="#16A34A"
         >
           <path d="M0 0h24v24H0z" fill="none" />
@@ -39,8 +39,8 @@ export default function Recipe(props) {
         <svg
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 24 24"
-          width={25}
-          height={25}
+          width={20}
+          height={20}
           fill="#16A34A"
         >
           <path d="M0 0h24v24H0z" fill="none" />
@@ -51,15 +51,13 @@ export default function Recipe(props) {
     },
     {
       label: 'energy:',
-      info: nutrition?.calories
-        ? ` ${nutrition?.calories?.value} Kcal`
-        : 'unspecified',
+      info: recipe.calories,
       svg: (
         <svg
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 576 512"
-          width={25}
-          height={25}
+          width={20}
+          height={20}
           fill="#16A34A"
         >
           <path d="M352.4 243.8l-49.83 99.5c-6.009 12-23.41 11.62-28.92-.625L216.7 216.3l-30.05 71.75L88.55 288l176.4 182.2c12.66 13.07 33.36 13.07 46.03 0l176.4-182.2l-112.1 .0052L352.4 243.8zM495.2 62.86c-54.36-46.98-137.5-38.5-187.5 13.06L288 96.25L268.3 75.92C218.3 24.36 135.2 15.88 80.81 62.86C23.37 112.5 16.84 197.6 60.18 256h105l35.93-86.25c5.508-12.88 23.66-13.12 29.54-.375l58.21 129.4l49.07-98c5.884-11.75 22.78-11.75 28.67 0l27.67 55.25h121.5C559.2 197.6 552.6 112.5 495.2 62.86z" />
@@ -74,8 +72,8 @@ export default function Recipe(props) {
       svg: (
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          width={25}
-          height={25}
+          width={20}
+          height={20}
           fill="#16A34A"
           viewBox="0 0 512 512"
         >
@@ -104,17 +102,18 @@ export default function Recipe(props) {
 
         <RecipeHeader hederInfo={hederInfo} />
 
-        <section className="justify-center  gap-0  flex flex-col-reverse lg:flex-row  w-full sm:justify-evenly ">
-          <section className="   p-4  md:px-6 md:pb-6 text-sm sm:text-base w-full border rounded border-gray-200 shadow-lg">
+        <section className="justify-center  gap-0  flex flex-col-reverse lg:flex-row lg:gap-x-4  w-full sm:justify-evenly ">
+          <section className="  md:pb-6 text-sm sm:text-base w-full ">
             <div className="mx-auto w-full sm:py-1 relative ">
-              <h2 className="uppercase  text-2xl font-bold text-green-600  mb-4 ml-2">
+              <h2 className="capitalize  text-2xl font-bold text-green-600  mb-5 ml-2">
                 summary
               </h2>
               <div className="w-full max-w-sm mr-1 sm:mr-3 mb-3 sm:float-left">
                 <Image
                   className="rounded-md float-left  "
                   width={400}
-                  height={280}
+                  height={285}
+                  objectFit="cover"
                   layout="responsive"
                   placeholder="blur"
                   blurDataURL="/recipe-placeholder.png"
@@ -127,9 +126,9 @@ export default function Recipe(props) {
                 dangerouslySetInnerHTML={{ __html: recipe.summary }}
               />
             </div>
-            {instructions && <RecipeDirections steps={instructions} />}
+            {instructions && <RecipeInstructions steps={instructions} />}
           </section>
-          <section className="mb-10 lg:mb-0 px-0 w-full sm:px-2 md:flex md:gap-2  lg:flex-col  lg:w-2/5 mx-auto">
+          <section className="mb-10 lg:mb-0 px-0 w-full  md:flex md:gap-2  lg:flex-col  lg:w-2/5 mx-auto">
             <ListSheet title="Ingredients">
               {ingredients?.map((ingredient) => (
                 <ListSheetItem
@@ -184,15 +183,14 @@ export async function getServerSideProps({ query, req }) {
     }
   }
 
-  const nutrition = await getData('guessNutrition', `title=${recipe.title}`)
-
+  recipe.calories = query.calories || 'unspecified'
   let instructions = recipe?.analyzedInstructions[0]?.steps || null
   return {
     props: {
       serverError: false,
       recipe,
       equipment: equipment?.equipment,
-      nutrition,
+
       ingredients: recipe.extendedIngredients,
       instructions
     }

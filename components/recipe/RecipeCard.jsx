@@ -6,7 +6,10 @@ export default function RecipeCard({ recipe, children }) {
   const [isHovered, setIsHovered] = useState(false)
 
   return (
-    <Link href={`/recipe/${recipe?.id}`} passHref>
+    <Link
+      href={`/recipe/${recipe?.recipeId}?calories=${recipe.calories}`}
+      passHref
+    >
       <a
         href="!#"
         onMouseEnter={() => setIsHovered(true)}
@@ -27,7 +30,7 @@ export default function RecipeCard({ recipe, children }) {
             {children}
           </div>
 
-          <article className="w-72 mx-auto  pb-4 sm:p-4 flex flex-col sm:flex-row  sm:items-center  sm:shadow-sm rounded sm:w-full h-auto transition ease-in-out transform sm:hover:shadow-md sm:border border-gray-100   hover:bg-gray-50 ">
+          <article className="w-72 mx-auto  pb-4 sm:p-4 flex flex-col sm:flex-row  sm:items-center  sm:shadow-sm rounded sm:w-full h-auto transition ease-in-out transform sm:hover:shadow-md sm:border border-gray-100   sm:hover:bg-gray-50 ">
             <div className=" mx-auto sm:mx-0 h-44 overflow-y-hidden w-full sm:w-3/12  relative flex items-center  sm:h-24  justify-center	rounded-t  relative -z-10">
               <Image
                 className="rounded shadow mx-auto sm:self-center sm:rounded"

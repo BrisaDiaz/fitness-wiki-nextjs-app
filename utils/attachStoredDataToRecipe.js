@@ -7,7 +7,7 @@ export default function attachStoredDataToRecipe(storedRecipes, recipes) {
         id: storedRecipes[recipe.id]?.collection.id
       }
     }
-
+    recipe.recipeId = recipe.id
     return recipe
   })
 
