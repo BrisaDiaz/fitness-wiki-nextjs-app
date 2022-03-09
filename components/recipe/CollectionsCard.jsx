@@ -35,7 +35,6 @@ export default function CollectionsCard({
           <div className="rounded-2xl bg-gray-300 w-full h-40 overflow-hidden object-center flex items-center border border-gray-200">
             {collection.image && (
               <Image
-                unoptimized={process.env.NODE_ENV !== 'PRODUCTION'}
                 className="rounded-xl  mx-auto  border border-gray-200 shadow group-hover:brightness-50"
                 width={300}
                 height={230}

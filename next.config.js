@@ -19,8 +19,6 @@ module.exports = withPWA({
     GITHUB_SECRET: process.env.GITHUB_SECRET
   },
   images: {
-    loader: 'imgix',
-    path: 'https://noop/',
     domains: ['spoonacular.com']
   },
   pwa: {

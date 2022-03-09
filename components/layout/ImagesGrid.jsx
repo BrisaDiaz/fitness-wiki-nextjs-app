@@ -1,5 +1,5 @@
 import Image from 'next/image'
-import env from '@/env'
+
 import React from 'react'
 import useScreen from '@/hooks/useScreen'
 export default function ImageGrid() {
@@ -25,7 +25,6 @@ export default function ImageGrid() {
             objectFit="cover"
             width={300}
             height={410}
-            unoptimized={env.NODE_ENV !== 'PRODUCTION'}
             loading="eager"
           />
         </div>
@@ -43,7 +42,6 @@ export default function ImageGrid() {
             height={410}
             objectFit="cover"
             loading="eager"
-            unoptimized={env.NODE_ENV !== 'PRODUCTION'}
           />
         </div>
         <div
@@ -59,7 +57,6 @@ export default function ImageGrid() {
             alt="lunches"
             width={300}
             height={410}
-            unoptimized={env.NODE_ENV !== 'PRODUCTION'}
             loading="eager"
           />
         </div>
@@ -76,7 +73,6 @@ export default function ImageGrid() {
             objectFit="cover"
             width={300}
             height={screen.width >= 768 ? 310 : 410}
-            unoptimized={env.NODE_ENV !== 'PRODUCTION'}
             loading="eager"
           />
         </div>
@@ -93,7 +89,6 @@ export default function ImageGrid() {
             alt="lunches"
             width={300}
             height={410}
-            unoptimized={env.NODE_ENV !== 'PRODUCTION'}
             loading="eager"
           />
         </div>
@@ -111,7 +106,6 @@ export default function ImageGrid() {
             loading="eager"
             height={410}
             objectFit="cover"
-            unoptimized={env.NODE_ENV !== 'PRODUCTION'}
           />
         </div>
 
@@ -129,7 +123,6 @@ export default function ImageGrid() {
             width={300}
             loading="eager"
             height={310}
-            unoptimized={env.NODE_ENV !== 'PRODUCTION'}
           />
         </div>
         <div
@@ -144,7 +137,6 @@ export default function ImageGrid() {
             alt="desserts"
             loading="eager"
             objectFit="cover"
-            unoptimized={env.NODE_ENV !== 'PRODUCTION'}
           />
         </div>
         <div
@@ -161,7 +153,6 @@ export default function ImageGrid() {
             objectFit="cover"
             width={300}
             height={310}
-            unoptimized={env.NODE_ENV !== 'PRODUCTION'}
           />
         </div>
         <div
@@ -178,7 +169,6 @@ export default function ImageGrid() {
             width={300}
             loading="eager"
             height={310}
-            unoptimized={env.NODE_ENV !== 'PRODUCTION'}
           />
         </div>
       </div>
@@ -196,7 +186,6 @@ export default function ImageGrid() {
               alt="lunches"
               loading="eager"
               objectFit="cover"
-              unoptimized={env.NODE_ENV !== 'PRODUCTION'}
             />
           </div>
           <div
@@ -213,7 +202,6 @@ export default function ImageGrid() {
               objectFit="cover"
               width={300}
               height={410}
-              unoptimized={env.NODE_ENV !== 'PRODUCTION'}
             />
           </div>
           <div
@@ -230,7 +218,6 @@ export default function ImageGrid() {
               width={300}
               loading="eager"
               height={410}
-              unoptimized={env.NODE_ENV !== 'PRODUCTION'}
             />
           </div>
         </div>
