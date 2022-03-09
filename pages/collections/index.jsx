@@ -164,7 +164,7 @@ export default function Collections({
           placeholder: 'Enter name...'
         }}
       />
-      <section className="page px-2 sm:px-0 mb-10 ">
+      <section className="page mb-10 ">
         <h1 className="page-title">Collections</h1>
         <div className="flex justify-end -mt-5 mb-10 ">
           <AddButton

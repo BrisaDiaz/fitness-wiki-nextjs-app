@@ -99,7 +99,7 @@ export default function Recipe(props) {
         />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <section className="page px-2  flex flex-col items-center mb-10">
+      <main className="page flex flex-col items-center mb-10">
         <h1 className="page-title ">{recipe.title}</h1>
 
         <RecipeHeader hederInfo={hederInfo} />
@@ -154,7 +154,7 @@ export default function Recipe(props) {
             )}
           </section>
         </section>
-      </section>
+      </main>
     </>
   )
 }

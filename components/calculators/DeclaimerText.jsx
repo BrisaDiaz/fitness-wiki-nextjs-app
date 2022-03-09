@@ -24,7 +24,7 @@ export default function DeclaimerText() {
           </g>
         </svg>
       </div>
-      <div className="` pb-6 text-sm leading-6 text-center">
+      <div className="` pb-6 text-sm leading-6 ">
         <p>
           This tool is for use in adults defined as individuals 18 years of age
           or older and not by younger people, or pregnant or breastfeeding

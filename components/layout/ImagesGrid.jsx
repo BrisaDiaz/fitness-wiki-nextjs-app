@@ -133,6 +133,7 @@ export default function ImageGrid() {
           <Image
             className="rounded-xl  "
             layout="fill"
+            width={300}
             src="/pancakes.jpg"
             alt="desserts"
             loading="eager"

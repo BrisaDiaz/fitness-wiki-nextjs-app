@@ -33,13 +33,14 @@ export default function MacrosCalculatorPage() {
           />
           <link rel="icon" href="/favicon.ico" />
         </Head>
-        <h1 className="page-title">Macronutrients calculator</h1>
-        <div className="page pb-6 gap-x-2 lg:flex ">
+        <main className="page pb-6 gap-x-2 lg:flex ">
+          <h1 className="page-title">Macronutrients calculator</h1>
+
           <MacrosCalculator />
           <section className="w-full mx-auto max-w-sm">
             <DeclaimerText />
           </section>
-        </div>
+        </main>
       </>
     )
 }

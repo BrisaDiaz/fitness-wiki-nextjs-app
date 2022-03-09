@@ -56,14 +56,14 @@ export default function Layout({ children }) {
       <ProgressBar externalLoading={loading} />
       {session && <Sidebar {...navProps} tabIndex={tabIndex} />}
 
-      <main
+      <div
         data-testid="page-wrapper"
-        className={` transition easy-in-out  duration-500 left-0  ${
+        className={` transition easy-in-out  duration-500 left-0 pt-12  ${
           isNavOpen ? 'translate-x-60' : 'translate-x-0'
         }	`}
       >
         {children}
-      </main>
+      </div>
     </>
   )
 }

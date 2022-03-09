@@ -22,7 +22,7 @@ export default function AuthSection({
     serverMessage
   } = useSessionHandler({ title, signIn })
   return (
-    <section className="w-full max-w-md  flex-none px-2 sm:px-5 p-4 mt-5">
+    <section className="w-full max-w-md  flex-none p-4 mt-5">
       <div className="w-10 h-10 rounded-full bg-green-700 mx-auto flex items-center justify-center">
         <svg
           xmlns="http://www.w3.org/2000/svg"

@@ -187,7 +187,7 @@ export default function MealSizeCalculator({ children }) {
                 </div>
               </span>
             </section>
-            <div className="pl-2 pb-6 pt-2 grid gap-2 text-sm ">
+            <div className=" pb-6 pt-2 grid gap-2 text-sm ">
               <p>
                 <span className="text-green-800 font-semibold">
                   Fiber intake:{' '}

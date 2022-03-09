@@ -18,7 +18,7 @@ export default function Home() {
         />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <section className="custom-container bg-dot-pattern bg-repeat relative full-screen-h ">
+      <main className="custom-container bg-dot-pattern bg-repeat relative full-screen-h ">
         <section className="mx-auto px-1 sm:px-2 pt-10 ">
           <h1 className="text-center text-4xl max-w-2xl  mx-auto tracking-tight font-extrabold text-gray-900 sm:text-5xl md:text-6xl mb-2 bg-white w-auto px-2 sm:px-4 mx-auto">
             <span className="">Welcome to </span>
@@ -32,7 +32,7 @@ export default function Home() {
         </section>
         <ImageGrid />
         <div className="h-1/4 w-full bg-gradient-to-t  from-green-800 to-transparent  fixed z-40 bottom-0  " />
-      </section>
+      </main>
     </>
   )
 }

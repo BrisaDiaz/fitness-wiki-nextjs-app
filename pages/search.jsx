@@ -192,7 +192,7 @@ export default function SearchPage({
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <section className="page px-1 max-w-1000 mx-auto  mb-10">
+      <main className="page mb-10">
         <h2 className="page-title ">
           Let us help you find the perfect meal for today!!
         </h2>
@@ -244,7 +244,7 @@ export default function SearchPage({
         </div>
         {isLoading && <LoadingHeart />}
         {recipes && recipes !== [] && !isLoading && (
-          <section className="sm:max-w-6xl mx-auto grid flex-col gap-3 flex-wrap md:grid-cols-2  justify-center   mb-6 mt-10  sm:px-5 lg:px-8 px-6">
+          <section className="sm:max-w-6xl mx-auto grid flex-col gap-3 flex-wrap md:grid-cols-2  justify-center   mb-6 mt-10  px-6">
             {recipes.map(getFormattedRecipe).map((recipe) => (
               <div className="relative" key={recipe?.id}>
                 <AddToCollectionModal
@@ -314,7 +314,7 @@ export default function SearchPage({
             resultsPerPage={constants.RESULTS_PER_PAGE}
           />
         )}
-      </section>
+      </main>
     </div>
   )
 }

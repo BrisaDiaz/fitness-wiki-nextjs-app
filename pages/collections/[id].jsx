@@ -102,7 +102,7 @@ export default function Collection({
         />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <section className="page px-1 pb-10 max-w-1000 min-h-screen">
+      <section className="page pb-10  min-h-screen">
         <div className="w-32 h-32 sm:w-40 sm:h-40  bg-gray-400 rounded-full mx-auto mt-6 -mb-6   subject-cover overflow-hidden shadow-md ">
           <Image
             loading="eager"

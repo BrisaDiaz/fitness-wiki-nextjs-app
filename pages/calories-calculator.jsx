@@ -28,7 +28,7 @@ export default function CaloriesCalculator() {
           />
           <link rel="icon" href="/favicon.ico" />
         </Head>
-        <section className="pb-16 px-1 gap-x-2 mx-auto max-w-5xl">
+        <main className="pb-16 gap-x-2 page">
           <h1 className="page-title">Daily caloric needs calculator</h1>
           <section className="w-full md:flex flex-wrap gap-3 sm:px-4">
             <div className="mx-auto w-full max-w-sm flex flex-col gap-4 ">
@@ -128,7 +128,7 @@ export default function CaloriesCalculator() {
               </p>
             </article>
           </section>
-        </section>
+        </main>
       </>
     )
 }
