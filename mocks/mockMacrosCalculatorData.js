@@ -184,11 +184,11 @@ const fullCalculatorTest = {
   colorResults: [
     {
       title: 'proteins',
-      color: '#fbbf24'
+      color: '#fde047'
     },
     {
       title: 'carbs',
-      color: '#fbbf24'
+      color: '#fde047'
     },
     {
       title: 'fats',
@@ -196,7 +196,7 @@ const fullCalculatorTest = {
     },
     {
       title: 'Kcals',
-      color: '#fbbf24'
+      color: '#fde047'
     }
   ]
 }

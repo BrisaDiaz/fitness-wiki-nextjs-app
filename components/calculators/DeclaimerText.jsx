@@ -1,14 +1,14 @@
 export default function DeclaimerText() {
   return (
-    <article className="pt-2 px-4 pb-4  my-10 shadow-sm border-2 border-gray-100 rounded relative z-10 bg-white mx-auto max-w-3xl">
-      <div className="  -mt-12 bg-white px-2 pb-6 max-w-max mx-auto">
+    <article className="pt-2 px-2 pl-4 pb-4  my-10 shadow-sm border-2 border-gray-100 rounded relative z-10 bg-white mx-auto max-w-3xl">
+      <div className="  -mt-12 bg-white px-2 pb-4 max-w-max mx-auto">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           enableBackground="new 0 0 24 24"
           height="80px"
           viewBox="0 0 24 24"
           width="auto"
-          fill="#9ca3af"
+          className="fill-green-200"
         >
           <g>
             <rect fill="none" height="24" width="24" />
@@ -24,7 +24,7 @@ export default function DeclaimerText() {
           </g>
         </svg>
       </div>
-      <div className="` pb-6 text-sm leading-6 ">
+      <div className="` pb-4  text-sm leading-5">
         <p>
           This tool is for use in adults defined as individuals 18 years of age
           or older and not by younger people, or pregnant or breastfeeding

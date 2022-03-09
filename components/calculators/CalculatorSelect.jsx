@@ -7,7 +7,7 @@ export default function CalculatorSelect({
 }) {
   return (
     <select
-      className={'p-2 border border-gray-300 text-gray-500  focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-opacity-50 appearance-none w-full rounded '.concat()}
+      className={'p-2 border border-gray-300 text-gray-500 bg-white focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-opacity-50 appearance-none w-full rounded '.concat()}
       {...register}
       onChange={onChange}
       data-testid={testId}
