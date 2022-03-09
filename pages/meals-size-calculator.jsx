@@ -32,13 +32,15 @@ export default function MealSizeCalculatorPage() {
           />
           <link rel="icon" href="/favicon.ico" />
         </Head>
-        <main className="page pb-6  gap-x-2 mx-auto lg:flex">
-          <h1 className="page-title">Meal sizes calculator</h1>
+        <main className="page pb-6  ">
+          <div className=" gap-x-2 lg:flex ">
+            <h1 className="page-title">Meal sizes calculator</h1>
 
-          <MealsSizeCalculator />
-          <section className=" w-full mx-auto max-w-sm">
-            <DeclaimerText />
-          </section>
+            <MealsSizeCalculator />
+            <section className=" w-full mx-auto max-w-sm">
+              <DeclaimerText />
+            </section>
+          </div>
         </main>
       </>
     )
