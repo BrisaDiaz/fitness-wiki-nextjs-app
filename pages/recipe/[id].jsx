@@ -204,6 +204,7 @@ export async function getStaticProps({ params }) {
 
   recipe.calories = params.calories || 'unspecified'
   let instructions = recipe?.analyzedInstructions[0]?.steps || null
+  const ONE_DAY_IN_SECONDS = 24 * 60 * 60
   return {
     props: {
       serverError: false,
@@ -211,7 +212,7 @@ export async function getStaticProps({ params }) {
       equipment: equipment?.equipment,
       ingredients: recipe.extendedIngredients,
       instructions,
-      revalidate: 60
+      revalidate: ONE_DAY_IN_SECONDS
     }
   }
 }
