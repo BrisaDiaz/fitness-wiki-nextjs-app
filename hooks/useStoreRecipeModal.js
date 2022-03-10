@@ -55,7 +55,7 @@ export default function useStoreRecipeModal({
   const handleStoreInCollection = async (collectionSelected) => {
     const storeRecipeOnCollection = async (id, data, token) => {
       try {
-        await POST(`/collection/${id}`, data, token)
+        await POST(`/collections/${id}`, data, token)
       } catch (error) {
         console.log(error)
       }
@@ -102,7 +102,7 @@ export default function useStoreRecipeModal({
   const handleCreateAndStore = async (collectionName) => {
     const postCollection = async (data, token) => {
       try {
-        const [json] = await POST('/collection', data, token)
+        const [json] = await POST('/collections/user', data, token)
         /// set the recipe image as default collection image
         json.data.image = selectedRecipe.image
 
@@ -159,7 +159,7 @@ export default function useStoreRecipeModal({
 
     const postCollection = async (data, token) => {
       try {
-        const [json] = await POST('/collection', data, token)
+        const [json] = await POST('/collections/user', data, token)
         /// set the recipe image as default collection image
         json.data.image = selectedRecipe.image
 

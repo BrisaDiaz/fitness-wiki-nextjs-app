@@ -34,7 +34,7 @@ module.exports = (on) => {
     async deleteTestingUserCollections(email) {
       const fetch = require('node-fetch')
       const result = await fetch(
-        `http://localhost:3000/api/tests/collection/${email}`,
+        `http://localhost:3000/api/tests/collections/${email}`,
         {
           method: 'DELETE'
         }
@@ -74,7 +74,7 @@ module.exports = (on) => {
       ]
       const fetch = require('node-fetch')
       const result = await fetch(
-        `http://localhost:3000/api/tests/collection/${email}`,
+        `http://localhost:3000/api/tests/collections/${email}`,
         {
           method: 'POST',
           body: JSON.stringify({ recipes }),

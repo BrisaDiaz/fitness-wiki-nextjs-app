@@ -1,16 +1,26 @@
 import Head from 'next/head'
 import Image from 'next/image'
+import { useRouter } from 'next/router'
 import DefaultErrorPage from 'next/error'
-import { getSession } from 'next-auth/client'
+import { useSession } from 'next-auth/client'
+import useAuthentication from '@/hooks/useAuthentication'
 import { getData } from '../../utils/spoonacularFetchConfig'
+import * as constants from '@/constants/defaultQueryParams'
 import RecipeHeader from '@/components/recipe/RecipeHeader'
 import ListSheet from '@/components/recipe/ListSheet'
 import ListSheetItem from '@/components/recipe/ListSheetItem'
 import RecipeInstructions from '@/components/recipe/RecipeInstructions'
-
+import RecipePlaceholder from '@/components/recipe/RecipePlaceholder'
 export default function Recipe(props) {
+  const router = useRouter()
+  const { calories } = router.query
+  const { isLoading } = useAuthentication({
+    getSession: useSession,
+    redirectTo: '/',
+    mustHaveSession: true
+  })
   if (props.error) return <DefaultErrorPage statusCode={props.statusCode} />
-
+  if (!props.recipe || isLoading) return <RecipePlaceholder />
   let { recipe, instructions, equipment, ingredients } = props
 
   const hederInfo = [
@@ -51,7 +61,7 @@ export default function Recipe(props) {
     },
     {
       label: 'energy:',
-      info: recipe.calories,
+      info: calories,
       svg: (
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -157,18 +167,27 @@ export default function Recipe(props) {
     </>
   )
 }
+export const getStaticPaths = async () => {
+  const query = new URLSearchParams()
+  query.append('sortDirection', 'desc')
+  query.append('sort', 'healthiness')
 
-export async function getServerSideProps({ query, req }) {
-  const session = await getSession({ req })
-  if (!session) {
+  query.append('number', constants.MAX_API_RESULTS)
+  const { results } = await getData('complexSearch', query)
+
+  const paths = results.map((item) => {
     return {
-      redirect: {
-        destination: '/auth/signin',
-        permanent: false
-      }
+      params: { id: item.id + '' }
     }
+  })
+
+  return {
+    paths,
+    fallback: true
   }
-  const recipeId = parseInt(query.id)
+}
+export async function getStaticProps({ params }) {
+  const recipeId = parseInt(params.id)
   const [recipe, equipment] = await Promise.all([
     getData(`${recipeId}/information`, 'addRecipeInformation=true'),
     getData(`/${recipeId}/equipmentWidget.json`)
@@ -183,16 +202,16 @@ export async function getServerSideProps({ query, req }) {
     }
   }
 
-  recipe.calories = query.calories || 'unspecified'
+  recipe.calories = params.calories || 'unspecified'
   let instructions = recipe?.analyzedInstructions[0]?.steps || null
   return {
     props: {
       serverError: false,
       recipe,
       equipment: equipment?.equipment,
-
       ingredients: recipe.extendedIngredients,
-      instructions
+      instructions,
+      revalidate: 60
     }
   }
 }

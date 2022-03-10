@@ -335,7 +335,7 @@ export async function getServerSideProps({ req }) {
   query.append('addRecipeNutrition', 'true')
   query.append('number', constants.RESULTS_PER_PAGE)
   const [recipes] = await GET(`/recipe?${query}`, session.accessToken)
-  const [collectionsJson] = await GET('/collection', session.accessToken)
+  const [collectionsJson] = await GET('/collections/user', session.accessToken)
 
   return {
     props: {

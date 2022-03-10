@@ -71,7 +71,7 @@ export default function Collection({
     if (displayedResults < totalResults && isIntersected) {
       const fetchRecipesOnCollection = async (id, query, recipes, token) => {
         try {
-          const [json] = await GET(`/collection/recipes/${id}?${query}`, token)
+          const [json] = await GET(`/collections/recipes/${id}?${query}`, token)
           setRecipes([...recipes, ...json.results])
           setTotalResults(json.totalResults)
         } catch (error) {
@@ -211,7 +211,7 @@ export async function getServerSideProps({ req, query }) {
     }
   }
   const [currentCollectionJson, response] = await GET(
-    `/collection/${query.id}`,
+    `/collections/${query.id}`,
     session.accessToken
   )
 
@@ -225,11 +225,11 @@ export async function getServerSideProps({ req, query }) {
   }
 
   const [collectionRecipesJson] = await GET(
-    `/collection/recipes/${query.id}?number=${RESULTS_PER_PAGE}`,
+    `/collections/recipes/${query.id}?number=${RESULTS_PER_PAGE}`,
     session.accessToken
   )
 
-  const [collectionsListJson] = await GET(`/collection`, session.accessToken)
+  const [collectionsListJson] = await GET(`/collections`, session.accessToken)
 
   return {
     props: {

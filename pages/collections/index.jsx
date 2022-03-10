@@ -1,5 +1,6 @@
 import { useState, useRef, useEffect } from 'react'
 import Head from 'next/head'
+
 import { getSession, useSession } from 'next-auth/client'
 /// hooks
 
@@ -68,7 +69,7 @@ export default function Collections({
   const handleDelete = () => {
     const deleteCollection = async (id, token) => {
       try {
-        await DELETE(`/collection/${id}`, token)
+        await DELETE(`/collections/${id}`, token)
       } catch (error) {
         console.log(error)
       }
@@ -82,7 +83,7 @@ export default function Collections({
     closeEditModal()
     const renameCollection = async (id, data, token) => {
       try {
-        await PUT(`/collection/${id}`, data, token)
+        await PUT(`/collections/${id}`, data, token)
       } catch (error) {
         console.log(error)
       }
@@ -104,7 +105,7 @@ export default function Collections({
   const handleNewCollection = (newCollectionName) => {
     const postCollection = async (data, token) => {
       try {
-        const [json] = await POST('/collection', data, token)
+        const [json] = await POST('/collections', data, token)
 
         setCollections([json.data, ...collections])
         setIsLoading(false)
@@ -122,7 +123,7 @@ export default function Collections({
   useEffect(() => {
     const fetchCollection = async (query, collections) => {
       try {
-        const [json] = await GET(`/collection?${query}`, token)
+        const [json] = await GET(`/collections/user?${query}`, token)
         setCollections([...collections, json.data])
         setTotalResults(json.totalResults)
       } catch (error) {
@@ -240,7 +241,7 @@ export async function getServerSideProps({ req }) {
     }
   }
   const [json] = await GET(
-    `/collection?&number=${RESULTS_PER_PAGE}`,
+    `/collections/user?&number=${RESULTS_PER_PAGE}`,
     session.accessToken
   )
 

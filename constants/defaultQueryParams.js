@@ -77,10 +77,12 @@ const SORT_DIRECTIONS = [
   { name: 'More', value: 'asc' },
   { name: 'Less', value: 'desc' }
 ]
+const MAX_API_RESULTS = 100
 const RESULTS_PER_PAGE = 6
 const MAX_OFFSET_NUMBER = 900
 const MAX_ALLOWED_RESULTS = MAX_OFFSET_NUMBER + RESULTS_PER_PAGE
 module.exports = {
+  MAX_API_RESULTS,
   COUSINS_OPTIONS,
   DIET_OPTIONS,
   TYPE_OPTIONS,
