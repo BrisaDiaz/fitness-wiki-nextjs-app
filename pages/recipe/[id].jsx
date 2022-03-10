@@ -5,7 +5,7 @@ import DefaultErrorPage from 'next/error'
 import { useSession } from 'next-auth/client'
 import useAuthentication from '@/hooks/useAuthentication'
 import { getData } from '../../utils/spoonacularFetchConfig'
-import * as constants from '@/constants/defaultQueryParams'
+
 import RecipeHeader from '@/components/recipe/RecipeHeader'
 import ListSheet from '@/components/recipe/ListSheet'
 import ListSheetItem from '@/components/recipe/ListSheetItem'
@@ -172,7 +172,7 @@ export const getStaticPaths = async () => {
   query.append('sortDirection', 'desc')
   query.append('sort', 'healthiness')
 
-  query.append('number', constants.MAX_API_RESULTS)
+  query.append('number', 10)
   const { results } = await getData('complexSearch', query)
 
   const paths = results.map((item) => {
