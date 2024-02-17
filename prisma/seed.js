@@ -1,6 +1,6 @@
-import prisma from '@/lib/prisma'
+import prisma from '../lib/prisma.js'
 import bcrypt from 'bcrypt'
-import { testingFixedUser } from './data'
+import { testingFixedUser } from './data.js'
 async function seed(user) {
   try {
     const salt = await bcrypt.genSalt(10)
