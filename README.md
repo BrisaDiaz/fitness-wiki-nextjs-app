@@ -1,10 +1,8 @@
-# WikiFit Progressive web app
+# WikiFit: A Web App for Health-Conscious Foodies with Advanced Nutritional Guidance
 
-> Application created to search for recipes and calculate nutritional requirements adjusted to the profile and diet of users.
+> Objective: To empower individuals to discover, personalize, and track their food choices through a user-friendly web application, promoting informed decision-making and sustainable healthy eating habits.
 
-<a href="https://fitness-wiki-nextjs-app.vercel.app" target="_blank">Demo</a>
-
-<a href="https://www.linkedin.com/in/brisa-d%C3%ADaz" target="_blank">Author</a>
+[![Demo](https://img.shields.io/badge/Demo-Visit%20Now-blue?style=for-the-badge&logo=vercel)](https://fitness-wiki-nextjs-app.vercel.app) [![Author](https://img.shields.io/badge/Author-Brisa%20D%C3%ADaz-blue?style=for-the-badge&logo=linkedin)](https://www.linkedin.com/in/brisa-d%C3%ADaz)
 
 ## 📸 Screenshots
 
@@ -22,9 +20,9 @@
 - _DATABASE_URL_= your postgresql database url
 - \_SHADOW_DATABASE_URL= your shadow database url
 - _GOOGLE_CLIENT_ID_= Your google client id
-- _GOOGLE_CLIENT_SECRET_= Your google client secret
+- _GOOGLE_CLIENT_SECRET_= Your google client secret key
 - _GITHUB_ID_= Your github client id
-- _GITHUB_SECRET_= Your github client secret
+- _GITHUB_SECRET_= Your github client secret key
 - _NODE_ENV_= DEVELOPMENT/PRODUCTION
 
 ## Technologies and tools:
@@ -40,22 +38,20 @@
 - Postgresql and Prisma
 - Prettier
 - Eslint
-
-## Features:
-
-- Progressive web app.
-- Unit Tests.
-- End to end tests.
-- Keyboard accessibility.
-- Pagination, search, filtering and sorting of recipes.
-- Ability to display the collection tag on recipes already stored by the user.
-- Full tested ARM, macros and meal size calculators.
-- Recipe details page.
-- User recipes collections pages.
-- Ability to create, rename and delete collections.
-- Ability to store, move and delete recipes.
-- Real time form validation.
-- Loading indicators.
-- Protected routes.
-- Conditional content.
-- Social signIn.
+  
+## User Requirements
+  
+- [x] Progressive Web App: The application must deliver a native-like app experience on any device, even offline.
+- [x] Unit Tests & End-to-End Tests: The application must be comprehensively tested to ensure code quality and functionality at every level.
+- [x] Keyboard Accessibility: The application must be fully accessible to users with keyboard input.
+- [x] Recipe Search & Navigation: The application must provide powerful search, filtering, sorting, and pagination capabilities to make it easy to discover recipes.
+- [x] Collection Tag Display: The application must display collection tags on recipes that have been saved by the user.
+- [x] Recipe & Meal Calculators: The application must provide fully tested and accurate recipe, ARM, and meal size calculators.
+- [x] Recipe Details Page: The application must provide a dedicated page for in-depth recipe information.
+- [x] User Collections Pages: The application must allow users to organize and manage saved recipes in personalized collections.
+- [x] Collection Management: The application must allow users to create, rename, and delete collections with ease.
+- [x] Recipe Management: The application must allow users to store, move, and delete recipes from their collections effortlessly.
+- [x] Real-time Form Validation: The application must provide instant feedback to ensure accurate data entry without errors.
+- [x] Loading Indicators: The application must provide visual cues to inform users about data loading and processing.
+- [x] Protected Routes & Conditional Content: The application must provide secure access and dynamic content delivery for a safe and personalized experience.
+- [x] Social Sign-In: The application must provide convenient login options using existing social media accounts.
