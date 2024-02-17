@@ -49,3 +49,5 @@ export default function getCaloriesPerPhysicalGoal(neededCalories) {
   ]
   return possibleValues
 }
+
+console.log(getCaloriesPerPhysicalGoal(2007)[0].intensities)
