@@ -6,10 +6,7 @@ export default function RecipeCard({ recipe, children }) {
   const [isHovered, setIsHovered] = useState(false)
 
   return (
-    <Link
-      href={`/recipe/${recipe?.recipeId}?calories=${recipe.calories}`}
-      passHref
-    >
+    <Link href={`/recipe/${recipe?.id}?calories=${recipe.calories}`} passHref>
       <a
         href="!#"
         onMouseEnter={() => setIsHovered(true)}

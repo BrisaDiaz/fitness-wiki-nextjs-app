@@ -105,12 +105,13 @@ export default function Collections({
   const handleNewCollection = (newCollectionName) => {
     const postCollection = async (data, token) => {
       try {
-        const [json] = await POST('/collections', data, token)
+        const [json] = await POST('/collections/user', data, token)
 
         setCollections([json.data, ...collections])
         setIsLoading(false)
       } catch (error) {
         console.log(error)
+        setIsLoading(false)
       }
     }
     setIsLoading(true)

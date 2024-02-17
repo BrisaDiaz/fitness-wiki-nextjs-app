@@ -22,7 +22,6 @@ export default NextAuth({
             token: token
           }
         }
-
         throw new Error(json.message || 'Server side error')
       }
     }),

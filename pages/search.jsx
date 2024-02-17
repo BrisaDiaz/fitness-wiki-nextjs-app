@@ -243,7 +243,7 @@ export default function SearchPage({
           />
         </div>
         {isLoading && <LoadingHeart />}
-        {recipes && recipes !== [] && !isLoading && (
+        {recipes && recipes.length && !isLoading ? (
           <section className="sm:max-w-6xl mx-auto grid flex-col gap-3 flex-wrap md:grid-cols-2  justify-center   mb-6 mt-10  px-6">
             {recipes.map(getFormattedRecipe).map((recipe) => (
               <div className="relative" key={recipe?.id}>
@@ -294,18 +294,22 @@ export default function SearchPage({
               </div>
             ))}
           </section>
+        ) : (
+          <></>
         )}
-        {!isLoading && recipes && recipes?.length === 0 && (
-          <h2 className="mt-2 text-green-500 text-2xl font-bold text-center">
+        {!isLoading && recipes && recipes?.length === 0 ? (
+          <h2 className=" text-green-500 text-2xl font-bold text-center my-8">
             There is not coincidence for the search
           </h2>
+        ) : (
+          <></>
         )}
         {serverError && (
           <h2 className="mt-2 text-green-500 text-2xl font-bold text-center">
             Something went wrong
           </h2>
         )}
-        {totalResults > constants.RESULTS_PER_PAGE && (
+        {totalResults > constants.RESULTS_PER_PAGE ? (
           <PaginationComponent
             page={page}
             setPage={setPage}
@@ -313,6 +317,8 @@ export default function SearchPage({
             setOffset={setOffset}
             resultsPerPage={constants.RESULTS_PER_PAGE}
           />
+        ) : (
+          <></>
         )}
       </main>
     </div>

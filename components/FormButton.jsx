@@ -1,4 +1,4 @@
-export default function FormButton({ text, small, tabIndex }) {
+export default function FormButton({ text, small, tabIndex, ...other }) {
   return (
     <button
       tabIndex={tabIndex || 0}
@@ -7,6 +7,7 @@ export default function FormButton({ text, small, tabIndex }) {
       )}
       type="submit"
       data-testid="submitBtn"
+      {...other}
     >
       {text}
     </button>

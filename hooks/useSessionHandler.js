@@ -26,8 +26,8 @@ export default function useSessionHandler({ title, signIn }) {
   }, [router])
 
   const onSubmit = async (data, e) => {
-    e.stopPropagation()
-    e.preventDefault()
+    e?.stopPropagation()
+    e?.preventDefault()
     setServerMessage(null)
 
     setIsFormLoading(true)
@@ -49,8 +49,8 @@ export default function useSessionHandler({ title, signIn }) {
     } else {
       try {
         const [json] = await POST(`/auth/signup`, data)
-        if (json.error) return setServerMessage(json.message)
         setIsFormLoading(false)
+        if (json.error) return setServerMessage(json.message)
         router.push('/auth/signin')
       } catch (error) {
         setIsFormLoading(false)

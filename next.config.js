@@ -19,7 +19,7 @@ module.exports = withPWA({
     GITHUB_SECRET: process.env.GITHUB_SECRET
   },
   images: {
-    domains: ['spoonacular.com']
+    domains: ['spoonacular.com', 'i.shgcdn.com']
   },
   pwa: {
     dest: 'public',

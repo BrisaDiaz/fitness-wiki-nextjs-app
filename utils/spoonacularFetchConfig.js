@@ -9,12 +9,14 @@ export async function getData(endpoint, query) {
     }
   }
   const url = ` https://api.spoonacular.com/recipes/${endpoint}?apiKey=${env.API_KEY}&${query}`
+  try {
+    const response = await fetch(url, config)
+    if (!response.ok)
+      throw new Error(`httpError: ${response.status} ${response.statusText}`)
 
-  const response = await fetch(url, config)
-  if (!response.ok)
-    throw new Error(`httpError: ${response.status} ${response.statusText}`)
-
-  const json = await response.json()
-
-  return json
+    const json = await response.json()
+    return json
+  } catch (error) {
+    console.error(error)
+  }
 }

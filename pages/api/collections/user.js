@@ -20,7 +20,7 @@ async function handlePost(req, res) {
         name,
         userId: req.userId,
         image:
-          'https://tso.tastefullysimple.com/_/media/images/recipe-default-image.png',
+          'https://i.shgcdn.com/f79ba515-53a5-4a9d-b632-61f30afba82c/-/format/auto/-/preview/3000x3000/-/quality/lighter',
         length: 0
       }
     })
